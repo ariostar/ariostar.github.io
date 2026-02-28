@@ -1,0 +1,32 @@
+# see https://yun.yunyoujun.cn/guide/config.html
+
+# light | dark | auto | time
+mode: light
+notice:
+  enable: false
+  content: Thanks for playing my game.
+banner:
+  enable: true
+  title: 沐炎的小站
+  border: true
+  cloud:
+    enable: true
+    color: white
+  go_down:
+    enable: true
+    icon: ri:arrow-down-s-line
+# 点击页面的烟花效果
+fireworks:
+  enable: false
+  colors:
+    - '102, 167, 221'
+    - '62, 131, 225'
+    - '33, 78, 194'
+# 随机多边形背景
+trianglify:
+  enable: false
+  cellSize: 75
+  width: 800
+  height: 600
+  palette: '["YlGnBu", "GnBu", "Purples", "Blues"]'
+  opacity: 0.5
