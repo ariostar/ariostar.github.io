@@ -2,6 +2,8 @@
 
 # light | dark | auto | time
 mode: light
+comment:
+  enable: true
 notice:
   enable: false
   content: hello, world!
