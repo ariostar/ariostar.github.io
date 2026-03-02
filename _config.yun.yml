@@ -4,6 +4,8 @@
 mode: light
 comment:
   enable: true
+reward: #打赏
+  enable: false
 notice:
   enable: false
   content: hello, world!
