@@ -7,7 +7,7 @@ notice:
   content: Thanks for playing my game.
 banner:
   enable: true
-  title: 沐炎的小站
+  title: 星海如歌，虚舟泛白
   border: true
   cloud:
     enable: true
@@ -15,6 +15,8 @@ banner:
   go_down:
     enable: true
     icon: ri:arrow-down-s-line
+wordcloud:
+  enable: true
 # 点击页面的烟花效果
 fireworks:
   enable: false
