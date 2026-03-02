@@ -31,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -56,6 +56,13 @@ prismjs:
   preprocess: true
   line_number: false
   tab_replace: ''
+mathjax:
+  tags: none # 或 'ams' 或 'all'
+  single_dollars: true # 允许单美元符号 $...$ 渲染行内公式
+  cjk_width: 0.9
+  normal_width: 0.6
+  append_css: true
+  every_page: false # 建议 false，只在需要的文章加载
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
