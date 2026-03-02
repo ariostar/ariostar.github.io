@@ -1,0 +1,14 @@
+scheme: Muse      # 可选： Muse, Mist, Pisces, Gemini
+# https://theme-next.js.org/highlight/
+codeblock:
+  theme:
+    light: atom-one-light # github atom-one-light xcode lightfair
+    dark: tomorrow-night-blue #tomorrow-night-blue atom-one-dark
+  # prism:
+  #   light: prism-vs # prism-one-light
+  #   dark: prism-one-dark
+
+    #theme: 'tomorrow-night-eighties'  # 主题
+  copy_button:
+    enable: true
+    style: flat # flat mac

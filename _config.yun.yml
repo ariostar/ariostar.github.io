@@ -4,7 +4,7 @@
 mode: light
 notice:
   enable: false
-  content: Thanks for playing my game.
+  content: hello, world!
 banner:
   enable: true
   title: 星海如歌，虚舟泛白
@@ -19,6 +19,13 @@ wordcloud:
   enable: true
 codeblock:
   copy_btn: true
+  theme:
+    light: atom-one-light # github atom-one-light xcode lightfair
+    dark: tomorrow-night-blue #tomorrow-night-blue atom-one-dark
+creative_commons:
+  license: by
+  post: true
+  language: deed.zh
 # 点击页面的烟花效果
 fireworks:
   enable: false

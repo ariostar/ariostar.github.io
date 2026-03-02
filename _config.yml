@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: ariostar
-language: cn
+language: zh-CN
 timezone: ''
 
 # URL
@@ -43,16 +43,14 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-syntax_highlighter: prismjs #highlight.js
+syntax_highlighter: prismjs # highlight.js / prismjs
 highlight:
-  enable: false
   line_number: false
   auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
+  tab_replace: '  '
+  wrap: false
+  # hljs: false
 prismjs:
-  enable: true
   preprocess: true
   line_number: false
   tab_replace: '  '
@@ -105,7 +103,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yun
+theme: yun # next yun
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
