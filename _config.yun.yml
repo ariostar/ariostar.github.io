@@ -17,6 +17,8 @@ banner:
     icon: ri:arrow-down-s-line
 wordcloud:
   enable: true
+codeblock:
+  copy_btn: true
 # 点击页面的烟花效果
 fireworks:
   enable: false
