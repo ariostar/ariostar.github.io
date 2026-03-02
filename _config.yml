@@ -43,10 +43,10 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
+syntax_highlighter: prismjs #highlight.js
 highlight:
   enable: false
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
@@ -55,7 +55,7 @@ prismjs:
   enable: true
   preprocess: true
   line_number: false
-  tab_replace: ''
+  tab_replace: '  '
 mathjax:
   tags: none # 或 'ams' 或 'all'
   single_dollars: true # 允许单美元符号 $...$ 渲染行内公式

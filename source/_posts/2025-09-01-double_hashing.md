@@ -141,7 +141,7 @@ int hash1 = h1(key);
 //发现重复，index位置不是空的，且不是当前的key
 //开始 Double Hashing
 int hash2 = h2(key);
-for (int i = 1; i < M; i++) {`
+for (int i = 1; i < M; i++) {
 	int index2 = floorMod(hash1 + i * hash2, M);
 	// todo 探测index2是否空位
 }
@@ -316,7 +316,7 @@ $h2(k) = 1 + (k \pmod{M-2})$
 
 我没有看到M-1有什么问题，也许是一种约定俗成？
 
-### 2^n^-1
+### $2^n-1$
 
 当 M 取 2^n^-1 时，M/2 也同样符合 2^n^ - 1。
 2^n^ - 1就是所谓的梅森数，梅森数虽然不一定全都是质数，但实际编程中很多场景会使用，因为 2^n^ - 1 用于取模是特别快的，只需要位与就可以。
