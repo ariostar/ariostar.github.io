@@ -4288,7 +4288,7 @@ purpose of the simulation is to perform analysis that
 might otherwise be too difficult.
 A good example of this appears in the following figure.
 
-![Hashing analysis plot](img/hashplot.png)
+![Hashing analysis plot](tddi16f25.img/hashplot.png)
 
 This figure shows the cost for inserting or deleting a record from a
 [hash table](HashIntro.md#hashintro) under two different
@@ -5803,7 +5803,7 @@ long rfact(int n) {
 
 Here is an illustration for how the internal processing works.
 
-![Implementing recursion with a stack](img/RecurSta.png)
+![Implementing recursion with a stack](tddi16f25.img/RecurSta.png)
 
 $\beta$ values indicate the address of the program instruction
 to return to after completing the current function call.
@@ -7887,7 +7887,7 @@ nodes are printed using an
 then the resulting enumeration will be in
 sorted order from lowest to highest.
 
-![Two Binary Search Trees](img/BSTShape2.png)
+![Two Binary Search Trees](tddi16f25.img/BSTShape2.png)
 
 *Figure 6.10.1: Two Binary Search Trees for a collection of values.
 Tree (a) results if values are inserted
@@ -8264,7 +8264,7 @@ The table lists the array indices for the
 children, parent, and siblings of each node in
 Figure [6.12.1](CompleteTree.md#binarray).
 
-![Complete binary tree node numbering](img/BinArray.png)
+![Complete binary tree node numbering](tddi16f25.img/BinArray.png)
 
 *Figure 6.12.1: A complete binary tree of 12 nodes, numbered starting from 0.*
 
@@ -8600,7 +8600,7 @@ inserting the values into the heap one by one.
 Consider this example, with two possible ways to heapify an initial
 set of values in an array.
 
-![Two series of exchanges to build a heap](img/HeapBld.png)
+![Two series of exchanges to build a heap](tddi16f25.img/HeapBld.png)
 
 *Figure 6.13.1: Two series of exchanges to build a max heap.
 (a) This heap is built by a series of nine exchanges in the order
@@ -8619,7 +8619,7 @@ Suppose that the left and right subtrees of the root are already
 heaps, and $R$ is the name of the element at the root.
 This situation is illustrated by this figure:
 
-![An example of heap building](img/HeapInd.png)
+![An example of heap building](tddi16f25.img/HeapInd.png)
 
 *Figure 6.13.2: Final stage in the heap-building algorithm.
 Both subtrees of node $R$ are heaps.
@@ -9293,7 +9293,7 @@ And requiring that the BST always be in the shape of a
 complete binary tree requires excessive modification to the tree
 during update, as we see in this example.
 
-![An attempt to re-balance a BST after insertion can be expensive](img/BSTBal.png)
+![An attempt to re-balance a BST after insertion can be expensive](tddi16f25.img/BSTBal.png)
 
 *Figure 7.1.1: An attempt to re-balance a BST after insertion can be expensive.
 (a) A BST with six nodes in the shape of a complete binary tree.
@@ -9341,7 +9341,7 @@ routines so as to maintain the balance property.
 Of course, to be practical, we must be able to implement the revised
 update routines in $\Theta(\log n)$ time.
 
-![An insertion that violates the AVL tree balance property](img/AVLins.png)
+![An insertion that violates the AVL tree balance property](tddi16f25.img/AVLins.png)
 
 *Figure 7.2.1: Example of an insert operation that violates the AVL tree balance
 property.
@@ -9382,7 +9382,7 @@ as shown in Figure [7.2.2](AVL.md#avlsingle).
 Cases 2 and 3 can be fixed using a [double rotation](Glossary.md#term-double-rotation), as shown
 in Figure [7.2.3](AVL.md#avldouble).
 
-![AVL tree single rotation](img/AVLSingRot.png)
+![AVL tree single rotation](tddi16f25.img/AVLSingRot.png)
 
 *Figure 7.2.2: A single rotation in an AVL tree.
 This operation occurs when the excess node (in subtree $A$)
@@ -9395,7 +9395,7 @@ The case where the excess node is in the right child of the
 right child of the unbalanced node is handled in the same
 way.*
 
-![AVL tree double rotation](img/AVLDblRot.png)
+![AVL tree double rotation](tddi16f25.img/AVLDblRot.png)
 
 *Figure 7.2.3: A double rotation in an AVL tree.
 This operation occurs when the excess node (in subtree $B$)
@@ -9486,7 +9486,7 @@ While Figure [7.3.1](Splay.md#singprom) is slightly different from
 Figure [7.2.2](AVL.md#avlsingle), in fact the splay tree single
 rotation is identical to the AVL tree single rotation.
 
-![Splay tree single rotation](img/SingRot.png)
+![Splay tree single rotation](tddi16f25.img/SingRot.png)
 
 *Figure 7.3.1: Splay tree single rotation.
 This rotation takes place only when the node being splayed is a
@@ -9526,7 +9526,7 @@ In other words, a zigzag rotation is used when $G$,
 $P$, and $S$ form a zigzag.
 The zigzag rotation is illustrated by Figure [7.3.2](Splay.md#zigzag).
 
-![Splay tree zigzag rotation](img/ZigZag.png)
+![Splay tree zigzag rotation](tddi16f25.img/ZigZag.png)
 
 *Figure 7.3.2: Splay tree zigzag rotation.
 (a) The original tree with $S$, $P$, and $G$ in
@@ -9552,7 +9552,7 @@ While Figure [7.3.3](Splay.md#zigzig) appears somewhat different from
 Figure [7.2.3](AVL.md#avldouble), in fact the zigzig rotation is
 identical to the AVL tree double rotation.
 
-![Splay tree zigzig rotation](img/ZigZig.png)
+![Splay tree zigzig rotation](tddi16f25.img/ZigZig.png)
 
 *Figure 7.3.3: Splay tree zigzig rotation.
 (a) The original tree with $S$, $P$, and $G$ in
@@ -9595,7 +9595,7 @@ The final step is a single rotation resulting in the tree of
 Figure [7.3.4](Splay.md#splayex) (d).
 Notice that the splaying process has made the tree shallower.
 
-![Example of search in a splay tree](img/SplayEx.png)
+![Example of search in a splay tree](tddi16f25.img/SplayEx.png)
 
 *Figure 7.3.4: Example of splaying after performing a search in a splay tree.
 After finding the node with key value 89, that node is splayed to
@@ -10492,7 +10492,7 @@ value is added.
 This might lead to moving many records, but this will happen
 infrequently in applications suited to using this arrangement.
 
-![Two-dimensional linear index](img/TwoDArr.png)
+![Two-dimensional linear index](tddi16f25.img/TwoDArr.png)
 
 *Figure 9.2.1: A two-dimensional linear index.
 Each row lists the primary keys associated with a particular
@@ -10528,7 +10528,7 @@ Figure [9.2.2](LinearIndexing.md#inverted) illustrates this arrangement.
 Here, we have last names as the secondary key.
 The primary key is a four-character unique identifier.
 
-![Illustration of an inverted list](img/Inverted.png)
+![Illustration of an inverted list](tddi16f25.img/Inverted.png)
 
 *Figure 9.2.2: Illustration of an inverted list.
 Each secondary key value is stored in the secondary key list.
@@ -10549,7 +10549,7 @@ pointer to the next element on the list.
 It is easy to insert and delete secondary keys from this array, making
 this a good implementation for disk-based inverted files.
 
-![Inverted list: sorted array of secondary keys and combined lists of primary keys](img/InvList.png)
+![Inverted list: sorted array of secondary keys and combined lists of primary keys](tddi16f25.img/InvList.png)
 
 *Figure 9.2.3: An inverted list implemented as an array of secondary keys and
 combined lists of primary keys.
@@ -10588,7 +10588,7 @@ Typically, updates would cause the index to degrade in performance.
 ISAM is one example of such an index and was
 widely used by IBM prior to adoption of the B-tree.
 
-![Illustration of the ISAM indexing system](img/ISAM.png)
+![Illustration of the ISAM indexing system](tddi16f25.img/ISAM.png)
 
 *Figure 9.3.1: Illustration of the ISAM indexing system.*
 
@@ -11081,7 +11081,7 @@ Figure [9.6.1](BTree.md#btexamp) shows a B-tree of order four.
 Each node contains up to three keys, and
 internal nodes have up to four children.
 
-![A B-tree of order four](img/BTexamp.png)
+![A B-tree of order four](tddi16f25.img/BTexamp.png)
 
 *Figure 9.6.1: A B-tree of order four.*
 
@@ -11224,7 +11224,7 @@ continuing down the linked list of leaf nodes as far as necessary.
 Figure [9.6.2](BTree.md#bpexamp) illustrates the $\mathrm{B}^+$
 tree.
 
-![Example of a :math:`\mathrm{B}^+` tree.](img/BPexamp.png)
+![Example of a :math:`\mathrm{B}^+` tree.](tddi16f25.img/BPexamp.png)
 
 *Figure 9.6.2: Example of a $\mathrm{B}^+$ tree of order four.
 Internal nodes must store between two and four children.
@@ -11275,7 +11275,7 @@ depth.
 Figure [9.6.3](BTree.md#bpins) illustrates the insertion process through
 several examples.
 
-![Examples of :math:`\mathrm{B}^+` tree insertion.](img/BPins.png)
+![Examples of :math:`\mathrm{B}^+` tree insertion.](tddi16f25.img/BPins.png)
 
 *Figure 9.6.3: Examples of $\mathrm{B}^+$ tree insertion.
 (a) B-$\mathrm{B}^+$ tree containing five records.
@@ -11318,7 +11318,7 @@ If $L$ is more than half full, then we need only remove $R$,
 leaving $L$ still at least half full.
 This is demonstrated by Figure [9.6.4](BTree.md#bpdelsimp).
 
-![Simple deletion from a :math:`\mathrm{B}^+` tree.](img/BPsimDel.png)
+![Simple deletion from a :math:`\mathrm{B}^+` tree.](tddi16f25.img/BPsimDel.png)
 
 *Figure 9.6.4: Simple deletion from a $\mathrm{B}^+$ tree.
 The record with key value 18 is removed from the tree of
@@ -11344,7 +11344,7 @@ This process might require that the parent node has its placeholder
 key value revised to reflect the true first key value in each node.
 Figure [9.6.5](BTree.md#bpborrow) illustrates the process.
 
-![Deletion from a :math:`\mathrm{B}^+` tree via borrowing from a sibling.](img/BPborrow.png)
+![Deletion from a :math:`\mathrm{B}^+` tree via borrowing from a sibling.](tddi16f25.img/BPborrow.png)
 
 *Figure 9.6.5: Deletion from the $\mathrm{B}^+$ tree of Figure
 [9.6.2](BTree.md#bpexamp) via borrowing from a sibling.
@@ -11371,7 +11371,7 @@ loses a level.
 Figure [9.6.6](BTree.md#bpmerge) illustrates the node-merge deletion
 process.
 
-![Deletion from a :math:`\mathrm{B}^+` tree via collapsing siblings](img/BPmerge.png)
+![Deletion from a :math:`\mathrm{B}^+` tree via collapsing siblings](tddi16f25.img/BPmerge.png)
 
 *Figure 9.6.6: Deleting the record with key value 33 from the $\mathrm{B}^+$
 tree of Figure [9.6.2](BTree.md#bpexamp) via collapsing siblings.
@@ -11852,7 +11852,7 @@ In the normal distribution, some of these slices associated with any given
 slot are near the tails, and some are near the center.
 Thus, each table slot is equally likely (roughly) to get a key value.
 
-![Binning vs. Mod Function](img/HashNormal.png)
+![Binning vs. Mod Function](tddi16f25.img/HashNormal.png)
 
 *Figure 10.3.1: A comparison of binning vs. modulus as a hash function.*
 
@@ -11883,7 +11883,7 @@ digit or the top digit of the original key value.
 Of course, if the key values all tend to be small numbers,
 then their squares will only affect the low-order digits of the hash value.
 
-![Mid-square method example](img/MidSquare.png)
+![Mid-square method example](tddi16f25.img/MidSquare.png)
 
 *Figure 10.3.2: An example of the mid-square method. This image shows the
 traditional gradeschool long multiplication process. The value
@@ -12618,7 +12618,7 @@ insertions or unsuccessful searches and
 $.5(1 + 1/(1-\alpha))$ for deletions or successful
 searches.
 
-![Hashing analysis plot](img/hashplot.png)
+![Hashing analysis plot](tddi16f25.img/hashplot.png)
 
 *Figure 10.8.1: A plot showing the growth rate of the cost for insertion and
 deletion into a hash table as the load factor increases.*
@@ -14070,7 +14070,7 @@ It would have selected $e'$, not $e_j$.
 Thus, it is a contradiction that Prim’s algorithm would have selected
 the wrong edge, and thus, Prim’s algorithm must be correct. BOX HERE
 
-![Prim's MCST algorithm proof](img/PrimMST.png)
+![Prim's MCST algorithm proof](tddi16f25.img/PrimMST.png)
 
 *Figure 11.6.2: Prim’s MCST algorithm proof.
 The left oval contains that portion of the graph where Prim’s MCST
@@ -14196,7 +14196,7 @@ A 0-path is defined to be a direct edge from $v$ to $u$.
 Figure [11.8.1](Floyd.md#floydexamp) illustrates the concept of
 $k$-paths.
 
-![An example of :math:`k`-paths in Floyd's algorithm](img/Floyd.png)
+![An example of :math:`k`-paths in Floyd's algorithm](tddi16f25.img/Floyd.png)
 
 *Figure 11.8.1: An example of $k$-paths in Floyd’s algorithm.
 Path 1, 3 is a 0-path by definition.
@@ -17759,9 +17759,9 @@ The latter graphical representation is called a dependency graph, and
 was obtained from the recursion tree by joining different occurrences
 of the same recursive call, preserving their corresponding arcs.
 
-![img/FibTree.png](img/FibTree.png)
+![img/FibTree.png](tddi16f25.img/FibTree.png)
 
-![img/FibGraph.png](img/FibGraph.png)
+![img/FibGraph.png](tddi16f25.img/FibGraph.png)
 
 Note that the dependency graph was laid out on in a one dimensional
 table of size 9, corresponding to the unique subproblems invoked by
@@ -18106,7 +18106,7 @@ column;
 likewise, the neighboring non-zero element in any row or column list
 could be at any (higher) row or column in the array.
 
-![The orthogonal list sparse matrix representation.](img/Sparse.png)
+![The orthogonal list sparse matrix representation.](tddi16f25.img/Sparse.png)
 
 *Figure 14.2.1: A representative orthogonal list sparse matrix
 representation. Depending on the needs of the application, a given
@@ -18813,7 +18813,7 @@ We will focus on the specific question of finding the median element
 algorithm can easily be modified to find the $i$ th largest
 value for any $i$.
 
-![The poset for finding the :math:`i` th element}](img/MedPoset.png)
+![The poset for finding the :math:`i` th element}](tddi16f25.img/MedPoset.png)
 
 *Figure 14.6.1: The poset that represents the minimum information necessary to
 determine the $i$ th element in a list.
@@ -18870,7 +18870,7 @@ constant size (so we can find the median of each in constant time),
 and then taking the median of these medians.
 Figure [14.6.2](BoundiBest.md#median) illustrates this idea.
 
-![Finding a median value](img/Median.png)
+![Finding a median value](tddi16f25.img/Median.png)
 
 *Figure 14.6.2: A method for finding a pivot for partitioning a list that
 guarantees at least a fixed fraction of the list will be in each
@@ -19022,7 +19022,7 @@ three elements).
 Thus, the total number of comparisons needed to sort the five elements
 is at most seven instead of eight.
 
-![Organizing comparisons for sorting five elements](img/BinInsert.png)
+![Organizing comparisons for sorting five elements](tddi16f25.img/BinInsert.png)
 
 *Figure 14.7.1: Organizing comparisons for sorting five elements.
 First we order two pairs of elements, and then compare the two
@@ -19070,7 +19070,7 @@ now be inserted into a list of size 5, 6, or 7, all of which requires
 three comparisons to place in sort order.
 Finally, Element 2 will be inserted into a list of size 5, 6, or 7.
 
-![Merge insert sort for ten elements](img/BinMerge10.png)
+![Merge insert sort for ten elements](tddi16f25.img/BinMerge10.png)
 
 *Figure 14.7.2: Merge insert sort for ten elements.
 First five pairs of elements are compared.
@@ -23112,7 +23112,7 @@ He lives everywhere in mathematics.
 
 **Portrait of Carl Gauss [^1]**
 
-![Figure 15.3.1](img/Carl_Friedrich_Gauss.jpg)
+![Figure 15.3.1](tddi16f25.img/Carl_Friedrich_Gauss.jpg)
 
 *Figure 15.3.1: Oil painting of mathematician and philosopher Carl Friedrich Gauss by G. Biermann (1824-1908)*
 
@@ -23179,7 +23179,7 @@ By Gottlieb Biermann A. Wittmann (photo) [Public domain], via Wikimedia Commons
 
 **Portrait of Francis Bacon [^1]**
 
-![Figure 15.4.1](img/Francis_Bacon.jpg)
+![Figure 15.4.1](tddi16f25.img/Francis_Bacon.jpg)
 
 *Figure 15.4.1: Sr. Francis Bacon Lord Keeper, and afterwards Lord Chancellor of England, 1617*
 
