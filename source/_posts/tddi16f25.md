@@ -173,7 +173,7 @@ The following table shows the symbols commonly used to express sets and their re
 
 <a id="equation-setdef-0"></a>
 $$
-\begin{aligned}\begin{array}{l|l}
+\begin{array}{l|l}
 \{1, 4\}& \text{A set composed of the members 1 and 4}\\
 \{\mathsf{x}\, |\, \mathsf{x}\ \text{is a positive integer}\}&
    \text{A set definition using a set former}\\
@@ -198,7 +198,7 @@ $$
   \text{Set difference: all elements of set}
   \ \mathbf{P}\ \text{NOT in set}\ \mathbf{Q}\\
 \mathbf{P}\,\times\,\mathbf{Q} &
-  \text{Set (Cartesian) Product: yields a set of ordered pairs}\\\end{array}\end{aligned}
+  \text{Set (Cartesian) Product: yields a set of ordered pairs}\\\end{array}
 $$
 
 Here are some examples of this notation in use. First define two sets, $\mathbf{P}$ and $\mathbf{Q}$.
@@ -406,56 +406,56 @@ Here is a list of useful summations, along with their closed-form solutions.
 
 <a id="equation-summations-1"></a>
 $$
-\begin{aligned}\sum_{i = 1}^{n} i &=  \frac{n (n+1)}{2}.\end{aligned}
+\begin{array}{rl}\sum_{i = 1}^{n} i &=  \frac{n (n+1)}{2}.\end{array}
 $$
 
 <a id="equation-summations-2"></a>
 $$
-\begin{aligned}\sum_{i = 1}^{n} i^2 &=  \frac{2 n^3 + 3 n^2 + n}{6} =
-\frac{n(2n + 1)(n + 1)}{6}.\end{aligned}
+\begin{array}{rl}\sum_{i = 1}^{n} i^2 &=  \frac{2 n^3 + 3 n^2 + n}{6} =
+\frac{n(2n + 1)(n + 1)}{6}.\end{array}
 $$
 
 <a id="equation-summations-3"></a>
 $$
-\begin{aligned}\sum_{i = 1}^{\log n} n &=  n \log n.\end{aligned}
+\begin{array}{rl}\sum_{i = 1}^{\log n} n &=  n \log n.\end{array}
 $$
 
 <a id="equation-summations-4"></a>
 $$
-\begin{aligned}\sum_{i = 0}^\infty a^i &=  \frac{1}{1-a}\ \text{for}
-\ 0 < a < 1.\end{aligned}
+\begin{array}{rl}\sum_{i = 0}^\infty a^i &=  \frac{1}{1-a}\ \text{for}
+\ 0 < a < 1.\end{array}
 $$
 
 <a id="equation-summations-5"></a>
 $$
-\begin{aligned}\sum_{i=0}^{n} a^i &=  \frac{a^{n+1} - 1}{a - 1}\ \text{for}
-\ a \neq 1.\end{aligned}
+\begin{array}{rl}\sum_{i=0}^{n} a^i &=  \frac{a^{n+1} - 1}{a - 1}\ \text{for}
+\ a \neq 1.\end{array}
 $$
 
 As special cases to this last summation, we have the following two:
 
 <a id="equation-sum7"></a>
 $$
-\begin{aligned}\sum_{i = 1}^{n} \frac{1}{2^i} &=  1 - \frac{1}{2^n},\end{aligned}
+\begin{array}{rl}\sum_{i = 1}^{n} \frac{1}{2^i} &=  1 - \frac{1}{2^n},\end{array}
 $$
 
 <a id="equation-summations-6"></a>
 $$
-\begin{aligned}\sum_{i = 0}^{n} 2^i &=  2^{n+1} - 1.\end{aligned}
+\begin{array}{rl}\sum_{i = 0}^{n} 2^i &=  2^{n+1} - 1.\end{array}
 $$
 
 As a corollary to [(7)](#equation-sum7),
 
 <a id="equation-summations-7"></a>
 $$
-\begin{aligned}\sum_{i = 0}^{\log n} 2^i &=  2^{\log n + 1} - 1 = 2n - 1.\end{aligned}
+\begin{array}{rl}\sum_{i = 0}^{\log n} 2^i &=  2^{\log n + 1} - 1 = 2n - 1.\end{array}
 $$
 
 Finally,
 
 <a id="equation-summations-8"></a>
 $$
-\begin{aligned}\sum_{i=1}^{n} \frac{i}{2^i} &=  2 - \frac{n+2}{2^n}.\end{aligned}
+\begin{array}{rl}\sum_{i=1}^{n} \frac{i}{2^i} &=  2 - \frac{n+2}{2^n}.\end{array}
 $$
 
 The sum of reciprocals from 1 to $n$, called the [Harmonic Series](Glossary.md#term-harmonic-series) and written ${\cal H}_n$, has a value between $\log_e n$ and $\log_e n + 1$. To be more precise, as $n$ grows, the summation grows closer to
@@ -480,15 +480,15 @@ The running time for a recursive algorithm is most easily expressed by a recursi
 
 <a id="equation-recurrenceintro-0"></a>
 $$
-\begin{aligned}n! = (n-1)! \cdot n\ \text{for}\ n>1; \quad 1! = 0! = 1.\end{aligned}
+n! = (n-1)! \cdot n\ \text{for}\ n>1; \quad 1! = 0! = 1.
 $$
 
 Another standard example of a recurrence is the Fibonacci sequence:
 
 <a id="equation-recurrenceintro-1"></a>
 $$
-\begin{aligned}\text{Fib}(n) = \text{Fib}(n-1) + \text{Fib}(n-2)\ \text{for}\ n>2;
-\quad\text{Fib}(1) = \text{Fib}(2) = 1.\end{aligned}
+\text{Fib}(n) = \text{Fib}(n-1) + \text{Fib}(n-2)\ \text{for}\ n>2;
+\quad\text{Fib}(1) = \text{Fib}(2) = 1.
 $$
 
 From this definition, the first seven numbers of the Fibonacci sequence are
@@ -504,8 +504,8 @@ Recurrence relations are often used to model the cost of recursive functions. Fo
 
 <a id="equation-recurrenceintro-3"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \mathbf{T}(n-1) + 1\ \text{for}\ n>1;
-\quad \mathbf{T}(0) = \mathbf{T}(1) = 0.\end{aligned}
+\mathbf{T}(n) = \mathbf{T}(n-1) + 1\ \text{for}\ n>1;
+\quad \mathbf{T}(0) = \mathbf{T}(1) = 0.
 $$
 
 As with summations, we typically wish to replace the recurrence relation with a closed-form solution. One approach is to expand the recurrence by replacing any occurrences of $\mathbf{T}$ on the right-hand side with its definition.
@@ -611,9 +611,9 @@ Here is a sample proof by mathematical induction. Call the sum of the first $n$ 
 1. **Use the assumption from the induction hypothesis for** $n-1$ **to show that the result is true for** $n$. The induction hypothesis states that $\mathbf{S}(n-1) =  (n-1)(n)/2$, and because $\mathbf{S}(n) = \mathbf{S}(n-1) + n$, we can substitute for $\mathbf{S}(n-1)$ to get
   <a id="equation-proofs-1"></a>
     $$
-    \begin{aligned}\sum_{i=1}^n i &=  \left(\sum_{i=1}^{n-1} i\right) + n
+    \sum_{i=1}^n i &=  \left(\sum_{i=1}^{n-1} i\right) + n
                        = \frac{(n-1)(n)}{2} + n\\
-                   &= \frac{n^2 - n + 2n}{2} = \frac{n(n+1)}{2}.\end{aligned}
+                   &= \frac{n^2 - n + 2n}{2} = \frac{n(n+1)}{2}.
     $$
   Thus, by mathematical induction,
   <a id="equation-proofs-2"></a>
@@ -642,10 +642,10 @@ We now use the induction hypothesis to show that the theorem holds true for $n$.
 
 <a id="equation-proofs-4"></a>
 $$
-\begin{aligned}\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\\
+\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\\
                       &=  [(n-1)^2] + 2n - 1\\
                       &=  n^2 - 2n + 1 + 2n - 1\\
-                      &=  n^2.\end{aligned}
+                      &=  n^2.
 $$
 
 Thus, by mathematical induction,
@@ -922,7 +922,7 @@ Costs for representative growth rates.
 
 <a id="equation-analintro-2"></a>
 $$
-\begin{aligned}\begin{array}{c|c|c|c|c|c|c|c}
+\begin{array}{c|c|c|c|c|c|c|c}
 \mathsf{n} & \mathsf{\log \log n} & \mathsf{\log n} & \mathsf{n} &
 \mathsf{n \log n} & \mathsf{n^2} & \mathsf{n^3} & \mathsf{2^n}\\
 \hline
@@ -943,7 +943,7 @@ $$
 \mathsf{2^{40}} & \mathsf{2^{60}} & \mathsf{2^{1 {\rm M}}}\\
 \mathsf{1 {\rm G}} & \mathsf{\approx 4.9} & \mathsf{30} & \mathsf{2^{30}} &
 \mathsf{30 \cdot 2^{30} \approx 2^{35}} &
-\mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\\\end{array}\end{aligned}
+\mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\\\end{array}
 $$
 
 <a id="growth-rates-ordering-exercise"></a>
@@ -985,7 +985,7 @@ The increase in problem size that can be run in a fixed period of time on a comp
 
 <a id="equation-analcompvsalg-0"></a>
 $$
-\begin{aligned}\begin{array} {l|r|r|l|r}
+\begin{array} {l|r|r|l|r}
 \mathbf{f(n)} &
 \mathbf{n} &
 \mathbf{n'} &
@@ -997,7 +997,7 @@ $$
 5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\\
 2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\\
 2^n         & 13   & 16     & n' = n + 3             & --\\
-\end{array}\end{aligned}
+\end{array}
 $$
 
 This table illustrates many important points. The first two equations are both linear; only the value of the constant factor has changed. In both cases, the machine that is ten times faster gives an increase in problem size by a factor of ten. In other words, while the value of the constant does affect the absolute size of the problem that can be solved in a fixed amount of time, it does not affect the *improvement* in problem size (as a proportion to the original size) gained by a faster computer. This relationship holds true regardless of the algorithm’s growth rate: Constant factors never affect the relative improvement gained by a faster computer.
@@ -1176,10 +1176,10 @@ because $n$ grows faster than $2\log n$. Thus, $n^2$ is in $\Omega(2n\log n)$.
 
 <a id="equation-anallower-1"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\{ \begin{array}{ll}
+\mathbf{T}(n) = \left\{ \begin{array}{ll}
 n  & \text{for all odd}\ n \geq 1\\
 n^2/100 & \text{for all even}\ n \geq 0\end{array}
-\right.\end{aligned}
+\right.
 $$
 
  From this definition, $n^2/100 \geq \frac{1}{100} n^2$ for all even $n \geq 0$. So, $\mathbf{T}(n) \geq c n^2$ for an infinite number of values of $n$ (i.e., for all even $n$) for $c = 1/100$. Therefore, $\mathbf{T}(n)$ is in $\Omega(n^2)$ by the definition. For this equation for $\mathbf{T}(n)$, it is true that all inputs of size $n$ take at least $cn$ time. But an infinite number of inputs of size $n$ take $cn^2$ time, so we would like to say that the algorithm is in $\Omega(n^2)$. Unfortunately, using our first definition will yield a lower bound of $\Omega(n)$ because it is not possible to pick constants $c$ and $n_0$ such that $\mathbf{T}(n) \geq c n^2$ for all $n>n_0$. The alternative definition does result in a lower bound of $\Omega(n^2)$ for this algorithm, which seems to fit common sense more closely. Fortunately, few real algorithms or computer programs display the pathological behavior of this example. Our first definition for $\Omega$ generally yields the expected result. As you can see from this discussion, asymptotic bounds notation is not a law of nature. It is merely a powerful modeling tool used to describe the behavior of algorithms.
@@ -1304,7 +1304,7 @@ Determining the execution time of a recursive subroutine can be difficult. The r
 
 <a id="equation-analprogram-3"></a>
 $$
-\begin{aligned}T(n) = T(n-1) + 1 \ \text{for}\ n>1;\ \ T(1) = 0.\end{aligned}
+T(n) = T(n-1) + 1 \ \text{for}\ n>1;\ \ T(1) = 0.
 $$
 
 The closed-form solution for this recurrence relation is $\Theta(n)$.
@@ -1402,7 +1402,7 @@ If we count from 0 through $2^n - 1$, (requiring a counter with at least $n$ bit
 
 <a id="equation-amortanal-0"></a>
 $$
-\begin{aligned}\sum_{i=0}^{n-1} \frac{1}{2^i} < 2.\end{aligned}
+\sum_{i=0}^{n-1} \frac{1}{2^i} < 2.
 $$
 
 In other words, the average number of bits flipped on each increment is 2, leading to a total cost of only $2 \cdot 2^n$ for a series of $2^n$ increments.
@@ -2044,7 +2044,7 @@ A simple formula can be used to determine whether the array-based list or the li
 
 <a id="equation-listanalysis-0"></a>
 $$
-\begin{aligned}n > DE/(P + E).\end{aligned}
+n > DE/(P + E).
 $$
 
 If $P = E$, then the break-even point is at $D/2$. This would happen if the element field is either a four-byte `int` value or a pointer, and the `next` field is a typical four-byte pointer. That is, the array-based implementation would be more efficient (if the link field and the element field are the same size) whenever the array is more than half full.
@@ -3626,7 +3626,7 @@ Here is a table that lists, for each node position, the positions of the parent,
 
 <a id="equation-completetree-0"></a>
 $$
-\begin{aligned}\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \textrm{Position} & 0  & 1 & 2 & 3 &  4 &  5 & 6 & 7 & 8 &  9 & 10 & 11\\
 \hline
@@ -3644,7 +3644,7 @@ $$
 \hline
 \textrm{Right Sibling} & \,--\, & 2 & \,--\, & 4 & \,--\, &  6 & \,--\, & 8 &
 \,--\, & 10 & \,--\, & \,--\,\\
-\hline&&&&&&&&&&&&\end{array}\end{aligned}
+\hline&&&&&&&&&&&&\end{array}
 $$
 
 Looking at the table, you should see a pattern regarding the positions of a node’s relatives within the array. Simple formulas can be derived for calculating the array index for each relative of a node $R$ from $R$’s index. No explicit pointers are necessary to reach a node’s left or right child. This means there is no overhead to the array implementation if the array is selected to be of size $n$ for a tree of $n$ nodes.
@@ -3879,7 +3879,7 @@ Relative frequencies for the 26 letters of the alphabet as they appear in a sele
 
 <a id="equation-huffman-0"></a>
 $$
-\begin{aligned}\begin{array}{c|c|c|c}
+\begin{array}{c|c|c|c}
 \textbf{Letter}&\textbf{Frequency}&\textbf{Letter}&\textbf{Frequency}\\
 \textrm A & 77 & N & 67\\
 \textrm B & 17 & O & 67\\
@@ -3893,7 +3893,7 @@ $$
 \textrm J &  4 & W & 22\\
 \textrm K &  7 & X &  4\\
 \textrm L & 42 & Y & 22\\
-\textrm M & 24 & Z &  2\\\end{array}\end{aligned}
+\textrm M & 24 & Z &  2\\\end{array}
 $$
 
 If some characters are used more frequently than others, is it possible to take advantage of this fact and somehow assign them shorter codes? The price could be that other characters require longer codes, but this might be worthwhile if such characters appear rarely enough. This concept is at the heart of file compression techniques in common use today. The next section presents one such approach to assigning [variable-length codes](Glossary.md#term-variable-length-coding), called [Huffman coding](Glossary.md#term-huffman-codes). While it is not commonly used in its simplest form for file compression (there are better methods), Huffman coding gives the flavor of such coding schemes. One motivation for studying Huffman coding is because it provides our first opportunity to see a type of tree structure referred to as a [search trie](Glossary.md#term-search-trie).
@@ -3911,11 +3911,11 @@ The relative frequencies for eight selected letters.
 
 <a id="equation-huffman-1"></a>
 $$
-\begin{aligned}\begin{array}{|c|cccccccc|}
+\begin{array}{|c|cccccccc|}
 \hline
 \textrm Letter & C & D & E & K & L & M & U & Z\\
 \textrm Frequency & 32 & 42 & 120 & 7 & 42 & 24 & 37 & 2\\
-\hline&&&&&&&&\end{array}\end{aligned}
+\hline&&&&&&&&\end{array}
 $$
 
 The following slideshow illustrates the Huffman tree construction process for the eight letters of Table [6.14.2](Huffman.md#freqexamp). [^2]
@@ -6231,7 +6231,7 @@ Here is a summary for the cost of Insertion Sort, Bubble Sort, and Selection Sor
 
 <a id="equation-exchangesort-0"></a>
 $$
-\begin{aligned}\begin{array}{rccc}
+\begin{array}{rccc}
 &\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\\
 \textbf{Comparisons:}&&&\\
 \textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\\
@@ -6240,7 +6240,7 @@ $$
 \textbf{Swaps:}&&&\\
 \textrm{Best Case}&0&0&\Theta(n)\\
 \textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\
-\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\\end{array}\end{aligned}
+\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\\end{array}
 $$
 
 The remaining sorting algorithms presented in this tutorial are significantly better than these three under typical conditions. But before continuing on, it is instructive to investigate what makes these three sorts so slow. The crucial bottleneck is that only *adjacent* records are compared. Thus, comparisons and moves (for Insertion and Bubble Sort) are by single steps. Swapping adjacent records is called an [exchange](Glossary.md#term-exchange). Thus, these sorts are sometimes referred to as an [exchange sort](Glossary.md#term-exchange-sort). The cost of any exchange sort can be at best the total number of steps that the records in the array must move to reach their “correct” location. Recall that this is at least the number of inversions for the record, where an inversion occurs when a record with key value greater than the current record’s key value appears before it.
@@ -6280,7 +6280,7 @@ Empirical comparison of proposed optimizations to quadratic sort implementations
 
 <a id="equation-sortopt-0"></a>
 $$
-\begin{aligned}\begin{array}{l|rrrr}
+\begin{array}{l|rrrr}
 \hline
 \textbf{Sort} & \textbf{Java}& \textbf{Processing} & \textbf{JavaScript}&
 \textbf{Python}\\
@@ -6296,7 +6296,7 @@ $$
 \textbf{Selection Sort}&&&&\\
 \textrm{Standard}    & 104 &  65 & 158 &  4,000\\
 \textrm{Check Swaps} & 104 &  65 & 155 &  4,050\\
-\hline&&&&\end{array}\end{aligned}
+\hline&&&&\end{array}
 $$
 
 Table [12.7.1](SortOpt.md#optimizetable) shows the relative costs for a number of optimizations in four programming languages: Java, JavaScipt, Processing, and Python.
@@ -6809,7 +6809,7 @@ Empirical comparison of sorting algorithms run on a 3.4 GHz Intel Pentium 4 CPU 
 
 <a id="equation-sortingempirical-0"></a>
 $$
-\begin{aligned}\begin{array}{l|rrrrrrrr}
+\begin{array}{l|rrrrrrrr}
 \hline
 \textbf{Sort} & \textbf{10}& \textbf{100} & \textbf{1K}&
 \textbf{10K} & \textbf{100K}& \textbf{1M}& \textbf{Up} & \textbf{Down}\\
@@ -6827,7 +6827,7 @@ $$
 \textrm{Heap/O}    & .00033 & .007 & 0.11 &   1.61 &    20.8 &     334 &   1.01 &   1.04\\
 \textrm{Radix/4}   & .00838 & .081 & 0.79 &   7.99 &    79.9 &     808 &   7.97 &   7.97\\
 \textrm{Radix/8}   & .00799 & .044 & 0.40 &   3.99 &    40.0 &     404 &   4.00 &   3.99\\
-\hline&&&&&&&&\end{array}\end{aligned}
+\hline&&&&&&&&\end{array}
 $$
 
 Table [12.15.1](SortingEmpirical.md#sortcomptable) shows timing results for actual implementations of the sorting algorithms presented in this chapter. The algorithms compared include [Insertion Sort](InsertionSort.md#insertionsort), [Bubble Sort](BubbleSort.md#bubblesort), [Selection Sort](SelectionSort.md#selectionsort), [Shellsort](Shellsort.md#shellsort), [Quicksort](Quicksort.md#quicksort), [Mergesort](Mergesort.md#mergesort), [Heapsort](Heapsort.md#heapsort), [Radix Sort](RadixSort.md#radixsort).
@@ -6985,11 +6985,11 @@ What happens to the equation if we assume all the $p_i$ ‘s are equal (except $
 
 <a id="equation-unsortedsearch-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\\
+\begin{array}{rl}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\\
 &=  p_n n + p\sum_{i=1}^n i\\
 &=  p_n n + p\frac{n(n+1)}{2}\\
 &=  p_n n + \frac{1 - p_n}{n}\frac{n(n+1)}{2}\\
-&=  \frac{n + 1 + p_n(n-1)}{2}\end{aligned}
+&=  \frac{n + 1 + p_n(n-1)}{2}\end{array}
 $$
 
 Depending on the value of $p_n$, $\frac{n+1}{2} \leq \mathbf{T}(n) \leq n$.
@@ -7088,11 +7088,11 @@ If we are willing to be casual about our analysis, we can reason that we look at
 
 <a id="equation-sortedsearch-2"></a>
 $$
-\begin{aligned}f(n) = \left\{
+f(n) = \left\{
 \begin{array}{ll}
 1 & n=1\\
 f(\lfloor n/2 \rfloor) + 1 & n > 1\end{array}
-\right.\end{aligned}
+\right.
 $$
 
 Since $n/2 \geq \lfloor n/2 \rfloor$, and since $f(n)$ is assumed to be non-decreasing (since adding more elements won’t decrease the work) we can estimate the upper bound with the simplification $f(n) = f(n/2) + 1$.
@@ -7101,11 +7101,10 @@ This recurrence is fairly easy to solve via expansion:
 
 <a id="equation-sortedsearch-3"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 f(n) &=  f(n/2) + 1\\
 &=  \{f(n/4) + 1\} + 1\\
-&=  \{\{f(n/8) + 1\} + 1\} + 1
-\end{aligned}
+&=  \{\{f(n/8) + 1\} + 1\} + 1\end{array}
 $$
 
 Then, collapse to
@@ -7121,11 +7120,10 @@ By the IH, $f(n/2) = \log(n/2) + 1$.
 
 <a id="equation-sortedsearch-5"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 f(n/2) + 1 &=  (\log(n/2) + 1) + 1\\
 &=  (\log n - 1 + 1) + 1\\
-&=  \log n + 1 = f(n).
-\end{aligned}
+&=  \log n + 1 = f(n).\end{array}
 $$
 
 How do we calculate the average cost for Binary Search? This requires some modeling, because we need to know things about the probabilities of the various inputs. We will estimate given these assumptions:
@@ -7155,12 +7153,11 @@ To solve the summation:
 
 <a id="equation-sortedsearch-7"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 \sum_{i=1}^k i2^{i-1} &=  \sum_{i=0}^{k-1}(i+1)2^i
 = \sum_{i=0}^{k-1} i 2^i + \sum_{i=0}^{k-1} 2^i\\
 &=  2 \sum_{i=0}^{k-1} i 2^{i-1} + 2^k - 1\\
-&=  2 \sum_{i=1}^{k} i 2^{i-1} - k 2^k + 2^k - 1
-\end{aligned}
+&=  2 \sum_{i=1}^{k} i 2^{i-1} - k 2^k + 2^k - 1\end{array}
 $$
 
 Note that in the above series of equations, we change variables: $i \rightarrow i+1$.
@@ -7183,22 +7180,20 @@ So,
 
 <a id="equation-sortedsearch-10"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 \sum_{i=1}^k i 2^{i-1} &=  k2^k - 2^k +1\\
-&=  (k-1)2^k +1
-\end{aligned}
+&=  (k-1)2^k +1\end{array}
 $$
 
 Now we come back to solving the original equation. Since we have a closed-form solution for the summation in hand, we can restate the equation with the appropriate variable substitutions.
 
 <a id="equation-sortedsearch-11"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 \frac{1}{n}\sum_{i=1}^{\log n}i 2^{i-1} &= 
 \frac{(\log n - 1)2^{\log n} + 1}{n}\\
 &=  \frac{n (\log n -1) + 1}{n}\\
-&\approx  \log n - 1
-\end{aligned}
+&\approx  \log n - 1\end{array}
 $$
 
 So the average cost is only about one or two comparisons less than the worst cost.
@@ -7207,7 +7202,7 @@ If we want to relax the assumption that $n = 2^k - 1$, we get this as the exact 
 
 <a id="equation-sortedsearch-12"></a>
 $$
-\begin{aligned}f(n) = \left\{
+f(n) = \left\{
 \begin{array}{ll}
 0 & n=0\\
 1 & n=1\\
@@ -7216,7 +7211,7 @@ $$
 \frac{1}{n} 0\ +&\\
 \frac{\lfloor \frac{n}{2} \rfloor}{n}f(\lfloor \frac{n}{2} \rfloor) + 1&
 n > 1\end{array}
-\right.\end{aligned}
+\right.
 $$
 
 Identify each of the components of this equation as follows:
@@ -7263,9 +7258,9 @@ Say that the number of comparisons needed is $i$, in which case the cost is $i$ 
 
 <a id="equation-sortedsearch-15"></a>
 $$
-\begin{aligned}\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\\
+\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\\
 = 1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
-  \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
+  \sqrt{n} \mathbf{P}_{\sqrt{n}}
 $$
 
 We now show that this is the same as
@@ -7277,13 +7272,13 @@ $$
 
 <a id="equation-sortedsearch-17"></a>
 $$
-\begin{aligned}&=  1 + (1-\mathbf{P}_1) + (1-\mathbf{P}_1-\mathbf{P}_2) +
+\begin{array}{rl}&=  1 + (1-\mathbf{P}_1) + (1-\mathbf{P}_1-\mathbf{P}_2) +
     \cdots + \mathbf{P}_{\sqrt{n}}\\
 &=  (\mathbf{P}_1 + ... + \mathbf{P}_{\sqrt{n}}) +
  (\mathbf{P}_2 + ... + \mathbf{P}_{\sqrt{n}}) +\\
 & \qquad    (\mathbf{P}_3 + ... + \mathbf{P}_{\sqrt{n}}) + \cdots\\
 &=  1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
-    \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
+    \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{array}
 $$
 
 We require at least two probes to set the bounds, so the cost is
@@ -7305,23 +7300,23 @@ because $p(1-p) \leq 1/4$ for any probability $p$. This assumes uniformly distri
 
 <a id="equation-sortedsearch-20"></a>
 $$
-\begin{aligned}2 + \sum_{i=3}^{\sqrt{n}} \frac{1}{4(i-2)^2}
+2 + \sum_{i=3}^{\sqrt{n}} \frac{1}{4(i-2)^2}
 < 2 + \frac{1}{4}\sum_{i=1}^\infty \frac{1}{i^2} =
-2 + \frac{1}{4}\frac{\pi}{6} \approx 2.4112\end{aligned}
+2 + \frac{1}{4}\frac{\pi}{6} \approx 2.4112
 $$
 
 Is QBS better than binary search? Theoretically yes, because $O(\log \log n)$ grows slower than $O(\log n)$. However, we have a situation here which illustrates the limits to the model of asymptotic complexity in some practical situations. Yes, $c_1 \log n$ does grow faster than $c_2 \log \log n$. In fact, it is exponentially faster! But even so, for practical input sizes, the absolute cost difference is fairly small. Thus, the constant factors might play a role. First we compare $\log \log n$ to $\log n$.
 
 <a id="equation-sortedsearch-21"></a>
 $$
-\begin{aligned}\begin{array}{llll}
+\begin{array}{llll}
 &&&{\rm Factor}\\
 n  &\log n&\log \log n&{\rm Difference}\\
 \hline
 16 &4    &2        &2\\
 256&8    &3        &2.7\\
 2^{16}&16   &4        &4\\
-2^{32}&32  &5      &6.4\\\end{array}\end{aligned}
+2^{32}&32  &5      &6.4\\\end{array}
 $$
 
 It is not always practical to reduce an algorithm’s growth rate. There is a “practicality window” for every problem, in that we have a practical limit to how big an input we wish to solve for. If our problem size never grows too big, it might not matter if we can reduce the cost by an extra log factor, because the constant factors in the two algorithms might differ by more than the log of the log of the input size.
@@ -7330,14 +7325,14 @@ For our two algorithms, let us look further and check the actual number of compa
 
 <a id="equation-sortedsearch-22"></a>
 $$
-\begin{aligned}\begin{array}{llll}
+\begin{array}{llll}
 &&&{\rm Factor}\\
 n  &\log n -1&2.4 \log \log n&{\rm Difference}\\
 \hline
 16&3&4.8&{\rm worse}\\
 256&7&7.2&\approx {\rm same}\\
 64K&15&9.6&1.6\\
-2^{32}&31&12&2.6\end{array}\end{aligned}
+2^{32}&31&12&2.6\end{array}
 $$
 
 But we still are not done. This is only a count of raw comparisons. Binary search is inherently much simpler than QBS, because binary search only needs to calculate the midpoint position of the array before each comparison, while quadratic binary search must calculate an interpolation point which is more expensive. So the constant factors for QBS are even higher.
@@ -7394,9 +7389,9 @@ Calculate the expected cost for searching a list ordered by frequency when the p
 
 <a id="equation-selforg-3"></a>
 $$
-\begin{aligned}p_i = \left\{ \begin{array}{ll}
+p_i = \left\{ \begin{array}{ll}
   1/2^i & \text{if \(0 \leq i \leq n-2\)}\\
-  1/2^n & \text{if \(i = n-1\).}\end{array} \right.\end{aligned}
+  1/2^n & \text{if \(i = n-1\).}\end{array} \right.
 $$
 
 Then,
@@ -7602,14 +7597,14 @@ Solve the Knapsack Problem for $K = 10$ and five items with sizes 9, 2, 7, 4, 1.
 
 <a id="equation-dynamicprogramming-1"></a>
 $$
-\begin{aligned}\begin{array}{l|ccccccccccc}
+\begin{array}{l|ccccccccccc}
 &0&1&2&3&4&5&6&7&8&9&10\\
 \hline
 k_1\!=\!9&O&-&-&-&-&-&-&-&-&I&-\\
 k_2\!=\!2&O&-&I&-&-&-&-&-&-&O&-\\
 k_3\!=\!7&O&-&O&-&-&-&-&I&-&I/O&-\\
 k_4\!=\!4&O&-&O&-&I&-&I&O&-&O&-\\
-k_5\!=\!1&O&I&O&I&O&I&O&I/O&I&O&I\end{array}\end{aligned}
+k_5\!=\!1&O&I&O&I&O&I&O&I/O&I&O&I\end{array}
 $$
 
 Key:  
@@ -7631,7 +7626,7 @@ Another approach is to implement the matrix as an orthogonal list. Consider the 
 
 <a id="equation-sparse-0"></a>
 $$
-\begin{aligned}\begin{array}{rrrrrrr}
+\begin{array}{rrrrrrr}
 10&23&0 &0 &0&0&19\\
 45&5 &0 &93&0&0&0\\
 0 &0 &0 &0 &0&0&0\\
@@ -7639,7 +7634,7 @@ $$
 40&0 &0 &0 &0&0&0\\
 0 &0 &0 &0 &0&0&0\\
 0 &0 &0 &0 &0&0&0\\
-0 &32&0 &12&0&0&7\\\end{array}\end{aligned}
+0 &32&0 &12&0&0&7\\\end{array}
 $$
 
 The corresponding orthogonal array is shown in the Figure. Here we have a list of row headers, each of which contains a pointer to a list of matrix records. A second list of column headers also contains pointers to matrix records. Each non-zero matrix element stores pointers to its non-zero neighbors in the row, both following and preceding it. Each non-zero element also stores pointers to its non-zero neighbors following and preceding it in the column. Thus, each non-zero element stores its own value, its position within the matrix, and four pointers. Non-zero elements are found by traversing a row or column list. Note that the first non-zero element in a given row could be in any column; likewise, the neighboring non-zero element in any row or column list could be at any (higher) row or column in the array.
@@ -7664,10 +7659,10 @@ Another representation for sparse matrices is sometimes called the Yale represen
 
 <a id="equation-sparse-1"></a>
 $$
-\begin{aligned}\begin{array}{ll}
+\begin{array}{ll}
 Values:& 10\ 45\ 40\ 23\ 5\ 32\ 93\ 12\ 19\ 7\\
 Column starts:& 0\ 3\ 5\ 5\ 7\ 7\ 7\ 7\\
-Row positions:& 0\ 1\ 4\ 0\ 1\ 7\ 1\ 7\ 0\ 7\\\end{array}\end{aligned}
+Row positions:& 0\ 1\ 4\ 0\ 1\ 7\ 1\ 7\ 0\ 7\\\end{array}
 $$
 
 If the matrix has $c$ columns, then the total space required will be proportional to $c + 2 NNZ$. This is good in terms of space. It allows fairly quick access to any column, and allows for easy processing of the non-zero values along a column. However, it does not do a good job of providing access to the values along a row, and is terrible when values need to be added or removed from the representation. Fortunately, when doing computations such as adding or multiplying two sparse matrices, the processing of the input matrices and construction of the output matrix can be done reasonably efficiently.
@@ -7816,12 +7811,12 @@ The cost of this algorithm can be modeled by the following recurrence.
 
 <a id="equation-boundstate-0"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\{\begin{array}{ll}
+\mathbf{T}(n) = \left\{\begin{array}{ll}
              0       & n = 1\\
              1       & n = 2\\
              {\bf T}(\lfloor n/2 \rfloor) + {\bf T}(\lceil n/2
              \rceil) + 2    & n > 2\end{array}
-     \right.\end{aligned}
+     \right.
 $$
 
 This is a rather interesting recurrence, and its solution ranges between $3n/2 - 2$ (when $n = 2^i$ or $n=2^1 \pm 1$) and $5n/3 - 2$ (when $n = 3 \times 2^i$). We can infer from this behavior that how we divide the list affects the performance of the algorithm. For example, what if we have six items in the list? If we break the list into two sublists of three elements, the cost would be 8. If we break the list into a sublist of size two and another of size four, then the cost would only be 7.
@@ -7832,22 +7827,22 @@ We can model all possible divide-and-conquer strategies for this problem with th
 
 <a id="equation-boundstate-1"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\{
+\mathbf{T}(n) = \left\{
 \begin{array}{ll}
 0&n=1\\
 1&n=2\\
-\min_{1\leq k\leq n-1} \lbrace {\bf T}(k) + {\bf T}(n-k)\} + 2&n>2\end{array}\right.\end{aligned}
+\min_{1\leq k\leq n-1} \lbrace {\bf T}(k) + {\bf T}(n-k)\} + 2&n>2\end{array}\right.
 $$
 
 That is, we want to find a way to break up the list that will minimize the total work. If we examine various ways of breaking up small lists, we will eventually recognize that breaking the list into a sublist of size 2 and a sublist of size (n-2) will always produce results as good as any other division. This strategy yields the following recurrence.
 
 <a id="equation-boundstate-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\{
+\mathbf{T}(n) = \left\{
 \begin{array}{ll}
 0&n=1\\
 1&n=2\\
-{\bf T}(n-2) + 3&n>2\end{array}\right.\end{aligned}
+{\bf T}(n-2) + 3&n>2\end{array}\right.
 $$
 
 This recurrence (and the corresponding algorithm) yields $\mathbf{T}(n) = \lceil 3n/2 \rceil - 2$ comparisons. Is this optimal? We now introduce yet another tool to our collection of lower bounds proof techniques: The state space proof.
@@ -7867,7 +7862,7 @@ Given that there are four types of elements, there are 10 types of comparison. C
 
 <a id="equation-boundstate-3"></a>
 $$
-\begin{aligned}\begin{array}{lllll}
+\begin{array}{lllll}
 U:U&(i-2,&j+1,&k+1,&l)\\
 W:W&(i,&j-1,&k,&l+1)\\
 L:L&(i,&j,&k-1,&l+1)\\
@@ -7876,20 +7871,20 @@ L:U&(i-1,&j+1,&k,&l)\\
 W:U&(i-1,&j,&k+1,&l)\\
 \quad or&(i-1,&j,&k,&l+1)\\
 W:L&(i,&j,&k,&l)\\
-\quad or&(i,&j-1,&k-1,&l+2)\end{array}\end{aligned}
+\quad or&(i,&j-1,&k-1,&l+2)\end{array}
 $$
 
 Now, let us consider what an adversary will do for the various comparisons. The adversary will make sure that each comparison does the least possible amount of work in taking the algorithm toward the goal state. For example, comparing a winner to a loser is of no value because the worst case result is always to learn nothing new (the winner remains a winner and the loser remains a loser). Thus, only the following five transitions are of interest:
 
 <a id="equation-boundstate-4"></a>
 $$
-\begin{aligned}\begin{array}{lllll}
+\begin{array}{lllll}
 U:U&(i-2,&j+1,&k+1,&l)\\
 L:U&(i-1,&j+1,&k,&l)\\
 W:U&(i-1,&j,&k+1,&l)\\
 \hline
 W:W&(i,&j-1,&k,&l+1)\\
-L:L&(i,&j,&k-1,&l+1)\end{array}\end{aligned}
+L:L&(i,&j,&k-1,&l+1)\end{array}
 $$
 
 Only the last two transition types increase the number of middles, so there must be $n-2$ of these. The number of untested elements  must go to 0, and the first transition is the most efficient way to do this. Thus, $\lceil n/2 \rceil$ of these are required. Our conclusion is that the minimum possible number of transitions (comparisons) is $n + \lceil n/2 \rceil - 2$. Thus, our algorithm is optimal.
@@ -7938,14 +7933,13 @@ We will prove that this recurrence is linear using the process of [constructive 
 
 <a id="equation-boundibest-1"></a>
 $$
-\begin{aligned}
+\begin{array}{rl}
 \mathbf{T}(n) &\leq  {\bf T}(\lceil \frac{n}{5} \rceil) +
         \mathbf{T}(\lceil \frac{7n - 5}{10}\rceil) +
         6\lceil \frac{n}{5} \rceil + n - 1\\
 &\leq r(\frac{n}{5} + 1) + r(\frac{7n-5}{10} + 1) + 6(\frac{n}{5} + 1) + n - 1\\
 &\leq (\frac{r}{5} + \frac{7r}{10} + \frac{11}{5})n + \frac{3r}{2} + 5\\
-&\leq \frac{9r + 22}{10}n + \frac{3r + 10}{2}.
-\end{aligned}
+&\leq \frac{9r + 22}{10}n + \frac{3r + 10}{2}.\end{array}
 $$
 
 This is true for $r \geq 23$ and $n \geq 380$. This provides a base case that allows us to use induction to prove that $\forall n \geq 380, \mathbf{T}(n) \leq 23n$.
