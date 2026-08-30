@@ -18684,7 +18684,7 @@ $$
 \begin{array}{ll}
 0&n=1\\
 1&n=2\\
-\min_{1\leq k\leq n-1} \{{\bf T}(k) + {\bf T}(n-k)\} + 2&n>2\end{array}\right.\end{aligned}
+\min_{1\leq k\leq n-1} \lbrace {\bf T}(k) + {\bf T}(n-k)\} + 2&n>2\end{array}\right.\end{aligned}
 $$
 
 That is, we want to find a way to break up the list that will minimize
