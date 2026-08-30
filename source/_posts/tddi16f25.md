@@ -174,55 +174,55 @@ The following table shows the symbols commonly used to express sets and their re
 <a id="equation-setdef-0"></a>
 $$
 \begin{aligned}\begin{array}{l|l}
-\lbrace1, 4\rbrace& \text{A set composed of the members 1 and 4}\cr
-\lbrace\mathsf{x}\thinspace |\thinspace \mathsf{x}\ \text{is a positive integer}\rbrace&
-   \text{A set definition using a set former}\cr
-&\qquad \text{Example: the set of all positive integers}\cr
-\mathsf{x} \in \mathbf{P}&\mathsf{x}\ \text{is a member of set}\ \mathbf{P}\cr
-\mathsf{x} \notin \mathbf{P}&\mathsf{x}\ \text{is not a member of set}\ \mathbf{P}\cr
-\emptyset&\text{The null or empty set}\cr
+\lbrace 1, 4\rbrace & \text{A set composed of the members 1 and 4}\cr 
+\lbrace \mathsf{x}\thinspace  |\thinspace  \mathsf{x}\ \text{is a positive integer}\rbrace &
+   \text{A set definition using a set former}\cr 
+&\qquad \text{Example: the set of all positive integers}\cr 
+\mathsf{x} \in \mathbf{P}&\mathsf{x}\ \text{is a member of set}\ \mathbf{P}\cr 
+\mathsf{x} \notin \mathbf{P}&\mathsf{x}\ \text{is not a member of set}\ \mathbf{P}\cr 
+\emptyset&\text{The null or empty set}\cr 
 |\mathbf{P}|& \text{Cardinality: size of set}\ \mathbf{P}
-           \text{or number of members for set}\ \mathbf{P}\cr
-\mathbf{P}\thinspace\subseteq\thinspace\mathbf{Q},
-  \mathbf{Q}\thinspace\supseteq\thinspace\mathbf{P}&
-  \text{Set}\ \mathbf{P}\ \text{is included in set}\ \mathbf{Q},\cr
-&\qquad \text{set}\ \mathbf{P}\ \text{is a subset of set}\ \mathbf{Q},\cr
-&\qquad \text{set}\ \mathbf{Q}\ \text{is a superset of set}\ \mathbf{P}\cr
-\mathbf{P}\thinspace\cup\thinspace\mathbf{Q}      &
+           \text{or number of members for set}\ \mathbf{P}\cr 
+\mathbf{P}\thinspace \subseteq\thinspace \mathbf{Q},
+  \mathbf{Q}\thinspace \supseteq\thinspace \mathbf{P}&
+  \text{Set}\ \mathbf{P}\ \text{is included in set}\ \mathbf{Q},\cr 
+&\qquad \text{set}\ \mathbf{P}\ \text{is a subset of set}\ \mathbf{Q},\cr 
+&\qquad \text{set}\ \mathbf{Q}\ \text{is a superset of set}\ \mathbf{P}\cr 
+\mathbf{P}\thinspace \cup\thinspace \mathbf{Q}      &
   \text{Set Union: all elements appearing in}
-  \ \mathbf{P}\ \text{OR}\ \mathbf{Q}\cr
-\mathbf{P}\thinspace\cap\thinspace\mathbf{Q}      &
+  \ \mathbf{P}\ \text{OR}\ \mathbf{Q}\cr 
+\mathbf{P}\thinspace \cap\thinspace \mathbf{Q}      &
   \text{Set Intersection: all elements appearing in}\ \text{P}
-  \ \text{AND}\ \mathbf{Q}\cr
-\mathbf{P}\thinspace-\thinspace\mathbf{Q} &
+  \ \text{AND}\ \mathbf{Q}\cr 
+\mathbf{P}\thinspace -\thinspace \mathbf{Q} &
   \text{Set difference: all elements of set}
-  \ \mathbf{P}\ \text{NOT in set}\ \mathbf{Q}\cr
-\mathbf{P}\thinspace\times\thinspace\mathbf{Q} &
-  \text{Set (Cartesian) Product: yields a set of ordered pairs}\cr\end{array}\end{aligned}
+  \ \mathbf{P}\ \text{NOT in set}\ \mathbf{Q}\cr 
+\mathbf{P}\thinspace \times\thinspace \mathbf{Q} &
+  \text{Set (Cartesian) Product: yields a set of ordered pairs}\cr \end{array}\end{aligned}
 $$
 
 Here are some examples of this notation in use. First define two sets, $\mathbf{P}$ and $\mathbf{Q}$.
 
 <a id="equation-setdef-1"></a>
 $$
-\mathbf{P} = \lbrace2, 3, 5\rbrace, \qquad \mathbf{Q} = \lbrace5, 10\rbrace.
+\mathbf{P} = \lbrace 2, 3, 5\rbrace , \qquad \mathbf{Q} = \lbrace 5, 10\rbrace .
 $$
 
-$|\mathbf{P}| = 3$  (because $\mathbf{P}$ has three members) and $|\mathbf{Q}| = 2$ (because $\mathbf{Q}$ has two members). The union of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cup \mathbf{Q}$, is the set of elements in either $\mathbf{P}$ or $\mathbf{Q}$, which is {2, 3, 5, 10}. The intersection of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cap \mathbf{Q}$, is the set of elements that appear in both $\mathbf{P}$ and $\mathbf{Q}$, which is {5}. The set difference of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} - \mathbf{Q}$, is the set of elements that occur in $\mathbf{P}$ but not in $\mathbf{Q}$, which is {2, 3}. Note that $\mathbf{P} \cup \mathbf{Q} = \mathbf{Q} \cup \mathbf{P}$ and that $\mathbf{P} \cap \mathbf{Q} = \mathbf{Q} \cap \mathbf{P}$, but in general $\mathbf{P} - \mathbf{Q} \neq \mathbf{Q} - \mathbf{P}$. In this example, $\mathbf{Q} - \mathbf{P}  = \lbrace10\rbrace$. Finally, the set {5, 3, 2} is indistinguishable from set $\mathbf{P}$, because sets have no concept of order. Likewise, set {2, 3, 2, 5} is also indistinguishable from $\mathbf{P}$, because sets have no concept of duplicate elements.
+$|\mathbf{P}| = 3$  (because $\mathbf{P}$ has three members) and $|\mathbf{Q}| = 2$ (because $\mathbf{Q}$ has two members). The union of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cup \mathbf{Q}$, is the set of elements in either $\mathbf{P}$ or $\mathbf{Q}$, which is {2, 3, 5, 10}. The intersection of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cap \mathbf{Q}$, is the set of elements that appear in both $\mathbf{P}$ and $\mathbf{Q}$, which is {5}. The set difference of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} - \mathbf{Q}$, is the set of elements that occur in $\mathbf{P}$ but not in $\mathbf{Q}$, which is {2, 3}. Note that $\mathbf{P} \cup \mathbf{Q} = \mathbf{Q} \cup \mathbf{P}$ and that $\mathbf{P} \cap \mathbf{Q} = \mathbf{Q} \cap \mathbf{P}$, but in general $\mathbf{P} - \mathbf{Q} \neq \mathbf{Q} - \mathbf{P}$. In this example, $\mathbf{Q} - \mathbf{P}  = \lbrace 10\rbrace $. Finally, the set {5, 3, 2} is indistinguishable from set $\mathbf{P}$, because sets have no concept of order. Likewise, set {2, 3, 2, 5} is also indistinguishable from $\mathbf{P}$, because sets have no concept of duplicate elements.
 
 The [set product](Glossary.md#term-set-product) or [Cartesian product](Glossary.md#term-cartesian-product) of two sets $\mathbf{Q} \times \mathbf{P}$ is a set of ordered pairs. For our example sets, the set product would be
 
 <a id="equation-setdef-2"></a>
 $$
-\lbrace(2, 5),\ (2, 10),\ (3, 5),\ (3, 10),\ (5, 5),\ (5, 10)\rbrace.
+\lbrace (2, 5),\ (2, 10),\ (3, 5),\ (3, 10),\ (5, 5),\ (5, 10)\rbrace .
 $$
 
-The [powerset](Glossary.md#term-powerset) of a set $\mathbf{S}$ (denoted $2^S$) is the set of all possible subsets for $\mathbf{S}$. Consider the set $\mathbf{S} = \lbrace a, b, c \rbrace$. The powerset of $\mathbf{S}$ is
+The [powerset](Glossary.md#term-powerset) of a set $\mathbf{S}$ (denoted $2^S$) is the set of all possible subsets for $\mathbf{S}$. Consider the set $\mathbf{S} = \lbrace  a, b, c \rbrace $. The powerset of $\mathbf{S}$ is
 
 <a id="equation-setdef-3"></a>
 $$
-\lbrace \emptyset,\ \lbracea\rbrace,\ \lbraceb\rbrace,\ \lbracec\rbrace,\ \lbracea, b\rbrace,
-\ \lbracea, c\rbrace,\ \lbraceb, c\rbrace,\ \lbracea, b, c\rbrace\rbrace.
+\lbrace  \emptyset,\ \lbrace a\rbrace ,\ \lbrace b\rbrace ,\ \lbrace c\rbrace ,\ \lbrace a, b\rbrace ,
+\ \lbrace a, c\rbrace ,\ \lbrace b, c\rbrace ,\ \lbrace a, b, c\rbrace \rbrace .
 $$
 
 A collection of elements with no order (like a set), but with duplicate-valued elements is called a [bag](Glossary.md#term-bag) [^1]. To distinguish bags from sets, we will use square brackets [] around a bag’s elements. For example, bag [3, 4, 5, 4] is distinct from bag [3, 4, 5], while set {3, 4, 5, 4} is indistinguishable from set {3, 4, 5}. However, bag [3, 4, 5, 4] is indistinguishable from bag [3, 4, 4, 5].
@@ -232,19 +232,19 @@ A [sequence](Glossary.md#term-sequence) is a collection of elements with an orde
 <a id="relations"></a>
 ### 2.2.1.1. Relations
 
-A [relation](Glossary.md#term-relation) $R$ over set $\mathbf{S}$ is a set of ordered pairs from $\mathbf{S}$. As an example of a relation, if $\mathbf{S}$ is $\lbracea, b, c\rbrace$, then
+A [relation](Glossary.md#term-relation) $R$ over set $\mathbf{S}$ is a set of ordered pairs from $\mathbf{S}$. As an example of a relation, if $\mathbf{S}$ is $\lbrace a, b, c\rbrace $, then
 
 <a id="equation-setdef-4"></a>
 $$
-\lbrace \langle a, c\rangle, \langle b, c\rangle, \langle c, b\rangle \rbrace
+\lbrace  \langle a, c\rangle, \langle b, c\rangle, \langle c, b\rangle \rbrace 
 $$
 
 is a relation, and
 
 <a id="equation-setdef-5"></a>
 $$
-\lbrace \langle a, a\rangle, \langle a, c\rangle, \langle b, b\rangle,
-\langle b, c\rangle, \langle c, c\rangle \rbrace
+\lbrace  \langle a, a\rangle, \langle a, c\rangle, \langle b, b\rangle,
+\langle b, c\rangle, \langle c, c\rangle \rbrace 
 $$
 
 is a different relation. If tuple $\langle x, y\rangle$ is in relation $R$, we may use the infix notation $xRy$. We often use relations such as the less than operator ($<$) on the natural numbers, which includes ordered pairs such as $\langle1, 3\rangle$ and $\langle2, 23\rangle$, but not $\langle3, 2\rangle$ or $\langle2, 2\rangle$. Rather than writing the relationship in terms of ordered pairs, we typically use an infix notation for such relations, writing $1<3$.
@@ -297,7 +297,7 @@ For the integers, relations $<$ and $\leq$ define partial orders. Operation $<$ 
 
 **Example 2.2.5**
 
-For the powerset of the integers, the subset operator defines a partial order (because it is antisymmetric and transitive). For example, $\lbrace1, 2\rbrace\subseteq\lbrace1, 2, 3\rbrace$. However, sets {1, 2} and {1, 3} are not comparable by the subset operator, because neither is a subset of the other. Therefore, the subset operator does not define a total order on the powerset of the integers.
+For the powerset of the integers, the subset operator defines a partial order (because it is antisymmetric and transitive). For example, $\lbrace 1, 2\rbrace \subseteq\lbrace 1, 2, 3\rbrace $. However, sets {1, 2} and {1, 3} are not comparable by the subset operator, because neither is a subset of the other. Therefore, the subset operator does not define a total order on the powerset of the integers.
 
 [^1]: The object referred to here as a bag is sometimes called a [multilist](Glossary.md#term-multilist). But, the term multilist also refers to a list that may contain sublists.
 
@@ -323,7 +323,7 @@ static <T> void permute(T[] A) {
 
 **Boolean variables:** A [Boolean variable](Glossary.md#term-boolean-variable) is a variable that takes on one of the two values `True` and `False`. These two values are often associated with the values 1 and 0, respectively, although there is no reason why this needs to be the case. It is poor programming practice to rely on the correspondence between 0 and False, because these are logically distinct objects of different types.
 
-**Logic Notation:** We will occasionally make use of the notation of symbolic or Boolean logic. $A \Rightarrow B$ means “$A$ implies $B$” or “If $A$ then $B$”. $A \Leftrightarrow B$ means “$A$ if and only if $B$” or “$A$ is equivalent to $B$”. $A \vee B$ means “$A$ or $B$” (useful both in the context of symbolic logic or when performing a Boolean operation). $A \wedge B$ means “$A$ and $B$”. $\sim\negthinspaceA$ and $\overline{A}$ both mean “not $A$” or the negation of $A$ where $A$ is a Boolean variable.
+**Logic Notation:** We will occasionally make use of the notation of symbolic or Boolean logic. $A \Rightarrow B$ means “$A$ implies $B$” or “If $A$ then $B$”. $A \Leftrightarrow B$ means “$A$ if and only if $B$” or “$A$ is equivalent to $B$”. $A \vee B$ means “$A$ or $B$” (useful both in the context of symbolic logic or when performing a Boolean operation). $A \wedge B$ means “$A$ and $B$”. $\sim\negthinspace A$ and $\overline{A}$ both mean “not $A$” or the negation of $A$ where $A$ is a Boolean variable.
 
 **Floor and ceiling:** The [floor](Glossary.md#term-floor) of $x$ (written $\lfloor x \rfloor$) takes real value $x$ and returns the greatest integer $\leq x$. For example, $\lfloor 3.4 \rfloor = 3$, as does $\lfloor 3.0 \rfloor$, while $\lfloor -3.4 \rfloor = -4$ and $\lfloor -3.0 \rfloor = -3$. The [ceiling](Glossary.md#term-ceiling) of $x$ (written $\lceil x \rceil$) takes real value $x$ and returns the least integer $\geq x$. For example, $\lceil 3.4 \rceil = 4$, as does $\lceil 4.0 \rceil$, while $\lceil -3.4 \rceil = \lceil -3.0 \rceil = -3$.
 
@@ -612,7 +612,7 @@ Here is a sample proof by mathematical induction. Call the sum of the first $n$ 
   <a id="equation-proofs-1"></a>
     $$
     \begin{aligned}\sum_{i=1}^n i &=  \left(\sum_{i=1}^{n-1} i\right) + n
-                       = \frac{(n-1)(n)}{2} + n\cr
+                       = \frac{(n-1)(n)}{2} + n\cr 
                    &= \frac{n^2 - n + 2n}{2} = \frac{n(n+1)}{2}.\end{aligned}
     $$
   Thus, by mathematical induction,
@@ -642,9 +642,9 @@ We now use the induction hypothesis to show that the theorem holds true for $n$.
 
 <a id="equation-proofs-4"></a>
 $$
-\begin{aligned}\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\cr
-                      &=  [(n-1)^2] + 2n - 1\cr
-                      &=  n^2 - 2n + 1 + 2n - 1\cr
+\begin{aligned}\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\cr 
+                      &=  [(n-1)^2] + 2n - 1\cr 
+                      &=  n^2 - 2n + 1 + 2n - 1\cr 
                       &=  n^2.\end{aligned}
 $$
 
@@ -924,26 +924,26 @@ Costs for representative growth rates.
 $$
 \begin{aligned}\begin{array}{c|c|c|c|c|c|c|c}
 \mathsf{n} & \mathsf{\log \log n} & \mathsf{\log n} & \mathsf{n} &
-\mathsf{n \log n} & \mathsf{n^2} & \mathsf{n^3} & \mathsf{2^n}\cr
+\mathsf{n \log n} & \mathsf{n^2} & \mathsf{n^3} & \mathsf{2^n}\cr 
 \hline
 \mathsf{16} & \mathsf{2} & \mathsf{4} & \mathsf{2^{4}} &
 \mathsf{4 \cdot 2^{4} = 2^{6}} &
-\mathsf{2^{8}} & \mathsf{2^{12}} & \mathsf{2^{16}}\cr
+\mathsf{2^{8}} & \mathsf{2^{12}} & \mathsf{2^{16}}\cr 
 \mathsf{256} & \mathsf{3} & \mathsf{8} & \mathsf{2^{8}} &
 \mathsf{8 \cdot 2^{8} = 2^{11}} &
-\mathsf{2^{16}} & \mathsf{2^{24}} & \mathsf{2^{256}}\cr
+\mathsf{2^{16}} & \mathsf{2^{24}} & \mathsf{2^{256}}\cr 
 \mathsf{1024} & \mathsf{\approx 3.3} & \mathsf{10} & \mathsf{2^{10}} &
 \mathsf{10 \cdot 2^{10} \approx 2^{13}} &
-\mathsf{2^{20}} & \mathsf{2^{30}} & \mathsf{2^{1024}}\cr
+\mathsf{2^{20}} & \mathsf{2^{30}} & \mathsf{2^{1024}}\cr 
 \mathsf{64 {\rm K}} & \mathsf{4} & \mathsf{16} & \mathsf{2^{16}} &
 \mathsf{16 \cdot 2^{16} = 2^{20}} &
-\mathsf{2^{32}} & \mathsf{2^{48}} & \mathsf{2^{64 {\rm K}}}\cr
+\mathsf{2^{32}} & \mathsf{2^{48}} & \mathsf{2^{64 {\rm K}}}\cr 
 \mathsf{1 {\rm M}} & \mathsf{\approx 4.3} & \mathsf{20} & \mathsf{2^{20}} &
 \mathsf{20 \cdot 2^{20} \approx 2^{24}} &
-\mathsf{2^{40}} & \mathsf{2^{60}} & \mathsf{2^{1 {\rm M}}}\cr
+\mathsf{2^{40}} & \mathsf{2^{60}} & \mathsf{2^{1 {\rm M}}}\cr 
 \mathsf{1 {\rm G}} & \mathsf{\approx 4.9} & \mathsf{30} & \mathsf{2^{30}} &
 \mathsf{30 \cdot 2^{30} \approx 2^{35}} &
-\mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\cr\end{array}\end{aligned}
+\mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\cr \end{array}\end{aligned}
 $$
 
 <a id="growth-rates-ordering-exercise"></a>
@@ -990,13 +990,13 @@ $$
 \mathbf{n} &
 \mathbf{n'} &
 \mathbf{Change} &
-\mathbf{n'/n}\cr
+\mathbf{n'/n}\cr 
 \hline
-10n         & 1000 & 10,000 & n' = 10n               & 10\cr
-20n         & 500  & 5000   & n' = 10n               & 10\cr
-5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\cr
-2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\cr
-2^n         & 13   & 16     & n' = n + 3             & --\cr
+10n         & 1000 & 10,000 & n' = 10n               & 10\cr 
+20n         & 500  & 5000   & n' = 10n               & 10\cr 
+5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\cr 
+2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\cr 
+2^n         & 13   & 16     & n' = n + 3             & --\cr 
 \end{array}\end{aligned}
 $$
 
@@ -1176,8 +1176,8 @@ because $n$ grows faster than $2\log n$. Thus, $n^2$ is in $\Omega(2n\log n)$.
 
 <a id="equation-anallower-1"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace \begin{array}{ll}
-n  & \text{for all odd}\ n \geq 1\cr
+\begin{aligned}\mathbf{T}(n) = \left\lbrace  \begin{array}{ll}
+n  & \text{for all odd}\ n \geq 1\cr 
 n^2/100 & \text{for all even}\ n \geq 0\end{array}
 \right.\end{aligned}
 $$
@@ -3628,22 +3628,22 @@ Here is a table that lists, for each node position, the positions of the parent,
 $$
 \begin{aligned}\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\textrm{Position} & 0  & 1 & 2 & 3 &  4 &  5 & 6 & 7 & 8 &  9 & 10 & 11\cr
+\textrm{Position} & 0  & 1 & 2 & 3 &  4 &  5 & 6 & 7 & 8 &  9 & 10 & 11\cr 
 \hline
 \hline
-\textrm{Parent} & \thinspace--\thinspace & 0 & 0 & 1 &  1 &  2 &  2 & 3 & 3 & 4 & 4 & 5\cr
+\textrm{Parent} & \thinspace --\thinspace  & 0 & 0 & 1 &  1 &  2 &  2 & 3 & 3 & 4 & 4 & 5\cr 
 \hline
-\textrm{Left Child} & 1  & 3 & 5 & 7 &  9 & 11 & \thinspace--\thinspace & \thinspace--\thinspace & \thinspace--\thinspace &
-\thinspace--\thinspace & \thinspace--\thinspace &  \thinspace--\thinspace\cr
+\textrm{Left Child} & 1  & 3 & 5 & 7 &  9 & 11 & \thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &
+\thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr 
 \hline
-\textrm{Right Child} & 2  & 4 & 6 & 8 & 10 & \thinspace--\thinspace & \thinspace--\thinspace & \thinspace--\thinspace &
-\thinspace--\thinspace & \thinspace--\thinspace & \thinspace--\thinspace &  \thinspace--\thinspace\cr
+\textrm{Right Child} & 2  & 4 & 6 & 8 & 10 & \thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &
+\thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr 
 \hline
-\textrm{Left Sibling} & \thinspace--\thinspace & \thinspace--\thinspace & 1 & \thinspace--\thinspace &  3 & \thinspace--\thinspace & 5 &
-\thinspace--\thinspace & 7 & \thinspace--\thinspace &  9 &  \thinspace--\thinspace\cr
+\textrm{Left Sibling} & \thinspace --\thinspace  & \thinspace --\thinspace  & 1 & \thinspace --\thinspace  &  3 & \thinspace --\thinspace  & 5 &
+\thinspace --\thinspace  & 7 & \thinspace --\thinspace  &  9 &  \thinspace --\thinspace \cr 
 \hline
-\textrm{Right Sibling} & \thinspace--\thinspace & 2 & \thinspace--\thinspace & 4 & \thinspace--\thinspace &  6 & \thinspace--\thinspace & 8 &
-\thinspace--\thinspace & 10 & \thinspace--\thinspace & \thinspace--\thinspace\cr
+\textrm{Right Sibling} & \thinspace --\thinspace  & 2 & \thinspace --\thinspace  & 4 & \thinspace --\thinspace  &  6 & \thinspace --\thinspace  & 8 &
+\thinspace --\thinspace  & 10 & \thinspace --\thinspace  & \thinspace --\thinspace \cr 
 \hline&&&&&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -3880,20 +3880,20 @@ Relative frequencies for the 26 letters of the alphabet as they appear in a sele
 <a id="equation-huffman-0"></a>
 $$
 \begin{aligned}\begin{array}{c|c|c|c}
-\textbf{Letter}&\textbf{Frequency}&\textbf{Letter}&\textbf{Frequency}\cr
-\textrm A & 77 & N & 67\cr
-\textrm B & 17 & O & 67\cr
-\textrm C & 32 & P & 20\cr
-\textrm D & 42 & Q &  5\cr
-\textrm E &120 & R & 59\cr
-\textrm F & 24 & S & 67\cr
-\textrm G & 17 & T & 85\cr
-\textrm H & 50 & U & 37\cr
-\textrm I & 76 & V & 12\cr
-\textrm J &  4 & W & 22\cr
-\textrm K &  7 & X &  4\cr
-\textrm L & 42 & Y & 22\cr
-\textrm M & 24 & Z &  2\cr\end{array}\end{aligned}
+\textbf{Letter}&\textbf{Frequency}&\textbf{Letter}&\textbf{Frequency}\cr 
+\textrm A & 77 & N & 67\cr 
+\textrm B & 17 & O & 67\cr 
+\textrm C & 32 & P & 20\cr 
+\textrm D & 42 & Q &  5\cr 
+\textrm E &120 & R & 59\cr 
+\textrm F & 24 & S & 67\cr 
+\textrm G & 17 & T & 85\cr 
+\textrm H & 50 & U & 37\cr 
+\textrm I & 76 & V & 12\cr 
+\textrm J &  4 & W & 22\cr 
+\textrm K &  7 & X &  4\cr 
+\textrm L & 42 & Y & 22\cr 
+\textrm M & 24 & Z &  2\cr \end{array}\end{aligned}
 $$
 
 If some characters are used more frequently than others, is it possible to take advantage of this fact and somehow assign them shorter codes? The price could be that other characters require longer codes, but this might be worthwhile if such characters appear rarely enough. This concept is at the heart of file compression techniques in common use today. The next section presents one such approach to assigning [variable-length codes](Glossary.md#term-variable-length-coding), called [Huffman coding](Glossary.md#term-huffman-codes). While it is not commonly used in its simplest form for file compression (there are better methods), Huffman coding gives the flavor of such coding schemes. One motivation for studying Huffman coding is because it provides our first opportunity to see a type of tree structure referred to as a [search trie](Glossary.md#term-search-trie).
@@ -3913,8 +3913,8 @@ The relative frequencies for eight selected letters.
 $$
 \begin{aligned}\begin{array}{|c|cccccccc|}
 \hline
-\textrm Letter & C & D & E & K & L & M & U & Z\cr
-\textrm Frequency & 32 & 42 & 120 & 7 & 42 & 24 & 37 & 2\cr
+\textrm Letter & C & D & E & K & L & M & U & Z\cr 
+\textrm Frequency & 32 & 42 & 120 & 7 & 42 & 24 & 37 & 2\cr 
 \hline&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -4234,7 +4234,7 @@ In this module we will examine general tree terminology and define a basic ADT f
 <a id="general-tree-definitions-and-terminology"></a>
 ### 8.1.1.1. General Tree Definitions and Terminology
 
-A [tree](Glossary.md#term-tree) $\mathbf{T}$ is a finite set of one or more nodes such that there is one designated node $R$, called the root of $\mathbf{T}$. If the set $(\mathbf{T} -\lbraceR\rbrace)$ is not empty, these nodes are partitioned into $n > 0$ disjoint sets $\mathbf{T}_0$, $\mathbf{T}_1$, …, $\mathbf{T}_{n-1}$, each of which is a tree, and whose roots $R_1, R_2, ..., R_n$, respectively, are children of $R$. The subsets $\mathbf{T}_i (0 \leq i < n)$ are said to be [subtrees](Glossary.md#term-subtree) of $\mathbf{T}$. These subtrees are ordered in that $\mathbf{T}_i$ is said to come before $\mathbf{T}_j$ if $i < j$. By convention, the subtrees are arranged from left to right with subtree $\mathbf{T}_0$ called the leftmost child of $R$. A node’s [out degree](Glossary.md#term-out-degree) is the number of children for that node. A [forest](Glossary.md#term-forest) is a collection of one or more trees. Figure [8.1.1](GenTreeIntro.md#gentreefig) presents further tree notation generalized from the notation for binary trees.
+A [tree](Glossary.md#term-tree) $\mathbf{T}$ is a finite set of one or more nodes such that there is one designated node $R$, called the root of $\mathbf{T}$. If the set $(\mathbf{T} -\lbrace R\rbrace )$ is not empty, these nodes are partitioned into $n > 0$ disjoint sets $\mathbf{T}_0$, $\mathbf{T}_1$, …, $\mathbf{T}_{n-1}$, each of which is a tree, and whose roots $R_1, R_2, ..., R_n$, respectively, are children of $R$. The subsets $\mathbf{T}_i (0 \leq i < n)$ are said to be [subtrees](Glossary.md#term-subtree) of $\mathbf{T}$. These subtrees are ordered in that $\mathbf{T}_i$ is said to come before $\mathbf{T}_j$ if $i < j$. By convention, the subtrees are arranged from left to right with subtree $\mathbf{T}_0$ called the leftmost child of $R$. A node’s [out degree](Glossary.md#term-out-degree) is the number of children for that node. A [forest](Glossary.md#term-forest) is a collection of one or more trees. Figure [8.1.1](GenTreeIntro.md#gentreefig) presents further tree notation generalized from the notation for binary trees.
 
 Each node in a tree has precisely one parent, except for the root, which has no parent. From this observation, it immediately follows that a tree with $n$ nodes must have $n-1$ edges because each node, aside from the root, has one edge connecting that node to its parent.
 
@@ -6232,15 +6232,15 @@ Here is a summary for the cost of Insertion Sort, Bubble Sort, and Selection Sor
 <a id="equation-exchangesort-0"></a>
 $$
 \begin{aligned}\begin{array}{rccc}
-&\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\cr
-\textbf{Comparisons:}&&&\cr
-\textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\cr
-\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr
-\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr\cr
-\textbf{Swaps:}&&&\cr
-\textrm{Best Case}&0&0&\Theta(n)\cr
-\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr
-\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr\end{array}\end{aligned}
+&\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\cr 
+\textbf{Comparisons:}&&&\cr 
+\textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\cr 
+\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr 
+\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr \cr 
+\textbf{Swaps:}&&&\cr 
+\textrm{Best Case}&0&0&\Theta(n)\cr 
+\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr 
+\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr \end{array}\end{aligned}
 $$
 
 The remaining sorting algorithms presented in this tutorial are significantly better than these three under typical conditions. But before continuing on, it is instructive to investigate what makes these three sorts so slow. The crucial bottleneck is that only *adjacent* records are compared. Thus, comparisons and moves (for Insertion and Bubble Sort) are by single steps. Swapping adjacent records is called an [exchange](Glossary.md#term-exchange). Thus, these sorts are sometimes referred to as an [exchange sort](Glossary.md#term-exchange-sort). The cost of any exchange sort can be at best the total number of steps that the records in the array must move to reach their “correct” location. Recall that this is at least the number of inversions for the record, where an inversion occurs when a record with key value greater than the current record’s key value appears before it.
@@ -6283,19 +6283,19 @@ $$
 \begin{aligned}\begin{array}{l|rrrr}
 \hline
 \textbf{Sort} & \textbf{Java}& \textbf{Processing} & \textbf{JavaScript}&
-\textbf{Python}\cr
+\textbf{Python}\cr 
 \hline
-\textbf{Insertion Sort}&&&&\cr
-\textrm{Standard}    &  60 &  26 & 118 & 11,220\cr
-\textrm{Shifting}    &  41 &  18 &  77 &  5,100\cr
+\textbf{Insertion Sort}&&&&\cr 
+\textrm{Standard}    &  60 &  26 & 118 & 11,220\cr 
+\textrm{Shifting}    &  41 &  18 &  77 &  5,100\cr 
 \hline
-\textbf{Bubble Sort}&&&&\cr
-\textrm{Standard}    & 202 & 149 & 303 & 12,700\cr
-\textrm{Check Swaps} & 230 & 152 & 327 & 13,275\cr
+\textbf{Bubble Sort}&&&&\cr 
+\textrm{Standard}    & 202 & 149 & 303 & 12,700\cr 
+\textrm{Check Swaps} & 230 & 152 & 327 & 13,275\cr 
 \hline
-\textbf{Selection Sort}&&&&\cr
-\textrm{Standard}    & 104 &  65 & 158 &  4,000\cr
-\textrm{Check Swaps} & 104 &  65 & 155 &  4,050\cr
+\textbf{Selection Sort}&&&&\cr 
+\textrm{Standard}    & 104 &  65 & 158 &  4,000\cr 
+\textrm{Check Swaps} & 104 &  65 & 155 &  4,050\cr 
 \hline&&&&\end{array}\end{aligned}
 $$
 
@@ -6812,21 +6812,21 @@ $$
 \begin{aligned}\begin{array}{l|rrrrrrrr}
 \hline
 \textbf{Sort} & \textbf{10}& \textbf{100} & \textbf{1K}&
-\textbf{10K} & \textbf{100K}& \textbf{1M}& \textbf{Up} & \textbf{Down}\cr
+\textbf{10K} & \textbf{100K}& \textbf{1M}& \textbf{Up} & \textbf{Down}\cr 
 \hline
-\textrm{Insertion} & .00023 & .007 & 0.66 &  64.98 &  7381.0 &  674420 & 0.04 & 129.05\cr
-\textrm{Bubble}    & .00035 & .020 & 2.25 & 277.94 & 27691.0 & 2820680 &  70.64 & 108.69\cr
-\textrm{Selection} & .00039 & .012 & 0.69 &  72.47 &  7356.0 &  780000 &  69.76 &  69.58\cr
-\textrm{Shell}     & .00034 & .008 & 0.14 &   1.99 &    30.2 &     554 &   0.44 &   0.79\cr
-\textrm{Shell/O}   & .00034 & .008 & 0.12 &   1.91 &    29.0 &     530 &   0.36 &   0.64\cr
-\textrm{Merge}     & .00050 & .010 & 0.12 &   1.61 &    19.3 &     219 &   0.83 &   0.79\cr
-\textrm{Merge/O}   & .00024 & .007 & 0.10 &   1.31 &    17.2 &     197 &   0.47 &   0.66\cr
-\textrm{Quick}     & .00048 & .008 & 0.11 &   1.37 &    15.7 &     162 &   0.37 &   0.40\cr
-\textrm{Quick/O}   & .00031 & .006 & 0.09 &   1.14 &    13.6 &     143 &   0.32 &   0.36\cr
-\textrm{Heap}      & .00050 & .011 & 0.16 &   2.08 &    26.7 &     391 &   1.57 &   1.56\cr
-\textrm{Heap/O}    & .00033 & .007 & 0.11 &   1.61 &    20.8 &     334 &   1.01 &   1.04\cr
-\textrm{Radix/4}   & .00838 & .081 & 0.79 &   7.99 &    79.9 &     808 &   7.97 &   7.97\cr
-\textrm{Radix/8}   & .00799 & .044 & 0.40 &   3.99 &    40.0 &     404 &   4.00 &   3.99\cr
+\textrm{Insertion} & .00023 & .007 & 0.66 &  64.98 &  7381.0 &  674420 & 0.04 & 129.05\cr 
+\textrm{Bubble}    & .00035 & .020 & 2.25 & 277.94 & 27691.0 & 2820680 &  70.64 & 108.69\cr 
+\textrm{Selection} & .00039 & .012 & 0.69 &  72.47 &  7356.0 &  780000 &  69.76 &  69.58\cr 
+\textrm{Shell}     & .00034 & .008 & 0.14 &   1.99 &    30.2 &     554 &   0.44 &   0.79\cr 
+\textrm{Shell/O}   & .00034 & .008 & 0.12 &   1.91 &    29.0 &     530 &   0.36 &   0.64\cr 
+\textrm{Merge}     & .00050 & .010 & 0.12 &   1.61 &    19.3 &     219 &   0.83 &   0.79\cr 
+\textrm{Merge/O}   & .00024 & .007 & 0.10 &   1.31 &    17.2 &     197 &   0.47 &   0.66\cr 
+\textrm{Quick}     & .00048 & .008 & 0.11 &   1.37 &    15.7 &     162 &   0.37 &   0.40\cr 
+\textrm{Quick/O}   & .00031 & .006 & 0.09 &   1.14 &    13.6 &     143 &   0.32 &   0.36\cr 
+\textrm{Heap}      & .00050 & .011 & 0.16 &   2.08 &    26.7 &     391 &   1.57 &   1.56\cr 
+\textrm{Heap/O}    & .00033 & .007 & 0.11 &   1.61 &    20.8 &     334 &   1.01 &   1.04\cr 
+\textrm{Radix/4}   & .00838 & .081 & 0.79 &   7.99 &    79.9 &     808 &   7.97 &   7.97\cr 
+\textrm{Radix/8}   & .00799 & .044 & 0.40 &   3.99 &    40.0 &     404 &   4.00 &   3.99\cr 
 \hline&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -6985,10 +6985,10 @@ What happens to the equation if we assume all the $p_i$ ‘s are equal (except $
 
 <a id="equation-unsortedsearch-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\cr
-&=  p_n n + p\sum_{i=1}^n i\cr
-&=  p_n n + p\frac{n(n+1)}{2}\cr
-&=  p_n n + \frac{1 - p_n}{n}\frac{n(n+1)}{2}\cr
+\begin{aligned}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\cr 
+&=  p_n n + p\sum_{i=1}^n i\cr 
+&=  p_n n + p\frac{n(n+1)}{2}\cr 
+&=  p_n n + \frac{1 - p_n}{n}\frac{n(n+1)}{2}\cr 
 &=  \frac{n + 1 + p_n(n-1)}{2}\end{aligned}
 $$
 
@@ -7065,8 +7065,8 @@ What is the best value that we can pick for $j$? We want to minimize the cost:
 
 <a id="equation-sortedsearch-1"></a>
 $$
-\min_{1 \leq j \leq n} \left\lbrace\left\lfloor\frac{n}{j}\right\rfloor +
-j - 1\right\rbrace
+\min_{1 \leq j \leq n} \left\lbrace \left\lfloor\frac{n}{j}\right\rfloor +
+j - 1\right\rbrace 
 $$
 
 Take the derivative and solve for $f'(j) = 0$ to find the minimum, which is $j = \sqrt{n}$. In this case, the worst case cost will be roughly $2\sqrt{n}$.
@@ -7088,9 +7088,9 @@ If we are willing to be casual about our analysis, we can reason that we look at
 
 <a id="equation-sortedsearch-2"></a>
 $$
-\begin{aligned}f(n) = \left\lbrace
+\begin{aligned}f(n) = \left\lbrace 
 \begin{array}{ll}
-1 & n=1\cr
+1 & n=1\cr 
 f(\lfloor n/2 \rfloor) + 1 & n > 1\end{array}
 \right.\end{aligned}
 $$
@@ -7102,9 +7102,9 @@ This recurrence is fairly easy to solve via expansion:
 <a id="equation-sortedsearch-3"></a>
 $$
 \begin{aligned}
-f(n) &=  f(n/2) + 1\cr
-&=  \lbracef(n/4) + 1\rbrace + 1\cr
-&=  \lbrace\lbracef(n/8) + 1\rbrace + 1\rbrace + 1
+f(n) &=  f(n/2) + 1\cr 
+&=  \lbrace f(n/4) + 1\rbrace  + 1\cr 
+&=  \lbrace \lbrace f(n/8) + 1\rbrace  + 1\rbrace  + 1
 \end{aligned}
 $$
 
@@ -7122,8 +7122,8 @@ By the IH, $f(n/2) = \log(n/2) + 1$.
 <a id="equation-sortedsearch-5"></a>
 $$
 \begin{aligned}
-f(n/2) + 1 &=  (\log(n/2) + 1) + 1\cr
-&=  (\log n - 1 + 1) + 1\cr
+f(n/2) + 1 &=  (\log(n/2) + 1) + 1\cr 
+&=  (\log n - 1 + 1) + 1\cr 
 &=  \log n + 1 = f(n).
 \end{aligned}
 $$
@@ -7157,8 +7157,8 @@ To solve the summation:
 $$
 \begin{aligned}
 \sum_{i=1}^k i2^{i-1} &=  \sum_{i=0}^{k-1}(i+1)2^i
-= \sum_{i=0}^{k-1} i 2^i + \sum_{i=0}^{k-1} 2^i\cr
-&=  2 \sum_{i=0}^{k-1} i 2^{i-1} + 2^k - 1\cr
+= \sum_{i=0}^{k-1} i 2^i + \sum_{i=0}^{k-1} 2^i\cr 
+&=  2 \sum_{i=0}^{k-1} i 2^{i-1} + 2^k - 1\cr 
 &=  2 \sum_{i=1}^{k} i 2^{i-1} - k 2^k + 2^k - 1
 \end{aligned}
 $$
@@ -7184,7 +7184,7 @@ So,
 <a id="equation-sortedsearch-10"></a>
 $$
 \begin{aligned}
-\sum_{i=1}^k i 2^{i-1} &=  k2^k - 2^k +1\cr
+\sum_{i=1}^k i 2^{i-1} &=  k2^k - 2^k +1\cr 
 &=  (k-1)2^k +1
 \end{aligned}
 $$
@@ -7195,8 +7195,8 @@ Now we come back to solving the original equation. Since we have a closed-form s
 $$
 \begin{aligned}
 \frac{1}{n}\sum_{i=1}^{\log n}i 2^{i-1} &= 
-\frac{(\log n - 1)2^{\log n} + 1}{n}\cr
-&=  \frac{n (\log n -1) + 1}{n}\cr
+\frac{(\log n - 1)2^{\log n} + 1}{n}\cr 
+&=  \frac{n (\log n -1) + 1}{n}\cr 
 &\approx  \log n - 1
 \end{aligned}
 $$
@@ -7207,13 +7207,13 @@ If we want to relax the assumption that $n = 2^k - 1$, we get this as the exact 
 
 <a id="equation-sortedsearch-12"></a>
 $$
-\begin{aligned}f(n) = \left\lbrace
+\begin{aligned}f(n) = \left\lbrace 
 \begin{array}{ll}
-0 & n=0\cr
-1 & n=1\cr
+0 & n=0\cr 
+1 & n=1\cr 
 \frac{\lceil \frac{n}{2} \rceil - 1}{n}f(\lceil \frac{n}{2}
 \rceil - 1) +
-\frac{1}{n} 0\ +&\cr
+\frac{1}{n} 0\ +&\cr 
 \frac{\lfloor \frac{n}{2} \rfloor}{n}f(\lfloor \frac{n}{2} \rfloor) + 1&
 n > 1\end{array}
 \right.\end{aligned}
@@ -7263,7 +7263,7 @@ Say that the number of comparisons needed is $i$, in which case the cost is $i$ 
 
 <a id="equation-sortedsearch-15"></a>
 $$
-\begin{aligned}\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\cr
+\begin{aligned}\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\cr 
 = 1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
   \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
 $$
@@ -7278,10 +7278,10 @@ $$
 <a id="equation-sortedsearch-17"></a>
 $$
 \begin{aligned}&=  1 + (1-\mathbf{P}_1) + (1-\mathbf{P}_1-\mathbf{P}_2) +
-    \cdots + \mathbf{P}_{\sqrt{n}}\cr
+    \cdots + \mathbf{P}_{\sqrt{n}}\cr 
 &=  (\mathbf{P}_1 + ... + \mathbf{P}_{\sqrt{n}}) +
- (\mathbf{P}_2 + ... + \mathbf{P}_{\sqrt{n}}) +\cr
-& \qquad    (\mathbf{P}_3 + ... + \mathbf{P}_{\sqrt{n}}) + \cdots\cr
+ (\mathbf{P}_2 + ... + \mathbf{P}_{\sqrt{n}}) +\cr 
+& \qquad    (\mathbf{P}_3 + ... + \mathbf{P}_{\sqrt{n}}) + \cdots\cr 
 &=  1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
     \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
 $$
@@ -7315,13 +7315,13 @@ Is QBS better than binary search? Theoretically yes, because $O(\log \log n)$ gr
 <a id="equation-sortedsearch-21"></a>
 $$
 \begin{aligned}\begin{array}{llll}
-&&&{\rm Factor}\cr
-n  &\log n&\log \log n&{\rm Difference}\cr
+&&&{\rm Factor}\cr 
+n  &\log n&\log \log n&{\rm Difference}\cr 
 \hline
-16 &4    &2        &2\cr
-256&8    &3        &2.7\cr
-2^{16}&16   &4        &4\cr
-2^{32}&32  &5      &6.4\cr\end{array}\end{aligned}
+16 &4    &2        &2\cr 
+256&8    &3        &2.7\cr 
+2^{16}&16   &4        &4\cr 
+2^{32}&32  &5      &6.4\cr \end{array}\end{aligned}
 $$
 
 It is not always practical to reduce an algorithm’s growth rate. There is a “practicality window” for every problem, in that we have a practical limit to how big an input we wish to solve for. If our problem size never grows too big, it might not matter if we can reduce the cost by an extra log factor, because the constant factors in the two algorithms might differ by more than the log of the log of the input size.
@@ -7331,12 +7331,12 @@ For our two algorithms, let us look further and check the actual number of compa
 <a id="equation-sortedsearch-22"></a>
 $$
 \begin{aligned}\begin{array}{llll}
-&&&{\rm Factor}\cr
-n  &\log n -1&2.4 \log \log n&{\rm Difference}\cr
+&&&{\rm Factor}\cr 
+n  &\log n -1&2.4 \log \log n&{\rm Difference}\cr 
 \hline
-16&3&4.8&{\rm worse}\cr
-256&7&7.2&\approx {\rm same}\cr
-64K&15&9.6&1.6\cr
+16&3&4.8&{\rm worse}\cr 
+256&7&7.2&\approx {\rm same}\cr 
+64K&15&9.6&1.6\cr 
 2^{32}&31&12&2.6\end{array}\end{aligned}
 $$
 
@@ -7394,8 +7394,8 @@ Calculate the expected cost for searching a list ordered by frequency when the p
 
 <a id="equation-selforg-3"></a>
 $$
-\begin{aligned}p_i = \left\lbrace \begin{array}{ll}
-  1/2^i & \text{if \(0 \leq i \leq n-2\)}\cr
+\begin{aligned}p_i = \left\lbrace  \begin{array}{ll}
+  1/2^i & \text{if \(0 \leq i \leq n-2\)}\cr 
   1/2^n & \text{if \(i = n-1\).}\end{array} \right.\end{aligned}
 $$
 
@@ -7560,7 +7560,7 @@ The approach shown above to designing an algorithm that works by storing a table
 
 We will next consider a problem that appears with many variations in a variety of commercial settings. Many businesses need to package items with the greatest efficiency. One way to describe this basic idea is in terms of packing items into a knapsack, and so we will refer to this as the [Knapsack Problem](Glossary.md#term-knapsack-problem). We will first define a particular formulation of the knapsack problem, and then we will discuss an algorithm to solve it based on dynamic programming. There are many other versions for the problem
 
-Assume that we have a knapsack with a certain amount of space that we will define using integer value $K$. We also have $n$ items each with a certain size such that that item $i$ has integer size $k_i$. The problem is to find a subset of the $n$ items whose sizes exactly sum to $K$, if one exists. For example, if our knapsack has capacity $K = 5$ and the two items are of size $k_1 = 2$ and $k_2 = 4$, then no such subset exists. But if we add a third item of size $k_3 = 1$, then we can fill the knapsack exactly with the second and third items. We can define the problem more formally as: Find $S \subset \lbrace1, 2, ..., n\rbrace$ such that
+Assume that we have a knapsack with a certain amount of space that we will define using integer value $K$. We also have $n$ items each with a certain size such that that item $i$ has integer size $k_i$. The problem is to find a subset of the $n$ items whose sizes exactly sum to $K$, if one exists. For example, if our knapsack has capacity $K = 5$ and the two items are of size $k_1 = 2$ and $k_2 = 4$, then no such subset exists. But if we add a third item of size $k_3 = 1$, then we can fill the knapsack exactly with the second and third items. We can define the problem more formally as: Find $S \subset \lbrace 1, 2, ..., n\rbrace $ such that
 
 <a id="equation-dynamicprogramming-0"></a>
 $$
@@ -7603,13 +7603,13 @@ Solve the Knapsack Problem for $K = 10$ and five items with sizes 9, 2, 7, 4, 1.
 <a id="equation-dynamicprogramming-1"></a>
 $$
 \begin{aligned}\begin{array}{l|ccccccccccc}
-&0&1&2&3&4&5&6&7&8&9&10\cr
+&0&1&2&3&4&5&6&7&8&9&10\cr 
 \hline
-k_1\negthinspace=\negthinspace9&O&-&-&-&-&-&-&-&-&I&-\cr
-k_2\negthinspace=\negthinspace2&O&-&I&-&-&-&-&-&-&O&-\cr
-k_3\negthinspace=\negthinspace7&O&-&O&-&-&-&-&I&-&I/O&-\cr
-k_4\negthinspace=\negthinspace4&O&-&O&-&I&-&I&O&-&O&-\cr
-k_5\negthinspace=\negthinspace1&O&I&O&I&O&I&O&I/O&I&O&I\end{array}\end{aligned}
+k_1\negthinspace =\negthinspace 9&O&-&-&-&-&-&-&-&-&I&-\cr 
+k_2\negthinspace =\negthinspace 2&O&-&I&-&-&-&-&-&-&O&-\cr 
+k_3\negthinspace =\negthinspace 7&O&-&O&-&-&-&-&I&-&I/O&-\cr 
+k_4\negthinspace =\negthinspace 4&O&-&O&-&I&-&I&O&-&O&-\cr 
+k_5\negthinspace =\negthinspace 1&O&I&O&I&O&I&O&I/O&I&O&I\end{array}\end{aligned}
 $$
 
 Key:  
@@ -7632,14 +7632,14 @@ Another approach is to implement the matrix as an orthogonal list. Consider the 
 <a id="equation-sparse-0"></a>
 $$
 \begin{aligned}\begin{array}{rrrrrrr}
-10&23&0 &0 &0&0&19\cr
-45&5 &0 &93&0&0&0\cr
-0 &0 &0 &0 &0&0&0\cr
-0 &0 &0 &0 &0&0&0\cr
-40&0 &0 &0 &0&0&0\cr
-0 &0 &0 &0 &0&0&0\cr
-0 &0 &0 &0 &0&0&0\cr
-0 &32&0 &12&0&0&7\cr\end{array}\end{aligned}
+10&23&0 &0 &0&0&19\cr 
+45&5 &0 &93&0&0&0\cr 
+0 &0 &0 &0 &0&0&0\cr 
+0 &0 &0 &0 &0&0&0\cr 
+40&0 &0 &0 &0&0&0\cr 
+0 &0 &0 &0 &0&0&0\cr 
+0 &0 &0 &0 &0&0&0\cr 
+0 &32&0 &12&0&0&7\cr \end{array}\end{aligned}
 $$
 
 The corresponding orthogonal array is shown in the Figure. Here we have a list of row headers, each of which contains a pointer to a list of matrix records. A second list of column headers also contains pointers to matrix records. Each non-zero matrix element stores pointers to its non-zero neighbors in the row, both following and preceding it. Each non-zero element also stores pointers to its non-zero neighbors following and preceding it in the column. Thus, each non-zero element stores its own value, its position within the matrix, and four pointers. Non-zero elements are found by traversing a row or column list. Note that the first non-zero element in a given row could be in any column; likewise, the neighboring non-zero element in any row or column list could be at any (higher) row or column in the array.
@@ -7665,9 +7665,9 @@ Another representation for sparse matrices is sometimes called the Yale represen
 <a id="equation-sparse-1"></a>
 $$
 \begin{aligned}\begin{array}{ll}
-Values:& 10\ 45\ 40\ 23\ 5\ 32\ 93\ 12\ 19\ 7\cr
-Column starts:& 0\ 3\ 5\ 5\ 7\ 7\ 7\ 7\cr
-Row positions:& 0\ 1\ 4\ 0\ 1\ 7\ 1\ 7\ 0\ 7\cr\end{array}\end{aligned}
+Values:& 10\ 45\ 40\ 23\ 5\ 32\ 93\ 12\ 19\ 7\cr 
+Column starts:& 0\ 3\ 5\ 5\ 7\ 7\ 7\ 7\cr 
+Row positions:& 0\ 1\ 4\ 0\ 1\ 7\ 1\ 7\ 0\ 7\cr \end{array}\end{aligned}
 $$
 
 If the matrix has $c$ columns, then the total space required will be proportional to $c + 2 NNZ$. This is good in terms of space. It allows fairly quick access to any column, and allows for easy processing of the non-zero values along a column. However, it does not do a good job of providing access to the values along a row, and is terrible when values need to be added or removed from the representation. Fortunately, when doing computations such as adding or multiplying two sparse matrices, the processing of the input matrices and construction of the output matrix can be done reasonably efficiently.
@@ -7816,9 +7816,9 @@ The cost of this algorithm can be modeled by the following recurrence.
 
 <a id="equation-boundstate-0"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace\begin{array}{ll}
-             0       & n = 1\cr
-             1       & n = 2\cr
+\begin{aligned}\mathbf{T}(n) = \left\lbrace \begin{array}{ll}
+             0       & n = 1\cr 
+             1       & n = 2\cr 
              {\bf T}(\lfloor n/2 \rfloor) + {\bf T}(\lceil n/2
              \rceil) + 2    & n > 2\end{array}
      \right.\end{aligned}
@@ -7832,21 +7832,21 @@ We can model all possible divide-and-conquer strategies for this problem with th
 
 <a id="equation-boundstate-1"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace
+\begin{aligned}\mathbf{T}(n) = \left\lbrace 
 \begin{array}{ll}
-0&n=1\cr
-1&n=2\cr
-\min_{1\leq k\leq n-1} \lbrace{\bf T}(k) + {\bf T}(n-k)\rbrace + 2&n>2\end{array}\right.\end{aligned}
+0&n=1\cr 
+1&n=2\cr 
+\min_{1\leq k\leq n-1} \lbrace {\bf T}(k) + {\bf T}(n-k)\rbrace  + 2&n>2\end{array}\right.\end{aligned}
 $$
 
 That is, we want to find a way to break up the list that will minimize the total work. If we examine various ways of breaking up small lists, we will eventually recognize that breaking the list into a sublist of size 2 and a sublist of size (n-2) will always produce results as good as any other division. This strategy yields the following recurrence.
 
 <a id="equation-boundstate-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace
+\begin{aligned}\mathbf{T}(n) = \left\lbrace 
 \begin{array}{ll}
-0&n=1\cr
-1&n=2\cr
+0&n=1\cr 
+1&n=2\cr 
 {\bf T}(n-2) + 3&n>2\end{array}\right.\end{aligned}
 $$
 
@@ -7868,14 +7868,14 @@ Given that there are four types of elements, there are 10 types of comparison. C
 <a id="equation-boundstate-3"></a>
 $$
 \begin{aligned}\begin{array}{lllll}
-U:U&(i-2,&j+1,&k+1,&l)\cr
-W:W&(i,&j-1,&k,&l+1)\cr
-L:L&(i,&j,&k-1,&l+1)\cr
-L:U&(i-1,&j+1,&k,&l)\cr
-\quad or&(i-1,&j,&k,&l+1)\cr
-W:U&(i-1,&j,&k+1,&l)\cr
-\quad or&(i-1,&j,&k,&l+1)\cr
-W:L&(i,&j,&k,&l)\cr
+U:U&(i-2,&j+1,&k+1,&l)\cr 
+W:W&(i,&j-1,&k,&l+1)\cr 
+L:L&(i,&j,&k-1,&l+1)\cr 
+L:U&(i-1,&j+1,&k,&l)\cr 
+\quad or&(i-1,&j,&k,&l+1)\cr 
+W:U&(i-1,&j,&k+1,&l)\cr 
+\quad or&(i-1,&j,&k,&l+1)\cr 
+W:L&(i,&j,&k,&l)\cr 
 \quad or&(i,&j-1,&k-1,&l+2)\end{array}\end{aligned}
 $$
 
@@ -7884,11 +7884,11 @@ Now, let us consider what an adversary will do for the various comparisons. The 
 <a id="equation-boundstate-4"></a>
 $$
 \begin{aligned}\begin{array}{lllll}
-U:U&(i-2,&j+1,&k+1,&l)\cr
-L:U&(i-1,&j+1,&k,&l)\cr
-W:U&(i-1,&j,&k+1,&l)\cr
+U:U&(i-2,&j+1,&k+1,&l)\cr 
+L:U&(i-1,&j+1,&k,&l)\cr 
+W:U&(i-1,&j,&k+1,&l)\cr 
 \hline
-W:W&(i,&j-1,&k,&l+1)\cr
+W:W&(i,&j-1,&k,&l+1)\cr 
 L:L&(i,&j,&k-1,&l+1)\end{array}\end{aligned}
 $$
 
@@ -7941,9 +7941,9 @@ $$
 \begin{aligned}
 \mathbf{T}(n) &\leq  {\bf T}(\lceil \frac{n}{5} \rceil) +
         \mathbf{T}(\lceil \frac{7n - 5}{10}\rceil) +
-        6\lceil \frac{n}{5} \rceil + n - 1\cr
-&\leq r(\frac{n}{5} + 1) + r(\frac{7n-5}{10} + 1) + 6(\frac{n}{5} + 1) + n - 1\cr
-&\leq (\frac{r}{5} + \frac{7r}{10} + \frac{11}{5})n + \frac{3r}{2} + 5\cr
+        6\lceil \frac{n}{5} \rceil + n - 1\cr 
+&\leq r(\frac{n}{5} + 1) + r(\frac{7n-5}{10} + 1) + 6(\frac{n}{5} + 1) + n - 1\cr 
+&\leq (\frac{r}{5} + \frac{7r}{10} + \frac{11}{5})n + \frac{3r}{2} + 5\cr 
 &\leq \frac{9r + 22}{10}n + \frac{3r + 10}{2}.
 \end{aligned}
 $$
