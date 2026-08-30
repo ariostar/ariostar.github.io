@@ -3,10 +3,9 @@ title: OpenDSA TDDI16F25 数据结构与算法（数据结构和算法设计）
 date: 2026-08-30 12:00:00
 tags: [算法, 数据结构, OpenDSA]
 categories: [算法]
-mathjax: true
 nunjucks: false
+mathjax: true
 ---
-
 # OpenDSA TDDI16F25 数据结构与算法（数据结构和算法设计）
 
 *本文件由 https://www.ida.liu.se/opendsa/Books/TDDI16F25/html/ 的网页转换而来；公式为 KaTeX 格式，代码优先采用 Java (Generic)。每个章节也有独立的 Markdown 文件，见本目录。*
@@ -17760,9 +17759,9 @@ The latter graphical representation is called a dependency graph, and
 was obtained from the recursion tree by joining different occurrences
 of the same recursive call, preserving their corresponding arcs.
 
-![img/FibTree.png](tddi16f25.img/FibTree.png)
+![tddi16f25.img/FibTree.png](tddi16f25.img/FibTree.png)
 
-![img/FibGraph.png](tddi16f25.img/FibGraph.png)
+![tddi16f25.img/FibGraph.png](tddi16f25.img/FibGraph.png)
 
 Note that the dependency graph was laid out on in a one dimensional
 table of size 9, corresponding to the unique subproblems invoked by
