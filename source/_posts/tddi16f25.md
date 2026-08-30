@@ -4,6 +4,7 @@ date: 2026-08-30 12:00:00
 tags: [算法, 数据结构, OpenDSA]
 categories: [算法]
 mathjax: true
+nunjucks: false
 ---
 
 # OpenDSA TDDI16F25 数据结构与算法（数据结构和算法设计）
