@@ -505,7 +505,7 @@ Mathematical induction can be used to prove a wide variety of theorems. Inductio
 
 Within the context of algorithm analysis, one of the most important uses for mathematical induction is as a method to test a hypothesis. When [seeking a closed-form solution](#term-closed-form-solution) for a [summation](#term-summation) or [recurrence](#term-recurrence-relation), we might first guess or otherwise acquire evidence that a particular formula is the correct solution. If the formula is indeed correct, it is often an easy matter to prove that fact with an induction proof.
 
-Let **Thrm** be a theorem to prove, and express **Thrm** in terms of a positive integer parameter $n$. Mathematical induction states that **Thrm** is true for any value of parameter $n$ (for $n \geq c$, where c is some constant) if the following two conditions are true:
+Let **Thrm** be a theorem to prove, and express **Thrm** in terms of a positive integer parameter $n$. Mathematical induction states that **Thrm** is true for any value of parameter $n$ (for $n \geq c$, where *c* is some constant) if the following two conditions are true:
 
 1. [Base Case](#term-base-case): **Thrm** holds for $n = c$, and
 2. [Induction Step](#term-induction-step): If **Thrm** holds for $n - 1$, then **Thrm** holds for $n$.
@@ -649,7 +649,7 @@ We would like to prove that function `fact` does indeed compute the factorial fu
 
 **Theorem:** Function `fact` does compute the factorial function for any value in the range 0 to 12.
 
-**Proof:** To prove the base case, observe that when $n=0$ or $n=1$, fact(n) returns the correct value of 1. The induction hypothesis is that `fact(n-1)` returns the correct value of (n-1)!. For any value n within the legal range, `fact(n)` returns $n *$ `fact(n-1)`. By the induction hypothesis, `fact(n-1)` $= (n-1)!$, and because $n * (n-1)! = n!$, we have proved that `fact(n)` produces the correct result.
+**Proof:** To prove the base case, observe that when $n=0$ or $n=1$, *fact(n)* returns the correct value of 1. The induction hypothesis is that `fact(n-1)` returns the correct value of *(n-1)!*. For any value *n* within the legal range, `fact(n)` returns $n *$ `fact(n-1)`. By the induction hypothesis, `fact(n-1)` $= (n-1)!$, and because $n * (n-1)! = n!$, we have proved that `fact(n)` produces the correct result.
 
 We can use a similar process to prove many recursive programs correct. The general form is to show that the base cases perform correctly, and then to use the induction hypothesis to show that the recursive step also produces the correct result. Prior to this, we must prove that the function always terminates, which might also be done using an induction proof.
 
@@ -1242,7 +1242,7 @@ This module presents the concept of [amortized analysis](#term-amortized-analysi
 
 We can apply the technique of amortized analysis in the case of a series of sequential searches in an unsorted array. For $n$ random searches, the average-case cost for each search is $n/2$, and so the *expected* total cost for the series is $n^2/2$. Unfortunately, in the worst case all of the searches would be to the last item in the array. In this case, each search costs $n$ for a total worst-case cost of $n^2$. Compare this to the cost for a series of $n$ searches such that each item in the array is searched for precisely once. In this situation, some of the searches *must* be expensive, but also some searches *must* be cheap. The total number of searches, in the best, average, and worst case, for this problem must be $\sum_{i=i}^n i \approx n^2/2$. This is a factor of two better than the more pessimistic analysis that charges each operation in the series with its worst-case cost.
 
-As another example of amortized analysis, consider the process of incrementing a binary counter. The algorithm is to move from the lower-order (rightmost) bit toward the high-order (leftmost) bit, changing 1s to 0s until the first 0 is encountered. This 0 is changed to a 1, and the increment operation is done. Below is an implementation for the increment operation, assuming that a binary number of length $n$ is stored in array A of length $n$.
+As another example of amortized analysis, consider the process of incrementing a binary counter. The algorithm is to move from the lower-order (rightmost) bit toward the high-order (leftmost) bit, changing 1s to 0s until the first 0 is encountered. This 0 is changed to a 1, and the increment operation is done. Below is an implementation for the increment operation, assuming that a binary number of length $n$ is stored in array *A* of length $n$.
 
 ```java
 for (i=0; ((i<A.length) && (A[i] == 1)); i++)
@@ -1259,13 +1259,13 @@ $$
 
 In other words, the average number of bits flipped on each increment is 2, leading to a total cost of only $2 \cdot 2^n$ for a series of $2^n$ increments.
 
-A useful concept for amortized analysis is illustrated by a simple variation on the stack data structure, where the pop function is slightly modified to take a second parameter $k$ indicating that $k$ pop operations are to be performed.
+A useful concept for amortized analysis is illustrated by a simple variation on the stack data structure, where the *pop* function is slightly modified to take a second parameter $k$ indicating that $k$ pop operations are to be performed.
 
-The “local” worst-case analysis for multipop is $\Theta(n)$ for $n$ elements in the stack. Thus, if there are $m_1$ calls to push and $m_2$ calls to multipop, then the naive worst-case cost for the series of operation is $m_1 + m_2\cdot n = m_1 + m_2 \cdot m_1$. This analysis is unreasonably pessimistic. Clearly it is not really possible to pop $m_1$ elements each time multipop is called. Analysis that focuses on single operations cannot deal with this global limit, and so we turn to amortized analysis to model the entire series of operations.
+The “local” worst-case analysis for *multipop* is $\Theta(n)$ for $n$ elements in the stack. Thus, if there are $m_1$ calls to *push* and $m_2$ calls to *multipop*, then the naive worst-case cost for the series of operation is $m_1 + m_2\cdot n = m_1 + m_2 \cdot m_1$. This analysis is unreasonably pessimistic. Clearly it is not really possible to pop $m_1$ elements each time *multipop* is called. Analysis that focuses on single operations cannot deal with this global limit, and so we turn to amortized analysis to model the entire series of operations.
 
-The key to an amortized analysis of this problem lies in the concept of [potential](#term-potential). At any given time, a certain number of items may be on the stack. The cost for multipop can be no more than this number of items. Each call to push places another item on the stack, which can be removed by only a single multipop operation. Thus, each call to push raises the potential of the stack by one item. The sum of costs for all calls to multipop can never be more than the total potential of the stack (aside from a constant time cost associated with each call to multipop itself).
+The key to an amortized analysis of this problem lies in the concept of [potential](#term-potential). At any given time, a certain number of items may be on the stack. The cost for *multipop* can be no more than this number of items. Each call to *push* places another item on the stack, which can be removed by only a single *multipop* operation. Thus, each call to *push* raises the potential of the stack by one item. The sum of costs for all calls to *multipop* can never be more than the total potential of the stack (aside from a constant time cost associated with each call to *multipop* itself).
 
-The amortized cost for any series of push and multipop operations is the sum of three costs. First, each of the push operations takes constant time. Second, each multipop operation takes a constant time in overhead, regardless of the number of items popped on that call. Finally, we count the sum of the potentials expended by all multipop operations, which is at most $m_1$, the number of push operations. This total cost can therefore be expressed as
+The amortized cost for any series of *push* and *multipop* operations is the sum of three costs. First, each of the *push* operations takes constant time. Second, each *multipop* operation takes a constant time in overhead, regardless of the number of items popped on that call. Finally, we count the sum of the potentials expended by all *multipop* operations, which is at most $m_1$, the number of *push* operations. This total cost can therefore be expressed as
 
 $$
 m_1 + (m_2 + m_1) = \Theta(m_1 + m_2).
@@ -3867,7 +3867,7 @@ Figure 7.2.2: A single rotation in an AVL tree. This operation occurs when the e
 
 Figure 7.2.3: A double rotation in an AVL tree. This operation occurs when the excess node (in subtree $B$) is in the right child of the left child of the unbalanced node labeled $S$. By rearranging the nodes as shown, we preserve the BST property, as well as re-balance the tree to preserve the AVL tree balance property. The case where the excess node is in the left child of the right child of $S$ is handled in the same way.
 
-The AVL tree insert algorithm begins with a normal BST insert. Then as the recursion unwinds up the tree, we perform the appropriate rotation on any node that is found to be unbalanced. Deletion is similar; however, consideration for unbalanced nodes must begin at the level of the deletemin operation.
+The AVL tree insert algorithm begins with a normal BST insert. Then as the recursion unwinds up the tree, we perform the appropriate rotation on any node that is found to be unbalanced. Deletion is similar; however, consideration for unbalanced nodes must begin at the level of the *deletemin* operation.
 
 **Example 7.2.1**
 
@@ -3887,7 +3887,7 @@ A [single rotation](#term-single-rotation) is performed only if $S$ is a child o
 
 ![Splay tree single rotation](img/SingRot.png)
 
-Figure 7.3.1: Splay tree single rotation. This rotation takes place only when the node being splayed is a child of the root. Here, node $S$ is promoted to the root, rotating with node $P$. Because the value of $S$ is less than the value of $P$, $P$ must become $S$ ‘s right child. The positions of subtrees $A$, $B$, and ;math:C are altered as appropriate to maintain the BST property, but the contents of these subtrees remains unchanged. (a) The original tree with $P$ as the parent. (b) The tree after a rotation takes place. Performing a single rotation a second time will return the tree to its original shape. Equivalently, if (b) is the initial configuration of the tree (i.e., $S$ is at the root and $P$ is its right child), then (a) shows the result of a single rotation to splay $P$ to the root.
+Figure 7.3.1: Splay tree single rotation. This rotation takes place only when the node being splayed is a child of the root. Here, node $S$ is promoted to the root, rotating with node $P$. Because the value of $S$ is less than the value of $P$, $P$ must become $S$ ‘s right child. The positions of subtrees $A$, $B$, and ;math:*C* are altered as appropriate to maintain the BST property, but the contents of these subtrees remains unchanged. (a) The original tree with $P$ as the parent. (b) The tree after a rotation takes place. Performing a single rotation a second time will return the tree to its original shape. Equivalently, if (b) is the initial configuration of the tree (i.e., $S$ is at the root and $P$ is its right child), then (a) shows the result of a single rotation to splay $P$ to the root.
 
 Unlike the AVL tree, the splay tree requires two types of double rotation. Double rotations involve $S$, its parent (call it $P$), and $S$ ‘s grandparent (call it $G$). The effect of a double rotation is to move $S$ up two levels in the tree.
 
@@ -5464,7 +5464,7 @@ void Prim(Graph G, int s, int[] D, int[] V) {
 }
 ```
 
-For each vertex $I$, when $I$ is processed by Prim’s algorithm, an edge going to $I$ is added to the MCST that we are building. Array `V[I]` stores the previously visited vertex that is closest to Vertex I. This information lets us know which edge goes into the MCST when Vertex $I$ is processed. The implementation above also contains calls to `AddEdgetoMST` to indicate which edges are actually added to the MCST.
+For each vertex $I$, when $I$ is processed by Prim’s algorithm, an edge going to $I$ is added to the MCST that we are building. Array `V[I]` stores the previously visited vertex that is closest to Vertex *I*. This information lets us know which edge goes into the MCST when Vertex $I$ is processed. The implementation above also contains calls to `AddEdgetoMST` to indicate which edges are actually added to the MCST.
 
 #### 11.6.1.2. Prim’s Algorithm Alternative Implementation
 
@@ -6350,7 +6350,7 @@ For large collections of records that are searched repeatedly, sequential search
 
 #### 13.4.1.1. Jump Search
 
-We can also observe that if we look first at position 1 in sorted array **L** and find that K is bigger, then we rule out position 0 as well as position 1. Because more is often better, what if we look at position 2 in **L** and find that $K$ is bigger yet? This rules out positions 0, 1, and 2 with one comparison. What if we carry this to the extreme and look first at the last position in **L** and find that $K$ is bigger? Then we know in one comparison that $K$ is not in **L**. This is useful to know, but what is wrong with the conclusion that we should always start by looking at the last position? The problem is that, while we learn a lot sometimes (in one comparison we might learn that $K$ is not in the list), usually we learn only a little bit (that the last element is not $K$).
+We can also observe that if we look first at position 1 in sorted array **L** and find that *K* is bigger, then we rule out position 0 as well as position 1. Because more is often better, what if we look at position 2 in **L** and find that $K$ is bigger yet? This rules out positions 0, 1, and 2 with one comparison. What if we carry this to the extreme and look first at the last position in **L** and find that $K$ is bigger? Then we know in one comparison that $K$ is not in **L**. This is useful to know, but what is wrong with the conclusion that we should always start by looking at the last position? The problem is that, while we learn a lot sometimes (in one comparison we might learn that $K$ is not in the list), usually we learn only a little bit (that the last element is not $K$).
 
 The question then becomes: What is the right amount to jump? This leads us to an algorithm known as [Jump Search](#term-jump-search). For some value $j$, we check every $j$ ‘th element in **L**, that is, we check elements $\mathbf{L}[j]$, $\mathbf{L}[2j]$, and so on. So long as $K$ is greater than the values we are checking, we continue on. But when we reach a value in **L** greater than $K$, we do a linear search on the piece of length $j-1$ that we know brackets $K$ if it is in the list.
 
@@ -7019,7 +7019,7 @@ Any element that loses to anything other than the maximum cannot be second. So, 
 
 This proof is wrong. It exhibits the [necessary fallacy](#term-necessary-fallacy): “Our algorithm does something, therefore all algorithms solving the problem must do the same.”
 
-This leaves us with our best lower bounds argument at the moment being that finding the second largest must cost at least as much as finding the largest, or $n-1$. Let us take another try at finding a better algorithm by adopting a strategy of divide and conquer. What if we break the list into halves, and run largest on each half? We can then compare the two winners (we have now used a total of $n-1$ comparisons), and remove the winner from its half. Another call to `largest` on the winner’s half yields its second best. A final comparison against the winner of the other half gives us the true second place winner. The total cost is $\lceil 3n/2\rceil - 2$. Is this optimal? What if we break the list into four pieces? The best would be $\lceil 5n/4\rceil$. What if we break the list into eight pieces? Then the cost would be about $\lceil 9n/8\rceil$. Notice that as we break the list into more parts, comparisons among the winners of the parts becomes a larger concern.
+This leaves us with our best lower bounds argument at the moment being that finding the second largest must cost at least as much as finding the largest, or $n-1$. Let us take another try at finding a better algorithm by adopting a strategy of divide and conquer. What if we break the list into halves, and run *largest* on each half? We can then compare the two winners (we have now used a total of $n-1$ comparisons), and remove the winner from its half. Another call to `largest` on the winner’s half yields its second best. A final comparison against the winner of the other half gives us the true second place winner. The total cost is $\lceil 3n/2\rceil - 2$. Is this optimal? What if we break the list into four pieces? The best would be $\lceil 5n/4\rceil$. What if we break the list into eight pieces? Then the cost would be about $\lceil 9n/8\rceil$. Notice that as we break the list into more parts, comparisons among the winners of the parts becomes a larger concern.
 
 Looking at this another way, the only candidates for second place are losers to the eventual winner, and our goal is to have as few of these as possible. So we need to keep track of the set of elements that have lost in direct comparison to the (eventual) winner. We also observe that we learn the most from a comparison when both competitors are known to be larger than the same number of other values. So we would like to arrange our comparisons to be against “equally strong” competitors. We can do all of this with a defit{binomial tree}. A binomial tree of height $m$ has $2^m$ nodes. Either it is a single node (if $m=0$), or else it is two height $m-1$ binomial trees with one tree’s root becoming a child of the other. Let’s see how a binomial tree with eight nodes would be constructed.
 
@@ -8776,7 +8776,7 @@ The concept that accesses within a collection of records is not evenly distribut
 
 **logarithm**
 
-The logarithm of base $b$ for value $y$ is the power to which $b$ is raised to get $y$.
+The *logarithm* of base $b$ for value $y$ is the power to which $b$ is raised to get $y$.
 
 **logical file**
 
@@ -9182,7 +9182,7 @@ In a [disk drive](#term-disk-drive), one of a series of flat disks that comprise
 
 **point quadtree**
 
-A [spatial data structure](#term-spatial-data-structure) for storing point data. It is similar to a [PR quadtree](#term-pr-quadtree) in that it (in two dimensions) splits the world into four parts. However, it splits using an [object-space decomposition](#term-object-space-decomposition). That is, quadrant containing the point is split into four parts at the point. It is similar to the [kd tree](#term-kd-tree) which splits alternately in each dimension, except that it splits in all dimensions at once.
+A *[spatial data structure](#term-spatial-data-structure)* for storing point data. It is similar to a [PR quadtree](#term-pr-quadtree) in that it (in two dimensions) splits the world into four parts. However, it splits using an [object-space decomposition](#term-object-space-decomposition). That is, quadrant containing the point is split into four parts at the point. It is similar to the [kd tree](#term-kd-tree) which splits alternately in each dimension, except that it splits in all dimensions at once.
 
 **point-region quadtree**
 
@@ -9310,7 +9310,7 @@ A specific selection of values for the parameters to a problem. In other words, 
 
 **problem lower bound**
 
-In [algorithm analysis](#term-algorithm-analysis), the tightest [lower bound](#term-lower-bound) that we can prove over all [algorithms](#term-algorithm) for that [problem](#term-problem). This is often much harder to determine than the [problem upper bound](#term-problem-upper-bound). Since the lower bound for the algorithm can be very different for different situations (such as the [best case](#term-best-case) or [worst case](#term-worst-case)), we typically have to specify which situation we are referring to.
+In [algorithm analysis](#term-algorithm-analysis), the tightest [lower bound](#term-lower-bound) that we can prove over all [algorithms](#term-algorithm) for that [problem](#term-problem). This is often much harder to determine than the *[problem upper bound](#term-problem-upper-bound)*. Since the lower bound for the algorithm can be very different for different situations (such as the [best case](#term-best-case) or [worst case](#term-worst-case)), we typically have to specify which situation we are referring to.
 
 **problem upper bound**
 
