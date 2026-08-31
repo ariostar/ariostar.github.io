@@ -10231,7 +10231,7 @@ Robert E. Tarjan, “On the efficiency of a good but not linear set merging algo
 
 Portrait of Carl Gauss [^1]
 
-![_images/Carl_Friedrich_Gauss.jpg](img/Carl_Friedrich_Gauss.jpg)
+![Carl_Friedrich_Gauss](img/Carl_Friedrich_Gauss.jpg)
 
 Figure 15.3.1: Oil painting of mathematician and philosopher Carl Friedrich Gauss by G. Biermann (1824-1908)
 
