@@ -10226,9 +10226,8 @@ Robert E. Tarjan, “On the efficiency of a good but not linear set merging algo
 
 ## 15.3. Spotlight: Carl Friedrich Gauss
 
-He lives everywhere in mathematics.
-
-&mdash;E.T. Bell, *Men of Mathematics*
+>He lives everywhere in mathematics.
+>—— E.T. Bell, *Men of Mathematics*
 
 Portrait of Carl Gauss [^1]
 

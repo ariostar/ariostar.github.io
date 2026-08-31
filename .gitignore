@@ -19,3 +19,6 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+# IDEA
+.idea/
