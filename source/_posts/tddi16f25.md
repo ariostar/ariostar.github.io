@@ -225,7 +225,7 @@ Define the properties of relations as follows, with $R$ a binary relation over s
 - $R$ is [antisymmetric](#term-antisymmetric) if whenever $aRb$ and $bRa$, then $a = b$, for all $a, b \in \mathbf{S}$.
 - $R$ is [transitive](#term-transitive) if whenever $aRb$ and $bRc$, then $aRc$, for all $a, b, c \in \mathbf{S}$.
 
-As examples, for the natural numbers, $<$ is irreflexive (because :math`aRa` is never true), antisymmetric (because there is no case where $aRb$ and $bRa$), and transitive. Relation $\leq$ is reflexive, antisymmetric, and transitive. Relation $=$ is reflexive, symmetric (and antisymmetric!), and transitive. For people, the relation "is a sibling of" is symmetric and transitive. If we define a person to be a sibling of themself, then it is reflexive; if we define a person not to be a sibling of themself, then it is not reflexive.
+As examples, for the natural numbers, $<$ is irreflexive (because aRa is never true), antisymmetric (because there is no case where $aRb$ and $bRa$), and transitive. Relation $\leq$ is reflexive, antisymmetric, and transitive. Relation $=$ is reflexive, symmetric (and antisymmetric!), and transitive. For people, the relation "is a sibling of" is symmetric and transitive. If we define a person to be a sibling of themself, then it is reflexive; if we define a person not to be a sibling of themself, then it is not reflexive.
 
 ### 2.2.2. Equivalence Relations
 
@@ -3887,7 +3887,7 @@ A [single rotation](#term-single-rotation) is performed only if $S$ is a child o
 
 ![Splay tree single rotation](img/SingRot.png)
 
-Figure 7.3.1: Splay tree single rotation. This rotation takes place only when the node being splayed is a child of the root. Here, node $S$ is promoted to the root, rotating with node $P$. Because the value of $S$ is less than the value of $P$, $P$ must become $S$ 's right child. The positions of subtrees $A$, $B$, and ;math:*C* are altered as appropriate to maintain the BST property, but the contents of these subtrees remains unchanged. (a) The original tree with $P$ as the parent. (b) The tree after a rotation takes place. Performing a single rotation a second time will return the tree to its original shape. Equivalently, if (b) is the initial configuration of the tree (i.e., $S$ is at the root and $P$ is its right child), then (a) shows the result of a single rotation to splay $P$ to the root.
+Figure 7.3.1: Splay tree single rotation. This rotation takes place only when the node being splayed is a child of the root. Here, node $S$ is promoted to the root, rotating with node $P$. Because the value of $S$ is less than the value of $P$, $P$ must become $S$ 's right child. The positions of subtrees $A$, $B$, and $C$ are altered as appropriate to maintain the BST property, but the contents of these subtrees remains unchanged. (a) The original tree with $P$ as the parent. (b) The tree after a rotation takes place. Performing a single rotation a second time will return the tree to its original shape. Equivalently, if (b) is the initial configuration of the tree (i.e., $S$ is at the root and $P$ is its right child), then (a) shows the result of a single rotation to splay $P$ to the root.
 
 Unlike the AVL tree, the splay tree requires two types of double rotation. Double rotations involve $S$, its parent (call it $P$), and $S$ 's grandparent (call it $G$). The effect of a double rotation is to move $S$ up two levels in the tree.
 
@@ -4382,7 +4382,7 @@ An important implementation detail to note is that while Figure 9.6.1 shows inte
 
 $\mathrm{B}^+$ trees are exceptionally good for range queries. Once the first record in the range has been found, the rest of the records with keys in the range can be accessed by sequential processing of the remaining records in the first node, and then continuing down the linked list of leaf nodes as far as necessary. Figure 9.6.2 illustrates the $\mathrm{B}^+$ tree.
 
-![Example of a :math:`\mathrm{B}^+` tree.](img/BPexamp.png)
+![Example of a B+ tree.](img/BPexamp.png)
 
 Figure 9.6.2: Example of a $\mathrm{B}^+$ tree of order four. Internal nodes must store between two and four children. For this example, the record size is assumed to be such that leaf nodes store between three and five records.
 
@@ -4402,7 +4402,7 @@ private E findhelp(BPNode<Key,E> rt, Key k) {
 
 $\mathrm{B}^+$ tree insertion is similar to B-tree insertion. First, the leaf $L$ that should contain the record is found. If $L$ is not full, then the new record is added, and no other $\mathrm{B}^+$ tree nodes are affected. If $L$ is already full, split it in two (dividing the records evenly among the two nodes) and promote a copy of the least-valued key in the newly formed right node. As with the 2-3 tree, promotion might cause the parent to split in turn, perhaps eventually leading to splitting the root and causing the $\mathrm{B}^+$ tree to gain a new level. $\mathrm{B}^+$ tree insertion keeps all leaf nodes at equal depth. Figure 9.6.3 illustrates the insertion process through several examples.
 
-![Examples of :math:`\mathrm{B}^+` tree insertion.](img/BPins.png)
+![Examples of B+ tree insertion.](img/BPins.png)
 
 Figure 9.6.3: Examples of $\mathrm{B}^+$ tree insertion. (a) B-$\mathrm{B}^+$ tree containing five records. (b) The result of inserting a record with key value 50 into the tree of (a). The leaf node splits, causing creation of the first internal node. (c) The $\mathrm{B}^+$ tree of (b) after further insertions. (d) The result of inserting a record with key value 30 into the tree of (c). The second leaf node splits, which causes the internal node to split in turn, creating a new root.
 
@@ -4430,19 +4430,19 @@ Here is an exercise to see if you get the basic idea of $\mathrm{B}^+$ tree inse
 
 To delete record $R$ from the $\mathrm{B}^+$ tree, first locate the leaf $L$ that contains $R$. If $L$ is more than half full, then we need only remove $R$, leaving $L$ still at least half full. This is demonstrated by Figure 9.6.4.
 
-![Simple deletion from a :math:`\mathrm{B}^+` tree.](img/BPsimDel.png)
+![Simple deletion from a B+ tree.](img/BPsimDel.png)
 
 Figure 9.6.4: Simple deletion from a $\mathrm{B}^+$ tree. The record with key value 18 is removed from the tree of Figure 9.6.2. Note that even though 18 is also a placeholder used to direct search in the parent node, that value need not be removed from internal nodes even if no record in the tree has key value 18. Thus, the leftmost node at level one in this example retains the key with value 18 after the record with key value 18 has been removed from the second leaf node.
 
 If deleting a record reduces the number of records in the node below the minimum threshold (called an [underflow](#term-underflow)), then we must do something to keep the node sufficiently full. The first choice is to look at the node's adjacent siblings to determine if they have a spare record that can be used to fill the gap. If so, then enough records are transferred from the sibling so that both nodes have about the same number of records. This is done so as to delay as long as possible the next time when a delete causes this node to underflow again. This process might require that the parent node has its placeholder key value revised to reflect the true first key value in each node. Figure 9.6.5 illustrates the process.
 
-![Deletion from a :math:`\mathrm{B}^+` tree via borrowing from a sibling.](img/BPborrow.png)
+![Deletion from a B+ tree via borrowing from a sibling.](img/BPborrow.png)
 
 Figure 9.6.5: Deletion from the $\mathrm{B}^+$ tree of Figure 9.6.2 via borrowing from a sibling. The key with value 12 is deleted from the leftmost leaf, causing the record with key value 18 to shift to the leftmost leaf to take its place. Note that the parent must be updated to properly indicate the key range within the subtrees. In this example, the parent node has its leftmost key value changed to 19.
 
 If neither sibling can lend a record to the under-full node (call it $N$), then $N$ must give its records to a sibling and be removed from the tree. There is certainly room to do this, because the sibling is at most half full (remember that it had no records to contribute to the current node), and $N$ has become less than half full because it is under-flowing. This merge process combines two subtrees of the parent, which might cause it to underflow in turn. If the last two children of the root merge together, then the tree loses a level. Figure 9.6.6 illustrates the node-merge deletion process.
 
-![Deletion from a :math:`\mathrm{B}^+` tree via collapsing siblings](img/BPmerge.png)
+![Deletion from a B+ tree via collapsing siblings](img/BPmerge.png)
 
 Figure 9.6.6: Deleting the record with key value 33 from the $\mathrm{B}^+$ tree of Figure 9.6.2 via collapsing siblings. (a) The two leftmost leaf nodes merge together to form a single leaf. Unfortunately, the parent node now has only one child. (b) Because the left subtree has a spare leaf node, that node is passed to the right subtree. The placeholder values of the root and the right internal node are updated to reflect the changes. Value 23 moves to the root, and old root value 33 moves to the rightmost internal node.
 
@@ -4578,7 +4578,7 @@ Figure 10.3.1: A comparison of binning vs. modulus as a hash function.
 
 A good hash function to use with integer key values is the [mid-square method](#term-mid-square-method). The mid-square method squares the key value, and then takes out the middle $r$ bits of the result, giving a value in the range 0 to $2^{r}-1$. This works well because most or all bits of the key value contribute to the result. For example, consider records whose keys are 4-digit numbers in base 10, as shown in Figure 10.3.2. The goal is to hash these key values to a table of size 100 (i.e., a range of 0 to 99). This range is equivalent to two digits in base 10. That is, $r = 2$. If the input is the number 4567, squaring yields an 8-digit number, 20857489. The middle two digits of this result are 57. All digits of the original key value (equivalently, all bits when the number is viewed in binary) contribute to the middle two digits of the squared value. Thus, the result is not dominated by the distribution of the bottom digit or the top digit of the original key value. Of course, if the key values all tend to be small numbers, then their squares will only affect the low-order digits of the hash value.
 
-![Mid-square method example](img/MidSquare.png){width=40%}
+![Mid-square method example](img/MidSquare.png){width=10%}
 
 Figure 10.3.2: An example of the mid-square method. This image shows the traditional gradeschool long multiplication process. The value being squared is 4567. The result of squaring is 20857489. At the bottom, of the image, the value 4567 is show again, with each digit at the bottom of a "V". The associated "V" is showing the digits from the result that are being affected by each digit of the input. That is, "4" affects the output digits 2, 0, 8, 5, an 7. But it has no affect on the last 3 digits. The key point is that the middle two digits of the result (5 and 7) are affected by every digit of the input.
 
@@ -7023,7 +7023,7 @@ This leaves us with our best lower bounds argument at the moment being that find
 
 Looking at this another way, the only candidates for second place are losers to the eventual winner, and our goal is to have as few of these as possible. So we need to keep track of the set of elements that have lost in direct comparison to the (eventual) winner. We also observe that we learn the most from a comparison when both competitors are known to be larger than the same number of other values. So we would like to arrange our comparisons to be against "equally strong" competitors. We can do all of this with a defit{binomial tree}. A binomial tree of height $m$ has $2^m$ nodes. Either it is a single node (if $m=0$), or else it is two height $m-1$ binomial trees with one tree's root becoming a child of the other. Let's see how a binomial tree with eight nodes would be constructed.
 
-The resulting algorithm is simple in principle: Build the binomial tree for all $n$ elements, and then compare the $\lceil \log n\rceil$ children of the root to find second place. We could store the binomial tree as an explicit tree structure, and easily build it in time linear on the number of comparisons as each comparison requires one link be added. Because the shape of a binomial tree is heavily constrained, we can also store the binomial tree implicitly in an array, much as we do for a heap. Assume that two trees, each with $2^k$ nodes, are in the array. The first tree is in positions 1 to :math`2^k`. The second tree is in positions $2^k+1$ to $2^{k+1}$. The root of each subtree is in the final array position for that subtree.
+The resulting algorithm is simple in principle: Build the binomial tree for all $n$ elements, and then compare the $\lceil \log n\rceil$ children of the root to find second place. We could store the binomial tree as an explicit tree structure, and easily build it in time linear on the number of comparisons as each comparison requires one link be added. Because the shape of a binomial tree is heavily constrained, we can also store the binomial tree implicitly in an array, much as we do for a heap. Assume that two trees, each with $2^k$ nodes, are in the array. The first tree is in positions 1 to 2^k. The second tree is in positions $2^k+1$ to $2^{k+1}$. The root of each subtree is in the final array position for that subtree.
 
 To join two trees, we simply compare the roots of the subtrees. If necessary, swap the subtrees so that tree with the the larger root element becomes the second subtree. This trades space (we only need space for the data values, no node pointers) for time (in the worst case, all of the data swapping might cost $O(n \log n)$, though this does not affect the number of comparisons required). Note that for some applications, this is an important observation that the array's data swapping requires no comparisons. If a comparison is simply a check between two integers, then of course moving half the values within the array is too expensive. But if a comparison requires that a competition be held between two sports teams, then the cost of a little bit (or even a lot) of book keeping becomes irrelevent.
 
