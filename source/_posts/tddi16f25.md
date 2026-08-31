@@ -82,7 +82,7 @@ There are often many approaches to solving a problem. How do we choose between t
 
 Ideally, the resulting program is true to both of these goals. We might say that such a program is “elegant.” While the algorithms and program code examples presented here attempt to be elegant in this sense, it is not the purpose of this book to explicitly treat issues related to goal (1). These are primarily concerns for the discipline of Software Engineering. Rather, we mostly focus on issues relating to goal (2).
 
-How do we measure efficiency? Our method for evaluating the efficiency of an algorithm or computer program is called [asymptotic analysis](Glossary.md#term-asymptotic-analysis). Asymptotic analysis also gives a way to define the inherent difficulty of a problem. Throughout the book we use asymptotic analysis techniques to estimate the time cost for every algorithm presented. This allows you to see how each algorithm compares to other algorithms for solving the same problem in terms of its efficiency.
+How do we measure efficiency? Our method for evaluating the efficiency of an algorithm or computer program is called [asymptotic analysis](#term-asymptotic-analysis). Asymptotic analysis also gives a way to define the inherent difficulty of a problem. Throughout the book we use asymptotic analysis techniques to estimate the time cost for every algorithm presented. This allows you to see how each algorithm compares to other algorithms for solving the same problem in terms of its efficiency.
 
 <a id="a-philosophy-of-data-structures"></a>
 ## 1.1.2. A Philosophy of Data Structures
@@ -91,20 +91,20 @@ You might think that with ever more powerful computers, program efficiency is be
 
 As we develop more powerful computers, our history so far has always been to use that additional computing power to tackle more complex problems, be it in the form of more sophisticated user interfaces, bigger problem sizes, or new problems previously deemed computationally infeasible. More complex problems demand more computation, making the need for efficient programs even greater. Unfortunately, as tasks become more complex, they become less like our everyday experience. So today’s computer scientists must be trained to have a thorough understanding of the principles behind efficient program design, because their ordinary life experiences often do not apply when designing computer programs.
 
-In the most general sense, a [data structure](Glossary.md#term-data-structure) is any data representation and its associated operations. Even an integer or floating point number stored on the computer can be viewed as a simple data structure. More commonly, people use the term “data structure” to mean an organization or structuring for a collection of data items. A sorted list of integers stored in an array is an example of such a structuring. These ideas are explored further in a discussion of [Abstract Data Types](ADT.md#adt).
+In the most general sense, a [data structure](#term-data-structure) is any data representation and its associated operations. Even an integer or floating point number stored on the computer can be viewed as a simple data structure. More commonly, people use the term “data structure” to mean an organization or structuring for a collection of data items. A sorted list of integers stored in an array is an example of such a structuring. These ideas are explored further in a discussion of [Abstract Data Types](ADT.md#adt).
 
-Given sufficient space to store a collection of [data items](Glossary.md#term-data-item), it is always possible to search for specified items within the collection, print or otherwise process the data items in any desired order, or modify the value of any particular data item. The most obvious example is an unsorted array containing all of the data items. It is possible to perform all necessary operations on an unsorted array. However, using the proper data structure can make the difference between a program running in a few seconds and one requiring many days. For example, searching for a given record in a [hash table](Glossary.md#term-hash-table) is much faster than searching for it in an unsorted array.
+Given sufficient space to store a collection of [data items](#term-data-item), it is always possible to search for specified items within the collection, print or otherwise process the data items in any desired order, or modify the value of any particular data item. The most obvious example is an unsorted array containing all of the data items. It is possible to perform all necessary operations on an unsorted array. However, using the proper data structure can make the difference between a program running in a few seconds and one requiring many days. For example, searching for a given record in a [hash table](#term-hash-table) is much faster than searching for it in an unsorted array.
 
-A solution is said to be [efficient](Glossary.md#term-efficient) if it solves the problem within the required [resource constraints](Glossary.md#term-resource-constraints). Examples of resource constraints include the total space available to store the data—possibly divided into separate main memory and disk space constraints—and the time allowed to perform each subtask. A solution is sometimes said to be efficient if it requires fewer resources than known alternatives, regardless of whether it meets any particular requirements. The [cost](Glossary.md#term-cost) of a solution is the amount of resources that the solution consumes. Most often, cost is measured in terms of one key resource such as time, with the implied assumption that the solution meets the other resource constraints.
+A solution is said to be [efficient](#term-efficient) if it solves the problem within the required [resource constraints](#term-resource-constraints). Examples of resource constraints include the total space available to store the data—possibly divided into separate main memory and disk space constraints—and the time allowed to perform each subtask. A solution is sometimes said to be efficient if it requires fewer resources than known alternatives, regardless of whether it meets any particular requirements. The [cost](#term-cost) of a solution is the amount of resources that the solution consumes. Most often, cost is measured in terms of one key resource such as time, with the implied assumption that the solution meets the other resource constraints.
 
 <a id="selecting-a-data-structure"></a>
 ## 1.1.3. Selecting a Data Structure
 
-It should go without saying that people write programs to solve problems. However, sometimes programmers forget this. So it is crucial to keep this truism in mind when selecting a [data structure](Glossary.md#term-data-structure) to solve a particular [problem](Glossary.md#term-problem). Only by first analyzing the problem to determine the performance goals that must be achieved can there be any hope of selecting the right data structure for the job. Poor program designers ignore this analysis step and apply a data structure that they are familiar with but which is inappropriate to the problem. The result is typically a slow program. Conversely, there is no sense in adopting a complex representation to “improve” a program that can meet its performance goals when implemented using a simpler design.
+It should go without saying that people write programs to solve problems. However, sometimes programmers forget this. So it is crucial to keep this truism in mind when selecting a [data structure](#term-data-structure) to solve a particular [problem](#term-problem). Only by first analyzing the problem to determine the performance goals that must be achieved can there be any hope of selecting the right data structure for the job. Poor program designers ignore this analysis step and apply a data structure that they are familiar with but which is inappropriate to the problem. The result is typically a slow program. Conversely, there is no sense in adopting a complex representation to “improve” a program that can meet its performance goals when implemented using a simpler design.
 
 When selecting a data structure to solve a problem, you should follow these steps.
 
-1. Analyze your problem to determine the [basic operations](Glossary.md#term-basic-operation) that must be supported. Examples of basic operations include inserting a data item into the data structure, deleting a data item from the data structure, and finding a specified data item.
+1. Analyze your problem to determine the [basic operations](#term-basic-operation) that must be supported. Examples of basic operations include inserting a data item into the data structure, deleting a data item from the data structure, and finding a specified data item.
 1. Quantify the resource constraints for each operation.
 1. Select the data structure that best meets these requirements.
 
@@ -130,11 +130,11 @@ It is common practice for banks to provide two tiers of service. Human tellers o
 
 From a database perspective, we see that ATM transactions do not modify the database significantly. For simplicity, assume that if money is added or removed, this transaction simply changes the value stored in an account record. Adding a new account to the database is allowed to take several minutes. Deleting an account need have no time constraint, because from the customer’s point of view all that matters is that all the money be returned (equivalent to a withdrawal). From the bank’s point of view, the account record might be removed from the database system after business hours, or at the end of the monthly account cycle.
 
-When considering the choice of data structure to use in the database system that manages customer accounts, we see that a data structure that has little concern for the cost of deletion, but is highly efficient for search and moderately efficient for insertion, should meet the resource constraints imposed by this problem. Records are accessible by unique account number (sometimes called an [exact-match query](Glossary.md#term-exact-match-query)). One data structure that meets these requirements is the [hash table](HashIntro.md#hashintro). Hash tables allow for extremely fast exact-match search. A record can be modified quickly when the modification does not affect its space requirements. Hash tables also support efficient insertion of new records. While deletions can also be supported efficiently, too many deletions lead to some degradation in performance for the remaining operations. However, the hash table can be reorganized periodically to restore the system to peak efficiency. Such reorganization can occur offline so as not to affect ATM transactions.
+When considering the choice of data structure to use in the database system that manages customer accounts, we see that a data structure that has little concern for the cost of deletion, but is highly efficient for search and moderately efficient for insertion, should meet the resource constraints imposed by this problem. Records are accessible by unique account number (sometimes called an [exact-match query](#term-exact-match-query)). One data structure that meets these requirements is the [hash table](HashIntro.md#hashintro). Hash tables allow for extremely fast exact-match search. A record can be modified quickly when the modification does not affect its space requirements. Hash tables also support efficient insertion of new records. While deletions can also be supported efficiently, too many deletions lead to some degradation in performance for the remaining operations. However, the hash table can be reorganized periodically to restore the system to peak efficiency. Such reorganization can occur offline so as not to affect ATM transactions.
 
 **Example 1.1.2**
 
-A company is developing a database system containing information about cities and towns in the United States. There are many thousands of cities and towns, and the database program should allow users to find information about a particular place by name (another example of an exact-match query). Users should also be able to find all places that match a particular value or range of values for attributes such as location or population size. This is known as a [range query](Glossary.md#term-range-query).
+A company is developing a database system containing information about cities and towns in the United States. There are many thousands of cities and towns, and the database program should allow users to find information about a particular place by name (another example of an exact-match query). Users should also be able to find all places that match a particular value or range of values for attributes such as location or population size. This is known as a [range query](#term-range-query).
 
 A reasonable database system must answer queries quickly enough to satisfy the patience of a typical user. For an exact-match query, a few seconds is satisfactory. If the database is meant to support range queries that can return many cities that match the query specification, the user might tolerate the entire operation to take longer, perhaps on the order of a minute. To meet this requirement, it will be necessary to support operations that process range queries efficiently by processing all cities in the range as a batch, rather than as a series of operations on individual cities.
 
@@ -165,7 +165,7 @@ The concept of [estimation](Estimation.md#estimation) might be unfamiliar to man
 
 The concept of a set in the mathematical sense has wide application in computer science. The notations and techniques of set theory are commonly used when describing and implementing algorithms because the abstractions associated with sets often help to clarify and simplify algorithm design.
 
-A [set](Glossary.md#term-set) is a collection of distinguishable [members](Glossary.md#term-member) or [elements](Glossary.md#term-element). The members are typically drawn from some larger population known as the [base type](Glossary.md#term-base-type). Each member of a set is either a [primitive element](Glossary.md#term-primitive-element) of the base type or is a set itself. There is no concept of duplication in a set. Each value from the base type is either in the set or not in the set. For example, a set named $\mathbf{P}$ might consist of the three integers 7, 11, and 42. In this case, $\mathbf{P}$’s members are 7, 11, and 42, and the base type is integer.
+A [set](#term-set) is a collection of distinguishable [members](#term-member) or [elements](#term-element). The members are typically drawn from some larger population known as the [base type](#term-base-type). Each member of a set is either a [primitive element](#term-primitive-element) of the base type or is a set itself. There is no concept of duplication in a set. Each value from the base type is either in the set or not in the set. For example, a set named $\mathbf{P}$ might consist of the three integers 7, 11, and 42. In this case, $\mathbf{P}$’s members are 7, 11, and 42, and the base type is integer.
 
 The following table shows the symbols commonly used to express sets and their relationships.
 
@@ -174,29 +174,29 @@ The following table shows the symbols commonly used to express sets and their re
 <a id="equation-setdef-0"></a>
 $$
 \begin{aligned}\begin{array}{l|l}
-\lbrace 1, 4\rbrace & \text{A set composed of the members 1 and 4}\cr 
+\lbrace 1, 4\rbrace & \text{A set composed of the members 1 and 4}\cr
 \lbrace \mathsf{x}\thinspace  |\thinspace  \mathsf{x}\ \text{is a positive integer}\rbrace &
-   \text{A set definition using a set former}\cr 
-&\qquad \text{Example: the set of all positive integers}\cr 
-\mathsf{x} \in \mathbf{P}&\mathsf{x}\ \text{is a member of set}\ \mathbf{P}\cr 
-\mathsf{x} \notin \mathbf{P}&\mathsf{x}\ \text{is not a member of set}\ \mathbf{P}\cr 
-\emptyset&\text{The null or empty set}\cr 
+   \text{A set definition using a set former}\cr
+&\qquad \text{Example: the set of all positive integers}\cr
+\mathsf{x} \in \mathbf{P}&\mathsf{x}\ \text{is a member of set}\ \mathbf{P}\cr
+\mathsf{x} \notin \mathbf{P}&\mathsf{x}\ \text{is not a member of set}\ \mathbf{P}\cr
+\emptyset&\text{The null or empty set}\cr
 |\mathbf{P}|& \text{Cardinality: size of set}\ \mathbf{P}
-           \text{or number of members for set}\ \mathbf{P}\cr 
+           \text{or number of members for set}\ \mathbf{P}\cr
 \mathbf{P}\thinspace \subseteq\thinspace \mathbf{Q},
   \mathbf{Q}\thinspace \supseteq\thinspace \mathbf{P}&
-  \text{Set}\ \mathbf{P}\ \text{is included in set}\ \mathbf{Q},\cr 
-&\qquad \text{set}\ \mathbf{P}\ \text{is a subset of set}\ \mathbf{Q},\cr 
-&\qquad \text{set}\ \mathbf{Q}\ \text{is a superset of set}\ \mathbf{P}\cr 
+  \text{Set}\ \mathbf{P}\ \text{is included in set}\ \mathbf{Q},\cr
+&\qquad \text{set}\ \mathbf{P}\ \text{is a subset of set}\ \mathbf{Q},\cr
+&\qquad \text{set}\ \mathbf{Q}\ \text{is a superset of set}\ \mathbf{P}\cr
 \mathbf{P}\thinspace \cup\thinspace \mathbf{Q}      &
   \text{Set Union: all elements appearing in}
-  \ \mathbf{P}\ \text{OR}\ \mathbf{Q}\cr 
+  \ \mathbf{P}\ \text{OR}\ \mathbf{Q}\cr
 \mathbf{P}\thinspace \cap\thinspace \mathbf{Q}      &
   \text{Set Intersection: all elements appearing in}\ \text{P}
-  \ \text{AND}\ \mathbf{Q}\cr 
+  \ \text{AND}\ \mathbf{Q}\cr
 \mathbf{P}\thinspace -\thinspace \mathbf{Q} &
   \text{Set difference: all elements of set}
-  \ \mathbf{P}\ \text{NOT in set}\ \mathbf{Q}\cr 
+  \ \mathbf{P}\ \text{NOT in set}\ \mathbf{Q}\cr
 \mathbf{P}\thinspace \times\thinspace \mathbf{Q} &
   \text{Set (Cartesian) Product: yields a set of ordered pairs}\cr \end{array}\end{aligned}
 $$
@@ -210,14 +210,14 @@ $$
 
 $|\mathbf{P}| = 3$  (because $\mathbf{P}$ has three members) and $|\mathbf{Q}| = 2$ (because $\mathbf{Q}$ has two members). The union of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cup \mathbf{Q}$, is the set of elements in either $\mathbf{P}$ or $\mathbf{Q}$, which is {2, 3, 5, 10}. The intersection of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} \cap \mathbf{Q}$, is the set of elements that appear in both $\mathbf{P}$ and $\mathbf{Q}$, which is {5}. The set difference of $\mathbf{P}$ and $\mathbf{Q}$, written $\mathbf{P} - \mathbf{Q}$, is the set of elements that occur in $\mathbf{P}$ but not in $\mathbf{Q}$, which is {2, 3}. Note that $\mathbf{P} \cup \mathbf{Q} = \mathbf{Q} \cup \mathbf{P}$ and that $\mathbf{P} \cap \mathbf{Q} = \mathbf{Q} \cap \mathbf{P}$, but in general $\mathbf{P} - \mathbf{Q} \neq \mathbf{Q} - \mathbf{P}$. In this example, $\mathbf{Q} - \mathbf{P}  = \lbrace 10\rbrace $. Finally, the set {5, 3, 2} is indistinguishable from set $\mathbf{P}$, because sets have no concept of order. Likewise, set {2, 3, 2, 5} is also indistinguishable from $\mathbf{P}$, because sets have no concept of duplicate elements.
 
-The [set product](Glossary.md#term-set-product) or [Cartesian product](Glossary.md#term-cartesian-product) of two sets $\mathbf{Q} \times \mathbf{P}$ is a set of ordered pairs. For our example sets, the set product would be
+The [set product](#term-set-product) or [Cartesian product](#term-cartesian-product) of two sets $\mathbf{Q} \times \mathbf{P}$ is a set of ordered pairs. For our example sets, the set product would be
 
 <a id="equation-setdef-2"></a>
 $$
 \lbrace (2, 5),\ (2, 10),\ (3, 5),\ (3, 10),\ (5, 5),\ (5, 10)\rbrace .
 $$
 
-The [powerset](Glossary.md#term-powerset) of a set $\mathbf{S}$ (denoted $2^S$) is the set of all possible subsets for $\mathbf{S}$. Consider the set $\mathbf{S} = \lbrace  a, b, c \rbrace $. The powerset of $\mathbf{S}$ is
+The [powerset](#term-powerset) of a set $\mathbf{S}$ (denoted $2^S$) is the set of all possible subsets for $\mathbf{S}$. Consider the set $\mathbf{S} = \lbrace  a, b, c \rbrace $. The powerset of $\mathbf{S}$ is
 
 <a id="equation-setdef-3"></a>
 $$
@@ -225,18 +225,18 @@ $$
 \ \lbrace a, c\rbrace ,\ \lbrace b, c\rbrace ,\ \lbrace a, b, c\rbrace \rbrace .
 $$
 
-A collection of elements with no order (like a set), but with duplicate-valued elements is called a [bag](Glossary.md#term-bag) [^1]. To distinguish bags from sets, we will use square brackets [] around a bag’s elements. For example, bag [3, 4, 5, 4] is distinct from bag [3, 4, 5], while set {3, 4, 5, 4} is indistinguishable from set {3, 4, 5}. However, bag [3, 4, 5, 4] is indistinguishable from bag [3, 4, 4, 5].
+A collection of elements with no order (like a set), but with duplicate-valued elements is called a [bag](#term-bag) [^1]. To distinguish bags from sets, we will use square brackets [] around a bag’s elements. For example, bag [3, 4, 5, 4] is distinct from bag [3, 4, 5], while set {3, 4, 5, 4} is indistinguishable from set {3, 4, 5}. However, bag [3, 4, 5, 4] is indistinguishable from bag [3, 4, 4, 5].
 
-A [sequence](Glossary.md#term-sequence) is a collection of elements with an order, and which may contain duplicate-valued elements. A sequence is also sometimes called a [tuple](Glossary.md#term-tuple) or a [vector](Glossary.md#term-vector). In a sequence, there is a 0th element, a 1st element, 2nd element, and so on. We will use angle brackets $\langle\rangle$ to enclose the elements of a sequence. For example, $\langle3, 4, 5, 4\rangle$ is a sequence. Note that sequence $\langle3, 5, 4, 4\rangle$ is distinct from sequence $\langle3, 4, 5, 4\rangle$, and both are distinct from sequence $\langle3, 4, 5\rangle$.
+A [sequence](#term-sequence) is a collection of elements with an order, and which may contain duplicate-valued elements. A sequence is also sometimes called a [tuple](#term-tuple) or a [vector](#term-vector). In a sequence, there is a 0th element, a 1st element, 2nd element, and so on. We will use angle brackets $\langle\rangle$ to enclose the elements of a sequence. For example, $\langle3, 4, 5, 4\rangle$ is a sequence. Note that sequence $\langle3, 5, 4, 4\rangle$ is distinct from sequence $\langle3, 4, 5, 4\rangle$, and both are distinct from sequence $\langle3, 4, 5\rangle$.
 
 <a id="relations"></a>
 ### 2.2.1.1. Relations
 
-A [relation](Glossary.md#term-relation) $R$ over set $\mathbf{S}$ is a set of ordered pairs from $\mathbf{S}$. As an example of a relation, if $\mathbf{S}$ is $\lbrace a, b, c\rbrace $, then
+A [relation](#term-relation) $R$ over set $\mathbf{S}$ is a set of ordered pairs from $\mathbf{S}$. As an example of a relation, if $\mathbf{S}$ is $\lbrace a, b, c\rbrace $, then
 
 <a id="equation-setdef-4"></a>
 $$
-\lbrace  \langle a, c\rangle, \langle b, c\rangle, \langle c, b\rangle \rbrace 
+\lbrace  \langle a, c\rangle, \langle b, c\rangle, \langle c, b\rangle \rbrace
 $$
 
 is a relation, and
@@ -244,25 +244,25 @@ is a relation, and
 <a id="equation-setdef-5"></a>
 $$
 \lbrace  \langle a, a\rangle, \langle a, c\rangle, \langle b, b\rangle,
-\langle b, c\rangle, \langle c, c\rangle \rbrace 
+\langle b, c\rangle, \langle c, c\rangle \rbrace
 $$
 
 is a different relation. If tuple $\langle x, y\rangle$ is in relation $R$, we may use the infix notation $xRy$. We often use relations such as the less than operator ($<$) on the natural numbers, which includes ordered pairs such as $\langle1, 3\rangle$ and $\langle2, 23\rangle$, but not $\langle3, 2\rangle$ or $\langle2, 2\rangle$. Rather than writing the relationship in terms of ordered pairs, we typically use an infix notation for such relations, writing $1<3$.
 
 Define the properties of relations as follows, with $R$ a binary relation over set $\mathbf{S}$.
 
-- $R$ is [reflexive](Glossary.md#term-reflexive) if $aRa$ for all $a \in \mathbf{S}$.
-- $R$ is [irreflexive](Glossary.md#term-irreflexive) if $aRa$ is not true for all $a \in \mathbf{S}$.
-- $R$ is [symmetric](Glossary.md#term-symmetric) if whenever $aRb$, then $bRa$, for all $a, b \in \mathbf{S}$.
-- $R$ is [antisymmetric](Glossary.md#term-antisymmetric) if whenever $aRb$ and $bRa$, then $a = b$, for all $a, b \in \mathbf{S}$.
-- $R$ is [transitive](Glossary.md#term-transitive) if whenever $aRb$ and $bRc$, then $aRc$, for all $a, b, c \in \mathbf{S}$.
+- $R$ is [reflexive](#term-reflexive) if $aRa$ for all $a \in \mathbf{S}$.
+- $R$ is [irreflexive](#term-irreflexive) if $aRa$ is not true for all $a \in \mathbf{S}$.
+- $R$ is [symmetric](#term-symmetric) if whenever $aRb$, then $bRa$, for all $a, b \in \mathbf{S}$.
+- $R$ is [antisymmetric](#term-antisymmetric) if whenever $aRb$ and $bRa$, then $a = b$, for all $a, b \in \mathbf{S}$.
+- $R$ is [transitive](#term-transitive) if whenever $aRb$ and $bRc$, then $aRc$, for all $a, b, c \in \mathbf{S}$.
 
 As examples, for the natural numbers, $<$ is irreflexive (because :math`aRa` is never true), antisymmetric (because there is no case where $aRb$ and $bRa$), and transitive. Relation $\leq$ is reflexive, antisymmetric, and transitive. Relation $=$ is reflexive, symmetric (and antisymmetric!), and transitive. For people, the relation “is a sibling of” is symmetric and transitive. If we define a person to be a sibling of themself, then it is reflexive; if we define a person not to be a sibling of themself, then it is not reflexive.
 
 <a id="equivalence-relations"></a>
 ## 2.2.2. Equivalence Relations
 
-$R$ is an [equivalence relation](Glossary.md#term-equivalence-relation) on set $\mathbf{S}$ if it is reflexive, symmetric, and transitive. An equivalence relation can be used to partition a set into [equivalence classes](Glossary.md#term-equivalence-class). If two elements $a$ and $b$ are equivalent to each other, we write $a \equiv b$. A [partition](Glossary.md#term-partition) of a set $\mathbf{S}$ is a collection of subsets that are [disjoint](Glossary.md#term-disjoint) from each other and whose union is $\mathbf{S}$. An [equivalence relation](Glossary.md#term-equivalence-relation) on set $\mathbf{S}$ partitions the set into disjoint subsets whose elements are equivalent. The [UNION/FIND](UnionFind.md#unionfind) algorithm efficiently maintains equivalence classes on a set. One application for such [disjoint sets](Glossary.md#term-disjoint-sets) computing a [minimal cost spanning tree](MCST.md#mcst).
+$R$ is an [equivalence relation](#term-equivalence-relation) on set $\mathbf{S}$ if it is reflexive, symmetric, and transitive. An equivalence relation can be used to partition a set into [equivalence classes](#term-equivalence-class). If two elements $a$ and $b$ are equivalent to each other, we write $a \equiv b$. A [partition](#term-partition) of a set $\mathbf{S}$ is a collection of subsets that are [disjoint](#term-disjoint) from each other and whose union is $\mathbf{S}$. An [equivalence relation](#term-equivalence-relation) on set $\mathbf{S}$ partitions the set into disjoint subsets whose elements are equivalent. The [UNION/FIND](UnionFind.md#unionfind) algorithm efficiently maintains equivalence classes on a set. One application for such [disjoint sets](#term-disjoint-sets) computing a [minimal cost spanning tree](MCST.md#mcst).
 
 **Example 2.2.1**
 
@@ -289,7 +289,7 @@ We can use the [modulus](MiscMath.md#miscmath) function to define an equivalence
 <a id="partial-orders"></a>
 ## 2.2.3. Partial Orders
 
-A binary relation is called a [partial order](Glossary.md#term-partial-order) if it is antisymmetric and transitive. If the relation is reflexive, it is called a [non-strict partial order](Glossary.md#term-non-strict-partial-order). If the relation is [irreflexive](Glossary.md#term-irreflexive), it is called a [strict partial order](Glossary.md#term-strict-partial-order). The set on which the partial order is defined is called a [partially ordered set](Glossary.md#term-partially-ordered-set) or a [poset](Glossary.md#term-poset). Elements $x$ and $y$ of a set are [comparable](Glossary.md#term-comparable) under a given relation $R$ if either $xRy$ or $yRx$. If every pair of distinct elements in a partial order are comparable, then the order is called a [total order](Glossary.md#term-total-order) or [linear order](Glossary.md#term-linear-order).
+A binary relation is called a [partial order](#term-partial-order) if it is antisymmetric and transitive. If the relation is reflexive, it is called a [non-strict partial order](#term-non-strict-partial-order). If the relation is [irreflexive](#term-irreflexive), it is called a [strict partial order](#term-strict-partial-order). The set on which the partial order is defined is called a [partially ordered set](#term-partially-ordered-set) or a [poset](#term-poset). Elements $x$ and $y$ of a set are [comparable](#term-comparable) under a given relation $R$ if either $xRy$ or $yRx$. If every pair of distinct elements in a partial order are comparable, then the order is called a [total order](#term-total-order) or [linear order](#term-linear-order).
 
 **Example 2.2.4**
 
@@ -299,7 +299,7 @@ For the integers, relations $<$ and $\leq$ define partial orders. Operation $<$ 
 
 For the powerset of the integers, the subset operator defines a partial order (because it is antisymmetric and transitive). For example, $\lbrace 1, 2\rbrace \subseteq\lbrace 1, 2, 3\rbrace $. However, sets {1, 2} and {1, 3} are not comparable by the subset operator, because neither is a subset of the other. Therefore, the subset operator does not define a total order on the powerset of the integers.
 
-[^1]: The object referred to here as a bag is sometimes called a [multilist](Glossary.md#term-multilist). But, the term multilist also refers to a list that may contain sublists.
+[^1]: The object referred to here as a bag is sometimes called a [multilist](#term-multilist). But, the term multilist also refers to a list that may contain sublists.
 
 
 <a id="miscellaneous-notation"></a>
@@ -309,9 +309,9 @@ This module collects together definitions for a number of mathematical terms and
 
 **Units of measure:** OpenDSA modules use the following notation for units of measure. “B” will be used as an abbreviation for bytes, “b” for bits, “KB” for kilobytes $(2^{10} = 1024$ bytes), “MB” for megabytes $(2^{20}$ bytes) “GB” for gigabytes $(2^{30}$ bytes) and “ms” for milliseconds (a millisecond is 1/1000 of a second). Spaces are not placed between the number and the unit abbreviation when a power of two is intended. Thus a disk drive of size 25 gigabytes (where a gigabyte is intended as $2^{30}$ bytes) will be written as “25GB”. Spaces are used when a decimal value is intended. An amount of 2000 bits would therefore be written “2 Kb” while “2Kb” represents 2048 bits. 2000 milliseconds is written as 2000 ms. Note that in this book large amounts of storage are nearly always measured in powers of two and times in powers of ten.
 
-**Factorial function:** The [factorial](Glossary.md#term-factorial) function, written $n!$ for $n$ an integer greater than 0, is the product of the integers between 1 and $n$, inclusive. Thus, $5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 120$. As a special case, $0! = 1$. The factorial function grows quickly as $n$ becomes larger. Because computing the factorial function directly is a time-consuming process, it can be useful to have an equation that provides a good approximation. Stirling’s approximation states that $n! \approx \sqrt{2\pi n}(\frac{n}{e})^n$, where $e \approx 2.71828$ ($e$ is the base for the system of natural logarithms) [^1]. Thus we see that while $n!$ grows slower than $n^n$ (because $\sqrt{2\pi n}/e^n < 1$), it grows faster than $c^n$ for any positive integer constant $c$.
+**Factorial function:** The [factorial](#term-factorial) function, written $n!$ for $n$ an integer greater than 0, is the product of the integers between 1 and $n$, inclusive. Thus, $5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 120$. As a special case, $0! = 1$. The factorial function grows quickly as $n$ becomes larger. Because computing the factorial function directly is a time-consuming process, it can be useful to have an equation that provides a good approximation. Stirling’s approximation states that $n! \approx \sqrt{2\pi n}(\frac{n}{e})^n$, where $e \approx 2.71828$ ($e$ is the base for the system of natural logarithms) [^1]. Thus we see that while $n!$ grows slower than $n^n$ (because $\sqrt{2\pi n}/e^n < 1$), it grows faster than $c^n$ for any positive integer constant $c$.
 
-**Permutations:** A [permutation](Glossary.md#term-permutation) of a sequence $\mathbf{S}$ is simply the members of $\mathbf{S}$ arranged in some order. For example, a permutation of the integers 1 through $n$ would be those values arranged in some order. If the sequence contains $n$ distinct members, then there are $n!$ different permutations for the sequence. This is because there are $n$ choices for the first member in the permutation; for each choice of first member there are $n-1$ choices for the second member, and so on. Sometimes one would like to obtain a [random permutation](Glossary.md#term-random-permutation) for a sequence, that is, one of the $n!$ possible permutations is selected in such a way that each permutation has equal probability of being selected. A simple function for generating a random permutation is as follows. Here, the $n$ values of the sequence are stored in positions 0 through $n-1$ of array `A`, function `swap(A, i, j)` exchanges elements `i` and `j` in array `A`, and `Random(n)` returns an integer value in the range 0 to $n-1$.
+**Permutations:** A [permutation](#term-permutation) of a sequence $\mathbf{S}$ is simply the members of $\mathbf{S}$ arranged in some order. For example, a permutation of the integers 1 through $n$ would be those values arranged in some order. If the sequence contains $n$ distinct members, then there are $n!$ different permutations for the sequence. This is because there are $n$ choices for the first member in the permutation; for each choice of first member there are $n-1$ choices for the second member, and so on. Sometimes one would like to obtain a [random permutation](#term-random-permutation) for a sequence, that is, one of the $n!$ possible permutations is selected in such a way that each permutation has equal probability of being selected. A simple function for generating a random permutation is as follows. Here, the $n$ values of the sequence are stored in positions 0 through $n-1$ of array `A`, function `swap(A, i, j)` exchanges elements `i` and `j` in array `A`, and `Random(n)` returns an integer value in the range 0 to $n-1$.
 
 ```java
 // Randomly permute the values in array A
@@ -321,17 +321,17 @@ static <T> void permute(T[] A) {
 }                                    //   position in the range 0 to i-1.
 ```
 
-**Boolean variables:** A [Boolean variable](Glossary.md#term-boolean-variable) is a variable that takes on one of the two values `True` and `False`. These two values are often associated with the values 1 and 0, respectively, although there is no reason why this needs to be the case. It is poor programming practice to rely on the correspondence between 0 and False, because these are logically distinct objects of different types.
+**Boolean variables:** A [Boolean variable](#term-boolean-variable) is a variable that takes on one of the two values `True` and `False`. These two values are often associated with the values 1 and 0, respectively, although there is no reason why this needs to be the case. It is poor programming practice to rely on the correspondence between 0 and False, because these are logically distinct objects of different types.
 
 **Logic Notation:** We will occasionally make use of the notation of symbolic or Boolean logic. $A \Rightarrow B$ means “$A$ implies $B$” or “If $A$ then $B$”. $A \Leftrightarrow B$ means “$A$ if and only if $B$” or “$A$ is equivalent to $B$”. $A \vee B$ means “$A$ or $B$” (useful both in the context of symbolic logic or when performing a Boolean operation). $A \wedge B$ means “$A$ and $B$”. $\sim\negthinspace A$ and $\overline{A}$ both mean “not $A$” or the negation of $A$ where $A$ is a Boolean variable.
 
-**Floor and ceiling:** The [floor](Glossary.md#term-floor) of $x$ (written $\lfloor x \rfloor$) takes real value $x$ and returns the greatest integer $\leq x$. For example, $\lfloor 3.4 \rfloor = 3$, as does $\lfloor 3.0 \rfloor$, while $\lfloor -3.4 \rfloor = -4$ and $\lfloor -3.0 \rfloor = -3$. The [ceiling](Glossary.md#term-ceiling) of $x$ (written $\lceil x \rceil$) takes real value $x$ and returns the least integer $\geq x$. For example, $\lceil 3.4 \rceil = 4$, as does $\lceil 4.0 \rceil$, while $\lceil -3.4 \rceil = \lceil -3.0 \rceil = -3$.
+**Floor and ceiling:** The [floor](#term-floor) of $x$ (written $\lfloor x \rfloor$) takes real value $x$ and returns the greatest integer $\leq x$. For example, $\lfloor 3.4 \rfloor = 3$, as does $\lfloor 3.0 \rfloor$, while $\lfloor -3.4 \rfloor = -4$ and $\lfloor -3.0 \rfloor = -3$. The [ceiling](#term-ceiling) of $x$ (written $\lceil x \rceil$) takes real value $x$ and returns the least integer $\geq x$. For example, $\lceil 3.4 \rceil = 4$, as does $\lceil 4.0 \rceil$, while $\lceil -3.4 \rceil = \lceil -3.0 \rceil = -3$.
 
-**Modulus function:** The [modulus](Glossary.md#term-modulus) (or [mod](Glossary.md#term-mod)) function returns the remainder of an integer division. Sometimes written $n \bmod m$ in mathematical expressions, the syntax in many programming languages is `n % m`. From the definition of remainder, $n \bmod m$ is the integer $r$ such that $n = qm + r$ for $q$ an integer, and $|r| < |m|$. Therefore, the result of $n \bmod m$ must be between 0 and $m-1$ when $n$ and $m$ are positive integers. For example, $5 \bmod 3 = 2$; $25 \bmod 3 = 1$, $5 \bmod 7 = 5$, and $5 \bmod 5 = 0$.
+**Modulus function:** The [modulus](#term-modulus) (or [mod](#term-mod)) function returns the remainder of an integer division. Sometimes written $n \bmod m$ in mathematical expressions, the syntax in many programming languages is `n % m`. From the definition of remainder, $n \bmod m$ is the integer $r$ such that $n = qm + r$ for $q$ an integer, and $|r| < |m|$. Therefore, the result of $n \bmod m$ must be between 0 and $m-1$ when $n$ and $m$ are positive integers. For example, $5 \bmod 3 = 2$; $25 \bmod 3 = 1$, $5 \bmod 7 = 5$, and $5 \bmod 5 = 0$.
 
 There is more than one way to assign values to $q$ and $r$, depending on how integer division is interpreted. The most common mathematical definition computes the mod function as $n \bmod m = n - m\lfloor n/m\rfloor$. In this case, $-3 \bmod 5 = 2$. However, Java and C++ compilers typically use the underlying processor’s machine instruction for computing integer arithmetic. On many computers this is done by truncating the resulting fraction, meaning $n \bmod m = n - m (\mathrm{trunc}(n/m))$. Under this definition, $-3 \bmod 5 = -3$. Another language might do something different.
 
-Unfortunately, for many applications this is not what the user wants or expects. For example, many [hash systems](HashFunc.md#hashfunc) will perform some computation on a record’s [key](Glossary.md#term-key) value and then take the result modulo the hash table size. The expectation here would be that the result is a legal index into the hash table, not a negative number. Implementers of hash functions must either insure that the result of the computation is always positive, or else add the hash table size to the result of the modulo function when that result is negative.
+Unfortunately, for many applications this is not what the user wants or expects. For example, many [hash systems](HashFunc.md#hashfunc) will perform some computation on a record’s [key](#term-key) value and then take the result modulo the hash table size. The expectation here would be that the result is a legal index into the hash table, not a negative number. Implementers of hash functions must either insure that the result of the computation is always positive, or else add the hash table size to the result of the modulo function when that result is negative.
 
 [^1]: The symbol “$\approx$” means “approximately equal.”
 
@@ -342,7 +342,7 @@ Unfortunately, for many applications this is not what the user wants or expects.
 <a id="id2"></a>
 ## 2.4.1. Logarithms
 
-The [logarithm](Glossary.md#term-logarithm) of base $b$ for value $y$ is the power to which $b$ is raised to get $y$. Normally, this is written as $\log_b y = x$. Thus, if $\log_b y = x$ then $b^x = y$, and $b^{log_b y} = y$.
+The [logarithm](#term-logarithm) of base $b$ for value $y$ is the power to which $b$ is raised to get $y$. Normally, this is written as $\log_b y = x$. Thus, if $\log_b y = x$ then $b^x = y$, and $b^{log_b y} = y$.
 
 Logarithms are used frequently by programmers. Here are two typical uses.
 
@@ -389,7 +389,7 @@ Here is some practice with manipulating logarithms.
 <a id="id2"></a>
 ## 2.5.1. Summations
 
-Most programs contain loop constructs. When analyzing running time costs for programs with loops, we need to add up the costs for each time the loop is executed. This is an example of a [summation](Glossary.md#term-summation). Summations are simply the sum of costs for some function applied to a range of parameter values. Summations are typically written with the following “Sigma” notation:
+Most programs contain loop constructs. When analyzing running time costs for programs with loops, we need to add up the costs for each time the loop is executed. This is an example of a [summation](#term-summation). Summations are simply the sum of costs for some function applied to a range of parameter values. Summations are typically written with the following “Sigma” notation:
 
 <a id="equation-summations-0"></a>
 $$
@@ -398,7 +398,7 @@ $$
 
 This notation indicates that we are summing the value of $f(i)$ over some range of (integer) values. The parameter to the expression and its initial value are indicated below the $\sum$ symbol. Here, the notation $i=1$ indicates that the parameter is $i$ and that it begins with the value 1. At the top of the $\sum$ symbol is the expression $n$. This indicates the maximum value for the parameter $i$. Thus, this notation means to sum the values of $f(i)$ as $i$ ranges across the integers from 1 through $n$. This can also be written $f(1) + f(2) + \cdots + f(n-1) + f(n)$. Within a sentence, Sigma notation is typeset as $\sum_{i=1}^{n} f(i)$.
 
-Given a summation, you often wish to replace it with an algebraic equation with the same value as the summation. This is known as a [closed-form solution](Glossary.md#term-closed-form-solution), and the process of replacing the summation with its closed-form solution is known as solving the summation. For example, the summation $\sum_{i=1}^{n} 1$ is simply the expression “1” summed $n$ times (remember that $i$ ranges from 1 to $n$). Because the sum of $n$ 1s is $n$, the closed-form solution is $n$.
+Given a summation, you often wish to replace it with an algebraic equation with the same value as the summation. This is known as a [closed-form solution](#term-closed-form-solution), and the process of replacing the summation with its closed-form solution is known as solving the summation. For example, the summation $\sum_{i=1}^{n} 1$ is simply the expression “1” summed $n$ times (remember that $i$ ranges from 1 to $n$). Because the sum of $n$ 1s is $n$, the closed-form solution is $n$.
 
 Here is an explanation about the closed form solution of one summation that you will see many times in this book. Since this appears so often, it will help you later if you can get comfortable with it.
 
@@ -458,7 +458,7 @@ $$
 \begin{aligned}\sum_{i=1}^{n} \frac{i}{2^i} &=  2 - \frac{n+2}{2^n}.\end{aligned}
 $$
 
-The sum of reciprocals from 1 to $n$, called the [Harmonic Series](Glossary.md#term-harmonic-series) and written ${\cal H}_n$, has a value between $\log_e n$ and $\log_e n + 1$. To be more precise, as $n$ grows, the summation grows closer to
+The sum of reciprocals from 1 to $n$, called the [Harmonic Series](#term-harmonic-series) and written ${\cal H}_n$, has a value between $\log_e n$ and $\log_e n + 1$. To be more precise, as $n$ grows, the summation grows closer to
 
 <a id="equation-summations-9"></a>
 $$
@@ -476,7 +476,7 @@ Most of these equalities can be proved easily by a [proof by induction](Proofs.m
 <a id="id1"></a>
 ## 2.6.1. Recurrence Relations
 
-The running time for a recursive algorithm is most easily expressed by a recursive expression because the total time for the recursive algorithm includes the time to run the recursive call(s). A [recurrence relation](Glossary.md#term-recurrence-relation) defines a function by means of an expression that includes one or more (smaller) instances of itself. A classic example is the recursive definition for the factorial function:
+The running time for a recursive algorithm is most easily expressed by a recursive expression because the total time for the recursive algorithm includes the time to run the recursive call(s). A [recurrence relation](#term-recurrence-relation) defines a function by means of an expression that includes one or more (smaller) instances of itself. A classic example is the recursive definition for the factorial function:
 
 <a id="equation-recurrenceintro-0"></a>
 $$
@@ -536,7 +536,7 @@ This section briefly introduces three commonly used proof techniques:
 1. proof by contradiction and
 1. proof by mathematical induction.
 
-In general, a [direct proof](Glossary.md#term-direct-proof) is just a “logical explanation”. A direct proof is sometimes referred to as an argument by deduction. This is simply an argument in terms of logic.
+In general, a [direct proof](#term-direct-proof) is just a “logical explanation”. A direct proof is sometimes referred to as an argument by deduction. This is simply an argument in terms of logic.
 
 <a id="direct-proof"></a>
 ### 2.7.1.1. Direct Proof
@@ -552,7 +552,7 @@ In some domains, proofs are essentially a series of state changes from a start s
 <a id="proof-by-contradiction"></a>
 ### 2.7.1.2. Proof by Contradiction
 
-The simplest way to *disprove* a theorem or statement is to find a counter-example to the theorem. Unfortunately, no number of examples supporting a theorem is sufficient to prove that the theorem is correct. However, there is an approach that is vaguely similar to disproving by counter-example, called [proof by contradiction](Glossary.md#term-proof-by-contradiction). To prove a theorem by contradiction, we first *assume* that the theorem is *false*. We then find a logical contradiction stemming from this assumption. If the logic used to find the contradiction is correct, then the only way to resolve the contradiction is to recognize that the assumption that the theorem is false must be incorrect. That is, we conclude that the theorem must be true.
+The simplest way to *disprove* a theorem or statement is to find a counter-example to the theorem. Unfortunately, no number of examples supporting a theorem is sufficient to prove that the theorem is correct. However, there is an approach that is vaguely similar to disproving by counter-example, called [proof by contradiction](#term-proof-by-contradiction). To prove a theorem by contradiction, we first *assume* that the theorem is *false*. We then find a logical contradiction stemming from this assumption. If the logic used to find the contradiction is correct, then the only way to resolve the contradiction is to recognize that the assumption that the theorem is false must be incorrect. That is, we conclude that the theorem must be true.
 
 **Example 2.7.2**
 
@@ -566,21 +566,21 @@ Here is a simple proof by contradiction.
 
 **Step 2. Show this assumption leads to a contradiction:** Consider $C = B + 1$. $C$ is an integer because it is the sum of two integers. Also, $C > B$, which means that $B$ is not the largest integer after all. Thus, we have reached a contradiction. The only flaw in our reasoning is the initial assumption that the theorem is false. Thus, we conclude that the theorem is correct.
 
-A related proof technique is [proving the contrapositive](Glossary.md#term-proving-the-contrapositive). We can prove that $P \Rightarrow Q$ by proving $(\mathrm{not}\ Q) \Rightarrow (\mathrm{not}\ P)$. This technique works because the [truth table](Glossary.md#term-truth-table) for the two logical statements are the same.
+A related proof technique is [proving the contrapositive](#term-proving-the-contrapositive). We can prove that $P \Rightarrow Q$ by proving $(\mathrm{not}\ Q) \Rightarrow (\mathrm{not}\ P)$. This technique works because the [truth table](#term-truth-table) for the two logical statements are the same.
 
 <a id="proof-by-mathematical-induction"></a>
 ### 2.7.1.3. Proof by Mathematical Induction
 
 Mathematical induction can be used to prove a wide variety of theorems. Induction also provides a useful way to think about algorithm design, because it encourages you to think about solving a problem by building up from simple subproblems. Induction can help to prove that a recursive function produces the correct result. Understanding recursion is a big step toward understanding induction, and vice versa, since they work by essentially the same process.
 
-Within the context of algorithm analysis, one of the most important uses for mathematical induction is as a method to test a hypothesis. When [seeking a closed-form solution](Glossary.md#term-closed-form-solution) for a [summation](Glossary.md#term-summation) or [recurrence](Glossary.md#term-recurrence-relation), we might first guess or otherwise acquire evidence that a particular formula is the correct solution. If the formula is indeed correct, it is often an easy matter to prove that fact with an induction proof.
+Within the context of algorithm analysis, one of the most important uses for mathematical induction is as a method to test a hypothesis. When [seeking a closed-form solution](#term-closed-form-solution) for a [summation](#term-summation) or [recurrence](#term-recurrence-relation), we might first guess or otherwise acquire evidence that a particular formula is the correct solution. If the formula is indeed correct, it is often an easy matter to prove that fact with an induction proof.
 
 Let **Thrm** be a theorem to prove, and express **Thrm** in terms of a positive integer parameter $n$. Mathematical induction states that **Thrm** is true for any value of parameter $n$ (for $n \geq c$, where *c* is some constant) if the following two conditions are true:
 
-1. [Base Case](Glossary.md#term-base-case): **Thrm** holds for $n = c$, and
-1. [Induction Step](Glossary.md#term-induction-step): If **Thrm** holds for $n - 1$, then **Thrm** holds for $n$.
+1. [Base Case](#term-base-case): **Thrm** holds for $n = c$, and
+1. [Induction Step](#term-induction-step): If **Thrm** holds for $n - 1$, then **Thrm** holds for $n$.
 
-Proving the base case is usually easy, typically requiring that some small value such as 1 be substituted for $n$ in the theorem and applying simple algebra or logic as necessary to verify the theorem. Proving the induction step is sometimes easy, and sometimes difficult. An alternative formulation of the induction step is known as [strong induction](Glossary.md#term-strong-induction). The induction step for strong induction is:
+Proving the base case is usually easy, typically requiring that some small value such as 1 be substituted for $n$ in the theorem and applying simple algebra or logic as necessary to verify the theorem. Proving the induction step is sometimes easy, and sometimes difficult. An alternative formulation of the induction step is known as [strong induction](#term-strong-induction). The induction step for strong induction is:
 
 **2a. **Induction Step:****
 :   If **Thrm** holds for all $k, c \leq k < n$, then **Thrm** holds for $n$.
@@ -589,7 +589,7 @@ Proving either variant of the induction step (in conjunction with verifying the 
 
 The two conditions that make up the induction proof combine to demonstrate that **Thrm** holds for $n=2$ as an extension of the fact that **Thrm** holds for $n=1$. This fact, combined again with condition (2) or (2a), indicates that **Thrm** also holds for $n=3$, and so on. Thus, **Thrm** holds for all values of $n$ (larger than the base cases) once the two conditions have been proved.
 
-What makes mathematical induction so powerful (and so mystifying to most people at first) is that we can take advantage of the *assumption* that **Thrm** holds for all values less than $n$ as a tool to help us prove that **Thrm** holds for $n$. This is known as the [induction hypothesis](Glossary.md#term-induction-hypothesis). Having this assumption to work with makes the induction step easier to prove than tackling the original theorem itself. Being able to rely on the induction hypothesis provides extra information that we can bring to bear on the problem.
+What makes mathematical induction so powerful (and so mystifying to most people at first) is that we can take advantage of the *assumption* that **Thrm** holds for all values less than $n$ as a tool to help us prove that **Thrm** holds for $n$. This is known as the [induction hypothesis](#term-induction-hypothesis). Having this assumption to work with makes the induction step easier to prove than tackling the original theorem itself. Being able to rely on the induction hypothesis provides extra information that we can bring to bear on the problem.
 
 Recursion and induction have many similarities. Both are anchored on one or more base cases. A recursive function relies on the ability to call itself to get the answer for smaller instances of the problem. Likewise, induction proofs rely on the truth of the induction hypothesis to prove the theorem. The induction hypothesis does not come out of thin air. It is true if and only if the theorem itself is true, and therefore is reliable within the proof context. Using the induction hypothesis it do work is exactly the same as using a recursive call to do work.
 
@@ -612,7 +612,7 @@ Here is a sample proof by mathematical induction. Call the sum of the first $n$ 
   <a id="equation-proofs-1"></a>
     $$
     \begin{aligned}\sum_{i=1}^n i &=  \left(\sum_{i=1}^{n-1} i\right) + n
-                       = \frac{(n-1)(n)}{2} + n\cr 
+                       = \frac{(n-1)(n)}{2} + n\cr
                    &= \frac{n^2 - n + 2n}{2} = \frac{n(n+1)}{2}.\end{aligned}
     $$
   Thus, by mathematical induction,
@@ -642,9 +642,9 @@ We now use the induction hypothesis to show that the theorem holds true for $n$.
 
 <a id="equation-proofs-4"></a>
 $$
-\begin{aligned}\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\cr 
-                      &=  [(n-1)^2] + 2n - 1\cr 
-                      &=  n^2 - 2n + 1 + 2n - 1\cr 
+\begin{aligned}\sum_{i=1}^n (2i - 1) &=  \left[ \sum_{i=1}^{n-1} (2i - 1) \right] + 2n - 1\cr
+                      &=  [(n-1)^2] + 2n - 1\cr
+                      &=  n^2 - 2n + 1 + 2n - 1\cr
                       &=  n^2.\end{aligned}
 $$
 
@@ -692,7 +692,7 @@ Our next example of mathematical induction proves a theorem from geometry. It al
 
 **Example 2.7.8**
 
-Define a [two-coloring](Glossary.md#term-two-coloring) for a set of regions as a way of assigning one of two colors to each region such that no two regions sharing a side have the same color. For example, a chessboard is two-colored. Figure [2.7.1](Proofs.md#twocolor) shows a two-coloring for the plane with three lines. We will assume that the two colors to be used are black and white.
+Define a [two-coloring](#term-two-coloring) for a set of regions as a way of assigning one of two colors to each region such that no two regions sharing a side have the same color. For example, a chessboard is two-colored. Figure [2.7.1](Proofs.md#twocolor) shows a two-coloring for the plane with three lines. We will assume that the two colors to be used are black and white.
 
 **Theorem:** The set of regions formed by $n$ infinite lines in the plane can be two-colored.
 
@@ -726,7 +726,7 @@ We can use a similar process to prove many recursive programs correct. The gener
 <a id="index-0"></a>
 # 2.8. Estimation
 
-One of the most useful life skills that you can gain from your computer science training is the ability to perform quick estimates. This is sometimes known as “back of the napkin” or “back of the envelope” calculation. Both nicknames suggest that only a rough estimate is produced. [Estimation](Glossary.md#term-estimation) techniques are a standard part of engineering curricula but are often neglected in computer science. Estimation is no substitute for rigorous, detailed analysis of a problem, but it can help to decide when a rigorous analysis is warranted: If the initial estimate indicates that the solution is unworkable, then further analysis is probably unnecessary.
+One of the most useful life skills that you can gain from your computer science training is the ability to perform quick estimates. This is sometimes known as “back of the napkin” or “back of the envelope” calculation. Both nicknames suggest that only a rough estimate is produced. [Estimation](#term-estimation) techniques are a standard part of engineering curricula but are often neglected in computer science. Estimation is no substitute for rigorous, detailed analysis of a problem, but it can help to decide when a rigorous analysis is warranted: If the initial estimate indicates that the solution is unworkable, then further analysis is probably unnecessary.
 
 Estimation can be formalized by the following three-step process:
 
@@ -770,11 +770,11 @@ Here are some practice questions for the modules in this chapter.
 
 How long will it take to process the company payroll once we complete our planned merger? Should I buy a new payroll program from vendor X or vendor Y? If a particular program is slow, is it badly implemented or is it solving a hard problem? Questions like these ask us to consider the difficulty of a problem, or the relative efficiency of two or more approaches to solving a problem.
 
-This chapter introduces the motivation, basic notation, and fundamental techniques of algorithm analysis. We focus on a methodology known as [asymptotic algorithm analysis](Glossary.md#term-asymptotic-algorithm-analysis), or simply [asymptotic analysis](Glossary.md#term-asymptotic-analysis). Asymptotic analysis attempts to estimate the resource consumption of an algorithm. It allows us to compare the relative costs of two or more algorithms for solving the same problem. Asymptotic analysis also gives algorithm designers a tool for estimating whether a proposed solution is likely to meet the resource constraints for a problem before they implement an actual program. After reading this chapter, you should understand
+This chapter introduces the motivation, basic notation, and fundamental techniques of algorithm analysis. We focus on a methodology known as [asymptotic algorithm analysis](#term-asymptotic-algorithm-analysis), or simply [asymptotic analysis](#term-asymptotic-analysis). Asymptotic analysis attempts to estimate the resource consumption of an algorithm. It allows us to compare the relative costs of two or more algorithms for solving the same problem. Asymptotic analysis also gives algorithm designers a tool for estimating whether a proposed solution is likely to meet the resource constraints for a problem before they implement an actual program. After reading this chapter, you should understand
 
-- the concept of a [growth rate](Glossary.md#term-growth-rate), the rate at which the cost of an algorithm grows as the size of its input grows;
-- the concept of an [upper bound](Glossary.md#term-upper-bound) and [lower bound](Glossary.md#term-lower-bound) for a growth rate, and how to estimate these bounds for a simple program, algorithm, or problem; and
-- the difference between the cost of an [algorithm](Glossary.md#term-algorithm) (or program) and the cost of a [problem](Glossary.md#term-problem).
+- the concept of a [growth rate](#term-growth-rate), the rate at which the cost of an algorithm grows as the size of its input grows;
+- the concept of an [upper bound](#term-upper-bound) and [lower bound](#term-lower-bound) for a growth rate, and how to estimate these bounds for a simple program, algorithm, or problem; and
+- the difference between the cost of an [algorithm](#term-algorithm) (or program) and the cost of a [problem](#term-problem).
 
 The chapter concludes with a brief discussion of the practical difficulties encountered when empirically measuring the cost of a program, and some principles for code tuning to improve program efficiency.
 
@@ -790,16 +790,16 @@ The chapter concludes with a brief discussion of the practical difficulties enco
 
 Programmers commonly deal with problems, algorithms, and computer programs. These are three distinct concepts.
 
-As your intuition would suggest, a [problem](Glossary.md#term-problem) is a task to be performed. It is best thought of in terms of inputs and matching outputs. A problem definition should not include any constraints on *how* the problem is to be solved. The solution method should be developed only after the problem is precisely defined and thoroughly understood. However, a problem definition should include constraints on the resources that may be consumed by any acceptable solution. For any problem to be solved by a computer, there are always such constraints, whether stated or implied. For example, any computer program may use only the main memory and disk space available, and it must run in a “reasonable” amount of time.
+As your intuition would suggest, a [problem](#term-problem) is a task to be performed. It is best thought of in terms of inputs and matching outputs. A problem definition should not include any constraints on *how* the problem is to be solved. The solution method should be developed only after the problem is precisely defined and thoroughly understood. However, a problem definition should include constraints on the resources that may be consumed by any acceptable solution. For any problem to be solved by a computer, there are always such constraints, whether stated or implied. For example, any computer program may use only the main memory and disk space available, and it must run in a “reasonable” amount of time.
 
-Problems can be viewed as functions in the mathematical sense. A [function](Glossary.md#term-function) is a matching between inputs (the [domain](Glossary.md#term-domain)) and outputs (the [range](Glossary.md#term-range)). An input to a function might be a single value or a collection of information. The values making up an input are called the [parameters](Glossary.md#term-parameter) of the function. A specific selection of values for the parameters is called an [instance](Glossary.md#term-problem-instance) of the problem. For example, the input parameter to a sorting function might be an array of integers. A particular array of integers, with a given size and specific values for each position in the array, would be an instance of the sorting problem. Different instances might generate the same output. However, any problem instance must always result in the same output every time the function is computed using that particular input.
+Problems can be viewed as functions in the mathematical sense. A [function](#term-function) is a matching between inputs (the [domain](#term-domain)) and outputs (the [range](#term-range)). An input to a function might be a single value or a collection of information. The values making up an input are called the [parameters](#term-parameter) of the function. A specific selection of values for the parameters is called an [instance](#term-problem-instance) of the problem. For example, the input parameter to a sorting function might be an array of integers. A particular array of integers, with a given size and specific values for each position in the array, would be an instance of the sorting problem. Different instances might generate the same output. However, any problem instance must always result in the same output every time the function is computed using that particular input.
 
-This concept of all problems behaving like mathematical functions might not match your intuition for the behavior of computer programs. You might know of programs to which you can give the same input value on two separate occasions, and two different outputs will result. For example, if you type `date` to a typical Linux command line prompt, you will get the current date. Naturally the date will be different on different days, even though the same command is given. However, there is obviously more to the input for the date program than the command that you type to run the program. The date program computes a function. In other words, on any particular day there can only be a single answer returned by a properly running date program on a completely specified input. For all computer programs, the output is completely determined by the program’s full set of inputs. Even a “random number generator” is completely determined by its inputs (although some random number generating systems appear to get around this by accepting a random input from a physical process beyond the user’s control). The limits to what functions can be implemented by programs is part of the domain of [Computability](Glossary.md#term-computability).
+This concept of all problems behaving like mathematical functions might not match your intuition for the behavior of computer programs. You might know of programs to which you can give the same input value on two separate occasions, and two different outputs will result. For example, if you type `date` to a typical Linux command line prompt, you will get the current date. Naturally the date will be different on different days, even though the same command is given. However, there is obviously more to the input for the date program than the command that you type to run the program. The date program computes a function. In other words, on any particular day there can only be a single answer returned by a properly running date program on a completely specified input. For all computer programs, the output is completely determined by the program’s full set of inputs. Even a “random number generator” is completely determined by its inputs (although some random number generating systems appear to get around this by accepting a random input from a physical process beyond the user’s control). The limits to what functions can be implemented by programs is part of the domain of [Computability](#term-computability).
 
 <a id="algorithms"></a>
 ### 3.2.1.2. Algorithms
 
-An [algorithm](Glossary.md#term-algorithm) is a method or a process followed to solve a problem. If the problem is viewed as a function, then an algorithm is an implementation for the function that transforms an input to the corresponding output. A problem can be solved by many different algorithms. A given algorithm solves only one problem (i.e., computes a particular function). OpenDSA modules cover many problems, and for several of these problems we will see more than one algorithm. For the important problem of sorting there are over a dozen commonly known algorithms!
+An [algorithm](#term-algorithm) is a method or a process followed to solve a problem. If the problem is viewed as a function, then an algorithm is an implementation for the function that transforms an input to the corresponding output. A problem can be solved by many different algorithms. A given algorithm solves only one problem (i.e., computes a particular function). OpenDSA modules cover many problems, and for several of these problems we will see more than one algorithm. For the important problem of sorting there are over a dozen commonly known algorithms!
 
 The advantage of knowing several solutions to a problem is that solution $\mathbf{A}$ might be more efficient than solution $\mathbf{B}$ for a specific variation of the problem, or for a specific class of inputs to the problem, while solution $\mathbf{B}$ might be more efficient than $\mathbf{A}$ for another variation or class of inputs. For example, one sorting algorithm might be the best for sorting a small collection of integers (which is important if you need to do this many times). Another might be the best for sorting a large collection of integers. A third might be the best for sorting a collection of variable-length strings.
 
@@ -814,14 +814,14 @@ By definition, something can only be called an algorithm if it has all of the fo
 <a id="programs"></a>
 ### 3.2.1.3. Programs
 
-We often think of a computer [program](Glossary.md#term-program) as an instance, or concrete representation, of an algorithm in some programming language. Algorithms are usually presented in terms of programs, or parts of programs. Naturally, there are many programs that are instances of the same algorithm, because any modern computer programming language can be used to implement the same collection of algorithms (although some programming languages can make life easier for the programmer). To simplify presentation, people often use the terms “algorithm” and “program” interchangeably, despite the fact that they are really separate concepts. By definition, an algorithm must provide sufficient detail that it can be converted into a program when needed.
+We often think of a computer [program](#term-program) as an instance, or concrete representation, of an algorithm in some programming language. Algorithms are usually presented in terms of programs, or parts of programs. Naturally, there are many programs that are instances of the same algorithm, because any modern computer programming language can be used to implement the same collection of algorithms (although some programming languages can make life easier for the programmer). To simplify presentation, people often use the terms “algorithm” and “program” interchangeably, despite the fact that they are really separate concepts. By definition, an algorithm must provide sufficient detail that it can be converted into a program when needed.
 
 The requirement that an algorithm must terminate means that not all computer programs meet the technical definition of an algorithm. Your operating system is one such program. However, you can think of the various tasks for an operating system (each with associated inputs and outputs) as individual problems, each solved by specific algorithms implemented by a part of the operating system program, and each one of which terminates once its output is produced.
 
 <a id="summary"></a>
 ### 3.2.1.4. Summary
 
-To summarize: A [problem](Glossary.md#term-problem) is a function or a mapping of inputs to outputs. An [algorithm](Glossary.md#term-algorithm) is a recipe for solving a problem whose steps are concrete and unambiguous. Algorithms must be correct, of finite length, and must terminate for all inputs. A [program](Glossary.md#term-program) is an instantiation of an algorithm in a programming language. The following slideshow should help you to visualize the differences.
+To summarize: A [problem](#term-problem) is a function or a mapping of inputs to outputs. An [algorithm](#term-algorithm) is a recipe for solving a problem whose steps are concrete and unambiguous. Algorithms must be correct, of finite length, and must terminate for all inputs. A [program](#term-program) is an instantiation of an algorithm in a programming language. The following slideshow should help you to visualize the differences.
 
 <a id="summary-questions"></a>
 ### 3.2.1.5. Summary Questions
@@ -851,7 +851,7 @@ If you truly wish to understand the running time of an algorithm, there are othe
 <a id="basic-operations-and-input-size"></a>
 ### 3.3.1.2. Basic Operations and Input Size
 
-Of primary consideration when estimating an algorithm’s performance is the number of [basic operations](Glossary.md#term-basic-operation) required by the algorithm to process an input of a certain size. The terms “basic operations” and “size” are both rather vague and depend on the algorithm being analyzed. Size is often the number of inputs processed. For example, when comparing sorting algorithms the size of the problem is typically measured by the number of records to be sorted. A basic operation must have the property that its time to complete does not depend on the particular values of its operands. Adding or comparing two integer variables are examples of basic operations in most programming languages. Summing the contents of an array containing $n$ integers is not, because the cost depends on the value of $n$ (i.e., the size of the input).
+Of primary consideration when estimating an algorithm’s performance is the number of [basic operations](#term-basic-operation) required by the algorithm to process an input of a certain size. The terms “basic operations” and “size” are both rather vague and depend on the algorithm being analyzed. Size is often the number of inputs processed. For example, when comparing sorting algorithms the size of the problem is typically measured by the number of records to be sorted. A basic operation must have the property that its time to complete does not depend on the particular values of its operands. Adding or comparing two integer variables are examples of basic operations in most programming languages. Summing the contents of an array containing $n$ integers is not, because the cost depends on the value of $n$ (i.e., the size of the input).
 
 **Example 3.3.1**
 
@@ -890,7 +890,7 @@ $$
 \mathbf{T}(n) = c_1,
 $$
 
-indicating that the size of the input $n$ has no effect on the running time. This is called a [constant running time](Glossary.md#term-constant-running-time).
+indicating that the size of the input $n$ has no effect on the running time. This is called a [constant running time](#term-constant-running-time).
 
 **Example 3.3.3**
 
@@ -908,9 +908,9 @@ What is the running time for this code fragment? Clearly it takes longer to run 
 <a id="growth-rates"></a>
 ### 3.3.1.3. Growth Rates
 
-The [growth rate](Glossary.md#term-growth-rate) for an algorithm is the rate at which the cost of the algorithm grows as the size of its input grows. The following figure shows a graph for six equations, each meant to describe the running time for a particular program or algorithm. A variety of growth rates that are representative of typical algorithms are shown.
+The [growth rate](#term-growth-rate) for an algorithm is the rate at which the cost of the algorithm grows as the size of its input grows. The following figure shows a graph for six equations, each meant to describe the running time for a particular program or algorithm. A variety of growth rates that are representative of typical algorithms are shown.
 
-The two equations labeled $10n$ and $20n$ are graphed by straight lines. A growth rate of $cn$ (for $c$ any positive constant) is often referred to as a [linear growth rate](Glossary.md#term-linear-growth-rate) or running time. This means that as the value of $n$ grows, the running time of the algorithm grows in the same proportion. Doubling the value of $n$ roughly doubles the running time. An algorithm whose running-time equation has a highest-order term containing a factor of $n^2$ is said to have a [quadratic growth rate](Glossary.md#term-quadratic-growth-rate). In the figure, the line labeled $2n^2$ represents a quadratic growth rate. The line labeled $2^n$ represents an [exponential growth rate](Glossary.md#term-exponential-growth-rate). This name comes from the fact that $n$ appears in the exponent. The line labeled $n!$ also grows exponentially.
+The two equations labeled $10n$ and $20n$ are graphed by straight lines. A growth rate of $cn$ (for $c$ any positive constant) is often referred to as a [linear growth rate](#term-linear-growth-rate) or running time. This means that as the value of $n$ grows, the running time of the algorithm grows in the same proportion. Doubling the value of $n$ roughly doubles the running time. An algorithm whose running-time equation has a highest-order term containing a factor of $n^2$ is said to have a [quadratic growth rate](#term-quadratic-growth-rate). In the figure, the line labeled $2n^2$ represents a quadratic growth rate. The line labeled $2^n$ represents an [exponential growth rate](#term-exponential-growth-rate). This name comes from the fact that $n$ appears in the exponent. The line labeled $n!$ also grows exponentially.
 
 As you can see from the figure, the difference between an algorithm whose running time has cost $\mathbf{T}(n) = 10n$ and another with cost $\mathbf{T}(n) = 2n^2$ becomes tremendous as $n$ grows. For $n > 5$, the algorithm with running time $\mathbf{T}(n) = 2n^2$ is already much slower. This is despite the fact that $10n$ has a greater constant factor than $2n^2$. Comparing the two curves marked $20n$ and $2n^2$ shows that changing the constant factor for one of the equations only shifts the point at which the two curves cross. For $n>10$, the algorithm with cost $\mathbf{T}(n) = 2n^2$ is slower than the algorithm with cost $\mathbf{T}(n) = 20n$. This graph also shows that the equation $\mathbf{T}(n) = 5 n \log n$ grows somewhat more quickly than both $\mathbf{T}(n) = 10 n$ and $\mathbf{T}(n) = 20 n$, but not nearly so quickly as the equation $\mathbf{T}(n) = 2n^2$. For constants $a, b > 1, n^a$ grows faster than either $\log^b n$ or $\log n^b$. Finally, algorithms with cost $\mathbf{T}(n) = 2^n$ or $\mathbf{T}(n) = n!$ are prohibitively expensive for even modest values of $n$. Note that for constants $a, b \geq 1, a^n$ grows faster than $n^b$.
 
@@ -924,23 +924,23 @@ Costs for representative growth rates.
 $$
 \begin{aligned}\begin{array}{c|c|c|c|c|c|c|c}
 \mathsf{n} & \mathsf{\log \log n} & \mathsf{\log n} & \mathsf{n} &
-\mathsf{n \log n} & \mathsf{n^2} & \mathsf{n^3} & \mathsf{2^n}\cr 
+\mathsf{n \log n} & \mathsf{n^2} & \mathsf{n^3} & \mathsf{2^n}\cr
 \hline
 \mathsf{16} & \mathsf{2} & \mathsf{4} & \mathsf{2^{4}} &
 \mathsf{4 \cdot 2^{4} = 2^{6}} &
-\mathsf{2^{8}} & \mathsf{2^{12}} & \mathsf{2^{16}}\cr 
+\mathsf{2^{8}} & \mathsf{2^{12}} & \mathsf{2^{16}}\cr
 \mathsf{256} & \mathsf{3} & \mathsf{8} & \mathsf{2^{8}} &
 \mathsf{8 \cdot 2^{8} = 2^{11}} &
-\mathsf{2^{16}} & \mathsf{2^{24}} & \mathsf{2^{256}}\cr 
+\mathsf{2^{16}} & \mathsf{2^{24}} & \mathsf{2^{256}}\cr
 \mathsf{1024} & \mathsf{\approx 3.3} & \mathsf{10} & \mathsf{2^{10}} &
 \mathsf{10 \cdot 2^{10} \approx 2^{13}} &
-\mathsf{2^{20}} & \mathsf{2^{30}} & \mathsf{2^{1024}}\cr 
+\mathsf{2^{20}} & \mathsf{2^{30}} & \mathsf{2^{1024}}\cr
 \mathsf{64 {\rm K}} & \mathsf{4} & \mathsf{16} & \mathsf{2^{16}} &
 \mathsf{16 \cdot 2^{16} = 2^{20}} &
-\mathsf{2^{32}} & \mathsf{2^{48}} & \mathsf{2^{64 {\rm K}}}\cr 
+\mathsf{2^{32}} & \mathsf{2^{48}} & \mathsf{2^{64 {\rm K}}}\cr
 \mathsf{1 {\rm M}} & \mathsf{\approx 4.3} & \mathsf{20} & \mathsf{2^{20}} &
 \mathsf{20 \cdot 2^{20} \approx 2^{24}} &
-\mathsf{2^{40}} & \mathsf{2^{60}} & \mathsf{2^{1 {\rm M}}}\cr 
+\mathsf{2^{40}} & \mathsf{2^{60}} & \mathsf{2^{1 {\rm M}}}\cr
 \mathsf{1 {\rm G}} & \mathsf{\approx 4.9} & \mathsf{30} & \mathsf{2^{30}} &
 \mathsf{30 \cdot 2^{30} \approx 2^{35}} &
 \mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\cr \end{array}\end{aligned}
@@ -990,13 +990,13 @@ $$
 \mathbf{n} &
 \mathbf{n'} &
 \mathbf{Change} &
-\mathbf{n'/n}\cr 
+\mathbf{n'/n}\cr
 \hline
-10n         & 1000 & 10,000 & n' = 10n               & 10\cr 
-20n         & 500  & 5000   & n' = 10n               & 10\cr 
-5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\cr 
-2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\cr 
-2^n         & 13   & 16     & n' = n + 3             & --\cr 
+10n         & 1000 & 10,000 & n' = 10n               & 10\cr
+20n         & 500  & 5000   & n' = 10n               & 10\cr
+5 n \log n  & 250  & 1842   & \sqrt{10} n < n' < 10n & 7.37\cr
+2 n^2       & 70   & 223    & n' = \sqrt{10} n       & 3.16\cr
+2^n         & 13   & 16     & n' = n + 3             & --\cr
 \end{array}\end{aligned}
 $$
 
@@ -1006,7 +1006,7 @@ An algorithm with time equation $\mathbf{T}(n) = 2n^2$ does not receive nearly a
 
 The algorithm with growth rate $\mathbf{T}(n) = 5 n \log n$ improves by a greater amount than the one with quadratic growth rate, but not by as great an amount as the algorithms with linear growth rates.
 
-Note that something special happens in the case of the algorithm whose running time grows exponentially. If you look at its plot on a graph, the curve for the algorithm whose time is proportional to $2^n$ goes up very quickly as $n$ grows. The increase in problem size on the machine ten times as fast is about $n + 3$ (to be precise, it is $n + \log_2 10$). The increase in problem size for an algorithm with exponential growth rate is by a constant addition, not by a multiplicative factor. Because the old value of $n$ was 13, the new problem size is 16. If next year you buy another computer ten times faster yet, then the new computer (100 times faster than the original computer) will only run a problem of size 19. If you had a second program whose growth rate is $2^n$ and for which the original computer could run a problem of size 1000 in an hour, than a machine ten times faster can run a problem only of size 1003 in an hour! Thus, an exponential growth rate is radically different than the other growth rates shown in the table. The significance of this difference is an important topic in [computational complexity theory](Glossary.md#term-computational-complexity-theory).
+Note that something special happens in the case of the algorithm whose running time grows exponentially. If you look at its plot on a graph, the curve for the algorithm whose time is proportional to $2^n$ goes up very quickly as $n$ grows. The increase in problem size on the machine ten times as fast is about $n + 3$ (to be precise, it is $n + \log_2 10$). The increase in problem size for an algorithm with exponential growth rate is by a constant addition, not by a multiplicative factor. Because the old value of $n$ was 13, the new problem size is 16. If next year you buy another computer ten times faster yet, then the new computer (100 times faster than the original computer) will only run a problem of size 19. If you had a second program whose growth rate is $2^n$ and for which the original computer could run a problem of size 1000 in an hour, than a machine ten times faster can run a problem only of size 1003 in an hour! Thus, an exponential growth rate is radically different than the other growth rates shown in the table. The significance of this difference is an important topic in [computational complexity theory](#term-computational-complexity-theory).
 
 Instead of buying a faster computer, consider what happens if you replace an algorithm whose running time is proportional to $n^2$ with a new algorithm whose running time is proportional to $n \log n$. In a graph relating growth rate functions to input size, a fixed amount of time would appear as a horizontal line. If the line for the amount of time available to solve your problem is above the point at which the curves for the two growth rates in question meet, then the algorithm whose running time grows less quickly is faster. An algorithm with running time $\mathbf{T}n=n^2$ requires $1024 \times 1024 = 1,048,576$ time steps for an input of size $n=1024$. An algorithm with running time $\mathbf{T}(n) = n \log n$ requires $1024 \times 10 = 10,240$ time steps for an input of size $n = 1024$, which is an improvement of much more than a factor of ten when compared to the algorithm with running time $\mathbf{T}(n) = n^2$. Because $n^2 > 10 n \log n$ whenever $n > 58$, if the typical problem size is larger than 58 for this example, then you would be much better off changing algorithms instead of buying a computer ten times faster. Furthermore, when you do buy a faster computer, an algorithm with a slower growth rate provides a greater benefit in terms of larger problem size that can run in a certain time on the new computer.
 
@@ -1017,18 +1017,18 @@ Instead of buying a faster computer, consider what happens if you replace an alg
 <a id="id1"></a>
 ## 3.6.1. Asymptotic Analysis and Upper Bounds
 
-Despite the larger constant for the curve labeled $10 n$ in the figure above, $2 n^2$ crosses it at the relatively small value of $n = 5$. What if we double the value of the constant in front of the linear equation? As shown in the graph, $20 n$ is surpassed by $2 n^2$ once $n = 10$. The additional factor of two for the linear [growth rate](Glossary.md#term-growth-rate) does not much matter. It only doubles the $x$-coordinate for the intersection point. In general, changes to a constant factor in either equation only shift *where* the two curves cross, not *whether* the two curves cross.
+Despite the larger constant for the curve labeled $10 n$ in the figure above, $2 n^2$ crosses it at the relatively small value of $n = 5$. What if we double the value of the constant in front of the linear equation? As shown in the graph, $20 n$ is surpassed by $2 n^2$ once $n = 10$. The additional factor of two for the linear [growth rate](#term-growth-rate) does not much matter. It only doubles the $x$-coordinate for the intersection point. In general, changes to a constant factor in either equation only shift *where* the two curves cross, not *whether* the two curves cross.
 
-When you buy a faster computer or a faster compiler, the new problem size that can be run in a given amount of time for a given growth rate is larger by the same factor, regardless of the constant on the running-time equation. The time curves for two algorithms with different growth rates still cross, regardless of their running-time equation constants. For these reasons, we usually ignore the constants when we want an estimate of the growth rate for the running time or other resource requirements of an algorithm. This simplifies the analysis and keeps us thinking about the most important aspect: the growth rate. This is called [asymptotic algorithm analysis](Glossary.md#term-asymptotic-algorithm-analysis). To be precise, asymptotic analysis refers to the study of an algorithm as the input size “gets big” or reaches a limit (in the calculus sense). However, it has proved to be so useful to ignore all constant factors that asymptotic analysis is used for most algorithm comparisons.
+When you buy a faster computer or a faster compiler, the new problem size that can be run in a given amount of time for a given growth rate is larger by the same factor, regardless of the constant on the running-time equation. The time curves for two algorithms with different growth rates still cross, regardless of their running-time equation constants. For these reasons, we usually ignore the constants when we want an estimate of the growth rate for the running time or other resource requirements of an algorithm. This simplifies the analysis and keeps us thinking about the most important aspect: the growth rate. This is called [asymptotic algorithm analysis](#term-asymptotic-algorithm-analysis). To be precise, asymptotic analysis refers to the study of an algorithm as the input size “gets big” or reaches a limit (in the calculus sense). However, it has proved to be so useful to ignore all constant factors that asymptotic analysis is used for most algorithm comparisons.
 
 In rare situations, it is not reasonable to ignore the constants. When comparing algorithms meant to run on small values of $n$, the constant can have a large effect. For example, if the problem requires you to sort many collections of exactly five records, then a sorting algorithm designed for sorting thousands of records is probably not appropriate, even if its asymptotic analysis indicates good performance. There are rare cases where the constants for two algorithms under comparison can differ by a factor of 1000 or more, making the one with lower growth rate impractical for typical problem sizes due to its large constant. Asymptotic analysis is a form of “back of the envelope” [estimation](Estimation.md#estimation) for algorithm resource consumption. It provides a simplified model of the running time or other resource needs of an algorithm. This simplification usually helps you understand the behavior of your algorithms. Just be aware of the limitations to asymptotic analysis in the rare situation where the constant is important.
 
 <a id="upper-bounds"></a>
 ### 3.6.1.1. Upper Bounds
 
-Several terms are used to describe the running-time equation for an algorithm. These terms—and their associated symbols—indicate precisely what aspect of the algorithm’s behavior is being described. One is the [upper bound](Glossary.md#term-upper-bound) for the growth of the algorithm’s running time. It indicates the upper or highest growth rate that the algorithm can have.
+Several terms are used to describe the running-time equation for an algorithm. These terms—and their associated symbols—indicate precisely what aspect of the algorithm’s behavior is being described. One is the [upper bound](#term-upper-bound) for the growth of the algorithm’s running time. It indicates the upper or highest growth rate that the algorithm can have.
 
-Because the phrase “has an upper bound to its growth rate of $f(n)$” is long and often used when discussing algorithms, we adopt a special notation, called [big-Oh notation](Glossary.md#term-big-oh-notation). If the upper bound for an algorithm’s growth rate (for, say, the worst case) is (f(n)), then we would write that this algorithm is “in the set $O(f(n))$ in the worst case” (or just “in $O(f(n))$ in the worst case”). For example, if $n^2$ grows as fast as $\mathbf{T}(n)$ (the running time of our algorithm) for the worst-case input, we would say the algorithm is “in $O(n^2)$ in the worst case”.
+Because the phrase “has an upper bound to its growth rate of $f(n)$” is long and often used when discussing algorithms, we adopt a special notation, called [big-Oh notation](#term-big-oh-notation). If the upper bound for an algorithm’s growth rate (for, say, the worst case) is (f(n)), then we would write that this algorithm is “in the set $O(f(n))$ in the worst case” (or just “in $O(f(n))$ in the worst case”). For example, if $n^2$ grows as fast as $\mathbf{T}(n)$ (the running time of our algorithm) for the worst-case input, we would say the algorithm is “in $O(n^2)$ in the worst case”.
 
 The following is a precise definition for an upper bound. $\mathbf{T}(n)$ represents the true running time of the algorithm. $f(n)$ is some expression for the upper bound.
 
@@ -1097,11 +1097,11 @@ From now on, we will use these simplifying rules when discussing the cost for a 
 <a id="lower-bounds"></a>
 ### 3.7.1.1. Lower Bounds
 
-[Big-Oh notation](Glossary.md#term-big-oh-notation) describes an upper bound. In other words, big-Oh notation states a claim about the greatest amount of some resource (usually time) that is required by an algorithm for some class of inputs of size $n$ (typically the worst such input, the average of all possible inputs, or the best such input).
+[Big-Oh notation](#term-big-oh-notation) describes an upper bound. In other words, big-Oh notation states a claim about the greatest amount of some resource (usually time) that is required by an algorithm for some class of inputs of size $n$ (typically the worst such input, the average of all possible inputs, or the best such input).
 
 Similar notation is used to describe the least amount of a resource that an algorithm needs for some class of input. Like big-Oh notation, this is a measure of the algorithm’s growth rate. Like big-Oh notation, it works for any resource, but we most often measure the least amount of time required. And again, like big-Oh notation, we are measuring the resource required for some particular class of inputs: the worst-, average-, or best-case input of size $n$.
 
-The [lower bound](Glossary.md#term-lower-bound) for an algorithm (or a problem, as explained later) is denoted by the symbol $\Omega$, pronounced “big-Omega” or just “Omega”. The following definition for $\Omega$ is symmetric with the definition of big-Oh.
+The [lower bound](#term-lower-bound) for an algorithm (or a problem, as explained later) is denoted by the symbol $\Omega$, pronounced “big-Omega” or just “Omega”. The following definition for $\Omega$ is symmetric with the definition of big-Oh.
 
 For $\mathbf{T}(n)$ a non-negatively valued function, $\mathbf{T}(n)$ is in set $\Omega(g(n))$ if there exist two positive constants $c$ and $n_0$ such that $\mathbf{T}(n) \geq c g(n)$ for all $n > n_0$. [^1]
 
@@ -1127,7 +1127,7 @@ The definitions for big-Oh and $\Omega$ give us ways to describe the upper bound
 
 Because the sequential search algorithm is both in $O(n)$ and in $\Omega(n)$ in the average case, we say it is $\Theta(n)$ in the average case.
 
-Given an algebraic equation describing the time requirement for an algorithm, the upper and lower bounds always meet. That is because in some sense we have a perfect analysis for the algorithm, embodied by the running-time equation. For many algorithms (or their instantiations as programs), it is easy to come up with the equation that defines their runtime behavior. The analysis for most commonly used algorithms is well understood and we can almost always give a $\Theta$ analysis for them. However, the class of [NP-Complete](Glossary.md#term-np-complete) problems all have no definitive $\Theta$ analysis, just some unsatisfying big-Oh and $\Omega$ analyses. Even some “simple” programs are hard to analyze. Nobody currently knows the true upper or lower bounds for the following code fragment.
+Given an algebraic equation describing the time requirement for an algorithm, the upper and lower bounds always meet. That is because in some sense we have a perfect analysis for the algorithm, embodied by the running-time equation. For many algorithms (or their instantiations as programs), it is easy to come up with the equation that defines their runtime behavior. The analysis for most commonly used algorithms is well understood and we can almost always give a $\Theta$ analysis for them. However, the class of [NP-Complete](#term-np-complete) problems all have no definitive $\Theta$ analysis, just some unsatisfying big-Oh and $\Omega$ analyses. Even some “simple” programs are hard to analyze. Nobody currently knows the true upper or lower bounds for the following code fragment.
 
 ```java
 while (n > 1)
@@ -1172,12 +1172,12 @@ because $n$ grows faster than $2\log n$. Thus, $n^2$ is in $\Omega(2n\log n)$.
 <a id="summary-exercise"></a>
 ### 3.7.1.4. Summary Exercise
 
-[^1]: An alternate (non-equivalent) definition for $\Omega$ is  $\mathbf{T}(n)$ is in the set $\Omega(g(n))$ if there exists a positive constant $c$ such that $\mathbf{T}(n) \geq c g(n)$ for an infinite number of values for $n$. This definition says that for an “interesting” number of cases, the algorithm takes at least $c g(n)$ time. Note that this definition is *not* symmetric with the definition of big-Oh. For $g(n)$ to be a lower bound, this definition *does not* require that $\mathbf{T}(n) \geq c g(n)$ for all values of $n$ greater than some constant. It only requires that this happen often enough, in particular that it happen for an infinite number of values for $n$. Motivation for this alternate definition can be found in the following example. Assume a particular algorithm has the following behavior: 
+[^1]: An alternate (non-equivalent) definition for $\Omega$ is  $\mathbf{T}(n)$ is in the set $\Omega(g(n))$ if there exists a positive constant $c$ such that $\mathbf{T}(n) \geq c g(n)$ for an infinite number of values for $n$. This definition says that for an “interesting” number of cases, the algorithm takes at least $c g(n)$ time. Note that this definition is *not* symmetric with the definition of big-Oh. For $g(n)$ to be a lower bound, this definition *does not* require that $\mathbf{T}(n) \geq c g(n)$ for all values of $n$ greater than some constant. It only requires that this happen often enough, in particular that it happen for an infinite number of values for $n$. Motivation for this alternate definition can be found in the following example. Assume a particular algorithm has the following behavior:
 
 <a id="equation-anallower-1"></a>
 $$
 \begin{aligned}\mathbf{T}(n) = \left\lbrace  \begin{array}{ll}
-n  & \text{for all odd}\ n \geq 1\cr 
+n  & \text{for all odd}\ n \geq 1\cr
 n^2/100 & \text{for all even}\ n \geq 0\end{array}
 \right.\end{aligned}
 $$
@@ -1312,7 +1312,7 @@ The closed-form solution for this recurrence relation is $\Theta(n)$.
 <a id="case-study-two-search-algorithms"></a>
 ### 3.8.1.1. Case Study: Two Search Algorithms
 
-The final example of algorithm analysis for this section will compare two algorithms for performing search in an array. Earlier, we determined that the running time for sequential search on an array where the search value $K$ is equally likely to appear in any location is $\Theta(n)$ in both the average and worst cases. We would like to compare this running time to that required to perform a [binary search](Glossary.md#term-binary-search) on an array whose values are stored in order from lowest to highest. Here is a visualization of the binary search method.
+The final example of algorithm analysis for this section will compare two algorithms for performing search in an array. Earlier, we determined that the running time for sequential search on an array where the search value $K$ is equally likely to appear in any location is $\Theta(n)$ in both the average and worst cases. We would like to compare this running time to that required to perform a [binary search](#term-binary-search) on an array whose values are stored in order from lowest to highest. Here is a visualization of the binary search method.
 
 <a id="binary-search-practice-exercise"></a>
 ### 3.8.1.2. Binary Search Practice Exercise
@@ -1336,9 +1336,9 @@ Note however that the running time for sequential search will be roughly the sam
 <a id="id1"></a>
 ## 3.9.1. Analyzing Problems
 
-You most often use the techniques of “algorithm” analysis to analyze an [algorithm](Glossary.md#term-algorithm), or the instantiation of an algorithm as a [program](Glossary.md#term-program). You can also use these same techniques to analyze the cost of a [problem](Glossary.md#term-problem). The key question that we want to ask is: How hard is a problem? Certainly we should expect that in some sense, the problem of sorting a list of records is harder than the problem of searching a list of records for a given key value. Certainly the algorithms that we know for sorting some records seem to be more expensive than the algorithms that we know for searching those same records.
+You most often use the techniques of “algorithm” analysis to analyze an [algorithm](#term-algorithm), or the instantiation of an algorithm as a [program](#term-program). You can also use these same techniques to analyze the cost of a [problem](#term-problem). The key question that we want to ask is: How hard is a problem? Certainly we should expect that in some sense, the problem of sorting a list of records is harder than the problem of searching a list of records for a given key value. Certainly the algorithms that we know for sorting some records seem to be more expensive than the algorithms that we know for searching those same records.
 
-What we need are useful definitions for the [upper bound](Glossary.md#term-upper-bound) and [lower bound](Glossary.md#term-lower-bound) of a problem.
+What we need are useful definitions for the [upper bound](#term-upper-bound) and [lower bound](#term-lower-bound) of a problem.
 
 One might start by thinking that the upper bound for a problem is how hard any algorithm can be for the problem. But we can make algorithms as bad as we want, so that is not useful. Instead, what is useful is to say that a problem is only as hard as what we CAN do. In other words, we should define the upper bound for a problem to be the **best** algorithm that we know for the problem. Of course, whenever we talk about bounds, we have to say when they apply. We we really should say something like the best algorithm that we know in the worst case, or the best algorithm that we know in the average case.
 
@@ -1367,11 +1367,11 @@ So, to summarize: The upper bound for a problem is the best that you CAN do, whi
 <a id="id1"></a>
 ## 3.10.1. Common Misunderstandings
 
-[Asymptotic analysis](Glossary.md#term-asymptotic-analysis) is one of the most intellectually difficult topics that undergraduate computer science majors are confronted with. Most people find [growth rates](Glossary.md#term-growth-rate) and asymptotic analysis confusing and so develop misconceptions about either the concepts or the terminology. It helps to know what the standard points of confusion are, in hopes of avoiding them.
+[Asymptotic analysis](#term-asymptotic-analysis) is one of the most intellectually difficult topics that undergraduate computer science majors are confronted with. Most people find [growth rates](#term-growth-rate) and asymptotic analysis confusing and so develop misconceptions about either the concepts or the terminology. It helps to know what the standard points of confusion are, in hopes of avoiding them.
 
-One problem with differentiating the concepts of [upper](Glossary.md#term-upper-bound) and [lower bounds](Glossary.md#term-lower-bound) is that, for most algorithms that you will encounter, it is easy to recognize the true growth rate for that algorithm. Given complete knowledge about a cost function, the upper and lower bound for that cost function are always the same. Thus, the distinction between an upper and a lower bound is only worthwhile when you have incomplete knowledge about the thing being measured. If this distinction is still not clear, then you should [read about analyzing problems](AnalProblem.md#analproblem). We use $\Theta$-notation to indicate that there is no meaningful difference between what we know about the growth rates of the upper and lower bound (which is usually the case for simple algorithms).
+One problem with differentiating the concepts of [upper](#term-upper-bound) and [lower bounds](#term-lower-bound) is that, for most algorithms that you will encounter, it is easy to recognize the true growth rate for that algorithm. Given complete knowledge about a cost function, the upper and lower bound for that cost function are always the same. Thus, the distinction between an upper and a lower bound is only worthwhile when you have incomplete knowledge about the thing being measured. If this distinction is still not clear, then you should [read about analyzing problems](AnalProblem.md#analproblem). We use $\Theta$-notation to indicate that there is no meaningful difference between what we know about the growth rates of the upper and lower bound (which is usually the case for simple algorithms).
 
-It is a common mistake to confuse the concepts of upper bound or lower bound on the one hand, and [worst case](Glossary.md#term-worst-case) or [best case](Glossary.md#term-best-case) on the other. The best, worst, or [average cases](Glossary.md#term-average-case) each **define a cost** for a specific input instance (or specific set of instances for the average case). In contrast, upper and lower bounds describe our understanding of the **growth rate** for that cost measure. So to define the growth rate for an algorithm or problem, we need to determine what we are measuring (the best, worst, or average case) and also our description for what we know about the growth rate of that cost measure (big-Oh, $\Omega$, or $\Theta$).
+It is a common mistake to confuse the concepts of upper bound or lower bound on the one hand, and [worst case](#term-worst-case) or [best case](#term-best-case) on the other. The best, worst, or [average cases](#term-average-case) each **define a cost** for a specific input instance (or specific set of instances for the average case). In contrast, upper and lower bounds describe our understanding of the **growth rate** for that cost measure. So to define the growth rate for an algorithm or problem, we need to determine what we are measuring (the best, worst, or average case) and also our description for what we know about the growth rate of that cost measure (big-Oh, $\Omega$, or $\Theta$).
 
 The upper bound for an algorithm is not the same as the worst case for that algorithm for a given input of size $n$. What is being bounded is not the actual cost (which you can determine for a given value of $n$), but rather the **growth rate** for the cost. There cannot be a growth rate for a single point, such as a particular value of $n$. The growth **rate** applies to the **change** in cost as a **change** in input size occurs. Likewise, the lower bound is not the same as the best case for a given size $n$.
 
@@ -1385,7 +1385,7 @@ What is the growth rate of the best case for sequential search? For any array of
 <a id="amortized-analysis"></a>
 # 3.11. Amortized Analysis
 
-This module presents the concept of [amortized analysis](Glossary.md#term-amortized-analysis), which is the analysis for a series of operations taken as a whole. In particular, amortized analysis allows us to deal with the situation where the worst-case cost for $n$ operations is less than $n$ times the worst-case cost of any one operation. Rather than focusing on the individual cost of each operation independently and summing them, amortized analysis looks at the cost of the entire series and “charges” each individual operation with a share of the total cost.
+This module presents the concept of [amortized analysis](#term-amortized-analysis), which is the analysis for a series of operations taken as a whole. In particular, amortized analysis allows us to deal with the situation where the worst-case cost for $n$ operations is less than $n$ times the worst-case cost of any one operation. Rather than focusing on the individual cost of each operation independently and summing them, amortized analysis looks at the cost of the entire series and “charges” each individual operation with a share of the total cost.
 
 We can apply the technique of amortized analysis in the case of a series of sequential searches in an unsorted array. For $n$ random searches, the average-case cost for each search is $n/2$, and so the *expected* total cost for the series is $n^2/2$. Unfortunately, in the worst case all of the searches would be to the last item in the array. In this case, each search costs $n$ for a total worst-case cost of $n^2$. Compare this to the cost for a series of $n$ searches such that each item in the array is searched for precisely once. In this situation, some of the searches *must* be expensive, but also some searches *must* be cheap. The total number of searches, in the best, average, and worst case, for this problem must be $\sum_{i=i}^n i \approx n^2/2$. This is a factor of two better than the more pessimistic analysis that charges each operation in the series with its worst-case cost.
 
@@ -1411,7 +1411,7 @@ A useful concept for amortized analysis is illustrated by a simple variation on 
 
 The “local” worst-case analysis for *multipop* is $\Theta(n)$ for $n$ elements in the stack. Thus, if there are $m_1$ calls to *push* and $m_2$ calls to *multipop*, then the naive worst-case cost for the series of operation is $m_1 + m_2\cdot n = m_1 + m_2 \cdot m_1$. This analysis is unreasonably pessimistic. Clearly it is not really possible to pop $m_1$ elements each time *multipop* is called. Analysis that focuses on single operations cannot deal with this global limit, and so we turn to amortized analysis to model the entire series of operations.
 
-The key to an amortized analysis of this problem lies in the concept of [potential](Glossary.md#term-potential). At any given time, a certain number of items may be on the stack. The cost for *multipop* can be no more than this number of items. Each call to *push* places another item on the stack, which can be removed by only a single *multipop* operation. Thus, each call to *push* raises the potential of the stack by one item. The sum of costs for all calls to *multipop* can never be more than the total potential of the stack (aside from a constant time cost associated with each call to *multipop* itself).
+The key to an amortized analysis of this problem lies in the concept of [potential](#term-potential). At any given time, a certain number of items may be on the stack. The cost for *multipop* can be no more than this number of items. Each call to *push* places another item on the stack, which can be removed by only a single *multipop* operation. Thus, each call to *push* raises the potential of the stack by one item. The sum of costs for all calls to *multipop* can never be more than the total potential of the stack (aside from a constant time cost associated with each call to *multipop* itself).
 
 The amortized cost for any series of *push* and *multipop* operations is the sum of three costs. First, each of the *push* operations takes constant time. Second, each *multipop* operation takes a constant time in overhead, regardless of the number of items popped on that call. Finally, we count the sum of the potentials expended by all *multipop* operations, which is at most $m_1$, the number of *push* operations. This total cost can therefore be expressed as
 
@@ -1476,11 +1476,11 @@ What are the space requirements for an array of $n$ integers? If each integer re
 
 Imagine that we want to keep track of friendships between $n$ people. We can do this with an array of size $n \times n$. Each row of the array represents the friends of an individual, with the columns indicating who has that individual as a friend. For example, if person $j$ is a friend of person $i$, then we place a mark in column $j$ of row $i$ in the array. Likewise, we should also place a mark in column $i$ of row $j$ if we assume that friendship works both ways. For $n$ people, the total size of the array is $\Theta(n^2)$.
 
-A data structure’s primary purpose is to store data in a way that allows efficient access to those data. To provide efficient access, it may be necessary to store additional information about where the data are within the data structure. For example, each node of a linked list must store a pointer to the next value on the list. All such information stored in addition to the actual data values is referred to as [overhead](Glossary.md#term-overhead). Ideally, overhead should be kept to a minimum while allowing maximum access. The need to maintain a balance between these opposing goals is what makes the study of data structures so interesting.
+A data structure’s primary purpose is to store data in a way that allows efficient access to those data. To provide efficient access, it may be necessary to store additional information about where the data are within the data structure. For example, each node of a linked list must store a pointer to the next value on the list. All such information stored in addition to the actual data values is referred to as [overhead](#term-overhead). Ideally, overhead should be kept to a minimum while allowing maximum access. The need to maintain a balance between these opposing goals is what makes the study of data structures so interesting.
 
-One important aspect of algorithm design is referred to as the [space/time tradeoff](Glossary.md#term-space-time-tradeoff) principle. The space/time tradeoff principle says that one can often achieve a reduction in time if one is willing to sacrifice space or vice versa. Many programs can be modified to reduce storage requirements by “packing” or encoding information. “Unpacking” or decoding the information requires additional time. Thus, the resulting program uses less space but runs slower. Conversely, many programs can be modified to pre-store results or reorganize information to allow faster running time at the expense of greater storage requirements. Typically, such changes in time and space are both by a constant factor.
+One important aspect of algorithm design is referred to as the [space/time tradeoff](#term-space-time-tradeoff) principle. The space/time tradeoff principle says that one can often achieve a reduction in time if one is willing to sacrifice space or vice versa. Many programs can be modified to reduce storage requirements by “packing” or encoding information. “Unpacking” or decoding the information requires additional time. Thus, the resulting program uses less space but runs slower. Conversely, many programs can be modified to pre-store results or reorganize information to allow faster running time at the expense of greater storage requirements. Typically, such changes in time and space are both by a constant factor.
 
-A classic example of a space/time tradeoff is the [lookup table](Glossary.md#term-lookup-table). A lookup table pre-stores the value of a function that would otherwise be computed each time it is needed. For example, 12! is the greatest value for the factorial function that can be stored in a 32-bit `int` variable. If you are writing a program that often computes factorials, it is likely to be much more time efficient to simply pre-compute and store the 12 values in a table. Whenever the program needs the value of $n!$ it can simply check the lookup table. (If $n > 12$, the value is too large to store as an `int` variable anyway.) Compared to the time required to compute factorials, it may be well worth the small amount of additional space needed to store the lookup table.
+A classic example of a space/time tradeoff is the [lookup table](#term-lookup-table). A lookup table pre-stores the value of a function that would otherwise be computed each time it is needed. For example, 12! is the greatest value for the factorial function that can be stored in a 32-bit `int` variable. If you are writing a program that often computes factorials, it is likely to be much more time efficient to simply pre-compute and store the 12 values in a table. Whenever the program needs the value of $n!$ it can simply check the lookup table. (If $n > 12$, the value is too large to store as an `int` variable anyway.) Compared to the time required to compute factorials, it may be well worth the small amount of additional space needed to store the lookup table.
 
 Lookup tables can also store approximations for an expensive function such as sine or cosine. If you compute this function only for exact degrees or are willing to approximate the answer with the value for the nearest degree, then a lookup table storing the computation for exact degrees can be used instead of repeatedly computing the sine function. Note that initially building the lookup table requires a certain amount of time. Your application must use the lookup table often enough to make this initialization worthwhile.
 
@@ -1501,9 +1501,9 @@ for (i=0; i<A.length; i++)
 
 Function `swap(A, i, j)` exchanges elements `i` and `j` in array `A`. It may not be obvious that the second code fragment actually sorts the array. To see that this does work, notice that each pass through the `for` loop will at least move the integer with value $i$ to its correct position in the array, and that during this iteration, the value of `A[i]` must be greater than or equal to $i$. A total of at most $n$ `swap` operations take place, because an integer cannot be moved out of its correct position once it has been placed there, and each swap operation places at least one integer in its correct position. Thus, this code fragment has cost $\Theta(n)$. However, it requires more time to run than the first code fragment. On my computer the second version takes nearly twice as long to run as the first, but it only requires half the space.
 
-A second principle for the relationship between a program’s space and time requirements applies to programs that process information [stored on disk](Glossary.md#term-file-processing). Strangely enough, the disk-based space/time tradeoff principle is almost the reverse of the space/time tradeoff principle for programs using main memory.
+A second principle for the relationship between a program’s space and time requirements applies to programs that process information [stored on disk](#term-file-processing). Strangely enough, the disk-based space/time tradeoff principle is almost the reverse of the space/time tradeoff principle for programs using main memory.
 
-The [disk-based space/time tradeoff](Glossary.md#term-disk-based-space-time-tradeoff) principle states that the smaller you can make your disk storage requirements, the faster your program will run. This is because the time to read information from disk is enormous compared to computation time, so almost any amount of additional computation needed to unpack the data is going to be less than the disk-reading time saved by reducing the storage requirements. Naturally this principle does not hold true in all cases, but it is good to keep in mind when designing programs that process information stored on disk.
+The [disk-based space/time tradeoff](#term-disk-based-space-time-tradeoff) principle states that the smaller you can make your disk storage requirements, the faster your program will run. This is because the time to read information from disk is enormous compared to computation time, so almost any amount of additional computation needed to unpack the data is going to be less than the disk-reading time saved by reducing the storage requirements. Naturally this principle does not hold true in all cases, but it is good to keep in mind when designing programs that process information stored on disk.
 
 
 <a id="code-tuning-and-empirical-analysis"></a>
@@ -1524,7 +1524,7 @@ A lot of code tuning is based on the principle of avoiding work rather than spee
 
 **Example 3.14.1**
 
-A common operation in computer graphics applications is to find which among a set of complex objects contains a given point in space. Many useful data structures and algorithms have been developed to deal with variations of this problem. Most such implementations involve the following tuning step. Directly testing whether a given complex object contains the point in question is relatively expensive. Instead, we can screen for whether the point is contained within a [bounding box](Glossary.md#term-bounding-box) for the object. The bounding box is simply the smallest rectangle (usually defined to have sides perpendicular to the $x$ and $y$ axes) that contains the object. If the point is not in the bounding box, then it cannot be in the object. If the point is in the bounding box, only then would we conduct the full comparison of the object versus the point. Note that if the point is outside the bounding box, we saved time because the bounding box test is cheaper than the comparison of the full object versus the point. But if the point is inside the bounding box, then that test is redundant because we still have to compare the point against the object. Typically the amount of work avoided by making this test is greater than the cost of making the test on every object.
+A common operation in computer graphics applications is to find which among a set of complex objects contains a given point in space. Many useful data structures and algorithms have been developed to deal with variations of this problem. Most such implementations involve the following tuning step. Directly testing whether a given complex object contains the point in question is relatively expensive. Instead, we can screen for whether the point is contained within a [bounding box](#term-bounding-box) for the object. The bounding box is simply the smallest rectangle (usually defined to have sides perpendicular to the $x$ and $y$ axes) that contains the object. If the point is not in the bounding box, then it cannot be in the object. If the point is in the bounding box, only then would we conduct the full comparison of the object versus the point. Note that if the point is outside the bounding box, we saved time because the bounding box test is cheaper than the comparison of the full object versus the point. But if the point is inside the bounding box, then that test is redundant because we still have to compare the point against the object. Typically the amount of work avoided by making this test is greater than the cost of making the test on every object.
 
 Be careful not to use tricks that make the program unreadable. Most code tuning is simply cleaning up a carelessly written program, not taking a clear program and adding tricks. In particular, you should develop an appreciation for the capabilities of modern compilers to make extremely good optimizations of expressions. “Optimization of expressions” here means a rearrangement of arithmetic or logical expressions to run more efficiently. Be careful not to damage the compiler’s ability to do such optimizations for you in an effort to optimize the expression yourself. Always check that your “optimizations” really do improve the program by running the program before and after the change on a suitable benchmark set of input. Many times I have been wrong about the positive effects of code tuning in my own programs. Most often I am wrong when I try to optimize an expression. It is hard to do better than the compiler.
 
@@ -1535,7 +1535,7 @@ The greatest time and space improvements come from a better data structure or al
 <a id="empirical-analysis"></a>
 ### 3.14.1.1. Empirical Analysis
 
-[Asymptotic algorithm analysis](Glossary.md#term-algorithm-analysis) is an analytic tool, whereby we model the key aspects of an algorithm to determine the growth rate of the algorithm as the input size grows. It has proved hugely practical, guiding developers to use more efficient algorithms. But it is really an [estimation](Glossary.md#term-estimation) technique, and it has its limitations. These include the effects at small problem size, determining the finer distinctions between algorithms with the same growth rate, and the inherent difficulty of doing mathematical modeling for more complex problems.
+[Asymptotic algorithm analysis](#term-algorithm-analysis) is an analytic tool, whereby we model the key aspects of an algorithm to determine the growth rate of the algorithm as the input size grows. It has proved hugely practical, guiding developers to use more efficient algorithms. But it is really an [estimation](#term-estimation) technique, and it has its limitations. These include the effects at small problem size, determining the finer distinctions between algorithms with the same growth rate, and the inherent difficulty of doing mathematical modeling for more complex problems.
 
 An alternative to analytical approaches are empirical ones. The most obvious empirical approach is simply to run two competitors and see which performs better. In this way we might overcome the deficiencies of analytical approaches.
 
@@ -1573,21 +1573,21 @@ This figure shows the cost for inserting or deleting a record from a [hash table
 <a id="id1"></a>
 ## 4.1.1. Abstract Data Types
 
-This module presents terminology and definitions related to techniques for managing the tremendous complexity of computer programs. It also presents working definitions for the fundamental but somewhat slippery terms “[data item](Glossary.md#term-data-item)” and “[data structure](Glossary.md#term-data-structure)”. We begin with the basic elements on which data structures are built.
+This module presents terminology and definitions related to techniques for managing the tremendous complexity of computer programs. It also presents working definitions for the fundamental but somewhat slippery terms “[data item](#term-data-item)” and “[data structure](#term-data-structure)”. We begin with the basic elements on which data structures are built.
 
-A [type](Glossary.md#term-type) is a collection of values. For example, the Boolean type consists of the values `true` and `false`. The integers also form a type. An integer is a [simple type](Glossary.md#term-simple-type) because its values contain no subparts. A bank account record will typically contain several pieces of information such as name, address, account number, and account balance. Such a record is an example of an [aggregate type](Glossary.md#term-aggregate-type) or [composite type](Glossary.md#term-composite-type). A [data item](Glossary.md#term-data-item) is a piece of information or a record whose value is drawn from a type. A data item is said to be a [member](Glossary.md#term-member) of a type.
+A [type](#term-type) is a collection of values. For example, the Boolean type consists of the values `true` and `false`. The integers also form a type. An integer is a [simple type](#term-simple-type) because its values contain no subparts. A bank account record will typically contain several pieces of information such as name, address, account number, and account balance. Such a record is an example of an [aggregate type](#term-aggregate-type) or [composite type](#term-composite-type). A [data item](#term-data-item) is a piece of information or a record whose value is drawn from a type. A data item is said to be a [member](#term-member) of a type.
 
-A [data type](Glossary.md#term-data-type) is a type together with a collection of operations to manipulate the type. For example, an integer variable is a member of the integer data type. Addition is an example of an operation on the integer data type.
+A [data type](#term-data-type) is a type together with a collection of operations to manipulate the type. For example, an integer variable is a member of the integer data type. Addition is an example of an operation on the integer data type.
 
 A distinction should be made between the logical concept of a data type and its physical implementation in a computer program. For example, there are two traditional implementations for the list data type: the linked list and the array-based list. The list data type can therefore be implemented using a linked list or an array. But we don’t need to know how the list is implemented when we wish to use a list to help in a more complex design. For example, a list might be used to help implement a [graph data structure](GraphImpl.md#graphimpl).
 
-As another example, the term “array” could refer either to a data type or an implementation. “Array” is commonly used in computer programming to mean a contiguous block of memory locations, where each memory location stores one fixed-length data item. By this meaning, an array is a physical data structure. However, array can also mean a logical data type composed of a (typically homogeneous) collection of data items, with each data item identified by an index number. It is possible to implement arrays in many different ways besides as a block of contiguous memory locations. The [sparse matrix](Glossary.md#term-sparse-matrix) refers to a large, two-dimensional array that stores only a relatively few non-zero values. This is often implemented with a linked structure, or possibly using a [hash table](HashIntro.md#hashintro). But it could be implemented with an interface that uses traditional row and column indices, thus appearing to the user in the same way that it would if it had been implemented as a block of contiguous memory locations.
+As another example, the term “array” could refer either to a data type or an implementation. “Array” is commonly used in computer programming to mean a contiguous block of memory locations, where each memory location stores one fixed-length data item. By this meaning, an array is a physical data structure. However, array can also mean a logical data type composed of a (typically homogeneous) collection of data items, with each data item identified by an index number. It is possible to implement arrays in many different ways besides as a block of contiguous memory locations. The [sparse matrix](#term-sparse-matrix) refers to a large, two-dimensional array that stores only a relatively few non-zero values. This is often implemented with a linked structure, or possibly using a [hash table](HashIntro.md#hashintro). But it could be implemented with an interface that uses traditional row and column indices, thus appearing to the user in the same way that it would if it had been implemented as a block of contiguous memory locations.
 
-An [abstract data type](Glossary.md#term-abstract-data-type) (ADT) is the specification of a data type within some language, independent of an implementation. The interface for the ADT is defined in terms of a type and a set of operations on that type. The behavior of each operation is determined by its inputs and outputs. An ADT does not specify *how* the data type is implemented. These implementation details are hidden from the user of the ADT and protected from outside access, a concept referred to as [encapsulation](Glossary.md#term-encapsulation).
+An [abstract data type](#term-abstract-data-type) (ADT) is the specification of a data type within some language, independent of an implementation. The interface for the ADT is defined in terms of a type and a set of operations on that type. The behavior of each operation is determined by its inputs and outputs. An ADT does not specify *how* the data type is implemented. These implementation details are hidden from the user of the ADT and protected from outside access, a concept referred to as [encapsulation](#term-encapsulation).
 
-A [data structure](Glossary.md#term-data-structure) is the implementation for an ADT. In an object-oriented language, an ADT and its implementation together make up a [class](Glossary.md#term-class). Each operation associated with the ADT is implemented by a [member function](Glossary.md#term-member-function) or [method](Glossary.md#term-method). The variables that define the space required by a data item are referred to as [data members](Glossary.md#term-data-member). An [object](Glossary.md#term-object) is an instance of a class, that is, something that is created and takes up storage during the execution of a computer program.
+A [data structure](#term-data-structure) is the implementation for an ADT. In an object-oriented language, an ADT and its implementation together make up a [class](#term-class). Each operation associated with the ADT is implemented by a [member function](#term-member-function) or [method](#term-method). The variables that define the space required by a data item are referred to as [data members](#term-data-member). An [object](#term-object) is an instance of a class, that is, something that is created and takes up storage during the execution of a computer program.
 
-The term [data structure](Glossary.md#term-data-structure) often refers to data stored in a computer’s main memory. The related term  [file structure](Glossary.md#term-file-structure) often refers to the organization of data on peripheral storage, such as a disk drive or CD.
+The term [data structure](#term-data-structure) often refers to data stored in a computer’s main memory. The related term  [file structure](#term-file-structure) often refers to the organization of data on peripheral storage, such as a disk drive or CD.
 
 **Example 4.1.1**
 
@@ -1618,7 +1618,7 @@ The concept of an ADT can help us to focus on key issues even in non-computing a
 
 When operating a car, the primary activities are steering, accelerating, and braking. On nearly all passenger cars, you steer by turning the steering wheel, accelerate by pushing the gas pedal, and brake by pushing the brake pedal. This design for cars can be viewed as an ADT with operations “steer”, “accelerate”, and “brake”. Two cars might implement these operations in radically different ways, say with different types of engine, or front- versus rear-wheel drive. Yet, most drivers can operate many different cars because the ADT presents a uniform method of operation that does not require the driver to understand the specifics of any particular engine or drive design. These differences are deliberately hidden.
 
-The concept of an ADT is one instance of an important principle that must be understood by any successful computer scientist: managing complexity through abstraction. A central theme of computer science is complexity and techniques for handling it. Humans deal with complexity by assigning a label to an assembly of objects or concepts and then manipulating the label in place of the assembly. Cognitive psychologists call such a label a [metaphor](Glossary.md#term-metaphor). A particular label might be related to other pieces of information or other labels. This collection can in turn be given a label, forming a hierarchy of concepts and labels. This hierarchy of labels allows us to focus on important issues while ignoring unnecessary details.
+The concept of an ADT is one instance of an important principle that must be understood by any successful computer scientist: managing complexity through abstraction. A central theme of computer science is complexity and techniques for handling it. Humans deal with complexity by assigning a label to an assembly of objects or concepts and then manipulating the label in place of the assembly. Cognitive psychologists call such a label a [metaphor](#term-metaphor). A particular label might be related to other pieces of information or other labels. This collection can in turn be given a label, forming a hierarchy of concepts and labels. This hierarchy of labels allows us to focus on important issues while ignoring unnecessary details.
 
 **Example 4.1.5**
 
@@ -1628,28 +1628,28 @@ Consider how you might go about the process of designing a complex computer prog
 
 **Example 4.1.6**
 
-Consider the design for a relatively simple database system stored on disk. Typically, records on disk in such a program are accessed through a [buffer pool](Glossary.md#term-buffer-pool) rather than directly. Variable length records might use a [memory manager](Glossary.md#term-memory-manager) to find an appropriate location within the disk file to place the record. Multiple [index structures](IndexIntro.md#indexintro) will typically be used to support access to a collection of records using multiple [search keys](Glossary.md#term-search-key). Thus, we have a chain of classes, each with its own responsibilities and access privileges. A database query from a user is implemented by searching an index structure. This index requests access to the record by means of a request to the buffer pool. If a record is being inserted or deleted, such a request goes through the memory manager, which in turn interacts with the buffer pool to gain access to the disk file. A program such as this is far too complex for nearly any human programmer to keep all of the details in their head at once. The only way to design and implement such a program is through proper use of abstraction and metaphors. In object-oriented programming, such abstraction is handled using classes.
+Consider the design for a relatively simple database system stored on disk. Typically, records on disk in such a program are accessed through a [buffer pool](#term-buffer-pool) rather than directly. Variable length records might use a [memory manager](#term-memory-manager) to find an appropriate location within the disk file to place the record. Multiple [index structures](IndexIntro.md#indexintro) will typically be used to support access to a collection of records using multiple [search keys](#term-search-key). Thus, we have a chain of classes, each with its own responsibilities and access privileges. A database query from a user is implemented by searching an index structure. This index requests access to the record by means of a request to the buffer pool. If a record is being inserted or deleted, such a request goes through the memory manager, which in turn interacts with the buffer pool to gain access to the disk file. A program such as this is far too complex for nearly any human programmer to keep all of the details in their head at once. The only way to design and implement such a program is through proper use of abstraction and metaphors. In object-oriented programming, such abstraction is handled using classes.
 
-Data types have both a [logical form](Glossary.md#term-logical-form) and a [physical form](Glossary.md#term-physical-form). The definition of the data type in terms of an ADT is its logical form. The implementation of the data type as a data structure is its physical form. Sometimes you might see the term *concrete implementation*, but the word concrete is redundant. The figure below illustrates this relationship between logical and physical forms for data types. When you implement an ADT, you are dealing with the physical form of the associated data type. When you use an ADT elsewhere in your program, you are concerned with the associated data type’s logical form. Some sections of this book focus on physical implementations for a given data structure. Other sections use the logical ADT for the data structure in the context of a higher-level task.
+Data types have both a [logical form](#term-logical-form) and a [physical form](#term-physical-form). The definition of the data type in terms of an ADT is its logical form. The implementation of the data type as a data structure is its physical form. Sometimes you might see the term *concrete implementation*, but the word concrete is redundant. The figure below illustrates this relationship between logical and physical forms for data types. When you implement an ADT, you are dealing with the physical form of the associated data type. When you use an ADT elsewhere in your program, you are concerned with the associated data type’s logical form. Some sections of this book focus on physical implementations for a given data structure. Other sections use the logical ADT for the data structure in the context of a higher-level task.
 
 The ADT defines the logical form of the data type. The data structure implements the physical form of the data type. Users of an ADT are typically programmers working in the same language as the implementer of the ADT. Typically, these programmers want to use the ADT as a component in another application. The interface to an ADT is also commonly referred to as the Application Programmer Interface, or API, for the ADT. The interface becomes a form of communication between the two programmers.
 
 **Example 4.1.7**
 
-A particular programming environment might provide a library that includes a [list](Glossary.md#term-list) class. The logical form of the list is defined by the public functions, their inputs, and their outputs that define the class. This might be all that you know about the list class implementation, and this should be all you need to know. Within the class, a variety of physical implementations for lists is possible.
+A particular programming environment might provide a library that includes a [list](#term-list) class. The logical form of the list is defined by the public functions, their inputs, and their outputs that define the class. This might be all that you know about the list class implementation, and this should be all you need to know. Within the class, a variety of physical implementations for lists is possible.
 
 
 <a id="chapter-introduction-lists"></a>
 # 4.2. Chapter Introduction: Lists
 
-If your program needs to store a few things—numbers, payroll records, or job descriptions for example—the simplest and most effective approach might be to put them in a list. Only when you have to organize and search through a large number of things do more sophisticated data structures like [search trees](Glossary.md#term-search-tree) become necessary. Many applications don’t require any form of search, and they do not require that an ordering be placed on the objects being stored. Some applications require that actions be performed in a strict chronological order, processing objects in the order that they arrived, or perhaps processing objects in the reverse of the order that they arrived. For all these situations, a simple list structure is appropriate.
+If your program needs to store a few things—numbers, payroll records, or job descriptions for example—the simplest and most effective approach might be to put them in a list. Only when you have to organize and search through a large number of things do more sophisticated data structures like [search trees](#term-search-tree) become necessary. Many applications don’t require any form of search, and they do not require that an ordering be placed on the objects being stored. Some applications require that actions be performed in a strict chronological order, processing objects in the order that they arrived, or perhaps processing objects in the reverse of the order that they arrived. For all these situations, a simple list structure is appropriate.
 
-This chapter describes representations both for lists and for two important list-like structures called the [stack](Glossary.md#term-stack) and the [queue](Glossary.md#term-queue). Along with presenting these fundamental data structures, the other goals of the chapter are to:
+This chapter describes representations both for lists and for two important list-like structures called the [stack](#term-stack) and the [queue](#term-queue). Along with presenting these fundamental data structures, the other goals of the chapter are to:
 
 1. Give examples that show the separation of a logical representation in the form of an ADT from a physical implementation as a data structure.
 1. Illustrate the use of asymptotic analysis in the context of simple operations that you might already be familiar with. In this way you can begin to see how asymptotic analysis works, without the complications that arise when analyzing more sophisticated algorithms and data structures.
 
-We begin by defining an [ADT for lists](ListADT.md#listadt). Two implementations for the list ADT—the [array-based list](ListArray.md#listarray) and the [linked list](ListLinked.md#listlinked)—are covered in detail and their relative merits discussed. The chapter finishes with implementations for [stacks](Glossary.md#term-stack) and [queues](Queue.md#queue).
+We begin by defining an [ADT for lists](ListADT.md#listadt). Two implementations for the list ADT—the [array-based list](ListArray.md#listarray) and the [linked list](ListLinked.md#listlinked)—are covered in detail and their relative merits discussed. The chapter finishes with implementations for [stacks](#term-stack) and [queues](Queue.md#queue).
 
 
 <a id="the-list-adt"></a>
@@ -1658,15 +1658,15 @@ We begin by defining an [ADT for lists](ListADT.md#listadt). Two implementations
 <a id="id1"></a>
 ## 4.3.1. The List ADT
 
-We all have an intuitive understanding of what we mean by a “list”. We want to turn this intuitive understanding into a concrete data structure with implementations for its operations. The most important concept related to lists is that of [position](Glossary.md#term-position). In other words, we perceive that there is a first element in the list, a second element, and so on. So, define a [list](Glossary.md#term-list) to be a finite, ordered sequence of data items known as [elements](Glossary.md#term-element). This is close to the mathematical concept of a [sequence](Glossary.md#term-sequence).
+We all have an intuitive understanding of what we mean by a “list”. We want to turn this intuitive understanding into a concrete data structure with implementations for its operations. The most important concept related to lists is that of [position](#term-position). In other words, we perceive that there is a first element in the list, a second element, and so on. So, define a [list](#term-list) to be a finite, ordered sequence of data items known as [elements](#term-element). This is close to the mathematical concept of a [sequence](#term-sequence).
 
 “Ordered” in this definition means that each element has a position in the list. So the term “ordered” in this context does **not** mean that the list elements are sorted by value. (Of course, we can always choose to sort the elements on the list if we want; it’s just that keeping the elements sorted is not an inherent property of being a list.)
 
-Each list element must have some data type. In the simple list implementations discussed in this chapter, all elements of the list are usually assumed to have the same data type, although there is no conceptual objection to lists whose elements have differing data types if the application requires it. The operations defined as part of the list [ADT](Glossary.md#term-adt) do not depend on the elemental [data type](Glossary.md#term-data-type). For example, the list ADT can be used for lists of integers, lists of characters, lists of payroll records, even lists of lists.
+Each list element must have some data type. In the simple list implementations discussed in this chapter, all elements of the list are usually assumed to have the same data type, although there is no conceptual objection to lists whose elements have differing data types if the application requires it. The operations defined as part of the list [ADT](#term-adt) do not depend on the elemental [data type](#term-data-type). For example, the list ADT can be used for lists of integers, lists of characters, lists of payroll records, even lists of lists.
 
-A list is said to be [empty](Glossary.md#term-empty) when it contains no elements. The number of elements currently stored is called the [length](Glossary.md#term-length) of the list. The beginning of the list is called the [head](Glossary.md#term-head), the end of the list is called the [tail](Glossary.md#term-tail).
+A list is said to be [empty](#term-empty) when it contains no elements. The number of elements currently stored is called the [length](#term-length) of the list. The beginning of the list is called the [head](#term-head), the end of the list is called the [tail](#term-tail).
 
-We need some notation to show the contents of a list, so we will use the same angle bracket notation that is normally used to represent [sequences](Glossary.md#term-sequence). To be consistent with standard array indexing, the first position on the list is denoted as 0. Thus, if there are $n$ elements in the list, they are given positions 0 through $n-1$ as $\langle\ a_0,\ a_1,\ ...,\ a_{n-1}\ \rangle$. The subscript indicates an element’s position within the list. Using this notation, the empty list would appear as $\langle\ \rangle$.
+We need some notation to show the contents of a list, so we will use the same angle bracket notation that is normally used to represent [sequences](#term-sequence). To be consistent with standard array indexing, the first position on the list is denoted as 0. Thus, if there are $n$ elements in the list, they are given positions 0 through $n-1$ as $\langle\ a_0,\ a_1,\ ...,\ a_{n-1}\ \rangle$. The subscript indicates an element’s position within the list. Using this notation, the empty list would appear as $\langle\ \rangle$.
 
 <a id="defining-the-adt"></a>
 ### 4.3.1.1. Defining the ADT
@@ -1677,9 +1677,9 @@ Now we can define the ADT for a list object in terms of a set of operations on t
 
 True to the notion of an ADT, an interface does not specify how operations are implemented. Two complete implementations are presented later in later modules, both of which use the same list ADT to define their operations. But they are  considerably different in approaches and in their space/time tradeoffs.
 
-The code below presents our list ADT. Any implementation for a [container class](Glossary.md#term-container-class) such as a list should be able to support different data types for the elements. One way to do this in Java is to store data values of type `Object`. Languages that support generics (Java) or templates (C++) give more control over the element types.
+The code below presents our list ADT. Any implementation for a [container class](#term-container-class) such as a list should be able to support different data types for the elements. One way to do this in Java is to store data values of type `Object`. Languages that support generics (Java) or templates (C++) give more control over the element types.
 
-The comments given with each member function describe what it is intended to do. However, an explanation of the basic design should help make this clearer. Given that we wish to support the concept of a sequence, with access to any position in the list, the need for many of the member functions such as `insert` and `moveToPos` is clear. The key design decision embodied in this ADT is support for the concept of a [current position](Glossary.md#term-current-position). For example, member `moveToStart` sets the current position to be the first element on the list, while methods `next` and `prev` move the current position to the next and previous elements, respectively. The intention is that any implementation for this ADT support the concept of a current position. The current position is where any action such as insertion or deletion will take place. An alternative design is to factor out position as a separate position object, sometimes referred to as an [iterator](Glossary.md#term-iterator).
+The comments given with each member function describe what it is intended to do. However, an explanation of the basic design should help make this clearer. Given that we wish to support the concept of a sequence, with access to any position in the list, the need for many of the member functions such as `insert` and `moveToPos` is clear. The key design decision embodied in this ADT is support for the concept of a [current position](#term-current-position). For example, member `moveToStart` sets the current position to be the first element on the list, while methods `next` and `prev` move the current position to the next and previous elements, respectively. The intention is that any implementation for this ADT support the concept of a current position. The current position is where any action such as insertion or deletion will take place. An alternative design is to factor out position as a separate position object, sometimes referred to as an [iterator](#term-iterator).
 
 ```java
 // List class ADT. Generalize the element type using Java Generics.
@@ -1724,7 +1724,7 @@ public interface List<E> { // List class ADT
 
   // Return the current element
   public E getValue();
-  
+
   // Tell if the list is empty or not
   public boolean isEmpty();
 }
@@ -1754,7 +1754,7 @@ static boolean find(List<Integer> L, int k) {
 }
 ```
 
-In languages that support it, this implementation for `find` could be rewritten as a generic or template with respect to the element type. While making it more flexible, even generic types still are limited in their ability to handle different data types stored on the list. In particular, for the `find` function generic types would only work when the description for the object being searched for (`k` in the function) is of the same type as the objects themselves. They also have to be comparable when using the `==` operator. A more realistic situation is that we are searching for a record that contains a [key](Glossary.md#term-key) field whose value matches `k`. Similar functions to find and return a [composite type](Glossary.md#term-composite-type) based on a key value can be created using the list implementation, but to do so requires some agreement between the list ADT and the `find` function on the concept of a key, and on [how keys may be compared](Comparison.md#comparison).
+In languages that support it, this implementation for `find` could be rewritten as a generic or template with respect to the element type. While making it more flexible, even generic types still are limited in their ability to handle different data types stored on the list. In particular, for the `find` function generic types would only work when the description for the object being searched for (`k` in the function) is of the same type as the objects themselves. They also have to be comparable when using the `==` operator. A more realistic situation is that we are searching for a record that contains a [key](#term-key) field whose value matches `k`. Similar functions to find and return a [composite type](#term-composite-type) based on a key value can be created using the list implementation, but to do so requires some agreement between the list ADT and the `find` function on the concept of a key, and on [how keys may be compared](Comparison.md#comparison).
 
 There are two standard approaches to implementing lists, the [array-based list](ListArray.md#listarray), and the [linked list](ListLinked.md#listlinked).
 
@@ -1841,7 +1841,7 @@ class AList<E> implements List<E> {
       return null;
     return listArray[curr];
   }
-  
+
   public String toString() {
 	StringBuffer out = new StringBuffer((listSize + 1) * 4);
 
@@ -1858,7 +1858,7 @@ class AList<E> implements List<E> {
 	out.append(">");
 	return out.toString();
   }
-  
+
   //Tell if the list is empty or not
   public boolean isEmpty() {
 	  return listSize == 0;
@@ -1896,9 +1896,9 @@ Aside from `insert` and `remove`, the only other operations that might require m
 <a id="id1"></a>
 ## 4.5.1. Linked Lists
 
-In this module we present one of the two traditional implementations for lists, usually called a [linked list](Glossary.md#term-linked-list). The linked list uses [dynamic memory allocation](Glossary.md#term-dynamic-memory-allocation), that is, it allocates memory for new list elements as needed. The following diagram illustrates the linked list concept. Here there are three [nodes](Glossary.md#term-node) that are “linked” together. Each node has two boxes. The box on the right holds a link to the next node in the list. Notice that the rightmost node has a diagonal slash through its link box, signifying that there is no link coming out of this box.
+In this module we present one of the two traditional implementations for lists, usually called a [linked list](#term-linked-list). The linked list uses [dynamic memory allocation](#term-dynamic-memory-allocation), that is, it allocates memory for new list elements as needed. The following diagram illustrates the linked list concept. Here there are three [nodes](#term-node) that are “linked” together. Each node has two boxes. The box on the right holds a link to the next node in the list. Notice that the rightmost node has a diagonal slash through its link box, signifying that there is no link coming out of this box.
 
-Because a list node is a distinct object (as opposed to simply a cell in an array), it is good practice to make a separate list node class. (We can also re-use the list node class to implement linked implementations for the [stack](Glossary.md#term-stack) and [queue](Queue.md#queue) data structures. Here is an implementation for list nodes, called the `Link` class. Objects in the `Link` class contain an `element` field to store the element value, and a `next` field to store a pointer to the next node on the list. The list built from such nodes is called a [singly linked list](Glossary.md#term-singly-linked-list), or a [one-way list](Glossary.md#term-one-way-list), because each list node has a single pointer to the next node on the list.
+Because a list node is a distinct object (as opposed to simply a cell in an array), it is good practice to make a separate list node class. (We can also re-use the list node class to implement linked implementations for the [stack](#term-stack) and [queue](Queue.md#queue) data structures. Here is an implementation for list nodes, called the `Link` class. Objects in the `Link` class contain an `element` field to store the element value, and a `next` field to store a pointer to the next node on the list. The list built from such nodes is called a [singly linked list](#term-singly-linked-list), or a [one-way list](#term-one-way-list), because each list node has a single pointer to the next node on the list.
 
 ```java
 class Link<E> {         // Singly linked list node class
@@ -1926,7 +1926,7 @@ There are a number of problems with the representation just described. First, th
 <a id="a-better-solution"></a>
 ### 4.5.1.2. A Better Solution
 
-Fortunately, there is a fairly easy way to deal with all of the special cases, as well as the problem with deleting the last node. Many special cases can be eliminated by implementing linked lists with an additional [header node](Glossary.md#term-header-node) as the first node of the list. This header node is a link node like any other, but its value is ignored and it is not considered to be an actual element of the list. The header node saves coding effort because we no longer need to consider special cases for empty lists or when the current position is at one end of the list. The cost of this simplification is the space for the header node. However, there are space savings due to smaller code size, because statements to handle the special cases are omitted. We get rid of the remaining special cases related to being at the end of the list by adding a “trailer” node that also never stores a value.
+Fortunately, there is a fairly easy way to deal with all of the special cases, as well as the problem with deleting the last node. Many special cases can be eliminated by implementing linked lists with an additional [header node](#term-header-node) as the first node of the list. This header node is a link node like any other, but its value is ignored and it is not considered to be an actual element of the list. The header node saves coding effort because we no longer need to consider special cases for empty lists or when the current position is at one end of the list. The cost of this simplification is the space for the header node. However, there are space savings due to smaller code size, because statements to handle the special cases are omitted. We get rid of the remaining special cases related to being at the end of the list by adding a “trailer” node that also never stores a value.
 
 The following diagram shows initial conditions for a linked list with header and trailer nodes.
 
@@ -1957,7 +1957,7 @@ class LList implements List {
     head = new Link(tail);        // Create header
     listSize = 0;
   }
-  
+
   // Insert "it" at current position
   public boolean insert(Object it) {
     curr.setNext(new Link(curr.element(), curr.next()));
@@ -1966,7 +1966,7 @@ class LList implements List {
     listSize++;
     return true;
   }
-  
+
   // Append "it" to list
   public boolean append(Object it) {
     tail.setNext(new Link(null));
@@ -2013,7 +2013,7 @@ class LList implements List {
       temp = temp.next();
     return i;
   }
-  
+
   // Move down list to "pos" position
   public boolean moveToPos(int pos) {
     if ((pos < 0) || (pos > listSize)) return false;
@@ -2034,13 +2034,13 @@ class LList implements List {
 
 Now that you have seen two substantially different implementations for lists, it is natural to ask which is better. In particular, if you must implement a list for some task, which implementation should you choose?
 
-Given a collection of elements to store, they take up some amount of space whether they are simple integers or large objects with many fields. Any container data structure like a list then requires some additional space to organize the elements being stored. This additional space is called [overhead](Glossary.md#term-overhead).
+Given a collection of elements to store, they take up some amount of space whether they are simple integers or large objects with many fields. Any container data structure like a list then requires some additional space to organize the elements being stored. This additional space is called [overhead](#term-overhead).
 
-[Array-based lists](Glossary.md#term-array-based-list) have the disadvantage that their size must be predetermined before the array can be allocated. Array-based lists cannot grow beyond their predetermined size. Whenever the list contains only a few elements, a substantial amount of space might be tied up in a largely empty array. This empty space is the overhead required by the array-based list. [Linked lists](Glossary.md#term-linked-list) have the advantage that they only need space for the objects actually on the list. There is no limit to the number of elements on a linked list, as long as there is [free store](Glossary.md#term-free-store) memory available. The amount of space required by a linked list is $\Theta(n)$, while the space required by the array-based list implementation is $\Omega(n)$, but can be greater.
+[Array-based lists](#term-array-based-list) have the disadvantage that their size must be predetermined before the array can be allocated. Array-based lists cannot grow beyond their predetermined size. Whenever the list contains only a few elements, a substantial amount of space might be tied up in a largely empty array. This empty space is the overhead required by the array-based list. [Linked lists](#term-linked-list) have the advantage that they only need space for the objects actually on the list. There is no limit to the number of elements on a linked list, as long as there is [free store](#term-free-store) memory available. The amount of space required by a linked list is $\Theta(n)$, while the space required by the array-based list implementation is $\Omega(n)$, but can be greater.
 
 Array-based lists have the advantage that there is no wasted space for an individual element. Linked lists require that an extra pointer for the `next` field be added to every list node. So the linked list has these `next` pointers as overhead. If the element size is small, then the overhead for links can be a significant fraction of the total storage. When the array for the array-based list is completely filled, there is no wasted space, and so no overhead. The array-based list will then be more space efficient, by a constant factor, than the linked implementation.
 
-A simple formula can be used to determine whether the array-based list or the linked list implementation will be more space efficient in a particular situation. Call $n$ the number of elements currently in the list, $P$ the size of a pointer in storage units (typically four bytes), $E$ the size of a data element in storage units (this could be anything, from one bit for a Boolean variable on up to thousands of bytes or more for complex records), and $D$ the maximum number of list elements that can be stored in the array. The amount of space required for the array-based list is $DE$, regardless of the number of elements actually stored in the list at any given time. The amount of space required for the linked list is $n(P + E)$. The smaller of these expressions for a given value $n$ determines the more space-efficient implementation for $n$ elements. In general, the linked implementation requires less space than the array-based implementation when relatively few elements are in the list. Conversely, the array-based implementation becomes more space efficient when the array is close to full. Using the equation, we can solve for $n$ to determine the [break-even point](Glossary.md#term-break-even-point) beyond which the array-based implementation is more space efficient in any particular situation. This occurs when
+A simple formula can be used to determine whether the array-based list or the linked list implementation will be more space efficient in a particular situation. Call $n$ the number of elements currently in the list, $P$ the size of a pointer in storage units (typically four bytes), $E$ the size of a data element in storage units (this could be anything, from one bit for a Boolean variable on up to thousands of bytes or more for complex records), and $D$ the maximum number of list elements that can be stored in the array. The amount of space required for the array-based list is $DE$, regardless of the number of elements actually stored in the list at any given time. The amount of space required for the linked list is $n(P + E)$. The smaller of these expressions for a given value $n$ determines the more space-efficient implementation for $n$ elements. In general, the linked implementation requires less space than the array-based implementation when relatively few elements are in the list. Conversely, the array-based implementation becomes more space efficient when the array is close to full. Using the equation, we can solve for $n$ to determine the [break-even point](#term-break-even-point) beyond which the array-based implementation is more space efficient in any particular situation. This occurs when
 
 <a id="equation-listanalysis-0"></a>
 $$
@@ -2058,7 +2058,7 @@ Array-based lists are faster for access by position. Positions can easily be adj
 
 Given a pointer to a suitable location in the list, the `insert` and `remove` methods for linked lists require only $\Theta(1)$ time. Array-based lists must shift the remainder of the list up or down within the array. This requires $\Theta(n)$ time in the average and worst cases. For many applications, the time to insert and delete elements dominates all other operations. For this reason, linked lists are often preferred to array-based lists.
 
-When implementing the array-based list, an implementor could allow the size of the array to grow and shrink depending on the number of elements that are actually stored. This data structure is known as a [dynamic array](Glossary.md#term-dynamic-array). For example, both the Java and C++/STL `Vector` classes implement a dynamic array, and JavaScript arrays are always dynamic. Dynamic arrays allow the programmer to get around the limitation on the traditional array that its size cannot be changed once the array has been created. This also means that space need not be allocated to the dynamic array until it is to be used. The disadvantage of this approach is that it takes time to deal with space adjustments on the array. Each time the array grows in size, its contents must be copied. A good implementation of the dynamic array will grow and shrink the array in such a way as to keep the overall cost for a series of insert/delete operations relatively inexpensive, even though an occasional insert/delete operation might be expensive. A simple rule of thumb is to double the size of the array when it becomes full, and to cut the array size in half when it becomes one quarter full. To analyze the overall cost of dynamic array operations over time, we need to use a technique known as [amortized analysis](AmortAnal.md#amortanal).
+When implementing the array-based list, an implementor could allow the size of the array to grow and shrink depending on the number of elements that are actually stored. This data structure is known as a [dynamic array](#term-dynamic-array). For example, both the Java and C++/STL `Vector` classes implement a dynamic array, and JavaScript arrays are always dynamic. Dynamic arrays allow the programmer to get around the limitation on the traditional array that its size cannot be changed once the array has been created. This also means that space need not be allocated to the dynamic array until it is to be used. The disadvantage of this approach is that it takes time to deal with space adjustments on the array. Each time the array grows in size, its contents must be copied. A good implementation of the dynamic array will grow and shrink the array in such a way as to keep the overall cost for a series of insert/delete operations relatively inexpensive, even though an occasional insert/delete operation might be expensive. A simple rule of thumb is to double the size of the array when it becomes full, and to cut the array size in half when it becomes one quarter full. To analyze the overall cost of dynamic array operations over time, we need to use a technique known as [amortized analysis](AmortAnal.md#amortanal).
 
 <a id="practice-questions"></a>
 ### 4.6.2.1. Practice Questions
@@ -2070,13 +2070,13 @@ When implementing the array-based list, an implementor could allow the size of t
 <a id="id1"></a>
 ## 4.7.1. Doubly Linked Lists
 
-The [singly linked list](ListLinked.md#listlinked) allows for direct access from a list node only to the next node in the list. A [doubly linked list](Glossary.md#term-doubly-linked-list) allows convenient access from a list node to the next node and also to the preceding node on the list. The doubly linked list node accomplishes this in the obvious way by storing two pointers: one to the node following it (as in the singly linked list), and a second pointer to the node preceding it.
+The [singly linked list](ListLinked.md#listlinked) allows for direct access from a list node only to the next node in the list. A [doubly linked list](#term-doubly-linked-list) allows convenient access from a list node to the next node and also to the preceding node on the list. The doubly linked list node accomplishes this in the obvious way by storing two pointers: one to the node following it (as in the singly linked list), and a second pointer to the node preceding it.
 
 The most common reason to use a doubly linked list is because it is easier to implement than a singly linked list. While the code for the doubly linked implementation is a little longer than for the singly linked version, it tends to be a bit more “obvious” in its intention, and so easier to implement and debug. Whether a list implementation is doubly or singly linked should be hidden from the `List` class user.
 
-Like our singly linked list implementation, the doubly linked list implementation makes use of a [header node](Glossary.md#term-header-node). We also add a tailer node to the end of the list. The tailer is similar to the header, in that it is a node that contains no value, and it always exists. When the doubly linked list is initialized, the header and tailer nodes are created. Data member `head` points to the header node, and `tail` points to the tailer node. The purpose of these nodes is to simplify the `insert`, `append`, and `remove` methods by eliminating all need for special-case code when the list is empty, or when we insert at the head or tail of the list.
+Like our singly linked list implementation, the doubly linked list implementation makes use of a [header node](#term-header-node). We also add a tailer node to the end of the list. The tailer is similar to the header, in that it is a node that contains no value, and it always exists. When the doubly linked list is initialized, the header and tailer nodes are created. Data member `head` points to the header node, and `tail` points to the tailer node. The purpose of these nodes is to simplify the `insert`, `append`, and `remove` methods by eliminating all need for special-case code when the list is empty, or when we insert at the head or tail of the list.
 
-In our implementation, `curr` will point to the [current position](Glossary.md#term-current-position) (or to the [trailer node](Glossary.md#term-trailer-node) if the current position is at the end of the list).
+In our implementation, `curr` will point to the [current position](#term-current-position) (or to the [trailer node](#term-trailer-node) if the current position is at the end of the list).
 
 Here is the complete implementation for a `Link` class to be used with doubly linked lists. This code is a little longer than that for the singly linked list node implementation since the doubly linked list nodes have an extra data member.
 
@@ -2138,14 +2138,14 @@ A similar effect can be had by using the exclusive-or operator. This fact is wid
 <a id="id1"></a>
 ## 4.8.1. List Element Implementations
 
-When designing any [container class](Glossary.md#term-container-class), there are a number of design choices to be made regarding the data elements.
+When designing any [container class](#term-container-class), there are a number of design choices to be made regarding the data elements.
 
-What to do if something can appear multiple times on a list? One option is to use a reference to [elements](Glossary.md#term-element). Another is to store separate copies. In general, the larger the elements and the more that they are duplicated, the more likely that pointers to shared elements is the better approach.
+What to do if something can appear multiple times on a list? One option is to use a reference to [elements](#term-element). Another is to store separate copies. In general, the larger the elements and the more that they are duplicated, the more likely that pointers to shared elements is the better approach.
 
 <a id="homogeneity"></a>
 ### 4.8.1.1. Homogeneity
 
-The next issue to consider is whether to enforce [homogeneity](Glossary.md#term-homogeneity) in the list elements. That is, should lists be restricted so that all data elements stored are of the same object type? Or should it be possible to store different types?
+The next issue to consider is whether to enforce [homogeneity](#term-homogeneity) in the list elements. That is, should lists be restricted so that all data elements stored are of the same object type? Or should it be possible to store different types?
 
 If you want to enforce homogeneity, the most rigid way is to simply define the elements to be of a fixed type. But that does not help if you want one list to store integers while another stores strings. A much more flexible approach is to use Java generics or C++ templates. In this way, the compiler will enforce that a given list will only store a single data type, while still allowing different lists to have different data types. Another approach is to store an object of the appropriate type in the header node of the list (perhaps an object of the appropriate type is supplied as a parameter to the list constructor), and then check that all insert operations on that list use the same element type. This approach is useful in a language like JavaScript that does not use strong typing, but does allow a program to test the type of an object.
 
@@ -2166,11 +2166,11 @@ Our last design issue is what to do to the list elements when the list itself is
 <a id="stack-terminology-and-implementation"></a>
 ## 4.9.1. Stack Terminology and Implementation
 
-The [stack](Glossary.md#term-stack) is a list-like structure in which elements may be inserted or removed from only one end. While this restriction makes stacks less flexible than lists, it also makes stacks both efficient (for those operations they can do) and easy to implement. Many applications require only the limited form of insert and remove operations that stacks provide. In such cases, it is more efficient to use the simpler stack data structure rather than the generic list. For example, the [freelist](Glossary.md#term-freelist) is really a stack.
+The [stack](#term-stack) is a list-like structure in which elements may be inserted or removed from only one end. While this restriction makes stacks less flexible than lists, it also makes stacks both efficient (for those operations they can do) and easy to implement. Many applications require only the limited form of insert and remove operations that stacks provide. In such cases, it is more efficient to use the simpler stack data structure rather than the generic list. For example, the [freelist](#term-freelist) is really a stack.
 
-Despite their restrictions, stacks have many uses. Thus, a special vocabulary for stacks has developed. Accountants used stacks long before the invention of the computer. They called the stack a “[LIFO](Glossary.md#term-lifo)” list, which stands for “Last-In, First-Out.” Note that one implication of the LIFO policy is that stacks remove elements in reverse order of their arrival.
+Despite their restrictions, stacks have many uses. Thus, a special vocabulary for stacks has developed. Accountants used stacks long before the invention of the computer. They called the stack a “[LIFO](#term-lifo)” list, which stands for “Last-In, First-Out.” Note that one implication of the LIFO policy is that stacks remove elements in reverse order of their arrival.
 
-The accessible element of the stack is called the `top` element. Elements are not said to be inserted, they are [pushed](Glossary.md#term-push) onto the stack. When removed, an element is said to be [popped](Glossary.md#term-pop) from the stack. Here is a simple stack [ADT](Glossary.md#term-adt).
+The accessible element of the stack is called the `top` element. Elements are not said to be inserted, they are [pushed](#term-push) onto the stack. When removed, an element is said to be [popped](#term-pop) from the stack. Here is a simple stack [ADT](#term-adt).
 
 ```java
 public interface Stack<E> { // Stack class ADT
@@ -2188,13 +2188,13 @@ public interface Stack<E> { // Stack class ADT
 
   // Return the number of elements in the stack
   public int length();
-  
+
   // Tell if the stack is empty or not
   public boolean isEmpty();
 }
 ```
 
-As with lists, there are many variations on stack implementation. The two approaches presented here are the [array-based stack](Glossary.md#term-array-based-stack) and the [linked stack](StackLinked.md#stacklinked), which are analogous to array-based and linked lists, respectively.
+As with lists, there are many variations on stack implementation. The two approaches presented here are the [array-based stack](#term-array-based-stack) and the [linked stack](StackLinked.md#stacklinked), which are analogous to array-based and linked lists, respectively.
 
 <a id="array-based-stacks"></a>
 ### 4.9.1.1. Array-Based Stacks
@@ -2271,14 +2271,14 @@ class LStack<E> implements Stack<E> {
   public void clear() { top = null; size = 0; }
 
 // Put "it" on stack
-  public boolean push(E it) {  
+  public boolean push(E it) {
     top = new Link<E>(it, top);
     size++;
     return true;
   }
 
 // Remove "it" from stack
-  public E pop() {           
+  public E pop() {
     if (top == null) return null;
     E it = top.element();
     top = top.next();
@@ -2293,7 +2293,7 @@ class LStack<E> implements Stack<E> {
 
   // Return stack length
   public int length() { return size; }
-  
+
   // Tell if the stack is empty
   public boolean isEmpty() { return size == 0; }
 }
@@ -2318,9 +2318,9 @@ When implementing multiple stacks, sometimes you can take advantage of the one-w
 <a id="implementing-recursion"></a>
 # 4.11. Implementing Recursion
 
-WARNING! You should not read this section unless you are already comfortable with implementing [recursive](Glossary.md#term-recursion) functions. One of the biggest hang-ups for students learning recursion is too much focus on the recursive “process”. The right way to think about recursion is to just think about the return value that the recursive call gives back. Thinking about *how* that answer is computed just gets in the way of understanding. There are good reasons to understand how recursion is implemented, but helping you to write recursive functions is not one of them.
+WARNING! You should not read this section unless you are already comfortable with implementing [recursive](#term-recursion) functions. One of the biggest hang-ups for students learning recursion is too much focus on the recursive “process”. The right way to think about recursion is to just think about the return value that the recursive call gives back. Thinking about *how* that answer is computed just gets in the way of understanding. There are good reasons to understand how recursion is implemented, but helping you to write recursive functions is not one of them.
 
-Perhaps the most common computer application that uses [stacks](StackArray.md#stackarray) is not even visible to its users. This is the implementation of subroutine calls in most programming language [runtime environments](Glossary.md#term-runtime-environment). A subroutine call is normally implemented by [pushing](Glossary.md#term-push) necessary information about the subroutine (including the return address, parameters, and local variables) onto a stack. This information is called an [activation record](Glossary.md#term-activation-record). Further subroutine calls add to the stack. Each return from a subroutine [pops](Glossary.md#term-pop) the top activation record off the stack. As an example, here is a recursive implementation for the factorial function.
+Perhaps the most common computer application that uses [stacks](StackArray.md#stackarray) is not even visible to its users. This is the implementation of subroutine calls in most programming language [runtime environments](#term-runtime-environment). A subroutine call is normally implemented by [pushing](#term-push) necessary information about the subroutine (including the return address, parameters, and local variables) onto a stack. This information is called an [activation record](#term-activation-record). Further subroutine calls add to the stack. Each return from a subroutine [pops](#term-pop) the top activation record off the stack. As an example, here is a recursive implementation for the factorial function.
 
 ```java
 // Recursively compute and return n!
@@ -2436,7 +2436,7 @@ Recursive algorithms lend themselves to efficient implementation with a stack wh
 <a id="queue-terminology-and-implementation"></a>
 ## 4.12.1. Queue Terminology and Implementation
 
-Like the stack, the [queue](Glossary.md#term-queue) is a list-like structure that provides restricted access to its elements. Queue elements may only be inserted at the back (called an [enqueue](Glossary.md#term-enqueue) operation) and removed from the front (called a [dequeue](Glossary.md#term-dequeue) operation). Queues operate like standing in line at a movie theater ticket counter. If nobody cheats, then newcomers go to the back of the line. The person at the front of the line is the next to be served. Thus, queues release their elements in order of arrival. In Britain, a line of people is called a “queue”, and getting into line to wait for service is called “queuing up”. Accountants have used queues since long before the existence of computers. They call a queue a “FIFO” list, which stands for “First-In, First-Out”. Here is a sample queue ADT. This section presents two implementations for queues: the array-based queue and the linked queue.
+Like the stack, the [queue](#term-queue) is a list-like structure that provides restricted access to its elements. Queue elements may only be inserted at the back (called an [enqueue](#term-enqueue) operation) and removed from the front (called a [dequeue](#term-dequeue) operation). Queues operate like standing in line at a movie theater ticket counter. If nobody cheats, then newcomers go to the back of the line. The person at the front of the line is the next to be served. Thus, queues release their elements in order of arrival. In Britain, a line of people is called a “queue”, and getting into line to wait for service is called “queuing up”. Accountants have used queues since long before the existence of computers. They call a queue a “FIFO” list, which stands for “First-In, First-Out”. Here is a sample queue ADT. This section presents two implementations for queues: the array-based queue and the linked queue.
 
 ```java
 public interface Queue<E> { // Queue class ADT
@@ -2454,7 +2454,7 @@ public interface Queue<E> { // Queue class ADT
 
   // Return queue size
   public int length();
-  
+
   //Tell if the queue is empty or not
   public boolean isEmpty();
 }
@@ -2468,7 +2468,7 @@ The array-based queue is somewhat tricky to implement effectively. A simple conv
 <a id="the-circular-queue"></a>
 ### 4.12.1.2. The Circular Queue
 
-If the value of `front` is fixed, then $n+1$ different values for `rear` are needed to distinguish among the $n+1$ states. However, there are only $n$ possible values for `rear` unless we invent a special case for, say, empty queues. This is an example of the [Pigeonhole Principle](Glossary.md#term-pigeonhole-principle). The Pigeonhole Principle states that, given $n$ pigeonholes and $n+1$ pigeons, when all of the pigeons go into the holes we can be sure that at least one hole contains more than one pigeon. In similar manner, we can be sure that two of the $n+1$ states are indistinguishable by the $n$ relative values of `front` and `rear`. We must seek some other way to distinguish full from empty queues.
+If the value of `front` is fixed, then $n+1$ different values for `rear` are needed to distinguish among the $n+1$ states. However, there are only $n$ possible values for `rear` unless we invent a special case for, say, empty queues. This is an example of the [Pigeonhole Principle](#term-pigeonhole-principle). The Pigeonhole Principle states that, given $n$ pigeonholes and $n+1$ pigeons, when all of the pigeons go into the holes we can be sure that at least one hole contains more than one pigeon. In similar manner, we can be sure that two of the $n+1$ states are indistinguishable by the $n$ relative values of `front` and `rear`. We must seek some other way to distinguish full from empty queues.
 
 One obvious solution is to keep an explicit count of the number of elements in the queue, or at least a Boolean variable that indicates whether the queue is empty or not. Another solution is to make the array be of size $n+1$, and only allow $n$ elements to be stored. Which of these solutions to adopt is purely a matter of the implementor’s taste in such affairs. Our choice here is to use an array of size $n+1$.
 
@@ -2518,7 +2518,7 @@ class AQueue<E> implements Queue<E> {
 
   // Return queue size
   public int length() { return ((rear+maxSize) - front + 1) % maxSize; }
-  
+
   //Tell if the queue is empty or not
   public boolean isEmpty() { return front - rear == 1; }
 }
@@ -2584,7 +2584,7 @@ class LQueue<E> implements Queue<E> {
 
   // Return queue size
   public int length() { return size; }
-  
+
   //Tell if the queue is empty or not
   public boolean isEmpty() { return size == 0; }
 }
@@ -2626,7 +2626,7 @@ Here is a summary exercise with questions from everything in this chapter.
 
 The [list ADT](ListADT.md#listadt) specifies that a List comprises not only a collection of objects in linear order, but also “the current position”. While this is a simple way to present the main concepts embodied by a list, it complicates any algorithm that relies on having two or more distinct “current positions” in the same list, such as any algorithm that steps from both ends towards the middle.
 
-An alternative design is to separate the “current position” as a separate object. In the following ADT, we will call this a `ListIndex`. This is a simple form of a concept that is sometimes called an [iterator](Glossary.md#term-iterator). The `ListIndex` interface abstracts the notion of a position in a list.
+An alternative design is to separate the “current position” as a separate object. In the following ADT, we will call this a `ListIndex`. This is a simple form of a concept that is sometimes called an [iterator](#term-iterator). The `ListIndex` interface abstracts the notion of a position in a list.
 
 ```java
 interface ListIndex {
@@ -2671,7 +2671,7 @@ class AList implements List {
 
   // Constructors
   // Create a new list object with maximum size "size"
-  AList(int size) { 
+  AList(int size) {
     maxSize = size;
     listSize = 0;
     listArray = new Object[size];         // Create listArray
@@ -2723,12 +2723,12 @@ class AList implements List {
   ListIndex getStart() {
     return new AListIndex(0);
   }
-  
+
   // Return a ListIndex past the end of the list
   ListIndex getEnd() {
     return new AListIndex(listSize);
   }
-  
+
   ListIndex pointToPos(int pos) {
     return new AListIndex(pos);
   }
@@ -2750,11 +2750,11 @@ class AList implements List {
 <a id="id1"></a>
 ## 5.2.1. Comparing Records
 
-If we want to sort some things, we have to be able to compare them, to decide which one is bigger. How do we compare two things? If all that we wanted to sort or search for was simple integer values, this would not be an interesting question. We can just use standard comparison operators like “&lt;” or “&gt;”. Even if we wanted to store strings, most programming languages give us built-in functions for comparing strings alphabetically. But we do not usually want to store just integers or strings in a data structure. Usually we want to store records, where a record is made up of multiple values, such as a name, an address, and a phone number. In that case, how can we “compare” records to decide which one is “smaller”? We cannot just use “&lt;” to compare the records! Nearly always in this situation, we actually are interested in sorting the records based on the values of one particular field used to represent the record, which itself is something simple like an integer. This field is referred to as the [key](Glossary.md#term-key) for the record.
+If we want to sort some things, we have to be able to compare them, to decide which one is bigger. How do we compare two things? If all that we wanted to sort or search for was simple integer values, this would not be an interesting question. We can just use standard comparison operators like “&lt;” or “&gt;”. Even if we wanted to store strings, most programming languages give us built-in functions for comparing strings alphabetically. But we do not usually want to store just integers or strings in a data structure. Usually we want to store records, where a record is made up of multiple values, such as a name, an address, and a phone number. In that case, how can we “compare” records to decide which one is “smaller”? We cannot just use “&lt;” to compare the records! Nearly always in this situation, we actually are interested in sorting the records based on the values of one particular field used to represent the record, which itself is something simple like an integer. This field is referred to as the [key](#term-key) for the record.
 
-Likewise, if we want to search for a given record in a database, how should we describe what we are looking for? A database record could simply be a number, or it could be quite complicated, such as a payroll record with many fields of varying types. We do not want to describe what we are looking for by detailing and matching the entire contents of the record. If we knew everything about the record already, we probably would not need to look for it. Instead, we typically define what record we want in terms of a key value. For example, if searching for payroll records, we might wish to search for the record that matches a particular ID number. In this example the ID number is the [search key](Glossary.md#term-search-key).
+Likewise, if we want to search for a given record in a database, how should we describe what we are looking for? A database record could simply be a number, or it could be quite complicated, such as a payroll record with many fields of varying types. We do not want to describe what we are looking for by detailing and matching the entire contents of the record. If we knew everything about the record already, we probably would not need to look for it. Instead, we typically define what record we want in terms of a key value. For example, if searching for payroll records, we might wish to search for the record that matches a particular ID number. In this example the ID number is the [search key](#term-search-key).
 
-To implement sorting or searching, we require that keys be [comparable](Glossary.md#term-comparable). At a minimum, we must be able to take two keys and reliably determine whether they are equal or not. That is enough to enable a sequential search through a database of records and find one that matches a given key. However, we typically would like for the keys to define a [total order](SetDef.md#setdef), which means that we can always tell which of two keys is greater than the other. Using key types with total orderings gives the database implementor the opportunity to organize a collection of records in a way that makes searching more efficient. An example is storing the records in sorted order in an array, which permits a binary search. Fortunately, in practice most fields of most records consist of simple data types with natural total orders. For example, integers, floats, doubles, and character strings all are totally ordered.
+To implement sorting or searching, we require that keys be [comparable](#term-comparable). At a minimum, we must be able to take two keys and reliably determine whether they are equal or not. That is enough to enable a sequential search through a database of records and find one that matches a given key. However, we typically would like for the keys to define a [total order](SetDef.md#setdef), which means that we can always tell which of two keys is greater than the other. Using key types with total orderings gives the database implementor the opportunity to organize a collection of records in a way that makes searching more efficient. An example is storing the records in sorted order in an array, which permits a binary search. Fortunately, in practice most fields of most records consist of simple data types with natural total orders. For example, integers, floats, doubles, and character strings all are totally ordered.
 
 But if we want to write a general purpose sorting or searching function, we need a general way to get the key for the record. We could insist that every record have a particular method called `.key()`. That seems like a good name for it!
 
@@ -2762,11 +2762,11 @@ Some languages like Java and C++ have special infrastructure for supporting this
 
 But what if the programmer had already used that method name for another purpose? An even bigger problem is, what if the programmer wants to sort the record now using one field as the key, and later using another field? Or search sometimes on one key, and at other times on another? The problem is that the “keyness” of a given field is not an inherent property within the record, but rather depends on the context. So, you cannot always count on being able to use your favorite method name (or even the comparable interface) to extract the desired key value.
 
-Another, more general approach is to supply a function or class—called a [comparator](Glossary.md#term-comparator)—whose job is to extract the key from the record. A comparator function can be passed in as a parameter, such as in a call to a sorting function. In this case, the comparator function would be invoked on two records whenever they need to be compared. In this way, different comparator functions can be passed in to handle different record types or different fields within a record. In Java (with generics) or C++ (with templates), a comparator class can be a parameter for another class definition. For example, a BST could take a comparator class as a generics parameter in Java. This comparator class would be responsible for dealing with the comparison of two records.
+Another, more general approach is to supply a function or class—called a [comparator](#term-comparator)—whose job is to extract the key from the record. A comparator function can be passed in as a parameter, such as in a call to a sorting function. In this case, the comparator function would be invoked on two records whenever they need to be compared. In this way, different comparator functions can be passed in to handle different record types or different fields within a record. In Java (with generics) or C++ (with templates), a comparator class can be a parameter for another class definition. For example, a BST could take a comparator class as a generics parameter in Java. This comparator class would be responsible for dealing with the comparison of two records.
 
 Unfortunately, while flexible and able to handle nearly all situations, there are a few situations for which it is not possible to write a key extraction method. In that case, a comparator will not work. [^1]
 
-One good general-purpose solution is to explicitly store [key-value pairs](Glossary.md#term-key-value-pair) in the data structure. For example, if we want to sort a bunch of records, we can store them in an array where every array entry contains both a key value for the record and a pointer to the record itself. This might seem like a lot of extra space required, but remember that we can then store pointers to the records in another array with another field as the key for another purpose. The records themselves do not need to be duplicated. A simple class for representing key-value pairs is shown here.
+One good general-purpose solution is to explicitly store [key-value pairs](#term-key-value-pair) in the data structure. For example, if we want to sort a bunch of records, we can store them in an array where every array entry contains both a key value for the record and a pointer to the record itself. This might seem like a lot of extra space required, but remember that we can then store pointers to the records in another array with another field as the key for another purpose. The records themselves do not need to be duplicated. A simple class for representing key-value pairs is shown here.
 
 ```java
 // KVPair class definition
@@ -2811,7 +2811,7 @@ public class KVPair<K extends Comparable<K>, E> implements Comparable<KVPair<K, 
 }
 ```
 
-The main places where we will need to be concerned with comparing records and extracting keys is for various [dictionary](Glossary.md#term-dictionary) implementations and sorting algorithms. To keep them clear and simple, visualizations for sorting algorithms will usually show them as operating on integer values stored in an array. But almost never do people really want to sort an array of integers. But to be useful, a real sorting algorithm typically has to deal with the fact that it is sorting a collection of records. A general-purpose sorting routine meant to operate on multiple record types would have to be written in a way to deal with the generic comparison problem. To illustrate, here is an example of [Insertion Sort](InsertionSort.md#insertionsort) implemented to work on an array that stores records that support the `Comparable` interface. Note that since `KVPair` is implemented to implement the `Comparable` interface, an array of `KVPair` could be used by this sort function.
+The main places where we will need to be concerned with comparing records and extracting keys is for various [dictionary](#term-dictionary) implementations and sorting algorithms. To keep them clear and simple, visualizations for sorting algorithms will usually show them as operating on integer values stored in an array. But almost never do people really want to sort an array of integers. But to be useful, a real sorting algorithm typically has to deal with the fact that it is sorting a collection of records. A general-purpose sorting routine meant to operate on multiple record types would have to be written in a way to deal with the generic comparison problem. To illustrate, here is an example of [Insertion Sort](InsertionSort.md#insertionsort) implemented to work on an array that stores records that support the `Comparable` interface. Note that since `KVPair` is implemented to implement the `Comparable` interface, an array of `KVPair` could be used by this sort function.
 
 ```java
 static <T extends Comparable<T>> void inssort(T[] A) {
@@ -2832,9 +2832,9 @@ Here are some review questions to test your knowledge from this module.
 <a id="id1"></a>
 ## 5.3.1. The Dictionary ADT
 
-The most common objective of computer programs is to store and retrieve data. Much of this book is about efficient ways to organize collections of data records so that they can be stored and retrieved quickly. In this section we describe a simple interface for such a collection, called a [dictionary](Glossary.md#term-dictionary). The dictionary ADT provides operations for storing records, finding records, and removing records from the collection. This ADT gives us a standard basis for comparing various data structures. Loosly speaking, we can say that any data structure that supports insert, search, and deletion is a “dictionary”.
+The most common objective of computer programs is to store and retrieve data. Much of this book is about efficient ways to organize collections of data records so that they can be stored and retrieved quickly. In this section we describe a simple interface for such a collection, called a [dictionary](#term-dictionary). The dictionary ADT provides operations for storing records, finding records, and removing records from the collection. This ADT gives us a standard basis for comparing various data structures. Loosly speaking, we can say that any data structure that supports insert, search, and deletion is a “dictionary”.
 
-Dictionaries depend on the concepts of a [search key](Glossary.md#term-search-key) and [comparable](Comparison.md#comparison) objects. To implement the dictionary’s search function, we will require that keys be [totally ordered](Glossary.md#term-total-order). Ordering fields that are naturally multi-dimensional, such as a point in two or three dimensions, present special opportunities if we wish to take advantage of their multidimensional nature. This problem is addressed by [spatial data structures](Glossary.md#term-spatial-data-structure).
+Dictionaries depend on the concepts of a [search key](#term-search-key) and [comparable](Comparison.md#comparison) objects. To implement the dictionary’s search function, we will require that keys be [totally ordered](#term-total-order). Ordering fields that are naturally multi-dimensional, such as a point in two or three dimensions, present special opportunities if we wish to take advantage of their multidimensional nature. This problem is addressed by [spatial data structures](#term-spatial-data-structure).
 
 Here is code to define a simple abstract dictionary class.
 
@@ -2935,7 +2935,7 @@ Payroll findfoo2 = (Payroll)namedict.find("John");
 
 One problem with the example as it is written is that the dictionary relies on the programmer to be reasonable about being consistent with the keys. These dictionaries are intended to have [homogeneous](ListElement.md#listelement) elements. But nothing stops the programmer from inserting an integer key into the names dictionary, or searching with an integer search key. This problem can be handled by using C++ templates or Java generics.
 
-The fundamental operation for a dictionary is finding a record that matches a given key. This raises the issue of how to [extract the key](Comparison.md#comparison) from a record. We will usually assume that dictionary implementations store a [key-value pair](Glossary.md#term-key-value-pair) so as to be able to extract the key associated with a record for this particular dictionary.
+The fundamental operation for a dictionary is finding a record that matches a given key. This raises the issue of how to [extract the key](Comparison.md#comparison) from a record. We will usually assume that dictionary implementations store a [key-value pair](#term-key-value-pair) so as to be able to extract the key associated with a record for this particular dictionary.
 
 The `insert` method of the dictionary class supports the key-value pair implementation because it takes two parameters, a record and its associated key for that dictionary.
 
@@ -3014,9 +3014,9 @@ The cost for `find` in a sorted list is $\Theta(\log n)$ for a list of length $n
 <a id="binary-trees-chapter-introduction"></a>
 # 6.1. Binary Trees Chapter Introduction
 
-[Tree](Glossary.md#term-tree) structures enable efficient access and efficient update to large collections of data. [Binary trees](Glossary.md#term-binary-tree) in particular are widely used and relatively easy to implement. But binary trees are useful for many things besides searching. Just a few examples of applications that trees can speed up include [prioritizing jobs](Heaps.md#heaps), [describing mathematical expressions](BinaryTreeImpl.md#binarytreeimpl) and the syntactic elements of computer programs, or organizing the information needed to drive [data compression algorithms](Huffman.md#huffman).
+[Tree](#term-tree) structures enable efficient access and efficient update to large collections of data. [Binary trees](#term-binary-tree) in particular are widely used and relatively easy to implement. But binary trees are useful for many things besides searching. Just a few examples of applications that trees can speed up include [prioritizing jobs](Heaps.md#heaps), [describing mathematical expressions](BinaryTreeImpl.md#binarytreeimpl) and the syntactic elements of computer programs, or organizing the information needed to drive [data compression algorithms](Huffman.md#huffman).
 
-This chapter covers terminology used for discussing binary trees, [tree traversals](Glossary.md#term-tree-traversal), approaches to implementing tree [nodes](Glossary.md#term-node), and various examples of binary trees.
+This chapter covers terminology used for discussing binary trees, [tree traversals](#term-tree-traversal), approaches to implementing tree [nodes](#term-node), and various examples of binary trees.
 
 
 <a id="binary-trees"></a>
@@ -3025,13 +3025,13 @@ This chapter covers terminology used for discussing binary trees, [tree traversa
 <a id="definitions-and-properties"></a>
 ## 6.2.1. Definitions and Properties
 
-A [binary tree](Glossary.md#term-binary-tree) is made up of a finite set of elements called [nodes](Glossary.md#term-node). This set either is empty or consists of a node called the [root](Glossary.md#term-root) together with two binary trees, called the left and right [subtrees](Glossary.md#term-subtree), which are disjoint from each other and from the root. (Disjoint means that they have no nodes in common.) The roots of these subtrees are [children](Glossary.md#term-child) of the root. There is an [edge](Glossary.md#term-edge) from a node to each of its children, and a node is said to be the [parent](Glossary.md#term-parent) of its children.
+A [binary tree](#term-binary-tree) is made up of a finite set of elements called [nodes](#term-node). This set either is empty or consists of a node called the [root](#term-root) together with two binary trees, called the left and right [subtrees](#term-subtree), which are disjoint from each other and from the root. (Disjoint means that they have no nodes in common.) The roots of these subtrees are [children](#term-child) of the root. There is an [edge](#term-edge) from a node to each of its children, and a node is said to be the [parent](#term-parent) of its children.
 
-If $n_1, n_2, ..., n_k$ is a sequence of nodes in the tree such that $n_i$ is the parent of $n_i+1$ for $1 \leq i < k$, then this sequence is called a [path](Glossary.md#term-path) from $n_1$ to $n_k$. The [length](Glossary.md#term-length) of the path is $k-1$. If there is a path from node $R$ to node $M$, then $R$ is an [ancestor](Glossary.md#term-ancestor) of $M$, and $M$ is a [descendant](Glossary.md#term-descendant) of $R$. Thus, all nodes in the tree are descendants of the root of the tree, while the root is the ancestor of all nodes. The [depth](Glossary.md#term-depth) of a node $M$ in the tree is the length of the path from the root of the tree to $M$. The [height](Glossary.md#term-height) of a tree is the depth of the deepest node in the tree. All nodes of depth $d$ are at [level](Glossary.md#term-level) $d$ in the tree. The root is the only node at level 0, and its depth is 0. A [leaf node](Glossary.md#term-leaf-node) is any node that has two empty children. An [internal node](Glossary.md#term-internal-node) is any node that has at least one non-empty child.
+If $n_1, n_2, ..., n_k$ is a sequence of nodes in the tree such that $n_i$ is the parent of $n_i+1$ for $1 \leq i < k$, then this sequence is called a [path](#term-path) from $n_1$ to $n_k$. The [length](#term-length) of the path is $k-1$. If there is a path from node $R$ to node $M$, then $R$ is an [ancestor](#term-ancestor) of $M$, and $M$ is a [descendant](#term-descendant) of $R$. Thus, all nodes in the tree are descendants of the root of the tree, while the root is the ancestor of all nodes. The [depth](#term-depth) of a node $M$ in the tree is the length of the path from the root of the tree to $M$. The [height](#term-height) of a tree is the depth of the deepest node in the tree. All nodes of depth $d$ are at [level](#term-level) $d$ in the tree. The root is the only node at level 0, and its depth is 0. A [leaf node](#term-leaf-node) is any node that has two empty children. An [internal node](#term-internal-node) is any node that has at least one non-empty child.
 
 Figure [6.2.1](BinaryTree.md#binexample) illustrates the various terms used to identify parts of a binary tree. Figure [6.2.2](BinaryTree.md#bindiff) illustrates an important point regarding the structure of binary trees. Because *all* binary tree nodes have two children (one or both of which might be empty), the two binary trees of Figure [6.2.2](BinaryTree.md#bindiff) are *not* the same.
 
-Two restricted forms of binary tree are sufficiently important to warrant special names. Each node in a [full binary tree](Glossary.md#term-full-tree) is either (1) an internal node with exactly two non-empty children or (2) a leaf. A [complete binary tree](Glossary.md#term-complete-binary-tree) has a restricted shape obtained by starting at the root and filling the tree by levels from left to right. In the complete binary tree of height $d$, all levels except possibly level $d$ are completely full. The bottom level has its nodes filled in from the left side.
+Two restricted forms of binary tree are sufficiently important to warrant special names. Each node in a [full binary tree](#term-full-tree) is either (1) an internal node with exactly two non-empty children or (2) a leaf. A [complete binary tree](#term-complete-binary-tree) has a restricted shape obtained by starting at the root and filling the tree by levels from left to right. In the complete binary tree of height $d$, all levels except possibly level $d$ are completely full. The bottom level has its nodes filled in from the left side.
 
 Figure [6.2.3](BinaryTree.md#fullcomplete) illustrates the differences between full and complete binary trees. [^1] There is no particular relationship between these two tree shapes; that is, the tree of Figure [6.2.3](BinaryTree.md#fullcomplete) (a) is full but not complete while the tree of Figure [6.2.3](BinaryTree.md#fullcomplete) (b) is complete but not full. The [heap](Heaps.md#heaps) data structure is an example of a complete binary tree. The [Huffman coding tree](Huffman.md#huffman) is an example of a full binary tree.
 
@@ -3047,7 +3047,7 @@ Figure [6.2.3](BinaryTree.md#fullcomplete) illustrates the differences between f
 <a id="id1"></a>
 ## 6.3.1. Binary Tree as a Recursive Data Structure
 
-A [recursive data structure](Glossary.md#term-recursive-data-structure) is a data structure that is partially composed of smaller or simpler instances of the same data structure. For example, [linked lists](Glossary.md#term-linked-list) and [binary trees](Glossary.md#term-binary-tree) can be viewed as recursive data structures. A list is a recursive data structure because a list can be defined as either (1) an empty list or (2) a node followed by a list. A binary tree is typically defined as (1) an empty tree or (2) a node pointing to two binary trees, one its left child and the other one its right child.
+A [recursive data structure](#term-recursive-data-structure) is a data structure that is partially composed of smaller or simpler instances of the same data structure. For example, [linked lists](#term-linked-list) and [binary trees](#term-binary-tree) can be viewed as recursive data structures. A list is a recursive data structure because a list can be defined as either (1) an empty list or (2) a node followed by a list. A binary tree is typically defined as (1) an empty tree or (2) a node pointing to two binary trees, one its left child and the other one its right child.
 
 The recursive relationships used to define a structure provide a natural model for any recursive algorithm on the structure.
 
@@ -3055,7 +3055,7 @@ The recursive relationships used to define a structure provide a natural model f
 <a id="the-full-binary-tree-theorem"></a>
 # 6.4. The Full Binary Tree Theorem
 
-Some binary tree implementations store data only at the [leaf nodes](Glossary.md#term-leaf-node), using the [internal nodes](Glossary.md#term-internal-node) to provide structure to the tree. By definition, a leaf node does not need to store pointers to its (empty) [children](Glossary.md#term-child). More generally, binary tree implementations might require some amount of space for internal nodes, and a different amount for leaf nodes. Thus, to compute the space required by such implementations, it is useful to know the minimum and maximum fraction of the nodes that are leaves in a tree containing $n$ internal nodes.
+Some binary tree implementations store data only at the [leaf nodes](#term-leaf-node), using the [internal nodes](#term-internal-node) to provide structure to the tree. By definition, a leaf node does not need to store pointers to its (empty) [children](#term-child). More generally, binary tree implementations might require some amount of space for internal nodes, and a different amount for leaf nodes. Thus, to compute the space required by such implementations, it is useful to know the minimum and maximum fraction of the nodes that are leaves in a tree containing $n$ internal nodes.
 
 Unfortunately, this fraction is not fixed. A binary tree of $n$ internal nodes might have only one leaf. This occurs when the internal nodes are arranged in a chain ending in a single leaf as shown in Figure [6.4.1](BinaryTreeFullThm.md#oneleaf). In this example, the number of leaves is low because each internal node has only one non-empty child. To find an upper bound on the number of leaves for a tree of $n$ internal nodes, first note that the upper bound will occur when each internal node has two non-empty children, that is, when the tree is full. However, this observation does not tell what shape of tree will yield the highest percentage of non-empty leaves. It turns out not to matter, because all full binary trees with $n$ internal nodes have the same number of leaves. This fact allows us to compute the space requirements for a full binary tree implementation whose leaves require a different amount of space from its internal nodes.
 
@@ -3063,7 +3063,7 @@ Unfortunately, this fraction is not fixed. A binary tree of $n$ internal nodes m
 
 **Full Binary Tree Theorem:** The number of leaves in a non-empty full binary tree is one more than the number of internal nodes.
 
-**Proof:** The proof is by [mathematical induction](Glossary.md#term-proof-by-induction) on $n$, the number of internal nodes. This is an example of the style of induction proof where we reduce from an arbitrary instance of size $n$ to an instance of size $n-1$ that meets the induction hypothesis.
+**Proof:** The proof is by [mathematical induction](#term-proof-by-induction) on $n$, the number of internal nodes. This is an example of the style of induction proof where we reduce from an arbitrary instance of size $n$ to an instance of size $n-1$ that meets the induction hypothesis.
 
 1. **Base Cases:** The non-empty tree with zero internal nodes has one leaf node. A full binary tree with one internal node has two leaf nodes. Thus, the base cases for $n = 0$ and $n = 1$ conform to the theorem.
 1. **Induction Hypothesis:** Assume that any full binary tree $\mathbf{T}$ containing $n-1$ internal nodes has $n$ leaves.
@@ -3088,12 +3088,12 @@ The number of empty subtrees in a non-empty binary tree is one more than the num
 <a id="id1"></a>
 ## 6.5.1. Binary Tree Traversals
 
-Often we wish to process a binary tree by “visiting” each of its nodes, each time performing a specific action such as printing the contents of the node. Any process for visiting all of the nodes in some order is called a [traversal](Glossary.md#term-traversal). Any traversal that lists every node in the tree exactly once is called an [enumeration](Glossary.md#term-enumeration) of the tree’s nodes. Some applications do not require that the nodes be visited in any particular order as long as each node is visited precisely once. For other applications, nodes must be visited in an order that preserves some relationship.
+Often we wish to process a binary tree by “visiting” each of its nodes, each time performing a specific action such as printing the contents of the node. Any process for visiting all of the nodes in some order is called a [traversal](#term-traversal). Any traversal that lists every node in the tree exactly once is called an [enumeration](#term-enumeration) of the tree’s nodes. Some applications do not require that the nodes be visited in any particular order as long as each node is visited precisely once. For other applications, nodes must be visited in an order that preserves some relationship.
 
 <a id="preorder-traversal"></a>
 ### 6.5.1.1. Preorder Traversal
 
-For example, we might wish to make sure that we visit any given node *before* we visit its children. This is called a [preorder traversal](Glossary.md#term-preorder-traversal).
+For example, we might wish to make sure that we visit any given node *before* we visit its children. This is called a [preorder traversal](#term-preorder-traversal).
 
 **Example 6.5.1**
 
@@ -3104,7 +3104,7 @@ The first node printed is the root. Then all nodes of the left subtree are print
 <a id="postorder-traversal"></a>
 ### 6.5.1.2. Postorder Traversal
 
-Alternatively, we might wish to visit each node only *after* we visit its children (and their subtrees). For example, this would be necessary if we wish to return all nodes in the tree to free store. We would like to delete the children of a node before deleting the node itself. But to do that requires that the children’s children be deleted first, and so on. This is called a [postorder traversal](Glossary.md#term-postorder-traversal).
+Alternatively, we might wish to visit each node only *after* we visit its children (and their subtrees). For example, this would be necessary if we wish to return all nodes in the tree to free store. We would like to delete the children of a node before deleting the node itself. But to do that requires that the children’s children be deleted first, and so on. This is called a [postorder traversal](#term-postorder-traversal).
 
 **Example 6.5.2**
 
@@ -3113,7 +3113,7 @@ The postorder enumeration for the tree of Figure [6.5.1](BinaryTreeTraversal.md#
 <a id="inorder-traversal"></a>
 ### 6.5.1.3. Inorder Traversal
 
-An [inorder traversal](Glossary.md#term-inorder-traversal) first visits the left child (including its entire subtree), then visits the node, and finally visits the right child (including its entire subtree). The [binary search tree](BST.md#bst) makes use of this traversal to print all nodes in ascending order of value.
+An [inorder traversal](#term-inorder-traversal) first visits the left child (including its entire subtree), then visits the node, and finally visits the right child (including its entire subtree). The [binary search tree](BST.md#bst) makes use of this traversal to print all nodes in ascending order of value.
 
 **Example 6.5.3**
 
@@ -3280,11 +3280,11 @@ class BSTNode<E extends Comparable<? super E>> implements BinNode<E> {
 
 Some programmers find it convenient to add a pointer to the node’s parent, allowing easy upward movement in the tree. Using a parent pointer is somewhat analogous to adding a link to the previous node in a doubly linked list. In practice, the parent pointer is almost always unnecessary and adds to the space overhead for the tree implementation. It is not just a problem that parent pointers take space. More importantly, many uses of the parent pointer are driven by improper understanding of recursion and so indicate poor programming. If you are inclined toward using a parent pointer, consider if there is a more efficient implementation possible.
 
-An important decision in the design of a pointer-based node implementation is whether the same class definition will be used for [leaves](Glossary.md#term-leaf-node) and [internal nodes](Glossary.md#term-internal-node). Using the same class for both will simplify the implementation, but might be an inefficient use of space. Some applications require data values only for the leaves. Other applications require one type of value for the leaves and another for the internal nodes. Examples include the [binary trie](Glossary.md#term-binary-trie), the [PR Quadtree](Glossary.md#term-pr-quadtree), the [Huffman coding tree](Glossary.md#term-huffman-coding-tree), and the [expression tree](Glossary.md#term-expression-tree) illustrated by Figure [6.7.2](BinaryTreeImpl.md#diffnodes). By definition, only internal nodes have non-empty children. If we use the same node implementation for both internal and leaf nodes, then both must store the child pointers. But it seems wasteful to store child pointers in the leaf nodes. Thus, there are many reasons why it can save space to have separate implementations for internal and leaf nodes.
+An important decision in the design of a pointer-based node implementation is whether the same class definition will be used for [leaves](#term-leaf-node) and [internal nodes](#term-internal-node). Using the same class for both will simplify the implementation, but might be an inefficient use of space. Some applications require data values only for the leaves. Other applications require one type of value for the leaves and another for the internal nodes. Examples include the [binary trie](#term-binary-trie), the [PR Quadtree](#term-pr-quadtree), the [Huffman coding tree](#term-huffman-coding-tree), and the [expression tree](#term-expression-tree) illustrated by Figure [6.7.2](BinaryTreeImpl.md#diffnodes). By definition, only internal nodes have non-empty children. If we use the same node implementation for both internal and leaf nodes, then both must store the child pointers. But it seems wasteful to store child pointers in the leaf nodes. Thus, there are many reasons why it can save space to have separate implementations for internal and leaf nodes.
 
 As an example of a tree that stores different information at the leaf and internal nodes, consider the expression tree illustrated by Figure [6.7.2](BinaryTreeImpl.md#diffnodes). The expression tree represents an algebraic expression composed of binary operators such as addition, subtraction, multiplication, and division. Internal nodes store operators, while the leaves store operands. The tree of Figure [6.7.2](BinaryTreeImpl.md#diffnodes) represents the expression $4x(2x + a) - c$. The storage requirements for a leaf in an expression tree are quite different from those of an internal node. Internal nodes store one of a small set of operators, so internal nodes could store a small code identifying the operator such as a single byte for the operator’s character symbol. In contrast, leaves store variable names or numbers, which is considerably larger in order to handle the wider range of possible values. At the same time, leaf nodes need not store child pointers.
 
-[Object-oriented languages](Glossary.md#term-object-oriented-programming-paradigm) allow us to differentiate leaf from internal nodes through the use of a [class hierarchy](Glossary.md#term-class-hierarchy). A [base class](Glossary.md#term-base-class) provides a general definition for an object, and a [subclass](Glossary.md#term-subclass) modifies a base class to add more detail. A base class can be declared for binary tree nodes in general, with subclasses defined for the internal and leaf nodes. The base class in the following code is named `VarBinNode`. It includes a virtual member function named `isLeaf`, which indicates the node type. Subclasses for the internal and leaf node types each implement `isLeaf`. Internal nodes store child pointers of the base class type; they do not distinguish their children’s actual subclass. Whenever a node is examined, its version of `isLeaf` indicates the node’s subclass.
+[Object-oriented languages](#term-object-oriented-programming-paradigm) allow us to differentiate leaf from internal nodes through the use of a [class hierarchy](#term-class-hierarchy). A [base class](#term-base-class) provides a general definition for an object, and a [subclass](#term-subclass) modifies a base class to add more detail. A base class can be declared for binary tree nodes in general, with subclasses defined for the internal and leaf nodes. The base class in the following code is named `VarBinNode`. It includes a virtual member function named `isLeaf`, which indicates the node type. Subclasses for the internal and leaf node types each implement `isLeaf`. Internal nodes store child pointers of the base class type; they do not distinguish their children’s actual subclass. Whenever a node is examined, its version of `isLeaf` indicates the node’s subclass.
 
 ```java
 // Base class for expression tree nodes
@@ -3337,7 +3337,7 @@ The Expression Tree implementation includes two subclasses derived from class `V
 <a id="id1"></a>
 ## 6.8.1. Composite-based Expression Tree
 
-There is another approach that we can take to represent separate leaf and internal nodes, also using a virtual base class and separate node classes for the two types. This is to implement nodes using the [Composite design pattern](Glossary.md#term-composite-design-pattern). This approach is noticeably different from the [procedural approach](BinaryTreeImpl.md#binarytreeimpl) in that the node classes themselves implement the functionality of `traverse`. Here is the implementation. Base class `VarBinNode` declares a member function `traverse` that each subclass must implement. Each subclass then implements its own appropriate behavior for its role in a traversal. The whole traversal process is called by invoking `traverse` on the root node, which in turn invokes `traverse` on its children.
+There is another approach that we can take to represent separate leaf and internal nodes, also using a virtual base class and separate node classes for the two types. This is to implement nodes using the [Composite design pattern](#term-composite-design-pattern). This approach is noticeably different from the [procedural approach](BinaryTreeImpl.md#binarytreeimpl) in that the node classes themselves implement the functionality of `traverse`. Here is the implementation. Base class `VarBinNode` declares a member function `traverse` that each subclass must implement. Each subclass then implements its own appropriate behavior for its role in a traversal. The whole traversal process is called by invoking `traverse` on the root node, which in turn invokes `traverse` on its children.
 
 ```java
    /** Base class: Composite */
@@ -3386,7 +3386,7 @@ There is another approach that we can take to represent separate leaf and intern
    }
 ```
 
-When comparing the composite implementation to the [procedural approach](BinaryTreeImpl.md#binarytreeimpl), each has advantages and disadvantages. The non-composite approach does not require that the node classes know about the `traverse` function. With this approach, it is easy to add new methods to the tree class that do other traversals or other operations on nodes of the tree. However, we see that `traverse` in the non-composite approach does need to be familiar with each node subclass. Adding a new node subclass would therefore require modifications to the `traverse` function. In contrast, the composite approach requires that any new operation on the tree that requires a traversal also be implemented in the node subclasses. On the other hand, the composite approach avoids the need for the `traverse` function to know anything about the distinct abilities of the node subclasses. Those subclasses handle the responsibility of performing a traversal on themselves. A secondary benefit is that there is no need for `traverse` to explicitly enumerate all of the different node subclasses, directing appropriate action for each. With only two node classes this is a minor point. But if there were many such subclasses, this could become a bigger problem. A disadvantage is that the traversal operation must not be called on a NULL pointer, because there is no object to catch the call. This problem could be avoided by using a [Flyweight](Glossary.md#term-flyweight) to implement empty nodes.
+When comparing the composite implementation to the [procedural approach](BinaryTreeImpl.md#binarytreeimpl), each has advantages and disadvantages. The non-composite approach does not require that the node classes know about the `traverse` function. With this approach, it is easy to add new methods to the tree class that do other traversals or other operations on nodes of the tree. However, we see that `traverse` in the non-composite approach does need to be familiar with each node subclass. Adding a new node subclass would therefore require modifications to the `traverse` function. In contrast, the composite approach requires that any new operation on the tree that requires a traversal also be implemented in the node subclasses. On the other hand, the composite approach avoids the need for the `traverse` function to know anything about the distinct abilities of the node subclasses. Those subclasses handle the responsibility of performing a traversal on themselves. A secondary benefit is that there is no need for `traverse` to explicitly enumerate all of the different node subclasses, directing appropriate action for each. With only two node classes this is a minor point. But if there were many such subclasses, this could become a bigger problem. A disadvantage is that the traversal operation must not be called on a NULL pointer, because there is no object to catch the call. This problem could be avoided by using a [Flyweight](#term-flyweight) to implement empty nodes.
 
 Typically, the non-composite version would be preferred in this example if `traverse` is a member function of the tree class, and if the node subclasses are hidden from users of that tree class. On the other hand, if the nodes are objects that have meaning to users of the tree separate from their existence as nodes in the tree, then the composite version might be preferred because hiding the internal behavior of the nodes becomes more important.
 
@@ -3399,7 +3399,7 @@ Another advantage of the composite design is that implementing each node type’
 <a id="id1"></a>
 ## 6.9.1. Binary Tree Space Requirements
 
-This module presents techniques for calculating the amount of [overhead](Glossary.md#term-overhead) required by a [binary tree](Glossary.md#term-binary-tree), based on its node implementation. Recall that overhead is the amount of space necessary to maintain the data structure. In other words, it is any space not used to store data records. The amount of overhead depends on several factors including which nodes store data values (all nodes, or just the leaves), whether the leaves store child pointers, and whether the tree is a [full binary tree](Glossary.md#term-full-tree).
+This module presents techniques for calculating the amount of [overhead](#term-overhead) required by a [binary tree](#term-binary-tree), based on its node implementation. Recall that overhead is the amount of space necessary to maintain the data structure. In other words, it is any space not used to store data records. The amount of overhead depends on several factors including which nodes store data values (all nodes, or just the leaves), whether the leaves store child pointers, and whether the tree is a [full binary tree](#term-full-tree).
 
 In a simple [pointer-based implementation for binary tree nodes](BinaryTreeImpl.md#binarytreeimpl), every node has two pointers to its children (even when the children are NULL). This implementation requires total space amounting to $n(2P + D)$ for a tree of $n$ nodes. Here, $P$ stands for the amount of space required by a pointer, and $D$ stands for the amount of space required by a data value. The total overhead space will be $2Pn$ for the entire tree. Thus, the overhead fraction will be $2P/(2P + D)$. The actual value for this expression depends on the relative size of pointers versus data fields. If we arbitrarily assume that $P = D$, then a binary tree has about two thirds of its total space taken up in overhead. Worse yet, the Full Binary Tree Theorem tells us that about half of the pointers are “wasted” NULL values that serve only to indicate tree structure, but which do not provide access to new data.
 
@@ -3435,13 +3435,13 @@ There is one serious flaw with this analysis. When using separate implementation
 <a id="binary-search-tree-definition"></a>
 ## 6.10.1. Binary Search Tree Definition
 
-A [binary search tree](Glossary.md#term-binary-search-tree) ([BST](Glossary.md#term-bst)) is a [binary tree](Glossary.md#term-binary-tree) that conforms to the following condition, known as the [binary search tree property](Glossary.md#term-binary-search-tree-property). All [nodes](Glossary.md#term-node) stored in the left subtree of a node whose [key](Glossary.md#term-key) value is $K$ have key values less than or equal to $K$. All nodes stored in the right subtree of a node whose key value is $K$ have key values greater than $K$. Figure [6.10.1](BST.md#bstshape) shows two BSTs for a collection of values. One consequence of the binary search tree property is that if the BST nodes are printed using an [inorder traversal](BinaryTreeTraversal.md#binarytreetraversal), then the resulting enumeration will be in sorted order from lowest to highest.
+A [binary search tree](#term-binary-search-tree) ([BST](#term-bst)) is a [binary tree](#term-binary-tree) that conforms to the following condition, known as the [binary search tree property](#term-binary-search-tree-property). All [nodes](#term-node) stored in the left subtree of a node whose [key](#term-key) value is $K$ have key values less than or equal to $K$. All nodes stored in the right subtree of a node whose key value is $K$ have key values greater than $K$. Figure [6.10.1](BST.md#bstshape) shows two BSTs for a collection of values. One consequence of the binary search tree property is that if the BST nodes are printed using an [inorder traversal](BinaryTreeTraversal.md#binarytreetraversal), then the resulting enumeration will be in sorted order from lowest to highest.
 
 ![Two Binary Search Trees](tddi16f25.img/BSTShape2.png)
 
 *Figure 6.10.1: Two Binary Search Trees for a collection of values. Tree (a) results if values are inserted in the order 37, 24, 42, 7, 2, 40, 42, 32, 120. Tree (b) results if the same values are inserted in the order 120, 42, 42, 7, 2, 32, 37, 24, 40.*
 
-Here is a class declaration for the BST. Recall that there are various ways to deal with [keys](Glossary.md#term-key) and [comparing records](Comparison.md#comparison) Three typical approaches are [key-value pairs](Glossary.md#term-key-value-pair), a special comparison method such as using the `Comparator` class, and passing in a [comparator function](Glossary.md#term-comparator). Our BST implementation will require that records implement the `Comparable` interface.
+Here is a class declaration for the BST. Recall that there are various ways to deal with [keys](#term-key) and [comparing records](Comparison.md#comparison) Three typical approaches are [key-value pairs](#term-key-value-pair), a special comparison method such as using the `Comparator` class, and passing in a [comparator function](#term-comparator). Our BST implementation will require that records implement the `Comparable` interface.
 
 ```java
 // Binary Search Tree implementation
@@ -3525,7 +3525,7 @@ When duplicate node values do not appear in the tree, it makes no difference whe
 <a id="bst-analysis"></a>
 ## 6.10.4. BST Analysis
 
-The cost for `findhelp` and `inserthelp` is the depth of the node found or inserted. The cost for `removehelp` is the depth of the node being removed, or in the case when this node has two children, the depth of the node with smallest value in its right subtree. Thus, in the worst case, the cost for any one of these operations is the depth of the deepest node in the tree. This is why it is desirable to keep BSTs [balanced](Glossary.md#term-balanced-tree), that is, with least possible height. If a binary tree is balanced, then the height for a tree of $n$ nodes is approximately $\log n$. However, if the tree is completely unbalanced, for example in the shape of a linked list, then the height for a tree with $n$ nodes can be as great as $n$. Thus, a balanced BST will in the average case have operations costing $\Theta(\log n)$, while a badly unbalanced BST can have operations in the worst case costing $\Theta(n)$. Consider the situation where we construct a BST of $n$ nodes by inserting records one at a time. If we are fortunate to have them arrive in an order that results in a balanced tree (a “random” order is likely to be good enough for this purpose), then each insertion will cost on average $\Theta(\log n)$, for a total cost of $\Theta(n \log n)$. However, if the records are inserted in order of increasing value, then the resulting tree will be a chain of height $n$. The cost of insertion in this case will be $\sum_{i=1}^{n} i = \Theta(n^2)$.
+The cost for `findhelp` and `inserthelp` is the depth of the node found or inserted. The cost for `removehelp` is the depth of the node being removed, or in the case when this node has two children, the depth of the node with smallest value in its right subtree. Thus, in the worst case, the cost for any one of these operations is the depth of the deepest node in the tree. This is why it is desirable to keep BSTs [balanced](#term-balanced-tree), that is, with least possible height. If a binary tree is balanced, then the height for a tree of $n$ nodes is approximately $\log n$. However, if the tree is completely unbalanced, for example in the shape of a linked list, then the height for a tree with $n$ nodes can be as great as $n$. Thus, a balanced BST will in the average case have operations costing $\Theta(\log n)$, while a badly unbalanced BST can have operations in the worst case costing $\Theta(n)$. Consider the situation where we construct a BST of $n$ nodes by inserting records one at a time. If we are fortunate to have them arrive in an order that results in a balanced tree (a “random” order is likely to be good enough for this purpose), then each insertion will cost on average $\Theta(\log n)$, for a total cost of $\Theta(n \log n)$. However, if the records are inserted in order of increasing value, then the resulting tree will be a chain of height $n$. The cost of insertion in this case will be $\sum_{i=1}^{n} i = \Theta(n^2)$.
 
 Traversing a BST costs $\Theta(n)$ regardless of the shape of the tree. Each node is visited exactly once, and each child pointer is followed exactly once.
 
@@ -3548,9 +3548,9 @@ While the BST is simple to implement and efficient when the tree is balanced, th
 <a id="dictionary-implementation-using-a-bst"></a>
 # 6.11. Dictionary Implementation Using a BST
 
-A simple implementation for the [Dictionary](Dictionary.md#dictionary) ADT can be based on [sorted](Glossary.md#term-sorted-list) or [unsorted lists](Glossary.md#term-unsorted-list). When implementing the dictionary with an unsorted list, inserting a new record into the dictionary can be performed quickly by putting it at the end of the list. However, searching an unsorted list for a particular record requires $\Theta(n)$ time in the average case. For a large database, this is probably much too slow. Alternatively, the records can be stored in a sorted list. If the list is implemented using a [linked list](ListLinked.md#listlinked), then no speedup to the search operation will result from storing the records in sorted order. On the other hand, if we use a sorted [array-based list](Glossary.md#term-array-based-list) to implement the dictionary, then [binary search](AnalProgram.md#analprogram) can be used to find a record in only $\Theta(\log n)$ time. However, insertion will now require $\Theta(n)$ time on average because, once the proper location for the new record in the sorted list has been found, many records might be shifted to make room for the new record.
+A simple implementation for the [Dictionary](Dictionary.md#dictionary) ADT can be based on [sorted](#term-sorted-list) or [unsorted lists](#term-unsorted-list). When implementing the dictionary with an unsorted list, inserting a new record into the dictionary can be performed quickly by putting it at the end of the list. However, searching an unsorted list for a particular record requires $\Theta(n)$ time in the average case. For a large database, this is probably much too slow. Alternatively, the records can be stored in a sorted list. If the list is implemented using a [linked list](ListLinked.md#listlinked), then no speedup to the search operation will result from storing the records in sorted order. On the other hand, if we use a sorted [array-based list](#term-array-based-list) to implement the dictionary, then [binary search](AnalProgram.md#analprogram) can be used to find a record in only $\Theta(\log n)$ time. However, insertion will now require $\Theta(n)$ time on average because, once the proper location for the new record in the sorted list has been found, many records might be shifted to make room for the new record.
 
-Is there some way to organize a collection of records so that inserting records and searching for records can both be done quickly? We can do this with a [binary search tree](Glossary.md#term-binary-search-tree) ([BST](Glossary.md#term-bst)). The advantage of using the BST is that all major operations (insert, search, and remove) are $\Theta(\log n)$ in the average case. Of course, if the tree is badly balanced, then the cost can be as bad as $\Theta(n)$.
+Is there some way to organize a collection of records so that inserting records and searching for records can both be done quickly? We can do this with a [binary search tree](#term-binary-search-tree) ([BST](#term-bst)). The advantage of using the BST is that all major operations (insert, search, and remove) are $\Theta(\log n)$ in the average case. Of course, if the tree is badly balanced, then the cost can be as bad as $\Theta(n)$.
 
 Here is an implementation for the Dictionary interface, using a BST to store the records.
 
@@ -3614,7 +3614,7 @@ class BSTDict implements Dictionary {
 <a id="id1"></a>
 ## 6.12.1. Array Implementation for Complete Binary Trees
 
-From the [full binary tree theorem](BinaryTreeFullThm.md#binarytreefullthm), we know that a large fraction of the space in a typical binary tree node implementation is devoted to structural [overhead](Glossary.md#term-overhead), not to storing data. This module presents a simple, compact implementation for [complete binary trees](Glossary.md#term-complete-binary-tree). Recall that complete binary trees have all levels except the bottom filled out completely, and the bottom level has all of its nodes filled in from left to right. Thus, a complete binary tree of $n$ nodes has only one possible shape. You might think that a complete binary tree is such an unusual occurrence that there is no reason to develop a special implementation for it. However, the complete binary tree has practical uses, the most important being the [heap](Glossary.md#term-heap) data structure. Heaps are often used to implement [priority queues](Glossary.md#term-priority-queue) and for [external sorting algorithms](Glossary.md#term-external-sort).
+From the [full binary tree theorem](BinaryTreeFullThm.md#binarytreefullthm), we know that a large fraction of the space in a typical binary tree node implementation is devoted to structural [overhead](#term-overhead), not to storing data. This module presents a simple, compact implementation for [complete binary trees](#term-complete-binary-tree). Recall that complete binary trees have all levels except the bottom filled out completely, and the bottom level has all of its nodes filled in from left to right. Thus, a complete binary tree of $n$ nodes has only one possible shape. You might think that a complete binary tree is such an unusual occurrence that there is no reason to develop a special implementation for it. However, the complete binary tree has practical uses, the most important being the [heap](#term-heap) data structure. Heaps are often used to implement [priority queues](#term-priority-queue) and for [external sorting algorithms](#term-external-sort).
 
 We begin by assigning numbers to the node positions in the complete binary tree, level by level, from left to right as shown in Figure [6.12.1](CompleteTree.md#binarray). An array can store the tree’s data values efficiently, placing each data value in the array position corresponding to that node’s position within the tree. The table lists the array indices for the children, parent, and siblings of each node in Figure [6.12.1](CompleteTree.md#binarray).
 
@@ -3628,22 +3628,22 @@ Here is a table that lists, for each node position, the positions of the parent,
 $$
 \begin{aligned}\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\textrm{Position} & 0  & 1 & 2 & 3 &  4 &  5 & 6 & 7 & 8 &  9 & 10 & 11\cr 
+\textrm{Position} & 0  & 1 & 2 & 3 &  4 &  5 & 6 & 7 & 8 &  9 & 10 & 11\cr
 \hline
 \hline
-\textrm{Parent} & \thinspace --\thinspace  & 0 & 0 & 1 &  1 &  2 &  2 & 3 & 3 & 4 & 4 & 5\cr 
+\textrm{Parent} & \thinspace --\thinspace  & 0 & 0 & 1 &  1 &  2 &  2 & 3 & 3 & 4 & 4 & 5\cr
 \hline
 \textrm{Left Child} & 1  & 3 & 5 & 7 &  9 & 11 & \thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &
-\thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr 
+\thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr
 \hline
 \textrm{Right Child} & 2  & 4 & 6 & 8 & 10 & \thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &
-\thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr 
+\thinspace --\thinspace  & \thinspace --\thinspace  & \thinspace --\thinspace  &  \thinspace --\thinspace \cr
 \hline
 \textrm{Left Sibling} & \thinspace --\thinspace  & \thinspace --\thinspace  & 1 & \thinspace --\thinspace  &  3 & \thinspace --\thinspace  & 5 &
-\thinspace --\thinspace  & 7 & \thinspace --\thinspace  &  9 &  \thinspace --\thinspace \cr 
+\thinspace --\thinspace  & 7 & \thinspace --\thinspace  &  9 &  \thinspace --\thinspace \cr
 \hline
 \textrm{Right Sibling} & \thinspace --\thinspace  & 2 & \thinspace --\thinspace  & 4 & \thinspace --\thinspace  &  6 & \thinspace --\thinspace  & 8 &
-\thinspace --\thinspace  & 10 & \thinspace --\thinspace  & \thinspace --\thinspace \cr 
+\thinspace --\thinspace  & 10 & \thinspace --\thinspace  & \thinspace --\thinspace \cr
 \hline&&&&&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -3664,17 +3664,17 @@ The formulae for calculating the array indices of the various relatives of a nod
 <a id="id1"></a>
 ## 6.13.1. Heaps and Priority Queues
 
-There are many situations, both in real life and in computing applications, where we wish to choose the next “most important” from a collection of people, tasks, or objects. For example, doctors in a hospital emergency room often choose to see next the “most critical” patient rather than the one who arrived first. When scheduling programs for execution in a multitasking operating system, at any given moment there might be several programs (usually called [jobs](Glossary.md#term-job)) ready to run. The next job selected is the one with the highest [priority](Glossary.md#term-priority). Priority is indicated by a particular value associated with the job (and might change while the job remains in the wait list).
+There are many situations, both in real life and in computing applications, where we wish to choose the next “most important” from a collection of people, tasks, or objects. For example, doctors in a hospital emergency room often choose to see next the “most critical” patient rather than the one who arrived first. When scheduling programs for execution in a multitasking operating system, at any given moment there might be several programs (usually called [jobs](#term-job)) ready to run. The next job selected is the one with the highest [priority](#term-priority). Priority is indicated by a particular value associated with the job (and might change while the job remains in the wait list).
 
-When a collection of objects is organized by importance or priority, we call this a [priority queue](Glossary.md#term-priority-queue). A normal queue data structure will not implement a priority queue efficiently because search for the element with highest priority will take $\Theta(n)$ time. A list, whether sorted or not, will also require $\Theta(n)$ time for either insertion or removal. A BST that organizes records by priority could be used, with the total of $n$ inserts and $n$ remove operations requiring $\Theta(n \log n)$ time in the average case. However, there is always the possibility that the BST will become unbalanced, leading to bad performance. Instead, we would like to find a data structure that is guaranteed to have good performance for this special application.
+When a collection of objects is organized by importance or priority, we call this a [priority queue](#term-priority-queue). A normal queue data structure will not implement a priority queue efficiently because search for the element with highest priority will take $\Theta(n)$ time. A list, whether sorted or not, will also require $\Theta(n)$ time for either insertion or removal. A BST that organizes records by priority could be used, with the total of $n$ inserts and $n$ remove operations requiring $\Theta(n \log n)$ time in the average case. However, there is always the possibility that the BST will become unbalanced, leading to bad performance. Instead, we would like to find a data structure that is guaranteed to have good performance for this special application.
 
-This section presents the [heap](Glossary.md#term-heap) [^1] data structure. A heap is defined by two properties. First, it is a complete binary tree, so heaps are nearly always implemented using the [array representation for complete binary trees](CompleteTree.md#completetree). Second, the values stored in a heap are [partially ordered](Glossary.md#term-partial-order). This means that there is a relationship between the value stored at any node and the values of its children. There are two variants of the heap, depending on the definition of this relationship.
+This section presents the [heap](#term-heap) [^1] data structure. A heap is defined by two properties. First, it is a complete binary tree, so heaps are nearly always implemented using the [array representation for complete binary trees](CompleteTree.md#completetree). Second, the values stored in a heap are [partially ordered](#term-partial-order). This means that there is a relationship between the value stored at any node and the values of its children. There are two variants of the heap, depending on the definition of this relationship.
 
-A [max heap](Glossary.md#term-max-heap) has the property that every node stores a value that is *greater* than or equal to the value of either of its children. Because the root has a value greater than or equal to its children, which in turn have values greater than or equal to their children, the root stores the maximum of all values in the tree.
+A [max heap](#term-max-heap) has the property that every node stores a value that is *greater* than or equal to the value of either of its children. Because the root has a value greater than or equal to its children, which in turn have values greater than or equal to their children, the root stores the maximum of all values in the tree.
 
-A [min heap](Glossary.md#term-min-heap) has the property that every node stores a value that is *less* than or equal to that of its children. Because the root has a value less than or equal to its children, which in turn have values less than or equal to their children, the root stores the minimum of all values in the tree.
+A [min heap](#term-min-heap) has the property that every node stores a value that is *less* than or equal to that of its children. Because the root has a value less than or equal to its children, which in turn have values less than or equal to their children, the root stores the minimum of all values in the tree.
 
-Note that there is no necessary relationship between the value of a node and that of its sibling in either the min heap or the max heap. For example, it is possible that the values for all nodes in the left subtree of the root are greater than the values for every node of the right subtree. We can contrast BSTs and heaps by the strength of their ordering relationships. A BST defines a [total order](Glossary.md#term-total-order) on its nodes in that, given the positions for any two nodes in the tree, the one to the “left” (equivalently, the one appearing earlier in an inorder traversal) has a smaller key value than the one to the “right”. In contrast, a heap implements a partial order. Given their positions, we can determine the relative order for the key values of two nodes in the heap *only* if one is a descendant of the other.
+Note that there is no necessary relationship between the value of a node and that of its sibling in either the min heap or the max heap. For example, it is possible that the values for all nodes in the left subtree of the root are greater than the values for every node of the right subtree. We can contrast BSTs and heaps by the strength of their ordering relationships. A BST defines a [total order](#term-total-order) on its nodes in that, given the positions for any two nodes in the tree, the one to the “left” (equivalently, the one appearing earlier in an inorder traversal) has a smaller key value than the one to the “right”. In contrast, a heap implements a partial order. Given their positions, we can determine the relative order for the key values of two nodes in the heap *only* if one is a descendant of the other.
 
 Min heaps and max heaps both have their uses. For example, the Heapsort uses the max heap, while the Replacement Selection algorithm used for external sorting uses a min heap. The examples in the rest of this section will use a max heap.
 
@@ -3856,7 +3856,7 @@ Some applications of priority queues require the ability to change the priority 
 
 For a story about Priority Queues and dragons, see [Computational Fairy Tales: Stacks, Queues, Priority Queues, and the Prince's Complaint Line](http://computationaltales.blogspot.com/2011/04/stacks-queues-priority-queues-and.html).
 
-[^1]: Note that the term “heap” is also sometimes used to refer to [free store](Glossary.md#term-free-store).
+[^1]: Note that the term “heap” is also sometimes used to refer to [free store](#term-free-store).
 
 
 <a id="huffman-coding-trees"></a>
@@ -3867,9 +3867,9 @@ For a story about Priority Queues and dragons, see [Computational Fairy Tales: S
 
 One can often gain an improvement in space requirements in exchange for a penalty in running time. There are many situations where this is a desirable tradeoff. A typical example is storing files on disk. If the files are not actively used, the owner might wish to compress them to save space. Later, they can be uncompressed for use, which costs some time, but only once.
 
-We often represent a set of items in a computer program by assigning a unique code to each item. For example, the standard [ASCII coding](Glossary.md#term-ascii-character-coding) scheme assigns a unique eight-bit value to each character. It takes a certain minimum number of bits to provide enough unique codes so that we have a different one for each character. For example, it takes $\left\lceil log\ 128\right\rceil$ or seven bits to provide the 128 unique codes needed to represent the 128 symbols of the ASCII character set. [^1]
+We often represent a set of items in a computer program by assigning a unique code to each item. For example, the standard [ASCII coding](#term-ascii-character-coding) scheme assigns a unique eight-bit value to each character. It takes a certain minimum number of bits to provide enough unique codes so that we have a different one for each character. For example, it takes $\left\lceil log\ 128\right\rceil$ or seven bits to provide the 128 unique codes needed to represent the 128 symbols of the ASCII character set. [^1]
 
-The requirement for $\left \lceil log\ n \right\rceil$ bits to represent $n$ unique code values assumes that all codes will be the same length, as are ASCII codes. These are called [fixed-length codes](Glossary.md#term-fixed-length-coding). If all characters were used equally often, then a fixed-length coding scheme is the most space efficient method. However, you are probably aware that not all characters are used equally often in many applications. For example, the various letters in an English language document have greatly different frequencies of use.
+The requirement for $\left \lceil log\ n \right\rceil$ bits to represent $n$ unique code values assumes that all codes will be the same length, as are ASCII codes. These are called [fixed-length codes](#term-fixed-length-coding). If all characters were used equally often, then a fixed-length coding scheme is the most space efficient method. However, you are probably aware that not all characters are used equally often in many applications. For example, the various letters in an English language document have greatly different frequencies of use.
 
 Table [6.14.1](Huffman.md#freq) shows the relative frequencies of the letters of the alphabet. From this table we can see that the letter ‘E’ appears about 60 times more often than the letter ‘Z’. In normal ASCII, the words “DEED” and “MUCK” require the same amount of space (four bytes). It would seem that words such as “DEED”, which are composed of relatively common letters, should be storable in less space than words such as “MUCK”, which are composed of relatively uncommon letters.
 
@@ -3880,28 +3880,28 @@ Relative frequencies for the 26 letters of the alphabet as they appear in a sele
 <a id="equation-huffman-0"></a>
 $$
 \begin{aligned}\begin{array}{c|c|c|c}
-\textbf{Letter}&\textbf{Frequency}&\textbf{Letter}&\textbf{Frequency}\cr 
-\textrm A & 77 & N & 67\cr 
-\textrm B & 17 & O & 67\cr 
-\textrm C & 32 & P & 20\cr 
-\textrm D & 42 & Q &  5\cr 
-\textrm E &120 & R & 59\cr 
-\textrm F & 24 & S & 67\cr 
-\textrm G & 17 & T & 85\cr 
-\textrm H & 50 & U & 37\cr 
-\textrm I & 76 & V & 12\cr 
-\textrm J &  4 & W & 22\cr 
-\textrm K &  7 & X &  4\cr 
-\textrm L & 42 & Y & 22\cr 
+\textbf{Letter}&\textbf{Frequency}&\textbf{Letter}&\textbf{Frequency}\cr
+\textrm A & 77 & N & 67\cr
+\textrm B & 17 & O & 67\cr
+\textrm C & 32 & P & 20\cr
+\textrm D & 42 & Q &  5\cr
+\textrm E &120 & R & 59\cr
+\textrm F & 24 & S & 67\cr
+\textrm G & 17 & T & 85\cr
+\textrm H & 50 & U & 37\cr
+\textrm I & 76 & V & 12\cr
+\textrm J &  4 & W & 22\cr
+\textrm K &  7 & X &  4\cr
+\textrm L & 42 & Y & 22\cr
 \textrm M & 24 & Z &  2\cr \end{array}\end{aligned}
 $$
 
-If some characters are used more frequently than others, is it possible to take advantage of this fact and somehow assign them shorter codes? The price could be that other characters require longer codes, but this might be worthwhile if such characters appear rarely enough. This concept is at the heart of file compression techniques in common use today. The next section presents one such approach to assigning [variable-length codes](Glossary.md#term-variable-length-coding), called [Huffman coding](Glossary.md#term-huffman-codes). While it is not commonly used in its simplest form for file compression (there are better methods), Huffman coding gives the flavor of such coding schemes. One motivation for studying Huffman coding is because it provides our first opportunity to see a type of tree structure referred to as a [search trie](Glossary.md#term-search-trie).
+If some characters are used more frequently than others, is it possible to take advantage of this fact and somehow assign them shorter codes? The price could be that other characters require longer codes, but this might be worthwhile if such characters appear rarely enough. This concept is at the heart of file compression techniques in common use today. The next section presents one such approach to assigning [variable-length codes](#term-variable-length-coding), called [Huffman coding](#term-huffman-codes). While it is not commonly used in its simplest form for file compression (there are better methods), Huffman coding gives the flavor of such coding schemes. One motivation for studying Huffman coding is because it provides our first opportunity to see a type of tree structure referred to as a [search trie](#term-search-trie).
 
 <a id="building-huffman-coding-trees"></a>
 ### 6.14.1.1. Building Huffman Coding Trees
 
-Huffman coding assigns codes to characters such that the length of the code depends on the relative frequency or [weight](Glossary.md#term-weight) of the corresponding character. Thus, it is a variable-length code. If the estimated frequencies for letters match the actual frequency found in an encoded message, then the length of that message will typically be less than if a fixed-length code had been used. The Huffman code for each letter is derived from a full binary tree called the [Huffman coding tree](Glossary.md#term-huffman-coding-tree), or simply the [Huffman tree](Glossary.md#term-huffman-tree). Each leaf of the Huffman tree corresponds to a letter, and we define the weight of the leaf node to be the weight (frequency) of its associated letter. The goal is to build a tree with the [minimum external path weight](Glossary.md#term-minimum-external-path-weight). Define the [weighted path length](Glossary.md#term-weighted-path-length) of a leaf to be its weight times its depth. The binary tree with minimum external path weight is the one with the minimum sum of weighted path lengths for the given set of leaves. A letter with high weight should have low depth, so that it will count the least against the total path length. As a result, another letter might be pushed deeper in the tree if it has less weight.
+Huffman coding assigns codes to characters such that the length of the code depends on the relative frequency or [weight](#term-weight) of the corresponding character. Thus, it is a variable-length code. If the estimated frequencies for letters match the actual frequency found in an encoded message, then the length of that message will typically be less than if a fixed-length code had been used. The Huffman code for each letter is derived from a full binary tree called the [Huffman coding tree](#term-huffman-coding-tree), or simply the [Huffman tree](#term-huffman-tree). Each leaf of the Huffman tree corresponds to a letter, and we define the weight of the leaf node to be the weight (frequency) of its associated letter. The goal is to build a tree with the [minimum external path weight](#term-minimum-external-path-weight). Define the [weighted path length](#term-weighted-path-length) of a leaf to be its weight times its depth. The binary tree with minimum external path weight is the one with the minimum sum of weighted path lengths for the given set of leaves. A letter with high weight should have low depth, so that it will count the least against the total path length. As a result, another letter might be pushed deeper in the tree if it has less weight.
 
 The process of building the Huffman tree for $n$ letters is quite simple. First, create a collection of $n$ initial Huffman trees, each of which is a single leaf node containing one of the letters. Put the $n$ partial trees onto a priority queue organized by weight (frequency). Next, remove the first two trees (the ones with lowest weight) from the priority queue. Join these two trees together to create a new tree whose root has the two trees as children, and whose weight is the sum of the weights of the two trees. Put this new tree back into the priority queue. This process is repeated until all of the partial Huffman trees have been combined into one.
 
@@ -3913,8 +3913,8 @@ The relative frequencies for eight selected letters.
 $$
 \begin{aligned}\begin{array}{|c|cccccccc|}
 \hline
-\textrm Letter & C & D & E & K & L & M & U & Z\cr 
-\textrm Frequency & 32 & 42 & 120 & 7 & 42 & 24 & 37 & 2\cr 
+\textrm Letter & C & D & E & K & L & M & U & Z\cr
+\textrm Frequency & 32 & 42 & 120 & 7 & 42 & 24 & 37 & 2\cr
 \hline&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -3925,7 +3925,7 @@ Here is the implementation for Huffman tree nodes.
 ```java
 /** Huffman tree node implementation: Base class */
 interface HuffBaseNode {
-  boolean isLeaf(); 
+  boolean isLeaf();
   int weight();
 }
 
@@ -3952,9 +3952,9 @@ class HuffLeafNode implements HuffBaseNode {
 
 /** Huffman tree node: Internal class */
 class HuffInternalNode implements HuffBaseNode {
-  private int weight;            
-  private HuffBaseNode left;  
-  private HuffBaseNode right; 
+  private int weight;
+  private HuffBaseNode left;
+  private HuffBaseNode right;
 
   /** Constructor */
   HuffInternalNode(HuffBaseNode l,
@@ -3975,14 +3975,14 @@ class HuffInternalNode implements HuffBaseNode {
 }
 ```
 
-This implementation is similar to a typical [class hierarchy](BinaryTreeImpl.md#binarytreeimpl) for implementing full binary trees. There is an abstract [base class](Glossary.md#term-base-class), named `HuffNode`, and two [subclasses](Glossary.md#term-subclass), named `LeafNode` and `IntlNode`. This implementation reflects the fact that leaf and internal nodes contain distinctly different information.
+This implementation is similar to a typical [class hierarchy](BinaryTreeImpl.md#binarytreeimpl) for implementing full binary trees. There is an abstract [base class](#term-base-class), named `HuffNode`, and two [subclasses](#term-subclass), named `LeafNode` and `IntlNode`. This implementation reflects the fact that leaf and internal nodes contain distinctly different information.
 
 Here is the implementation for the Huffman Tree class.
 
 ```java
 /** A Huffman coding tree */
 class HuffTree implements Comparable {
-  private HuffBaseNode root;  
+  private HuffBaseNode root;
 
   /** Constructors */
   HuffTree(char el, int wt)
@@ -4032,7 +4032,7 @@ Now that we have a code for each letter, encoding a text message is done by repl
 <a id="decoding"></a>
 ### 6.14.1.2. Decoding
 
-A set of codes is said to meet the [prefix property](Glossary.md#term-prefix-property) if no code in the set is the prefix of another. The prefix property guarantees that there will be no ambiguity in how a bit string is decoded. In other words, once we reach the last bit of a code during the decoding process, we know which letter it is the code for. Huffman codes certainly have the prefix property because any prefix for a code would correspond to an internal node, while all codes correspond to leaf nodes.
+A set of codes is said to meet the [prefix property](#term-prefix-property) if no code in the set is the prefix of another. The prefix property guarantees that there will be no ambiguity in how a bit string is decoded. In other words, once we reach the last bit of a code during the decoding process, we know which letter it is the code for. Huffman codes certainly have the prefix property because any prefix for a code would correspond to an internal node, while all codes correspond to leaf nodes.
 
 When we decode a character using the Huffman coding tree, we follow a path through the tree dictated by the bits in the code string. Each ‘0’ bit indicates a left branch while each ‘1’ bit indicates a right branch. The following slideshow shows an example for how to decode a message by traversing the tree appropriately.
 
@@ -4053,8 +4053,8 @@ Huffman coding for all ASCII symbols should do better than this example. The let
 
 In decoding example, “DEED” was coded in 8 bits, a saving of 33% over the twelve bits required from a fixed-length coding. However, “MUCK” would require 18 bits, more space than required by the corresponding fixed-length coding. The problem is that “MUCK” is composed of letters that are not expected to occur often. If the message does not match the expected frequencies of the letters, than the length of the encoding will not be as expected either.
 
-[^1]: To keep things simple, these examples for building Huffman trees uses a [sorted list](Glossary.md#term-sorted-list) to keep the partial Huffman trees ordered by frequency. But a real implementation would use a [heap](Glossary.md#term-heap) to implement a [priority queue](Glossary.md#term-priority-queue) keyed by the frequencies.
-[^2]: ASCII coding actually uses 8 bits per character. Seven bits are used to represent the 128 codes of the ASCII character set. The eigth bit as a [parity](Glossary.md#term-parity) bit, that can be used to check if there is a transmission error for the character.
+[^1]: To keep things simple, these examples for building Huffman trees uses a [sorted list](#term-sorted-list) to keep the partial Huffman trees ordered by frequency. But a real implementation would use a [heap](#term-heap) to implement a [priority queue](#term-priority-queue) keyed by the frequencies.
+[^2]: ASCII coding actually uses 8 bits per character. Seven bits are used to represent the 128 codes of the ASCII character set. The eigth bit as a [parity](#term-parity) bit, that can be used to check if there is a transmission error for the character.
 
 
 <a id="trees-versus-tries"></a>
@@ -4074,7 +4074,7 @@ Recall that the Huffman coding tree stored in the left branch all letters whose 
 <a id="id1"></a>
 ## 6.16.1. Proof of Optimality for Huffman Coding
 
-Huffman tree building is an example of a [greedy algorithm](Glossary.md#term-greedy-algorithm). At each step, the algorithm makes a “greedy” decision to merge the two subtrees with least weight. This makes the algorithm simple, but does it give the desired result? This section concludes with a proof that the Huffman tree indeed gives the most efficient arrangement for the set of letters. The proof requires the following lemma.
+Huffman tree building is an example of a [greedy algorithm](#term-greedy-algorithm). At each step, the algorithm makes a “greedy” decision to merge the two subtrees with least weight. This makes the algorithm simple, but does it give the desired result? This section concludes with a proof that the Huffman tree indeed gives the most efficient arrangement for the set of letters. The proof requires the following lemma.
 
 **Lemma:** For any Huffman tree built by function `buildHuff` containing at least two letters, the two letters with least frequency are stored in sibling nodes whose depth is at least as deep as any other leaf nodes in the tree.
 
@@ -4120,7 +4120,7 @@ If we are willing to weaken the balance requirements, we can come up with altern
 
 A different approach to improving the performance of the BST is to not require that the tree always be balanced, but rather to expend some effort toward making the BST more balanced every time it is accessed. This is a little like the idea of path compression used by the [UNION/FIND algorithm](UnionFind.md#unionfind). One example of such a compromise is called the [splay tree](Splay.md#splay).
 
-The [Red-Black Tree](Glossary.md#term-red-black-tree) is also a binary tree, but it uses a different balancing mechanism.
+The [Red-Black Tree](#term-red-black-tree) is also a binary tree, but it uses a different balancing mechanism.
 
 
 <a id="the-avl-tree"></a>
@@ -4143,7 +4143,7 @@ Consider what happens when we insert a node with key value 5, as shown in Figure
 
 Cases 1 and 4 are symmetrical, as are cases 2 and 3. Note also that the unbalanced nodes must be on the path from the root to the newly inserted node.
 
-Our problem now is how to balance the tree in $O(\log n)$ time. It turns out that we can do this using a series of local operations known as [rotations](Glossary.md#term-rotation). Cases 1 and 4 can be fixed using a [single rotation](Glossary.md#term-single-rotation), as shown in Figure [7.2.2](AVL.md#avlsingle). Cases 2 and 3 can be fixed using a [double rotation](Glossary.md#term-double-rotation), as shown in Figure [7.2.3](AVL.md#avldouble).
+Our problem now is how to balance the tree in $O(\log n)$ time. It turns out that we can do this using a series of local operations known as [rotations](#term-rotation). Cases 1 and 4 can be fixed using a [single rotation](#term-single-rotation), as shown in Figure [7.2.2](AVL.md#avlsingle). Cases 2 and 3 can be fixed using a [double rotation](#term-double-rotation), as shown in Figure [7.2.3](AVL.md#avldouble).
 
 ![AVL tree single rotation](tddi16f25.img/AVLSingRot.png)
 
@@ -4167,11 +4167,11 @@ Like the AVL tree, the splay tree is not actually a distinct data structure, but
 
 Unlike the AVL tree, the splay tree is not guaranteed to be height balanced. What is guaranteed is that the total cost of the entire series of accesses will be cheap. Ultimately, it is the cost of the series of operations that matters, not whether the tree is balanced. Maintaining balance is really done only for the sake of reaching this time efficiency goal.
 
-The splay tree access functions operate in a manner reminiscent of the [move-to-front](Glossary.md#term-move-to-front) rule for [self-organizing lists](SelfOrg.md#selforg), and of the path compression technique for managing a series of [Union/Find](UnionFind.md#unionfind) operations. These access functions tend to make the tree more balanced, but an individual access will not necessarily result in a more balanced tree.
+The splay tree access functions operate in a manner reminiscent of the [move-to-front](#term-move-to-front) rule for [self-organizing lists](SelfOrg.md#selforg), and of the path compression technique for managing a series of [Union/Find](UnionFind.md#unionfind) operations. These access functions tend to make the tree more balanced, but an individual access will not necessarily result in a more balanced tree.
 
-Whenever a node $S$ is accessed (e.g., when $S$ is inserted, deleted, or is the goal of a search), the splay tree performs a process called [splaying](Glossary.md#term-splaying). Splaying moves $S$ to the root of the BST. When $S$ is being deleted, splaying moves the parent of $S$ to the root. As in the AVL tree, a splay of node $S$ consists of a series of [rotations](Glossary.md#term-rotation). A rotation moves $S$ higher in the tree by adjusting its position with respect to its parent and grandparent. A side effect of the rotations is a tendency to balance the tree. There are three types of rotation.
+Whenever a node $S$ is accessed (e.g., when $S$ is inserted, deleted, or is the goal of a search), the splay tree performs a process called [splaying](#term-splaying). Splaying moves $S$ to the root of the BST. When $S$ is being deleted, splaying moves the parent of $S$ to the root. As in the AVL tree, a splay of node $S$ consists of a series of [rotations](#term-rotation). A rotation moves $S$ higher in the tree by adjusting its position with respect to its parent and grandparent. A side effect of the rotations is a tendency to balance the tree. There are three types of rotation.
 
-A [single rotation](Glossary.md#term-single-rotation) is performed only if $S$ is a child of the root node. The single rotation is illustrated by Figure [7.3.1](Splay.md#singprom). It basically switches $S$ with its parent in a way that retains the BST property. While Figure [7.3.1](Splay.md#singprom) is slightly different from Figure [7.2.2](AVL.md#avlsingle), in fact the splay tree single rotation is identical to the AVL tree single rotation.
+A [single rotation](#term-single-rotation) is performed only if $S$ is a child of the root node. The single rotation is illustrated by Figure [7.3.1](Splay.md#singprom). It basically switches $S$ with its parent in a way that retains the BST property. While Figure [7.3.1](Splay.md#singprom) is slightly different from Figure [7.2.2](AVL.md#avlsingle), in fact the splay tree single rotation is identical to the AVL tree single rotation.
 
 ![Splay tree single rotation](tddi16f25.img/SingRot.png)
 
@@ -4190,7 +4190,7 @@ In other words, a zigzag rotation is used when $G$, $P$, and $S$ form a zigzag. 
 
 *Figure 7.3.2: Splay tree zigzag rotation. (a) The original tree with $S$, $P$, and $G$ in zigzag formation. (b) The tree after the rotation takes place. The positions of subtrees $A$, $B$, $C$, and $D$ are altered as appropriate to maintain the BST property.*
 
-The other double rotation is known as a [zigzig](Glossary.md#term-zigzig) rotation. A zigzig rotation takes place when either of the following two conditions are met:
+The other double rotation is known as a [zigzig](#term-zigzig) rotation. A zigzig rotation takes place when either of the following two conditions are met:
 
 1. $S$ is the left child of $P$, which is in turn the left child of $G$.
 1. $S$ is the right child of $P$, which is in turn the right child of $G$.
@@ -4227,14 +4227,14 @@ Consider a search for value 89 in the splay tree of Figure [7.3.4](Splay.md#spla
 
 Many organizations are hierarchical in nature, such as the military and most businesses. Consider a company with a president and some number of vice presidents who report to the president. Each vice president has some number of direct subordinates, and so on. If we wanted to model this company with a data structure, it would be natural to think of the president in the root node of a tree, the vice presidents at level 1, and their subordinates at lower levels in the tree as we go down the organizational hierarchy.
 
-Because the number of vice presidents is likely to be more than two, this company’s organization cannot easily be represented by a binary tree. We need instead to use a tree whose nodes have an arbitrary number of children. Unfortunately, when we permit trees to have nodes with an arbitrary number of children, they become much harder to implement than binary trees. We consider such trees in this chapter. To distinguish them from binary trees, we use the term [general tree](Glossary.md#term-general-tree).
+Because the number of vice presidents is likely to be more than two, this company’s organization cannot easily be represented by a binary tree. We need instead to use a tree whose nodes have an arbitrary number of children. Unfortunately, when we permit trees to have nodes with an arbitrary number of children, they become much harder to implement than binary trees. We consider such trees in this chapter. To distinguish them from binary trees, we use the term [general tree](#term-general-tree).
 
 In this module we will examine general tree terminology and define a basic ADT for general trees.
 
 <a id="general-tree-definitions-and-terminology"></a>
 ### 8.1.1.1. General Tree Definitions and Terminology
 
-A [tree](Glossary.md#term-tree) $\mathbf{T}$ is a finite set of one or more nodes such that there is one designated node $R$, called the root of $\mathbf{T}$. If the set $(\mathbf{T} -\lbrace R\rbrace )$ is not empty, these nodes are partitioned into $n > 0$ disjoint sets $\mathbf{T}_0$, $\mathbf{T}_1$, …, $\mathbf{T}_{n-1}$, each of which is a tree, and whose roots $R_1, R_2, ..., R_n$, respectively, are children of $R$. The subsets $\mathbf{T}_i (0 \leq i < n)$ are said to be [subtrees](Glossary.md#term-subtree) of $\mathbf{T}$. These subtrees are ordered in that $\mathbf{T}_i$ is said to come before $\mathbf{T}_j$ if $i < j$. By convention, the subtrees are arranged from left to right with subtree $\mathbf{T}_0$ called the leftmost child of $R$. A node’s [out degree](Glossary.md#term-out-degree) is the number of children for that node. A [forest](Glossary.md#term-forest) is a collection of one or more trees. Figure [8.1.1](GenTreeIntro.md#gentreefig) presents further tree notation generalized from the notation for binary trees.
+A [tree](#term-tree) $\mathbf{T}$ is a finite set of one or more nodes such that there is one designated node $R$, called the root of $\mathbf{T}$. If the set $(\mathbf{T} -\lbrace R\rbrace )$ is not empty, these nodes are partitioned into $n > 0$ disjoint sets $\mathbf{T}_0$, $\mathbf{T}_1$, …, $\mathbf{T}_{n-1}$, each of which is a tree, and whose roots $R_1, R_2, ..., R_n$, respectively, are children of $R$. The subsets $\mathbf{T}_i (0 \leq i < n)$ are said to be [subtrees](#term-subtree) of $\mathbf{T}$. These subtrees are ordered in that $\mathbf{T}_i$ is said to come before $\mathbf{T}_j$ if $i < j$. By convention, the subtrees are arranged from left to right with subtree $\mathbf{T}_0$ called the leftmost child of $R$. A node’s [out degree](#term-out-degree) is the number of children for that node. A [forest](#term-forest) is a collection of one or more trees. Figure [8.1.1](GenTreeIntro.md#gentreefig) presents further tree notation generalized from the notation for binary trees.
 
 Each node in a tree has precisely one parent, except for the root, which has no parent. From this observation, it immediately follows that a tree with $n$ nodes must have $n-1$ edges because each node, aside from the root, has one edge connecting that node to its parent.
 
@@ -4276,7 +4276,7 @@ interface GenTree {
 <a id="general-tree-traversals"></a>
 ### 8.1.1.3. General Tree Traversals
 
-There are three traditional [tree traversals](BinaryTreeTraversal.md#binarytreetraversal) for [binary trees](Glossary.md#term-binary-tree): [preorder](Glossary.md#term-preorder-traversal), [postorder](Glossary.md#term-postorder-traversal), and [inorder](Glossary.md#term-inorder-traversal). For general trees, preorder and postorder traversals are defined with meanings similar to their binary tree counterparts. Preorder traversal of a general tree first visits the root of the tree, then performs a preorder traversal of each subtree from left to right. A postorder traversal of a general tree performs a postorder traversal of the root’s subtrees from left to right, then visits the root. Inorder traversal does not have a natural definition for the general tree, because there is no particular number of children for an internal node. An arbitrary definition—such as visit the leftmost subtree in inorder, then the root, then visit the remaining subtrees in inorder—can be invented. However, inorder traversals are generally not useful with general trees.
+There are three traditional [tree traversals](BinaryTreeTraversal.md#binarytreetraversal) for [binary trees](#term-binary-tree): [preorder](#term-preorder-traversal), [postorder](#term-postorder-traversal), and [inorder](#term-inorder-traversal). For general trees, preorder and postorder traversals are defined with meanings similar to their binary tree counterparts. Preorder traversal of a general tree first visits the root of the tree, then performs a preorder traversal of each subtree from left to right. A postorder traversal of a general tree performs a postorder traversal of the root’s subtrees from left to right, then visits the root. Inorder traversal does not have a natural definition for the general tree, because there is no particular number of children for an internal node. An arbitrary definition—such as visit the leftmost subtree in inorder, then the root, then visit the remaining subtrees in inorder—can be invented. However, inorder traversals are generally not useful with general trees.
 
 To perform a preorder traversal, it is necessary to visit each of the children for a given node (say $R$) from left to right. This is accomplished by starting at R’s leftmost child (call it $T$). From $T$, we can move to $T$’s right sibling, and then to that node’s right sibling, and so on.
 
@@ -4305,19 +4305,19 @@ static void preorder(GTNode rt) {
 <a id="the-union-find-problem"></a>
 ## 8.2.1. The Union/Find Problem
 
-[General trees](Glossary.md#term-general-tree) are trees whose [internal nodes](Glossary.md#term-internal-node) have no fixed number of [children](Glossary.md#term-child). Compared to general trees, [binary trees](Glossary.md#term-binary-tree) are relatively easy to implement because each internal node of a binary tree can just store two pointers to reach its (potential) children. In a general tree, we have to deal with the fact that a given node might have no children or few children or many children.
+[General trees](#term-general-tree) are trees whose [internal nodes](#term-internal-node) have no fixed number of [children](#term-child). Compared to general trees, [binary trees](#term-binary-tree) are relatively easy to implement because each internal node of a binary tree can just store two pointers to reach its (potential) children. In a general tree, we have to deal with the fact that a given node might have no children or few children or many children.
 
-Even in a general tree, each node can have only one [parent](Glossary.md#term-parent). If we didn’t need to go from a node to its children, but instead only needed to go from a node to its parent, then implementing a node would be easy. A simple way to represent such a general tree would be to store for each node only a pointer to that node’s parent. We will call this the [parent pointer representation](Glossary.md#term-parent-pointer-representation) for general trees. Clearly this implementation is not general purpose, because it is inadequate for such important operations as finding the leftmost child or the right sibling for a node. Thus, it may seem to be a poor idea to implement a general tree in this way. However, the parent pointer implementation stores precisely the information required to answer the following, useful question: **Given two nodes, are they in the same tree?** To answer this question, we need only follow the series of parent pointers from each node to its respective root. If both nodes reach the same root, then they must be in the same tree. If the roots are different, then the two nodes are not in the same tree. The process of finding the ultimate root for a given node we will call [FIND](Glossary.md#term-find).
+Even in a general tree, each node can have only one [parent](#term-parent). If we didn’t need to go from a node to its children, but instead only needed to go from a node to its parent, then implementing a node would be easy. A simple way to represent such a general tree would be to store for each node only a pointer to that node’s parent. We will call this the [parent pointer representation](#term-parent-pointer-representation) for general trees. Clearly this implementation is not general purpose, because it is inadequate for such important operations as finding the leftmost child or the right sibling for a node. Thus, it may seem to be a poor idea to implement a general tree in this way. However, the parent pointer implementation stores precisely the information required to answer the following, useful question: **Given two nodes, are they in the same tree?** To answer this question, we need only follow the series of parent pointers from each node to its respective root. If both nodes reach the same root, then they must be in the same tree. If the roots are different, then the two nodes are not in the same tree. The process of finding the ultimate root for a given node we will call [FIND](#term-find).
 
 <a id="parent-pointer-trees"></a>
 ### 8.2.1.1. Parent Pointer Trees
 
-The parent pointer representation is most often used to maintain a collection of [disjoint sets](Glossary.md#term-disjoint-sets). Two disjoint sets share no members in common (their intersection is empty). A collection of disjoint sets partitions some objects such that every object is in exactly one of the disjoint sets. There are two basic operations that we wish to support:
+The parent pointer representation is most often used to maintain a collection of [disjoint sets](#term-disjoint-sets). Two disjoint sets share no members in common (their intersection is empty). A collection of disjoint sets partitions some objects such that every object is in exactly one of the disjoint sets. There are two basic operations that we wish to support:
 
 1. Determine if two objects are in the same set (the FIND operation), and
 1. Merge two sets together.
 
-Because two merged sets are united, the merging operation is called [UNION](Glossary.md#term-union) and the whole process of determining if two objects are in the same set and then merging the sets goes by the name [UNION/FIND](Glossary.md#term-union-find).
+Because two merged sets are united, the merging operation is called [UNION](#term-union) and the whole process of determining if two objects are in the same set and then merging the sets goes by the name [UNION/FIND](#term-union-find).
 
 To implement UNION/FIND, we represent each disjoint set with a separate general tree. Two objects are in the same disjoint set if they are in the same tree. Every node of the tree (except for the root) has precisely one parent. Thus, each node requires the same space to represent it. The collection of objects is typically stored in an array, where each element of the array corresponds to one object, and each element stores the object’s value (or a pointer to the object). The objects also correspond to nodes in the various disjoint trees (one tree for each disjoint set), so we also store the parent value with each object in the array. Those nodes that are the roots of their respective trees store an appropriate indicator. Note that this representation means that a single array is being used to implement a collection of trees. This makes it easy to merge trees together with UNION operations.
 
@@ -4358,13 +4358,13 @@ An application using the UNION/FIND operations should store a set of $n$ objects
 <a id="equivalence-classes"></a>
 ### 8.2.1.2. Equivalence Classes
 
-Consider the problem of assigning the members of a set to disjoint subsets called [equivalence classes](Glossary.md#term-equivalence-class). Recall that an [equivalence relation](SetDef.md#setdef) is [reflexive](Glossary.md#term-reflexive), [symmetric](Glossary.md#term-symmetric), and [transitive](Glossary.md#term-transitive). Thus, if objects $A$ and $B$ are equivalent, and objects $B$ and $C$ are equivalent, then we must be able to recognize that objects $A$ and $C$ are also equivalent. In this representation, since $A$ and $B$ are equivalent, they must be in the same tree. Likewise for $B$ and $C$. We can recognize that $A$ and $C$ are equivalent because they must also be in the same tree.
+Consider the problem of assigning the members of a set to disjoint subsets called [equivalence classes](#term-equivalence-class). Recall that an [equivalence relation](SetDef.md#setdef) is [reflexive](#term-reflexive), [symmetric](#term-symmetric), and [transitive](#term-transitive). Thus, if objects $A$ and $B$ are equivalent, and objects $B$ and $C$ are equivalent, then we must be able to recognize that objects $A$ and $C$ are also equivalent. In this representation, since $A$ and $B$ are equivalent, they must be in the same tree. Likewise for $B$ and $C$. We can recognize that $A$ and $C$ are equivalent because they must also be in the same tree.
 
 There are many practical uses for disjoint sets and representing equivalences. For example, consider this graph of ten nodes labeled $A$ through $J$.
 
-Notice that for nodes $A$ through $I$, there is some series of edges that connects any pair of these nodes, but node $J$ is disconnected from the rest of the nodes. Such a graph might be used to represent connections such as wires between components on a circuit board, or roads between cities. We can consider two nodes of the graph to be equivalent if there is a path between them. Thus, nodes $A$, $H$, and $E$ would be considered as equivalent, but $J$ is not equivalent to any other. A subset of equivalent (connected) edges in a graph is called a [connected component](Glossary.md#term-connected-component). The goal is to quickly classify the objects into disjoint sets that correspond to the connected components.
+Notice that for nodes $A$ through $I$, there is some series of edges that connects any pair of these nodes, but node $J$ is disconnected from the rest of the nodes. Such a graph might be used to represent connections such as wires between components on a circuit board, or roads between cities. We can consider two nodes of the graph to be equivalent if there is a path between them. Thus, nodes $A$, $H$, and $E$ would be considered as equivalent, but $J$ is not equivalent to any other. A subset of equivalent (connected) edges in a graph is called a [connected component](#term-connected-component). The goal is to quickly classify the objects into disjoint sets that correspond to the connected components.
 
-Another use for UNION/FIND occurs in [Kruskal’s algorithm](Glossary.md#term-kruskal-s-algorithm) for computing the [minimal-cost spanning tree](MCST.md#mcst) for a [graph](Glossary.md#term-graph). That algorithm seeks to select the cheapest subset of the edges that still connects all of the nodes in the graph. It does so by processing all edges of the graph from shortest to longest, only adding an edge to the connecting subset if it does not connect two nodes that already have some series of edges connecting them.
+Another use for UNION/FIND occurs in [Kruskal’s algorithm](#term-kruskal-s-algorithm) for computing the [minimal-cost spanning tree](MCST.md#mcst) for a [graph](#term-graph). That algorithm seeks to select the cheapest subset of the edges that still connects all of the nodes in the graph. It does so by processing all edges of the graph from shortest to longest, only adding an edge to the connecting subset if it does not connect two nodes that already have some series of edges connecting them.
 
 The input to the UNION/FIND algorithm is typically  a series of equivalence pairs. In the case of the connected components example, the equivalence pairs would simply be the set of edges in the graph. An equivalence pair might say that object $C$ is equivalent to object $A$. If so, $C$ and $A$ are placed in the same subset. If a later equivalence relates $A$ and $B$, then by implication $C$ is also equivalent to $B$. Thus, an equivalence pair may cause two subsets to merge, each of which contains several objects.
 
@@ -4375,7 +4375,7 @@ The parent pointer representation places no limit on the number of nodes that ca
 <a id="weighted-union"></a>
 ### 8.2.1.3. Weighted Union
 
-A low-cost approach to reducing the height is to be smart about how two trees are joined together. One simple technique, called the [weighted union rule](Glossary.md#term-weighted-union-rule), joins the tree with fewer nodes to the tree with more nodes by making the smaller tree’s root point to the root of the bigger tree. This will limit the total depth of the tree to $O(\log n)$, because the depth of nodes only in the smaller tree will now increase by one, and the depth of the deepest node in the combined tree can only be at most one deeper than the deepest node before the trees were combined. The total number of nodes in the combined tree is therefore at least twice the number in the smaller subtree. Thus, the depth of any node can be increased at most $\log n$ times when $n$ equivalences are processed (since each addition to the depth must be accompanied by at least doubling the size of the tree).
+A low-cost approach to reducing the height is to be smart about how two trees are joined together. One simple technique, called the [weighted union rule](#term-weighted-union-rule), joins the tree with fewer nodes to the tree with more nodes by making the smaller tree’s root point to the root of the bigger tree. This will limit the total depth of the tree to $O(\log n)$, because the depth of nodes only in the smaller tree will now increase by one, and the depth of the deepest node in the combined tree can only be at most one deeper than the deepest node before the trees were combined. The total number of nodes in the combined tree is therefore at least twice the number in the smaller subtree. Thus, the depth of any node can be increased at most $\log n$ times when $n$ equivalences are processed (since each addition to the depth must be accompanied by at least doubling the size of the tree).
 
 Here is an implementation for the UNION method when using weighted union.
 
@@ -4399,7 +4399,7 @@ The following slideshow illustrates a series of UNION operations with weighted u
 <a id="path-compression"></a>
 ### 8.2.1.4. Path Compression
 
-The weighted union rule helps to minimize the depth of the tree, but we can do better than this. [Path compression](Glossary.md#term-path-compression) is a method that tends to create extremely shallow trees. Path compression takes place while finding the root for a given node $X$. Call this root $R$. Path compression resets the parent of every node on the path from $X$ to $R$ to point directly to $R$. This can be implemented by first finding $R$. A second pass is then made along the path from $X$ to $R$, assigning the parent field of each node encountered to $R$. Alternatively, a recursive algorithm can be implemented as follows. This version of `FIND` not only returns the root of the current node, but also makes all ancestors of the current node point to the root.
+The weighted union rule helps to minimize the depth of the tree, but we can do better than this. [Path compression](#term-path-compression) is a method that tends to create extremely shallow trees. Path compression takes place while finding the root for a given node $X$. Call this root $R$. Path compression resets the parent of every node on the path from $X$ to $R$ to point directly to $R$. This can be implemented by first finding $R$. A second pass is then made along the path from $X$ to $R$, assigning the parent field of each node encountered to $R$. Alternatively, a recursive algorithm can be implemented as follows. This version of `FIND` not only returns the root of the current node, but also makes all ancestors of the current node point to the root.
 
 ```java
   // Return the root of curr's tree with path compression
@@ -4427,9 +4427,9 @@ The expression $\log^* n$ is closely related to the inverse of Ackermann’s fun
 <a id="id1"></a>
 ## 8.3.1. Sequential Tree Representations
 
-Next we consider a fundamentally different approach to implementing trees. The goal is to store a series of node values with the minimum information needed to reconstruct the tree structure. This approach, known as a [sequential tree representation](Glossary.md#term-sequential-tree-representation), has the advantage of saving space because no pointers are stored. It has the disadvantage that accessing any node in the tree requires sequentially processing all nodes that appear before it in the node list. In other words, node access must start at the beginning of the node list, processing nodes sequentially in whatever order they are stored until the desired node is reached. Thus, one primary virtue of the other implementations discussed in this section is lost: efficient access (typically $\Theta(\log n)$ time) to arbitrary nodes in the tree. Sequential tree implementations are ideal for archiving trees on disk for later use because they save space, and the tree structure can be reconstructed as needed for later processing.
+Next we consider a fundamentally different approach to implementing trees. The goal is to store a series of node values with the minimum information needed to reconstruct the tree structure. This approach, known as a [sequential tree representation](#term-sequential-tree-representation), has the advantage of saving space because no pointers are stored. It has the disadvantage that accessing any node in the tree requires sequentially processing all nodes that appear before it in the node list. In other words, node access must start at the beginning of the node list, processing nodes sequentially in whatever order they are stored until the desired node is reached. Thus, one primary virtue of the other implementations discussed in this section is lost: efficient access (typically $\Theta(\log n)$ time) to arbitrary nodes in the tree. Sequential tree implementations are ideal for archiving trees on disk for later use because they save space, and the tree structure can be reconstructed as needed for later processing.
 
-Sequential tree implementations can be used to [serialize](Glossary.md#term-serialization) a tree structure. Serialization is the process of storing an object as a series of bytes, typically so that the data structure can be transmitted between computers. This capability is important when using data structures in a distributed processing environment.
+Sequential tree implementations can be used to [serialize](#term-serialization) a tree structure. Serialization is the process of storing an object as a series of bytes, typically so that the data structure can be transmitted between computers. This capability is important when using data structures in a distributed processing environment.
 
 A sequential tree implementation typically stores the node values as they would be enumerated by a preorder traversal, along with sufficient information to describe the tree’s shape. If the tree has restricted form, for example if it is a full binary tree, then less information about structure typically needs to be stored. A general tree, because it has the most flexible shape, tends to require the most additional shape information. There are many possible sequential tree implementation schemes. We will begin by describing methods appropriate to binary trees, then generalize to an implementation appropriate to a general tree structure.
 
@@ -4469,13 +4469,13 @@ Many large-scale computing applications are centered around data sets that are t
 
 This chapter introduces file structures used to organize a large collection of records stored on disk. Such file structures support efficient insertion, deletion, and search operations, for exact-match queries, range queries, and largest/smallest key value searches.
 
-Before discussing such file structures, we must become familiar with some basic file-processing terminology. An [entry-sequenced file](Glossary.md#term-entry-sequenced-file) stores records in the order that they were added to the file. Entry-sequenced files are the disk-based equivalent to an unsorted list and so do not support efficient search. The natural solution is to sort the records by order of the search key. However, a typical database, such as a collection of employee or customer records maintained by a business, might contain multiple search keys. To answer a question about a particular customer might require a search on the name of the customer. Businesses often wish to sort and output the records by zip code order for a bulk mailing. Government paperwork might require the ability to search by Social Security number. Thus, there might not be a single “correct” order in which to store the records.
+Before discussing such file structures, we must become familiar with some basic file-processing terminology. An [entry-sequenced file](#term-entry-sequenced-file) stores records in the order that they were added to the file. Entry-sequenced files are the disk-based equivalent to an unsorted list and so do not support efficient search. The natural solution is to sort the records by order of the search key. However, a typical database, such as a collection of employee or customer records maintained by a business, might contain multiple search keys. To answer a question about a particular customer might require a search on the name of the customer. Businesses often wish to sort and output the records by zip code order for a bulk mailing. Government paperwork might require the ability to search by Social Security number. Thus, there might not be a single “correct” order in which to store the records.
 
-[Indexing](Glossary.md#term-indexing) is the process of associating a key with the location of a corresponding data record. An [external sort](Glossary.md#term-external-sort) typically uses the concept of a key sort, in which an [index file](Glossary.md#term-index-file) is created whose records consist of key/pointer pairs. Here, each key is associated with a pointer to a complete record in the main database file. The index file could be sorted or organized using a tree structure, thereby imposing a logical order on the records without physically rearranging them. One database might have several associated index files, each supporting efficient access through a different key field.
+[Indexing](#term-indexing) is the process of associating a key with the location of a corresponding data record. An [external sort](#term-external-sort) typically uses the concept of a key sort, in which an [index file](#term-index-file) is created whose records consist of key/pointer pairs. Here, each key is associated with a pointer to a complete record in the main database file. The index file could be sorted or organized using a tree structure, thereby imposing a logical order on the records without physically rearranging them. One database might have several associated index files, each supporting efficient access through a different key field.
 
-Each record of a database normally has a unique identifier, called the [primary key](Glossary.md#term-primary-key). For example, the primary key for a set of personnel records might be the Social Security number or ID number for the individual. Unfortunately, the ID number is generally an inconvenient value on which to perform a search because the searcher is unlikely to know it. Instead, the searcher might know the desired employee’s name. Alternatively, the searcher might be interested in finding all employees whose salary is in a certain range. If these are typical search requests to the database, then the name and salary fields deserve separate indices. However, key values in the name and salary indices are not likely to be unique.
+Each record of a database normally has a unique identifier, called the [primary key](#term-primary-key). For example, the primary key for a set of personnel records might be the Social Security number or ID number for the individual. Unfortunately, the ID number is generally an inconvenient value on which to perform a search because the searcher is unlikely to know it. Instead, the searcher might know the desired employee’s name. Alternatively, the searcher might be interested in finding all employees whose salary is in a certain range. If these are typical search requests to the database, then the name and salary fields deserve separate indices. However, key values in the name and salary indices are not likely to be unique.
 
-A key field such as salary, where a particular key value might be duplicated in multiple records, is called a [secondary key](Glossary.md#term-secondary-key). Most searches are performed using a secondary key. The [secondary key index](Glossary.md#term-secondary-key-index) (or more simply, [secondary index](Glossary.md#term-secondary-index)) will associate a secondary key value with the primary key of each record having that secondary key value. At this point, the full database might be searched directly for the record with that primary key, or there might be a [primary key index](Glossary.md#term-primary-key-index) (or [primary index](Glossary.md#term-primary-index)) that relates each primary key value with a pointer to the actual record on disk. In the latter case, only the primary index provides the location of the actual record on disk, while the secondary indices refer to the primary index.
+A key field such as salary, where a particular key value might be duplicated in multiple records, is called a [secondary key](#term-secondary-key). Most searches are performed using a secondary key. The [secondary key index](#term-secondary-key-index) (or more simply, [secondary index](#term-secondary-index)) will associate a secondary key value with the primary key of each record having that secondary key value. At this point, the full database might be searched directly for the record with that primary key, or there might be a [primary key index](#term-primary-key-index) (or [primary index](#term-primary-index)) that relates each primary key value with a pointer to the actual record on disk. In the latter case, only the primary index provides the location of the actual record on disk, while the secondary indices refer to the primary index.
 
 Indexing is an important technique for organizing large databases, and many indexing methods have been developed. Direct access through hashing is discussed in Chapter [Hashing](HashIntro.md). A simple list sorted by key value can also serve as an index to the record file. Indexing disk files by sorted lists are discussed in the following section. Unfortunately, a sorted list does not perform well for insert and delete operations.
 
@@ -4488,9 +4488,9 @@ A third approach to indexing is the tree index. Trees are typically used to orga
 <a id="id1"></a>
 ## 9.2.1. Linear Indexing
 
-A [linear index](Glossary.md#term-linear-index) is an [index file](Glossary.md#term-index-file) organized as a sequence of [key-value pairs](Glossary.md#term-key-value-pair) where the [keys](Glossary.md#term-key) are in sorted order and the pointers either (1) point to the position of the complete record on disk, (2) point to the position of the [primary key](Glossary.md#term-primary-key) in the primary index, or (3) are actually the value of the primary key. Depending on its size, a linear index might be stored in main memory or on disk. A linear index provides a number of advantages. It provides convenient access to variable-length database records, because each entry in the index file contains a fixed-length key field and a fixed-length pointer to the beginning of a (variable-length) record as shown in the following slideshow A linear index also allows for efficient search and random access to database records, because it is amenable to [binary search](Glossary.md#term-binary-search).
+A [linear index](#term-linear-index) is an [index file](#term-index-file) organized as a sequence of [key-value pairs](#term-key-value-pair) where the [keys](#term-key) are in sorted order and the pointers either (1) point to the position of the complete record on disk, (2) point to the position of the [primary key](#term-primary-key) in the primary index, or (3) are actually the value of the primary key. Depending on its size, a linear index might be stored in main memory or on disk. A linear index provides a number of advantages. It provides convenient access to variable-length database records, because each entry in the index file contains a fixed-length key field and a fixed-length pointer to the beginning of a (variable-length) record as shown in the following slideshow A linear index also allows for efficient search and random access to database records, because it is amenable to [binary search](#term-binary-search).
 
-If the database contains enough records, the linear index might be too large to store in [main memory](Glossary.md#term-main-memory). This makes binary search of the index more expensive because many [disk accesses](Glossary.md#term-disk-access) would typically be required by the search process. One solution to this problem is to store a second-level linear index in main memory that indicates which disk block in the index file stores a desired key. For example, the linear index on disk might reside in a series of 1024-byte blocks. If each key/pointer pair in the linear index requires 8~bytes (a 4-byte key and a 4-byte pointer), then 128 key/pointer pairs are stored per block. The second-level index, stored in main memory, consists of a simple table storing the value of the key in the first position of each block in the linear index file. This arrangement is shown in the next slideshow. If the linear index requires 1024 disk blocks (1MB), the second-level index contains only 1024 entries, one per disk block.
+If the database contains enough records, the linear index might be too large to store in [main memory](#term-main-memory). This makes binary search of the index more expensive because many [disk accesses](#term-disk-access) would typically be required by the search process. One solution to this problem is to store a second-level linear index in main memory that indicates which disk block in the index file stores a desired key. For example, the linear index on disk might reside in a series of 1024-byte blocks. If each key/pointer pair in the linear index requires 8~bytes (a 4-byte key and a 4-byte pointer), then 128 key/pointer pairs are stored per block. The second-level index, stored in main memory, consists of a simple table storing the value of the key in the first position of each block in the linear index file. This arrangement is shown in the next slideshow. If the linear index requires 1024 disk blocks (1MB), the second-level index contains only 1024 entries, one per disk block.
 
 To find which disk block contains a desired search key value, first search through the 1024-entry table to find the greatest value less than or equal to the search key. This directs the search to the proper block in the index file, which is then read into memory. At this point, a binary search within this block will produce a pointer to the actual record in the database. Because the second-level index is stored in main memory, accessing a record by this method requires two disk reads: one from the index file and one from the database file for the actual record.
 
@@ -4506,7 +4506,7 @@ One improvement on the simple sorted array is a two-dimensional array where each
 
 A drawback to this approach is that the array must be of fixed size, which imposes an upper limit on the number of primary keys that might be associated with a particular secondary key. Furthermore, those secondary keys with fewer records than the width of the array will waste the remainder of their row. A better approach is to have a one-dimensional array of secondary key values, where each secondary key is associated with a linked list. This works well if the index is stored in main memory, but not so well when it is stored on disk because the linked list for a given key might be scattered across several disk blocks.
 
-Consider a large database of employee records. If the primary key is the employee’s ID number and the secondary key is the employee’s name, then each record in the name index associates a name with one or more ID numbers. The ID number index in turn associates an ID number with a unique pointer to the full record on disk. The secondary key index in such an organization is also known as an [inverted list](Glossary.md#term-inverted-list) or [inverted file](Glossary.md#term-inverted-file). It is inverted in that searches work backwards from the secondary key to the primary key to the actual data record. It is called a list because each secondary key value has (conceptually) a list of primary keys associated with it. Figure [9.2.2](LinearIndexing.md#inverted) illustrates this arrangement. Here, we have last names as the secondary key. The primary key is a four-character unique identifier.
+Consider a large database of employee records. If the primary key is the employee’s ID number and the secondary key is the employee’s name, then each record in the name index associates a name with one or more ID numbers. The ID number index in turn associates an ID number with a unique pointer to the full record on disk. The secondary key index in such an organization is also known as an [inverted list](#term-inverted-list) or [inverted file](#term-inverted-file). It is inverted in that searches work backwards from the secondary key to the primary key to the actual data record. It is called a list because each secondary key value has (conceptually) a list of primary keys associated with it. Figure [9.2.2](LinearIndexing.md#inverted) illustrates this arrangement. Here, we have last names as the secondary key. The primary key is a four-character unique identifier.
 
 ![Illustration of an inverted list](tddi16f25.img/Inverted.png)
 
@@ -4530,7 +4530,7 @@ Before the invention of effective tree indexing schemes, a variety of disk-based
 
 *Figure 9.3.1: Illustration of the ISAM indexing system.*
 
-ISAM is based on a modified form of the [linear index](Glossary.md#term-linear-index), as illustrated by Figure [9.3.1](ISAM.md#isamfig). Records are stored in sorted order by primary key. The disk file is divided among a number of [cylinders](Glossary.md#term-cylinder) on disk. Each cylinder holds a section of the list in sorted order. Initially, each cylinder is not filled to capacity, and the extra space is set aside in the [cylinder overflow](Glossary.md#term-cylinder-overflow). In memory is a table listing the lowest key value stored in each cylinder of the file. Each cylinder contains a table listing the lowest key value for each block in that cylinder, called the [cylinder index](Glossary.md#term-cylinder-index). When new records are inserted, they are placed in the correct cylinder’s overflow area (in effect, a cylinder acts as a bucket). If a cylinder’s overflow area fills completely, then a system-wide overflow area is used. Search proceeds by determining the proper cylinder from the system-wide table kept in main memory. The cylinder’s block table is brought in from disk and consulted to determine the correct block. If the record is found in that block, then the search is complete. Otherwise, the cylinder’s overflow area is searched. If that is full, and the record is not found, then the system-wide overflow is searched.
+ISAM is based on a modified form of the [linear index](#term-linear-index), as illustrated by Figure [9.3.1](ISAM.md#isamfig). Records are stored in sorted order by primary key. The disk file is divided among a number of [cylinders](#term-cylinder) on disk. Each cylinder holds a section of the list in sorted order. Initially, each cylinder is not filled to capacity, and the extra space is set aside in the [cylinder overflow](#term-cylinder-overflow). In memory is a table listing the lowest key value stored in each cylinder of the file. Each cylinder contains a table listing the lowest key value for each block in that cylinder, called the [cylinder index](#term-cylinder-index). When new records are inserted, they are placed in the correct cylinder’s overflow area (in effect, a cylinder acts as a bucket). If a cylinder’s overflow area fills completely, then a system-wide overflow area is used. Search proceeds by determining the proper cylinder from the system-wide table kept in main memory. The cylinder’s block table is brought in from disk and consulted to determine the correct block. If the record is found in that block, then the search is complete. Otherwise, the cylinder’s overflow area is searched. If that is full, and the record is not found, then the system-wide overflow is searched.
 
 After initial construction of the database, so long as no new records are inserted or deleted, access is efficient because it requires only two disk fetches. The first disk fetch recovers the block table for the desired cylinder. The second disk fetch recovers the block that, under good conditions, contains the record. After many inserts, the overflow list becomes too long, resulting in significant search time as the cylinder overflow area fills up. Under extreme conditions, many searches might eventually lead to the system overflow area. The “solution” to this problem is to periodically reorganize the entire database. This means re-balancing the records among the cylinders, sorting the records within each cylinder, and updating both the system index table and the within-cylinder block table. Such reorganization was typical of database systems during the 1960s and would normally be done each night or weekly.
 
@@ -4639,7 +4639,7 @@ private E findhelp(TTNode<Key,E> root, Key k) {
 
 Insertion into a 2-3 tree is similar to insertion into a BST to the extent that the new record is placed in the appropriate leaf node. Unlike BST insertion, a new child is not created to hold the record being inserted, that is, the 2-3 tree does not grow downward. The first step is to find the leaf node that would contain the record if it were in the tree. If this leaf node contains only one value, then the new record can be added to that node with no further modification to the tree, as illustrated in the following visualization.
 
-If we insert the new record into a leaf node $L$ that already contains two records, then more space must be created. Consider the two records of node $L$ and the record to be inserted without further concern for which two were already in $L$ and which is the new record. The first step is to split $L$ into two nodes. Thus, a new node—call it $L'$—must be created from free store. $L$ receives the record with the least of the three key values. $L'$ receives the greatest of the three. The record with the middle of the three key value is passed up to the parent node along with a pointer to $L'$. This is called a [promotion](Glossary.md#term-promotion). The promoted key is then inserted into the parent. If the parent currently contains only one record (and thus has only two children), then the promoted record and the pointer to $L'$ are simply added to the parent node. If the parent is full, then the split-and-promote process is repeated. Here is an example of a a simple promotion.
+If we insert the new record into a leaf node $L$ that already contains two records, then more space must be created. Consider the two records of node $L$ and the record to be inserted without further concern for which two were already in $L$ and which is the new record. The first step is to split $L$ into two nodes. Thus, a new node—call it $L'$—must be created from free store. $L$ receives the record with the least of the three key values. $L'$ receives the greatest of the three. The record with the middle of the three key value is passed up to the parent node along with a pointer to $L'$. This is called a [promotion](#term-promotion). The promoted key is then inserted into the parent. If the parent currently contains only one record (and thus has only two children), then the promoted record and the pointer to $L'$ are simply added to the parent node. If the parent is full, then the split-and-promote process is repeated. Here is an example of a a simple promotion.
 
 Here is an illustration for what happens when promotions require the root to split, adding a new level to the tree. Note that all leaf nodes continue to have equal depth.
 
@@ -4713,7 +4713,7 @@ Note that `inserthelp` takes three parameters. The first is a pointer to the roo
 
 When deleting a record from the 2-3 tree, there are three cases to consider. The simplest occurs when the record is to be removed from a leaf node containing two records. In this case, the record is simply removed, and no other nodes are affected. The second case occurs when the only record in a leaf node is to be removed. The third case occurs when a record is to be removed from an internal node. In both the second and the third cases, the deleted record is replaced with another that can take its place while maintaining the correct order, similar to removing a node from a BST. If the tree is sparse enough, there is no such record available that will allow all nodes to still maintain at least one record. In this situation, sibling nodes are merged together. The delete operation for the 2-3 tree is excessively complex and will not be described further. Instead, a complete discussion of deletion will be postponed until the next section, where it can be generalized for a particular variant of the B-tree.
 
-The 2-3 tree insert and delete routines do not add new nodes at the bottom of the tree. Instead they cause leaf nodes to split or merge, possibly causing a ripple effect moving up the tree to the root. If necessary the root will split, causing a new root node to be created and making the tree one level deeper. On deletion, if the last two children of the root merge, then the root node is removed and the tree will lose a level. In either case, all leaf nodes are always at the same level. When all leaf nodes are at the same level, we say that a tree is [height balanced](Glossary.md#term-height-balanced). Because the 2-3 tree is height balanced, and every internal node has at least two children, we know that the maximum depth of the tree is $\log n$. Thus, all 2-3 tree insert, find, and delete operations require $\Theta(\log n)$ time.
+The 2-3 tree insert and delete routines do not add new nodes at the bottom of the tree. Instead they cause leaf nodes to split or merge, possibly causing a ripple effect moving up the tree to the root. If necessary the root will split, causing a new root node to be created and making the tree one level deeper. On deletion, if the last two children of the root merge, then the root node is removed and the tree will lose a level. In either case, all leaf nodes are always at the same level. When all leaf nodes are at the same level, we say that a tree is [height balanced](#term-height-balanced). Because the 2-3 tree is height balanced, and every internal node has at least two children, we know that the maximum depth of the tree is $\log n$. Thus, all 2-3 tree insert, find, and delete operations require $\Theta(\log n)$ time.
 
 [Click here](http://www.cs.usfca.edu/~galles/visualization/BTree.html) for another visualization that will let you construct and interact with a 2-3 tree. Actually, this visualization is for a data structure that is more general than just a 2-3 tree. To see how a 2-3 would behave, be sure to use the “Max Degree = 3” setting. This visualization was written by David Galles of the University of San Francisco as part of his [Data Structure Visualizations](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html) package.
 
@@ -4737,7 +4737,7 @@ A B-tree of order $m$ is defined to have the following shape properties:
 - Each internal node, except for the root, has between $\lceil m/2 \rceil$ and $m$ children.
 - All leaves are at the same level in the tree, so the tree is always height balanced.
 
-The B-tree  is a generalization of the 2-3 tree. Put another way, a 2-3 tree is a B-tree of order three. Normally, the size of a node in the B-tree is chosen to fill a disk block. A B-tree node implementation typically allows 100 or more children. Thus, a B-tree node is equivalent to a disk block, and a “pointer” value stored in the tree is actually the number of the block containing the child node (usually interpreted as an offset from the beginning of the corresponding disk file). In a typical application, the B-tree’s access to the disk file will be managed using a [buffer pool](Glossary.md#term-buffer-pool) and a block-replacement scheme such as [LRU](Glossary.md#term-lru).
+The B-tree  is a generalization of the 2-3 tree. Put another way, a 2-3 tree is a B-tree of order three. Normally, the size of a node in the B-tree is chosen to fill a disk block. A B-tree node implementation typically allows 100 or more children. Thus, a B-tree node is equivalent to a disk block, and a “pointer” value stored in the tree is actually the number of the block containing the child node (usually interpreted as an offset from the beginning of the corresponding disk file). In a typical application, the B-tree’s access to the disk file will be managed using a [buffer pool](#term-buffer-pool) and a block-replacement scheme such as [LRU](#term-lru).
 
 Figure [9.6.1](BTree.md#btexamp) shows a B-tree of order four. Each node contains up to three keys, and internal nodes have up to four children.
 
@@ -4761,7 +4761,7 @@ Note that this insertion process is guaranteed to keep all nodes at least half f
 
 The previous section mentioned that B-trees are universally used to implement large-scale disk-based systems. Actually, the B-tree as described in the previous section is almost never implemented. What is most commonly implemented is a variant of the B-tree, called the $\mathrm{B}^+$ tree. When greater efficiency is required, a more complicated variant known as the $\mathrm{B}^*$ tree is used.
 
-Consider again the [linear index](Glossary.md#term-linear-index). When the collection of records will not change, a linear index provides an extremely efficient way to search. The problem is how to handle those pesky inserts and deletes. We could try to keep the core idea of storing a sorted array-based list, but make it more flexible by breaking the list into manageable chunks that are more easily updated. How might we do that? First, we need to decide how big the chunks should be. Since the data are on disk, it seems reasonable to store a chunk that is the size of a disk block, or a small multiple of the disk block size. If the next record to be inserted belongs to a chunk that hasn’t filled its block then we can just insert it there. The fact that this might cause other records in that chunk to move a little bit in the array is not important, since this does not cause any extra disk accesses so long as we move data within that chunk. But what if the chunk fills up the entire block that contains it? We could just split it in half. What if we want to delete a record? We could just take the deleted record out of the chunk, but we might not want a lot of near-empty chunks. So we could put adjacent chunks together if they have only a small amount of data between them. Or we could shuffle data between adjacent chunks that together contain more data. The big problem would be how to find the desired chunk when processing a record with a given key. Perhaps some sort of tree-like structure could be used to locate the appropriate chunk. These ideas are exactly what motivate the $\mathrm{B}^+$ tree. The $\mathrm{B}^+$ tree is essentially a mechanism for managing a sorted array-based list, where the list is broken into chunks.
+Consider again the [linear index](#term-linear-index). When the collection of records will not change, a linear index provides an extremely efficient way to search. The problem is how to handle those pesky inserts and deletes. We could try to keep the core idea of storing a sorted array-based list, but make it more flexible by breaking the list into manageable chunks that are more easily updated. How might we do that? First, we need to decide how big the chunks should be. Since the data are on disk, it seems reasonable to store a chunk that is the size of a disk block, or a small multiple of the disk block size. If the next record to be inserted belongs to a chunk that hasn’t filled its block then we can just insert it there. The fact that this might cause other records in that chunk to move a little bit in the array is not important, since this does not cause any extra disk accesses so long as we move data within that chunk. But what if the chunk fills up the entire block that contains it? We could just split it in half. What if we want to delete a record? We could just take the deleted record out of the chunk, but we might not want a lot of near-empty chunks. So we could put adjacent chunks together if they have only a small amount of data between them. Or we could shuffle data between adjacent chunks that together contain more data. The big problem would be how to find the desired chunk when processing a record with a given key. Perhaps some sort of tree-like structure could be used to locate the appropriate chunk. These ideas are exactly what motivate the $\mathrm{B}^+$ tree. The $\mathrm{B}^+$ tree is essentially a mechanism for managing a sorted array-based list, where the list is broken into chunks.
 
 The most significant difference between the $\mathrm{B}^+$ tree and the BST or the standard B-tree is that the $\mathrm{B}^+$ tree  stores records only at the leaf nodes. Internal nodes store key values, but these are used solely as placeholders to guide the search. This means that internal nodes are significantly different in structure from leaf nodes. Internal nodes store keys to guide the search, associating each key with a pointer to a child $\mathrm{B}^+$ tree node. Leaf nodes store actual records, or else keys and pointers to actual records in a separate disk file if the $\mathrm{B}^+$ tree is being used purely as an index. Depending on the size of a record as compared to the size of a key, a leaf node in a $\mathrm{B}^+$ tree of order $m$ might have enough room to store more or less than $m$ records. The requirement is simply that the leaf nodes store enough records to remain at least half full. The leaf nodes of a $\mathrm{B}^+$ tree are normally linked together to form a doubly linked list. Thus, the entire collection of records can be traversed in sorted order by visiting all the leaf nodes on the linked list. Here is a Java-like pseudocode representation for the $\mathrm{B}^+$ tree node interface. Leaf node and internal node subclasses would implement this interface.
 
@@ -4830,7 +4830,7 @@ To delete record $R$ from the $\mathrm{B}^+$ tree, first locate the leaf $L$ tha
 
 *Figure 9.6.4: Simple deletion from a $\mathrm{B}^+$ tree. The record with key value 18 is removed from the tree of Figure [9.6.2](BTree.md#bpexamp). Note that even though 18 is also a placeholder used to direct search in the parent node, that value need not be removed from internal nodes even if no record in the tree has key value 18. Thus, the leftmost node at level one in this example retains the key with value 18 after the record with key value 18 has been removed from the second leaf node.*
 
-If deleting a record reduces the number of records in the node below the minimum threshold (called an [underflow](Glossary.md#term-underflow)), then we must do something to keep the node sufficiently full. The first choice is to look at the node’s adjacent siblings to determine if they have a spare record that can be used to fill the gap. If so, then enough records are transferred from the sibling so that both nodes have about the same number of records. This is done so as to delay as long as possible the next time when a delete causes this node to underflow again. This process might require that the parent node has its placeholder key value revised to reflect the true first key value in each node. Figure [9.6.5](BTree.md#bpborrow) illustrates the process.
+If deleting a record reduces the number of records in the node below the minimum threshold (called an [underflow](#term-underflow)), then we must do something to keep the node sufficiently full. The first choice is to look at the node’s adjacent siblings to determine if they have a spare record that can be used to fill the gap. If so, then enough records are transferred from the sibling so that both nodes have about the same number of records. This is done so as to delay as long as possible the next time when a delete causes this node to underflow again. This process might require that the parent node has its placeholder key value revised to reflect the true first key value in each node. Figure [9.6.5](BTree.md#bpborrow) illustrates the process.
 
 ![Deletion from a :math:`\mathrm{B}^+` tree via borrowing from a sibling.](tddi16f25.img/BPborrow.png)
 
@@ -4845,7 +4845,7 @@ If neither sibling can lend a record to the under-full node (call it $N$), then 
 Here is a Java-like pseudocode for the $\mathrm{B}^+$ tree delete algorithm.
 
 ```java
-/** Delete a record with the given key value, and 
+/** Delete a record with the given key value, and
     return true if the root underflows */
 private boolean removehelp(BPNode<Key,E> rt, Key k) {
   int currec = binaryle(rt.keys(), rt.numrecs(), k);
@@ -4873,7 +4873,7 @@ The asymptotic cost of search, insertion, and deletion of records from B-trees, 
 
 As an illustration, consider a $\mathrm{B}^+$ tree of order 100 and leaf nodes that contain up to 100 records. A B-$\mathrm{B}^+$ tree with height one (that is, just a single leaf node) can have at most 100 records. A $\mathrm{B}^+$ tree with height two (a root internal node whose children are leaves) must have at least 100 records (2 leaves with 50 records each). It has at most 10,000 records (100 leaves with 100 records each). A $\mathrm{B}^+$ tree with height three must have at least 5000 records (two second-level nodes with 50 children containing 50 records each) and at most one million records (100 second-level nodes with 100 full children each). A $\mathrm{B}^+$ tree with height four must have at least 250,000 records and at most 100 million records. Thus, it would require an *extremely* large database to generate a $\mathrm{B}^+$ tree of more than height four.
 
-The $\mathrm{B}^+$ tree split and insert rules guarantee that every node (except perhaps the root) is at least half full. So they are on average about 3/4 full. But the internal nodes are purely overhead, since the keys stored there are used only by the tree to direct search, rather than store actual data. Does this overhead amount to a significant use of space? No, because once again the high fan-out rate of the tree structure means that the vast majority of nodes are leaf nodes. A [K-ary tree](Glossary.md#term-k-ary-tree) has approximately $1/K$ of its nodes as internal nodes. This means that while half of a full binary tree’s nodes are internal nodes, in a $\mathrm{B}^+$ tree of order 100 probably only about $1/75$ of its nodes are internal nodes. This means that the overhead associated with internal nodes is very low.
+The $\mathrm{B}^+$ tree split and insert rules guarantee that every node (except perhaps the root) is at least half full. So they are on average about 3/4 full. But the internal nodes are purely overhead, since the keys stored there are used only by the tree to direct search, rather than store actual data. Does this overhead amount to a significant use of space? No, because once again the high fan-out rate of the tree structure means that the vast majority of nodes are leaf nodes. A [K-ary tree](#term-k-ary-tree) has approximately $1/K$ of its nodes as internal nodes. This means that while half of a full binary tree’s nodes are internal nodes, in a $\mathrm{B}^+$ tree of order 100 probably only about $1/75$ of its nodes are internal nodes. This means that the overhead associated with internal nodes is very low.
 
 We can reduce the number of disk fetches required for the B-tree even more by using the following methods. First, the upper levels of the tree can be stored in main memory at all times. Because the tree branches so quickly, the top two levels (levels 0 and 1) require relatively little space. If the B-tree is only height four, then at most two disk fetches (internal nodes at level two and leaves at level three) are required to reach the pointer to any given record.
 
@@ -4904,7 +4904,7 @@ Here are some review questions.
 
 Hashing is a method for storing and retrieving records from a database. It lets you insert, delete, and search for records based on a search key value. When properly implemented, these operations can be performed in constant time. In fact, a properly tuned hash system typically looks at only one or two records for each search, insert, or delete operation. This is far better than the $O(\log n)$ average cost required to do a binary search on a sorted array of $n$ records, or the $O(\log n)$ average cost required to do an operation on a binary search tree. However, even though hashing is based on a very simple idea, it is surprisingly difficult to implement properly. Designers need to pay careful attention to all of the details involved with implementing a hash system.
 
-A hash system stores records in an array called a [hash table](Glossary.md#term-hash-table), which we will call `HT`. Hashing works by performing a computation on a search key `K` in a way that is intended to identify the position in `HT` that contains the record with key `K`. The function that does this calculation is called the [hash function](HashFuncExamp.md#hashfuncexamp), and will be denoted by the letter **h**. Since hashing schemes place records in the table in whatever order satisfies the needs of the address calculation, records are not ordered by value. A position in the hash table is also known as a [slot](Glossary.md#term-slot). The number of slots in hash table `HT` will be denoted by the variable $M$ with slots numbered from 0 to $M-1$.
+A hash system stores records in an array called a [hash table](#term-hash-table), which we will call `HT`. Hashing works by performing a computation on a search key `K` in a way that is intended to identify the position in `HT` that contains the record with key `K`. The function that does this calculation is called the [hash function](HashFuncExamp.md#hashfuncexamp), and will be denoted by the letter **h**. Since hashing schemes place records in the table in whatever order satisfies the needs of the address calculation, records are not ordered by value. A position in the hash table is also known as a [slot](#term-slot). The number of slots in hash table `HT` will be denoted by the variable $M$ with slots numbered from 0 to $M-1$.
 
 The goal for a hashing system is to arrange things such that, for any key value `K` and some hash function $h$, $i = \mathbf{h}(K)$ is a slot in the table such that $0 <= i < M$, and we have the key of the record stored at `HT[i]` equal to `K`.
 
@@ -4912,7 +4912,7 @@ Hashing is not good for applications where multiple records with the same key va
 
 As a simple (though unrealistic) example of hashing, consider storing $n$ records, each with a unique key value in the range 0 to $n-1$. A record with key `k` can be stored in `HT[k]`, and so the hash function is $\mathbf{h}(k) = k$. To find the record with key value `k`, look in `HT[k]`.
 
-In most applications, there are many more values in the key range than there are slots in the hash table. For a more realistic example, suppose the key can take any value in the range 0 to 65,535 (i.e., the key is a two-byte unsigned integer), and that we expect to store approximately 1000 records at any given time. It is impractical in this situation to use a hash table with 65,536 slots, because then the vast majority of the slots would be left empty. Instead, we must devise a hash function that allows us to store the records in a much smaller table. Because the key range is larger than the size of the table, at least some of the slots must be mapped to from multiple key values. Given a hash function **h** and two keys $k_1$ and $k_2$, if $\mathbf{h}(k_1) = \beta = \mathbf{h}(k_2)$ where $\beta$ is a slot in the table, then we say that $k_1$ and $k_2$ have a [collision](Glossary.md#term-collision) at slot $\beta$ under hash function **h**.
+In most applications, there are many more values in the key range than there are slots in the hash table. For a more realistic example, suppose the key can take any value in the range 0 to 65,535 (i.e., the key is a two-byte unsigned integer), and that we expect to store approximately 1000 records at any given time. It is impractical in this situation to use a hash table with 65,536 slots, because then the vast majority of the slots would be left empty. Instead, we must devise a hash function that allows us to store the records in a much smaller table. Because the key range is larger than the size of the table, at least some of the slots must be mapped to from multiple key values. Given a hash function **h** and two keys $k_1$ and $k_2$, if $\mathbf{h}(k_1) = \beta = \mathbf{h}(k_2)$ where $\beta$ is a slot in the table, then we say that $k_1$ and $k_2$ have a [collision](#term-collision) at slot $\beta$ under hash function **h**.
 
 Finding a record with key value `K` in a database organized by hashing follows a two-step procedure:
 
@@ -4978,7 +4978,7 @@ Recall that the values 0 to 15 can be represented with four bits (i.e., 0000 to 
 
 Say we are given keys in the range 0 to 999, and have a hash table of size 10. In this case, a possible hash function might simply divide the key value by 100. Thus, all keys in the range 0 to 99 would hash to slot 0, keys 100 to 199 would hash to slot 1, and so on. In other words, this hash function “bins” the first 100 keys to the first slot, the next 100 keys to the second slot, and so on.
 
-[Binning](Glossary.md#term-binning) in this way has the problem that it will cluster together keys if the distribution does not divide evenly on the high-order bits. In the above example, if more records have keys in the range 900-999 (first digit 9) than have keys in the range 100-199 (first digit 1),  more records will hash to slot 9 than to slot 1. Likewise, if we pick too big a value for the key range and the actual key values are all relatively small, then most records will hash to slot 0. A similar, analogous problem arises if we were instead hashing strings based on the first letter in the string.
+[Binning](#term-binning) in this way has the problem that it will cluster together keys if the distribution does not divide evenly on the high-order bits. In the above example, if more records have keys in the range 900-999 (first digit 9) than have keys in the range 100-199 (first digit 1),  more records will hash to slot 9 than to slot 1. Likewise, if we pick too big a value for the key range and the actual key values are all relatively small, then most records will hash to slot 0. A similar, analogous problem arises if we were instead hashing strings based on the first letter in the string.
 
 In general with binning we store the record with key value $i$ at array position $i/X$ for some value $X$ (using integer division). A problem with Binning is that we have to know the key range so that we can figure out what value to use for $X$. Let’s assume that the keys are all in the range 0 to 999. Then we want to divide key values by 100 so that the result is in the range 0 to 9. There is no particular limit on the key range that binning could handle, so long as we know the maximum possible value in advance so that we can figure out what to divide the key value by. Alternatively, we could also take the result of any binning computation and then mod by the table size to be safe. So if we have keys that are bigger than 999 when dividing by 100, we can still make sure that the result is in the range 0 to 9 with a mod by 10 step at the end.
 
@@ -4993,7 +4993,7 @@ As another example, consider hashing a collection of keys whose values follow a 
 <a id="the-mid-square-method"></a>
 ### 10.3.1.3. The Mid-Square Method
 
-A good hash function to use with integer key values is the [mid-square method](Glossary.md#term-mid-square-method). The mid-square method squares the key value, and then takes out the middle $r$ bits of the result, giving a value in the range 0 to $2^{r}-1$. This works well because most or all bits of the key value contribute to the result. For example, consider records whose keys are 4-digit numbers in base 10, as shown in Figure [10.3.2](HashFuncExamp.md#midsquarefig). The goal is to hash these key values to a table of size 100 (i.e., a range of 0 to 99). This range is equivalent to two digits in base 10. That is, $r = 2$. If the input is the number 4567, squaring yields an 8-digit number, 20857489. The middle two digits of this result are 57. All digits of the original key value (equivalently, all bits when the number is viewed in binary) contribute to the middle two digits of the squared value. Thus, the result is not dominated by the distribution of the bottom digit or the top digit of the original key value. Of course, if the key values all tend to be small numbers, then their squares will only affect the low-order digits of the hash value.
+A good hash function to use with integer key values is the [mid-square method](#term-mid-square-method). The mid-square method squares the key value, and then takes out the middle $r$ bits of the result, giving a value in the range 0 to $2^{r}-1$. This works well because most or all bits of the key value contribute to the result. For example, consider records whose keys are 4-digit numbers in base 10, as shown in Figure [10.3.2](HashFuncExamp.md#midsquarefig). The goal is to hash these key values to a table of size 100 (i.e., a range of 0 to 99). This range is equivalent to two digits in base 10. That is, $r = 2$. If the input is the number 4567, squaring yields an 8-digit number, 20857489. The middle two digits of this result are 57. All digits of the original key value (equivalently, all bits when the number is viewed in binary) contribute to the middle two digits of the squared value. Thus, the result is not dominated by the distribution of the bottom digit or the top digit of the original key value. Of course, if the key values all tend to be small numbers, then their squares will only affect the low-order digits of the hash value.
 
 ![Mid-square method example](tddi16f25.img/MidSquare.png)
 
@@ -5019,7 +5019,7 @@ int sascii(String x, int M) {
 }
 ```
 
-This function sums the ASCII values of the letters in a string. If the hash table size $M$ is small compared to the resulting summations, then this hash function should do a good job of distributing strings evenly among the hash table slots, because it gives equal weight to all characters in the string. This is an example of the [folding method](Glossary.md#term-folding-method) to designing a hash function. Note that the order of the characters in the string has no effect on the result. A similar method for integers would add the digits of the key value, assuming that there are enough digits to
+This function sums the ASCII values of the letters in a string. If the hash table size $M$ is small compared to the resulting summations, then this hash function should do a good job of distributing strings evenly among the hash table slots, because it gives equal weight to all characters in the string. This is an example of the [folding method](#term-folding-method) to designing a hash function. Note that the order of the characters in the string has no effect on the result. A similar method for integers would add the digits of the key value, assuming that there are enough digits to
 
 1. keep any one or two digits with bad distribution from skewing the results of the process and
 1. generate a sum much larger than $M$.
@@ -5072,7 +5072,7 @@ Here are some review questions.
 <a id="id1"></a>
 ## 10.4.1. Open Hashing
 
-While the goal of a hash function is to minimize collisions, some collisions are unavoidable in practice. Thus, hashing implementations must include some form of collision resolution policy. Collision resolution techniques can be broken into two classes: [open hashing](Glossary.md#term-open-hash-system) (also called [separate chaining](Glossary.md#term-separate-chaining)) and [closed hashing](HashCSimple.md#hashcsimple) (also called [open addressing](Glossary.md#term-open-addressing)). (Yes, it is confusing when “open hashing” means the opposite of “open addressing”, but unfortunately, that is the way it is.) The difference between the two has to do with whether collisions are stored outside the table (open hashing), or whether collisions result in storing one of the records at another slot in the table (closed hashing).
+While the goal of a hash function is to minimize collisions, some collisions are unavoidable in practice. Thus, hashing implementations must include some form of collision resolution policy. Collision resolution techniques can be broken into two classes: [open hashing](#term-open-hash-system) (also called [separate chaining](#term-separate-chaining)) and [closed hashing](HashCSimple.md#hashcsimple) (also called [open addressing](#term-open-addressing)). (Yes, it is confusing when “open hashing” means the opposite of “open addressing”, but unfortunately, that is the way it is.) The difference between the two has to do with whether collisions are stored outside the table (open hashing), or whether collisions result in storing one of the records at another slot in the table (closed hashing).
 
 The simplest form of open hashing defines each slot in the hash table to be the head of a linked list. All records that hash to a particular slot are placed on that slot’s linked list. The following figure illustrates a hash table where each slot points to a linked list to hold the records associated with that slot. The hash function used is the simple mod function.
 
@@ -5091,9 +5091,9 @@ There are similarities between open hashing and Binsort. One way to view open ha
 <a id="id1"></a>
 ## 10.5.1. Bucket Hashing
 
-Closed hashing stores all records directly in the hash table. Each record $R$ with key value $k_R$ has a [home position](Glossary.md#term-home-position) that is $\textbf{h}(k_R)$, the slot computed by the hash function. If $R$ is to be inserted and another record already occupies $R$’s home position, then $R$ will be stored at some other slot in the table. It is the business of the collision resolution policy to determine which slot that will be. Naturally, the same policy must be followed during search as during insertion, so that any record not found in its home position can be recovered by repeating the collision resolution process.
+Closed hashing stores all records directly in the hash table. Each record $R$ with key value $k_R$ has a [home position](#term-home-position) that is $\textbf{h}(k_R)$, the slot computed by the hash function. If $R$ is to be inserted and another record already occupies $R$’s home position, then $R$ will be stored at some other slot in the table. It is the business of the collision resolution policy to determine which slot that will be. Naturally, the same policy must be followed during search as during insertion, so that any record not found in its home position can be recovered by repeating the collision resolution process.
 
-One implementation for closed hashing groups hash table slots into [buckets](Glossary.md#term-bucket). The $M$ slots of the hash table are divided into $B$ buckets, with each bucket consisting of $M/B$ slots. The hash function assigns each record to the first slot within one of the buckets. If this slot is already occupied, then the bucket slots are searched sequentially until an open slot is found. If a bucket is entirely full, then the record is stored in an [overflow bucket](Glossary.md#term-overflow-bucket) of infinite capacity at the end of the table. All buckets share the same overflow bucket. A good implementation will use a hash function that distributes the records evenly among the buckets so that as few records as possible go into the overflow bucket.
+One implementation for closed hashing groups hash table slots into [buckets](#term-bucket). The $M$ slots of the hash table are divided into $B$ buckets, with each bucket consisting of $M/B$ slots. The hash function assigns each record to the first slot within one of the buckets. If this slot is already occupied, then the bucket slots are searched sequentially until an open slot is found. If a bucket is entirely full, then the record is stored in an [overflow bucket](#term-overflow-bucket) of infinite capacity at the end of the table. All buckets share the same overflow bucket. A good implementation will use a hash function that distributes the records evenly among the buckets so that as few records as possible go into the overflow bucket.
 
 When searching for a record, the first step is to hash the key to determine which bucket should contain the record. The records in this bucket are then searched. If the desired key value is not found and the bucket still has free slots, then the search is complete. If the bucket is full, then it is possible that the desired record is stored in the overflow bucket. In this case, the overflow bucket must be searched until the record is found or all records in the overflow bucket have been checked. If many records are in the overflow bucket, this will be an expensive process.
 
@@ -5113,9 +5113,9 @@ Bucket methods are good for implementing hash tables stored on disk, because the
 <a id="id1"></a>
 ## 10.6.1. Collision Resolution
 
-We now turn to the most commonly used form of hashing: [closed hashing](Glossary.md#term-closed-hash-system) with no bucketing, and a [collision resolution policy](Glossary.md#term-collision-resolution-policy) that can potentially use any slot in the hash table.
+We now turn to the most commonly used form of hashing: [closed hashing](#term-closed-hash-system) with no bucketing, and a [collision resolution policy](#term-collision-resolution-policy) that can potentially use any slot in the hash table.
 
-During insertion, the goal of [collision resolution](Glossary.md#term-collision-resolution) is to find a free slot in the hash table when the home position for the record is already occupied. We can view any collision resolution method as generating a sequence of hash table slots that can potentially hold the record. The first slot in the sequence will be the home position for the key. If the home position is occupied, then the collision resolution policy goes to the next slot in the sequence. If this is occupied as well, then another slot must be found, and so on. This sequence of slots is known as the [probe sequence](Glossary.md#term-probe-sequence), and it is generated by some [probe function](Glossary.md#term-probe-function) that we will call **p**. Insertion works as follows:
+During insertion, the goal of [collision resolution](#term-collision-resolution) is to find a free slot in the hash table when the home position for the record is already occupied. We can view any collision resolution method as generating a sequence of hash table slots that can potentially hold the record. The first slot in the sequence will be the home position for the key. If the home position is occupied, then the collision resolution policy goes to the next slot in the sequence. If this is occupied as well, then another slot must be found, and so on. This sequence of slots is known as the [probe sequence](#term-probe-sequence), and it is generated by some [probe function](#term-probe-function) that we will call **p**. Insertion works as follows:
 
 ```
 // Insert e into hash table HT
@@ -5156,7 +5156,7 @@ bool hashSearch(const Key& K, Elem& e) const {
 
 Both the insert and the search routines assume that at least one slot on the probe sequence of every key will be empty. Otherwise they will continue in an infinite loop on unsuccessful searches. Thus, the hash system should keep a count of the number of records stored, and refuse to insert into a table that has only one free slot.
 
-The simplest approach to collsion resolution is simply to move down the table from the home slot until a free slot is found. This is known as [linear probing](Glossary.md#term-linear-probing). The probe function for simple linear probing is $\textbf{p}(K, i) = i$. That is, the $i$ th offset on the probe sequence is just $i$, meaning that the $i$ th step is simply to move down  $i$ slots in the table. Once the bottom of the table is reached, the probe sequence wraps around to the beginning of the table (since the last step is to mod the result to the table size). Linear probing has the virtue that all slots in the table will be candidates for inserting a new record before the probe sequence returns to the home position.
+The simplest approach to collsion resolution is simply to move down the table from the home slot until a free slot is found. This is known as [linear probing](#term-linear-probing). The probe function for simple linear probing is $\textbf{p}(K, i) = i$. That is, the $i$ th offset on the probe sequence is just $i$, meaning that the $i$ th step is simply to move down  $i$ slots in the table. Once the bottom of the table is reached, the probe sequence wraps around to the beginning of the table (since the last step is to mod the result to the table size). Linear probing has the virtue that all slots in the table will be candidates for inserting a new record before the probe sequence returns to the home position.
 
 Can you see any reason why this might not be the best approach to collision resolution?
 
@@ -5165,7 +5165,7 @@ Can you see any reason why this might not be the best approach to collision reso
 
 While linear probing is probably the first idea that comes to mind when considering collision resolution policies, it is not the only one possible. Probe function **p** allows us many options for how to do collision resolution. In fact, linear probing is one of the worst collision resolution methods. The main problem is illustrated by the next slideshow.
 
-Again, the ideal behavior for a collision resolution mechanism is that each empty slot in the table will have equal probability of receiving the next record inserted (assuming that every slot in the table has equal probability of being hashed to initially). This tendency of linear probing to cluster items together is known as [primary clustering](Glossary.md#term-primary-clustering). Small clusters tend to merge into big clusters, making the problem worse. The objection to primary clustering is that it leads to long probe sequences.
+Again, the ideal behavior for a collision resolution mechanism is that each empty slot in the table will have equal probability of receiving the next record inserted (assuming that every slot in the table has equal probability of being hashed to initially). This tendency of linear probing to cluster items together is known as [primary clustering](#term-primary-clustering). Small clusters tend to merge into big clusters, making the problem worse. The objection to primary clustering is that it leads to long probe sequences.
 
 
 <a id="improved-collision-resolution"></a>
@@ -5187,7 +5187,7 @@ Now you can practice linear probing by different step sizes.
 
 Consider the situation where $c = 2$ and we wish to insert a record with key $k_1$ such that $\textbf{h}(k_1) = 3$. The probe sequence for  $k_1$ is 3, 5, 7, 9, and so on. If another key $k_2$ has home position at slot 5, then its probe sequence will be 5, 7, 9, and so on. The probe sequences of $k_1$ and $k_2$ are linked together in a manner that contributes to clustering. In other words, linear probing with a value of $c > 1$ does not solve the problem of primary clustering. We would like to find a probe function that does not link keys together in this way. We would prefer that the probe sequence for $k_1$ after the first step on the sequence should not be identical to the probe sequence of $k_2$. Instead, their probe sequences should diverge.
 
-The ideal probe function would select the next position on the probe sequence at random from among the unvisited slots; that is, the probe sequence should be a random permutation of the hash table positions. Unfortunately, we cannot actually select the next position in the probe sequence at random, because we would not be able to duplicate this same probe sequence when searching for the key. However, we can do something similar called [pseudo-random probing](Glossary.md#term-pseudo-random-probing). In pseudo-random probing, the $i$ th slot in the probe sequence is $(\textbf{h}(K) + r_i) \mod M$ where $r_i$ is the $i$ th value in a random permutation of the numbers from 1 to $M-1$. All inserts and searches must use the same sequence of random numbers. The probe function would be $\textbf{p}(K, i) = \textbf{Permutation}[i]$ where **Permutation** is an array of length $M$ that stores a value of 0 in position **Permutation[0]**, and stores a random permutation of the values from 1 to $M - 1$ in slots 1 to $M - 1$.
+The ideal probe function would select the next position on the probe sequence at random from among the unvisited slots; that is, the probe sequence should be a random permutation of the hash table positions. Unfortunately, we cannot actually select the next position in the probe sequence at random, because we would not be able to duplicate this same probe sequence when searching for the key. However, we can do something similar called [pseudo-random probing](#term-pseudo-random-probing). In pseudo-random probing, the $i$ th slot in the probe sequence is $(\textbf{h}(K) + r_i) \mod M$ where $r_i$ is the $i$ th value in a random permutation of the numbers from 1 to $M-1$. All inserts and searches must use the same sequence of random numbers. The probe function would be $\textbf{p}(K, i) = \textbf{Permutation}[i]$ where **Permutation** is an array of length $M$ that stores a value of 0 in position **Permutation[0]**, and stores a random permutation of the values from 1 to $M - 1$ in slots 1 to $M - 1$.
 
 Here is a practice exercise for pseudo-random probing.
 
@@ -5196,7 +5196,7 @@ Pseudo-random probing exhibits another desirable feature in a hash function.
 <a id="quadratic-probing"></a>
 ## 10.7.3. Quadratic Probing
 
-Another probe function that eliminates primary clustering is called [quadratic probing](Glossary.md#term-quadratic-probing). Here the probe function is some quadratic function $\textbf{p}(K, i) = c_1 i^2 + c_{2}i + c_3$ for some choice of constants $c_1$, $c_2$, and  $c_3$.
+Another probe function that eliminates primary clustering is called [quadratic probing](#term-quadratic-probing). Here the probe function is some quadratic function $\textbf{p}(K, i) = c_1 i^2 + c_{2}i + c_3$ for some choice of constants $c_1$, $c_2$, and  $c_3$.
 
 The simplest variation is $\textbf{p}(K, i) = i^2$ (i.e., $c_1 = 1$, $c_2 = 0$, and $c_3 = 0$). Then the $i$ th value in the probe sequence would be $(\textbf{h}(K) + i^2) \mod M$.
 
@@ -5211,9 +5211,9 @@ Fortunately, it is possible to get good results from quadratic probing at low co
 <a id="double-hashing"></a>
 ## 10.7.4. Double Hashing
 
-Both pseudo-random probing and quadratic probing eliminate primary clustering, which is the name given to the the situation when keys share substantial segments of a probe sequence. If two keys hash to the same home position, however, then they will always follow the same probe sequence for every collision resolution method that we have seen so far. The probe sequences generated by pseudo-random and quadratic probing (for example) are entirely a function of the home position, not the original key value. This is because function **p** ignores its input parameter $K$ for these collision resolution methods. If the hash function generates a cluster at a particular home position, then the cluster remains under pseudo-random and quadratic probing. This problem is called [secondary clustering](Glossary.md#term-secondary-clustering).
+Both pseudo-random probing and quadratic probing eliminate primary clustering, which is the name given to the the situation when keys share substantial segments of a probe sequence. If two keys hash to the same home position, however, then they will always follow the same probe sequence for every collision resolution method that we have seen so far. The probe sequences generated by pseudo-random and quadratic probing (for example) are entirely a function of the home position, not the original key value. This is because function **p** ignores its input parameter $K$ for these collision resolution methods. If the hash function generates a cluster at a particular home position, then the cluster remains under pseudo-random and quadratic probing. This problem is called [secondary clustering](#term-secondary-clustering).
 
-To avoid secondary clustering, we need to have the probe sequence make use of the original key value in its decision-making process. A simple technique for doing this is to return to linear probing by a constant step size for the probe function, but to have that constant be determined by a second hash function, $\textbf{h}_2$. Thus, the probe sequence would be of the form $\textbf{p}(K, i) = i * \textbf{h}_2(K)$. This method is called [double hashing](Glossary.md#term-double-hashing).
+To avoid secondary clustering, we need to have the probe sequence make use of the original key value in its decision-making process. A simple technique for doing this is to return to linear probing by a constant step size for the probe function, but to have that constant be determined by a second hash function, $\textbf{h}_2$. Thus, the probe sequence would be of the form $\textbf{p}(K, i) = i * \textbf{h}_2(K)$. This method is called [double hashing](#term-double-hashing).
 
 There are important restrictions on $h_2$. Most importantly, the value returned by $h_2$ must never be zero (or $M$) because that will immediately lead to an infinite loop as the probe sequence makes no progress. However, a good implementation of double hashing should also ensure that all of the probe sequence constants are relatively prime to the table size $M$. For example, if the hash table size were 100 and the step size for linear probing (as generated by function $h_2$) were 50, then there would be only one slot on the probe sequence. If instead the hash table size is 101 (a prime number), than any step size less than 101 will visit every slot in the table.
 
@@ -5234,7 +5234,7 @@ How efficient is hashing? We can measure hashing performance in terms of the num
 
 When the hash table is empty, the first record inserted will always find its home position free. Thus, it will require only one record access to find a free slot. If all records are stored in their home positions, then successful searches will also require only one record access. As the table begins to fill up, the probability that a record can be inserted into its home position decreases. If a record hashes to an occupied slot, then the collision resolution policy must locate another slot in which to store it. Finding records not stored in their home position also requires additional record accesses as the record is searched for along its probe sequence. As the table fills up, more and more records are likely to be located ever further from their home positions.
 
-From this discussion, we see that the expected cost of hashing is a function of how full the table is. Define the [load factor](Glossary.md#term-load-factor) for the table as $\alpha = N/M$, where $N$ is the number of records currently in the table.
+From this discussion, we see that the expected cost of hashing is a function of how full the table is. Define the [load factor](#term-load-factor) for the table as $\alpha = N/M$, where $N$ is the number of records currently in the table.
 
 An estimate of the expected cost for an insertion (or an unsuccessful search) can be derived analytically as a function of $\alpha$ in the case where we assume that the probe sequence follows a random permutation of the slots in the hash table. Assuming that every slot in the table has equal probability of being the home slot for the next record, the probability of finding the home position occupied is $\alpha$. The probability of finding both the home position occupied and the next slot on the probe sequence occupied is $(N(N-1))/(M(M-1))$. The probability of $i$ collisions is $(N(N-1) ... (N-i+1))/(M(M-1) ... (M-i+1))$. If $N$ and $M$ are large, then this is approximately $(N/M)^i$. The expected number of probes is one plus the sum over $i >= 1$ of the probability of $i$ collisions, which is approximately
 
@@ -5267,7 +5267,7 @@ When deleting records from a hash table, there are two important considerations.
 1. Deleting a record must not hinder later searches. In other words, the search process must still pass through the newly emptied slot to reach records whose probe sequence passed through this slot. Thus, the delete process cannot simply mark the slot as empty, because this will isolate records further down the probe sequence.
 1. We do not want to make positions in the hash table unusable because of deletion. The freed slot should be available to a future insertion.
 
-Both of these problems can be resolved by placing a special mark in place of the deleted record, called a [tombstone](Glossary.md#term-tombstone). The tombstone indicates that a record once occupied the slot but does so no longer. If a tombstone is encountered when searching along a probe sequence, the search procedure continues with the search. When a tombstone is encountered during insertion, that slot can be used to store the new record. However, to avoid inserting duplicate keys, it will still be necessary for the search procedure to follow the probe sequence until a truly empty position has been found, simply to verify that a duplicate is not in the table. However, the new record would actually be inserted into the slot of the first tombstone encountered.
+Both of these problems can be resolved by placing a special mark in place of the deleted record, called a [tombstone](#term-tombstone). The tombstone indicates that a record once occupied the slot but does so no longer. If a tombstone is encountered when searching along a probe sequence, the search procedure continues with the search. When a tombstone is encountered during insertion, that slot can be used to store the new record. However, to avoid inserting duplicate keys, it will still be necessary for the search procedure to follow the probe sequence until a truly empty position has been found, simply to verify that a duplicate is not in the table. However, the new record would actually be inserted into the slot of the first tombstone encountered.
 
 The use of tombstones allows searches to work correctly and allows reuse of deleted slots. However, after a series of intermixed insertion and deletion operations, some slots will contain tombstones. This will tend to lengthen the average distance from a record’s home position to the record itself, beyond where it could be if the tombstones did not exist. A typical database application will first load a collection of records into the hash table and then progress to a phase of intermixed insertions and deletions. After the table is loaded with the initial collection of records, the first few deletions will lengthen the average probe sequence distance for records (it will add tombstones). Over time, the average distance will reach an equilibrium point because insertions will tend to decrease the average distance by filling in tombstone slots. For example, after initially loading records into the database, the average path distance might be 1.2 (i.e., an average of 0.2 accesses per search beyond the home position will be required). After a series of insertions and deletions, this average distance might increase to 1.6 due to tombstones. This seems like a small increase, but it is three times longer on average beyond the home position than before deletions.
 
@@ -5318,30 +5318,30 @@ Graphs are used to model both real-world systems and abstract problems, and are 
 
 The rest of this module covers some basic graph terminology. The following modules will describe fundamental representations for graphs, provide a reference implementation, and cover core graph algorithms including traversal, topological sort, shortest paths algorithms, and algorithms to find the minimal-cost spanning tree. Besides being useful and interesting in their own right, these algorithms illustrate the use of many other data structures presented throughout the course.
 
-A [graph](Glossary.md#term-graph) $\mathbf{G} = (\mathbf{V}, \mathbf{E})$ consists of a set of [vertices](Glossary.md#term-vertex) $\mathbf{V}$ and a set of [edges](Glossary.md#term-edge) $\mathbf{E}$, such that each edge in $\mathbf{E}$ is a connection between a pair of vertices in $\mathbf{V}$. [^1] The number of vertices is written $|\mathbf{V}|$, and the number of edges is written $|\mathbf{E}|$. $|\mathbf{E}|$ can range from zero to a maximum of $|\mathbf{V}|^2 - |\mathbf{V}|$.
+A [graph](#term-graph) $\mathbf{G} = (\mathbf{V}, \mathbf{E})$ consists of a set of [vertices](#term-vertex) $\mathbf{V}$ and a set of [edges](#term-edge) $\mathbf{E}$, such that each edge in $\mathbf{E}$ is a connection between a pair of vertices in $\mathbf{V}$. [^1] The number of vertices is written $|\mathbf{V}|$, and the number of edges is written $|\mathbf{E}|$. $|\mathbf{E}|$ can range from zero to a maximum of $|\mathbf{V}|^2 - |\mathbf{V}|$.
 
-A graph whose edges are not directed is called an [undirected graph](Glossary.md#term-undirected-graph), as shown in part (a) of the following figure. A graph with edges directed from one vertex to another (as in (b)) is called a [directed graph](Glossary.md#term-directed-graph) or [digraph](Glossary.md#term-digraph). A graph with labels associated with its vertices (as in (c)) is called a [labeled graph](Glossary.md#term-labeled-graph). Associated with each edge may be a cost or [weight](Glossary.md#term-weight). A graph whose edges have weights (as in (c)) is said to be a [weighted graph](Glossary.md#term-weighted-graph).
+A graph whose edges are not directed is called an [undirected graph](#term-undirected-graph), as shown in part (a) of the following figure. A graph with edges directed from one vertex to another (as in (b)) is called a [directed graph](#term-directed-graph) or [digraph](#term-digraph). A graph with labels associated with its vertices (as in (c)) is called a [labeled graph](#term-labeled-graph). Associated with each edge may be a cost or [weight](#term-weight). A graph whose edges have weights (as in (c)) is said to be a [weighted graph](#term-weighted-graph).
 
-An edge connecting Vertices $a$ and $b$ is written $(a, b)$. Such an edge is said to be [incident](Glossary.md#term-incident) with Vertices $a$ and $b$. The two vertices are said to be [adjacent](Glossary.md#term-adjacent). If the edge is directed from $a$ to $b$, then we say that $a$ is adjacent to $b$, and $b$ is adjacent from $a$. The [degree](Glossary.md#term-degree) of a vertex is the number of edges it is incident with. For example, Vertex $e$ below has a degree of three.
+An edge connecting Vertices $a$ and $b$ is written $(a, b)$. Such an edge is said to be [incident](#term-incident) with Vertices $a$ and $b$. The two vertices are said to be [adjacent](#term-adjacent). If the edge is directed from $a$ to $b$, then we say that $a$ is adjacent to $b$, and $b$ is adjacent from $a$. The [degree](#term-degree) of a vertex is the number of edges it is incident with. For example, Vertex $e$ below has a degree of three.
 
-In a directed graph, the [out degree](Glossary.md#term-out-degree) for a vertex is the number of neighbors adjacent from it (or the number of edges going out from it), while the [in degree](Glossary.md#term-in-degree) is the number of neighbors adjacent to it (or the number of edges coming in to it). In (c) above, the in degree of Vertex 1 is two, and its out degree is one.
+In a directed graph, the [out degree](#term-out-degree) for a vertex is the number of neighbors adjacent from it (or the number of edges going out from it), while the [in degree](#term-in-degree) is the number of neighbors adjacent to it (or the number of edges coming in to it). In (c) above, the in degree of Vertex 1 is two, and its out degree is one.
 
-A sequence of vertices $v_1, v_2, ..., v_n$ forms a [path](Glossary.md#term-path) of length $n-1$ if there exist edges from $v_i$ to $v_{i+1}$ for $1 \leq i < n$. A path is a [simple path](Glossary.md#term-simple-path) if all vertices on the path are distinct. The [length](Glossary.md#term-length) of a path is the number of edges it contains. A [cycle](Glossary.md#term-cycle) is a path of length three or more that connects some vertex $v_1$ to itself. A cycle is a [simple cycle](Glossary.md#term-simple-cycle) if the path is simple, except for the first and last vertices being the same.
+A sequence of vertices $v_1, v_2, ..., v_n$ forms a [path](#term-path) of length $n-1$ if there exist edges from $v_i$ to $v_{i+1}$ for $1 \leq i < n$. A path is a [simple path](#term-simple-path) if all vertices on the path are distinct. The [length](#term-length) of a path is the number of edges it contains. A [cycle](#term-cycle) is a path of length three or more that connects some vertex $v_1$ to itself. A cycle is a [simple cycle](#term-simple-cycle) if the path is simple, except for the first and last vertices being the same.
 
-An undirected graph is a [connected graph](Glossary.md#term-connected-graph) if there is at least one path from any vertex to any other. The maximally connected subgraphs of an undirected graph are called [connected components](Glossary.md#term-connected-component). For example, this figure shows an undirected graph with three connected components.
+An undirected graph is a [connected graph](#term-connected-graph) if there is at least one path from any vertex to any other. The maximally connected subgraphs of an undirected graph are called [connected components](#term-connected-component). For example, this figure shows an undirected graph with three connected components.
 
-A graph with relatively few edges is called a [sparse graph](Glossary.md#term-sparse-graph), while a graph with many edges is called a [dense graph](Glossary.md#term-dense-graph). A graph containing all possible edges is said to be a [complete graph](Glossary.md#term-complete-graph). A [subgraph](Glossary.md#term-subgraph) $\mathbf{S}$ is formed from graph $\mathbf{G}$ by selecting a subset $\mathbf{V}_s$ of $\mathbf{G}$’s vertices and a subset $\mathbf{E}_s$ of $\mathbf{G}$ ‘s edges such that for every edge $e  \in \mathbf{E}_s$, both vertices of $e$ are in $\mathbf{V}_s$. Any subgraph of $V$ where all vertices in the graph connect to all other vertices in the subgraph is called a [clique](Glossary.md#term-clique).
+A graph with relatively few edges is called a [sparse graph](#term-sparse-graph), while a graph with many edges is called a [dense graph](#term-dense-graph). A graph containing all possible edges is said to be a [complete graph](#term-complete-graph). A [subgraph](#term-subgraph) $\mathbf{S}$ is formed from graph $\mathbf{G}$ by selecting a subset $\mathbf{V}_s$ of $\mathbf{G}$’s vertices and a subset $\mathbf{E}_s$ of $\mathbf{G}$ ‘s edges such that for every edge $e  \in \mathbf{E}_s$, both vertices of $e$ are in $\mathbf{V}_s$. Any subgraph of $V$ where all vertices in the graph connect to all other vertices in the subgraph is called a [clique](#term-clique).
 
-A graph without cycles is called an [acyclic graph](Glossary.md#term-acyclic-graph). Thus, a directed graph without cycles is called a [directed acyclic graph](Glossary.md#term-directed-acyclic-graph) or [DAG](Glossary.md#term-dag).
+A graph without cycles is called an [acyclic graph](#term-acyclic-graph). Thus, a directed graph without cycles is called a [directed acyclic graph](#term-directed-acyclic-graph) or [DAG](#term-dag).
 
-A [free tree](Glossary.md#term-free-tree) is a connected, undirected graph with no simple cycles. An equivalent definition is that a free tree is connected and has $|\mathbf{V}| - 1$ edges.
+A [free tree](#term-free-tree) is a connected, undirected graph with no simple cycles. An equivalent definition is that a free tree is connected and has $|\mathbf{V}| - 1$ edges.
 
 <a id="graph-representations"></a>
 ### 11.1.1.1. Graph Representations
 
-There are two commonly used methods for representing graphs. The [adjacency matrix](Glossary.md#term-adjacency-matrix) for a graph is a $|\mathbf{V}| \times |\mathbf{V}|$ array. We typically label the vertices from $v_0$ through $v_{|\mathbf{V}|-1}$. Row $i$ of the adjacency matrix contains entries for Vertex $v_i$. Column $j$ in row $i$ is marked if there is an edge from $v_i$ to $v_j$ and is not marked otherwise. The space requirements for the adjacency matrix are $\Theta(|\mathbf{V}|^2)$.
+There are two commonly used methods for representing graphs. The [adjacency matrix](#term-adjacency-matrix) for a graph is a $|\mathbf{V}| \times |\mathbf{V}|$ array. We typically label the vertices from $v_0$ through $v_{|\mathbf{V}|-1}$. Row $i$ of the adjacency matrix contains entries for Vertex $v_i$. Column $j$ in row $i$ is marked if there is an edge from $v_i$ to $v_j$ and is not marked otherwise. The space requirements for the adjacency matrix are $\Theta(|\mathbf{V}|^2)$.
 
-The second common representation for graphs is the [adjacency list](Glossary.md#term-adjacency-list). The adjacency list is an array of linked lists. The array is $|\mathbf{V}|$ items long, with position $i$ storing a pointer to the linked list of edges for Vertex $v_i$. This linked list represents the edges by the vertices that are adjacent to Vertex $v_i$.
+The second common representation for graphs is the [adjacency list](#term-adjacency-list). The adjacency list is an array of linked lists. The array is $|\mathbf{V}|$ items long, with position $i$ storing a pointer to the linked list of edges for Vertex $v_i$. This linked list represents the edges by the vertices that are adjacent to Vertex $v_i$.
 
 Here is an example of the two representations on a directed graph. The entry for Vertex 0 stores 1 and 4 because there are two edges in the graph leaving Vertex 0, with one going to Vertex 1 and one going to Vertex 4. The list for Vertex 2 stores an entry for Vertex 4 because there is an edge from Vertex 2 to Vertex 4, but no entry for Vertex 3 because this edge comes into Vertex 2 rather than going out.
 
@@ -5370,7 +5370,7 @@ The adjacency matrix often requires a higher asymptotic cost for an algorithm th
 <a id="graph-implementations"></a>
 # 11.2. Graph Implementations
 
-We next turn to the problem of implementing a general-purpose [graph](Glossary.md#term-graph) class. There are two traditional approaches to representing graphs: The [adjacency matrix](Glossary.md#term-adjacency-matrix) and the [adjacency list](Glossary.md#term-adjacency-list). In this module we will show actual implementations for each approach. We will begin with an interface defining an ADT for graphs that a given implementation must meet.
+We next turn to the problem of implementing a general-purpose [graph](#term-graph) class. There are two traditional approaches to representing graphs: The [adjacency matrix](#term-adjacency-matrix) and the [adjacency list](#term-adjacency-list). In this module we will show actual implementations for each approach. We will begin with an interface defining an ADT for graphs that a given implementation must meet.
 
 ```java
 interface Graph { // Graph class ADT
@@ -5388,7 +5388,7 @@ interface Graph { // Graph class ADT
 
   // Set the value of node with index v
   void setValue(int v, Object val);
-  
+
   // Adds a new edge from node v to node w with weight wgt
   void addEdge(int v, int w, int wgt);
 
@@ -5450,10 +5450,10 @@ class GraphM implements Graph {
 
   // Return the current number of edges
   int edgeCount() { return numEdge; }
-  
+
   // Get the value of node with index v
   Object getValue(int v) { return nodeValues[v]; }
-  
+
   // Set the value of node with index v
   void setValue(int v, Object val) { nodeValues[v] = val; }
 
@@ -5473,7 +5473,7 @@ class GraphM implements Graph {
     matrix[v][w] = 0;
     numEdge--;
   }
-  
+
   // Returns true iff the graph has the edge
   boolean hasEdge(int v, int w) { return matrix[v][w] != 0; }
 
@@ -5482,7 +5482,7 @@ class GraphM implements Graph {
     int i;
     int count = 0;
     int[] temp;
-    
+
     for (i=0; i<nodeValues.length; i++)
       if (matrix[v][i] != 0) count++;
     temp = new int[count];
@@ -5541,7 +5541,7 @@ class GraphL implements Graph {
 
   // Set the value of node with index v
   void setValue(int v, Object val) { nodeValues[v] = val; }
-  
+
   // Return the link in v's neighbor list that preceeds the
   // one with w (or where it would be)
   private Edge find (int v, int w) {
@@ -5609,7 +5609,7 @@ Implementation for `GraphL` member functions is straightforward in principle, wi
 <a id="id1"></a>
 ## 11.3.1. Graph Traversals
 
-Many graph applications need to visit the vertices of a graph in some specific order based on the graph’s topology. This is known as a graph [traversal](Glossary.md#term-traversal) and is similar in concept to a [tree traversal](BinaryTreeTraversal.md#binarytreetraversal). Recall that tree traversals visit every node exactly once, in some specified order such as preorder, inorder, or postorder. Multiple tree traversals exist because various applications require the nodes to be visited in a particular order. For example, to print a BST’s nodes in ascending order requires an inorder traversal as opposed to some other traversal. Standard graph traversal orders also exist. Each is appropriate for solving certain problems. For example, many problems in artificial intelligence programming are modeled using graphs. The problem domain might consist of a large collection of states, with connections between various pairs of states. Solving this sort of problem requires getting from a specified start state to a specified goal state by moving between states only through the connections. Typically, the start and goal states are not directly connected. To solve this problem, the vertices of the graph must be searched in some organized manner.
+Many graph applications need to visit the vertices of a graph in some specific order based on the graph’s topology. This is known as a graph [traversal](#term-traversal) and is similar in concept to a [tree traversal](BinaryTreeTraversal.md#binarytreetraversal). Recall that tree traversals visit every node exactly once, in some specified order such as preorder, inorder, or postorder. Multiple tree traversals exist because various applications require the nodes to be visited in a particular order. For example, to print a BST’s nodes in ascending order requires an inorder traversal as opposed to some other traversal. Standard graph traversal orders also exist. Each is appropriate for solving certain problems. For example, many problems in artificial intelligence programming are modeled using graphs. The problem domain might consist of a large collection of states, with connections between various pairs of states. Solving this sort of problem requires getting from a specified start state to a specified goal state by moving between states only through the connections. Typically, the start and goal states are not directly connected. To solve this problem, the vertices of the graph must be searched in some organized manner.
 
 Graph traversal algorithms typically begin with a start vertex and attempt to visit the remaining vertices from there. Graph traversals must deal with a number of troublesome cases. First, it might not be possible to reach all vertices from the start vertex. This occurs when the graph is not connected. Second, the graph might contain cycles, and we must make sure that cycles do not cause the algorithm to go into an infinite loop.
 
@@ -5633,7 +5633,7 @@ Function `doTraversal` might be implemented by using one of the graph traversals
 <a id="depth-first-search"></a>
 ### 11.3.1.1. Depth-First Search
 
-Our first method for organized graph traversal is called [depth-first search](Glossary.md#term-depth-first-search) (DFS). Whenever a vertex $v$ is visited during the search, DFS will recursively visit all of $v$ ‘s unvisited neighbors. Equivalently, DFS will add all edges leading out of $v$ to a stack. The next vertex to be visited is determined by popping the stack and following that edge. The effect is to follow one branch through the graph to its conclusion, then it will back up and follow another branch, and so on. The DFS process can be used to define a [depth-first search tree](Glossary.md#term-depth-first-search-tree). This tree is composed of the edges that were followed to any new (unvisited) vertex during the traversal, and leaves out the edges that lead to already visited vertices. DFS can be applied to directed or undirected graphs.
+Our first method for organized graph traversal is called [depth-first search](#term-depth-first-search) (DFS). Whenever a vertex $v$ is visited during the search, DFS will recursively visit all of $v$ ‘s unvisited neighbors. Equivalently, DFS will add all edges leading out of $v$ to a stack. The next vertex to be visited is determined by popping the stack and following that edge. The effect is to follow one branch through the graph to its conclusion, then it will back up and follow another branch, and so on. The DFS process can be used to define a [depth-first search tree](#term-depth-first-search-tree). This tree is composed of the edges that were followed to any new (unvisited) vertex during the traversal, and leaves out the edges that lead to already visited vertices. DFS can be applied to directed or undirected graphs.
 
 This visualization shows a graph and the result of performing a DFS on it, resulting in a depth-first search tree.
 
@@ -5651,11 +5651,11 @@ void DFS(Graph G, int v) {
 }
 ```
 
-This implementation contains calls to functions `PreVisit` and `PostVisit`. These functions specify what activity should take place during the search. Just as a preorder tree traversal requires action before the subtrees are visited, some graph traversals require that a vertex be processed before ones further along in the DFS. Alternatively, some applications require activity *after* the remaining vertices are processed; hence the call to function `PostVisit`. This would be a natural opportunity to make use of the [visitor](Glossary.md#term-visitor) design pattern.
+This implementation contains calls to functions `PreVisit` and `PostVisit`. These functions specify what activity should take place during the search. Just as a preorder tree traversal requires action before the subtrees are visited, some graph traversals require that a vertex be processed before ones further along in the DFS. Alternatively, some applications require activity *after* the remaining vertices are processed; hence the call to function `PostVisit`. This would be a natural opportunity to make use of the [visitor](#term-visitor) design pattern.
 
 The following visualization shows a random graph each time that you start it, so that you can see the behavior on different examples. It can show you DFS run on a directed graph or an undirected graph. Be sure to look at an example for each type of graph.
 
- 
+
 
 DFS processes each edge once in a directed graph. In an undirected graph, DFS processes each edge from both directions. Each vertex must be visited, but only once, so the total cost is $\Theta(|\mathbf{V}| + |\mathbf{E}|)$.
 
@@ -5664,7 +5664,7 @@ Here is an exercise for you to practice DFS.
 <a id="breadth-first-search"></a>
 ## 11.3.2. Breadth-First Search
 
-Our second graph traversal algorithm is known as a [breadth-first search](Glossary.md#term-breadth-first-search) (BFS). BFS examines all vertices connected to the start vertex before visiting vertices further away. BFS is implemented similarly to DFS, except that a queue replaces the recursion stack. Note that if the graph is a tree and the start vertex is at the root, BFS is equivalent to visiting vertices level by level from top to bottom.
+Our second graph traversal algorithm is known as a [breadth-first search](#term-breadth-first-search) (BFS). BFS examines all vertices connected to the start vertex before visiting vertices further away. BFS is implemented similarly to DFS, except that a queue replaces the recursion stack. Note that if the graph is a tree and the start vertex is at the root, BFS is equivalent to visiting vertices level by level from top to bottom.
 
 This visualization shows a graph and the result of performing a BFS on it, resulting in a breadth-first search tree.
 
@@ -5700,7 +5700,7 @@ Here is an exercise for you to practice BFS.
 <a id="id1"></a>
 ## 11.4.1. Topological Sort
 
-Assume that we need to schedule a series of tasks, such as classes or construction jobs, where we cannot start one task until after its prerequisites are completed. We wish to organize the tasks into a linear order that allows us to complete them one at a time without violating any prerequisites. We can model the problem using a DAG. The graph is directed because one task is a prerequisite of another – the vertices have a directed relationship. It is acyclic because a cycle would indicate a conflicting series of prerequisites that could not be completed without violating at least one prerequisite. The process of laying out the vertices of a DAG in a linear order to meet the prerequisite rules is called a [topological sort](Glossary.md#term-topological-sort).
+Assume that we need to schedule a series of tasks, such as classes or construction jobs, where we cannot start one task until after its prerequisites are completed. We wish to organize the tasks into a linear order that allows us to complete them one at a time without violating any prerequisites. We can model the problem using a DAG. The graph is directed because one task is a prerequisite of another – the vertices have a directed relationship. It is acyclic because a cycle would indicate a conflicting series of prerequisites that could not be completed without violating at least one prerequisite. The process of laying out the vertices of a DAG in a linear order to meet the prerequisite rules is called a [topological sort](#term-topological-sort).
 
 Figure [11.4.1](GraphTopsort.md#topsort) illustrates the problem. An acceptable topological sort for this example is J1, J2, J3, J4, J5, J6, J7. However, other orders are also acceptable, such as J1, J3, J2, J6, J4, J5, J7.
 
@@ -5777,14 +5777,14 @@ void topsortBFS(Graph G) {          // Topological sort: Queue
 <a id="id1"></a>
 ## 11.5.1. Shortest-Paths Problems
 
-On a road map, a road connecting two towns is typically labeled with its distance. We can model a road network as a directed graph whose edges are labeled with real numbers. These numbers represent the distance (or other cost metric, such as travel time) between two vertices. These labels may be called [weights](Glossary.md#term-weight), [costs](Glossary.md#term-cost), or [distances](Glossary.md#term-distance), depending on the application. Given such a graph, a typical problem is to find the total length of the shortest path between two specified vertices. This is not a trivial problem, because the shortest path may not be along the edge (if any) connecting two vertices, but rather may be along a path involving one or more intermediate vertices.
+On a road map, a road connecting two towns is typically labeled with its distance. We can model a road network as a directed graph whose edges are labeled with real numbers. These numbers represent the distance (or other cost metric, such as travel time) between two vertices. These labels may be called [weights](#term-weight), [costs](#term-cost), or [distances](#term-distance), depending on the application. Given such a graph, a typical problem is to find the total length of the shortest path between two specified vertices. This is not a trivial problem, because the shortest path may not be along the edge (if any) connecting two vertices, but rather may be along a path involving one or more intermediate vertices.
 
 For example, in Figure [11.5.1](GraphShortest.md#distexamp), the cost of the path from $A$ to $B$ to $D$ is 15. The cost of the edge directly from $A$ to $D$ is 20. The cost of the path from $A$ to $C$ to $B$ to $D$ is 10. Thus, the shortest path from $A$ to $D$ is 10 (rather than along the edge connecting $A$ to $D$). We use the notation $\mathbf{d}(A, D) = 10$ to indicate that the shortest distance from $A$ to $D$ is 10. In Figure [11.5.1](GraphShortest.md#distexamp), there is no path from $E$ to $B$, so we set $\mathbf{d}(E, B) = \infty$. We define $\mathbf{w}(A, D) = 20$ to be the weight of edge $(A, D)$, that is, the weight of the direct connection from $A$ to $D$. Because there is no edge from $E$ to $B$, $\mathbf{w}(E, B) = \infty$. Note that $\mathbf{w}(D, A) = \infty$ because the graph of Figure [11.5.1](GraphShortest.md#distexamp) is directed. We assume that all weights are positive.
 
 <a id="single-source-shortest-paths"></a>
 ### 11.5.1.1. Single-Source Shortest Paths
 
-We will now present an algorithm to solve the [single-source shortest paths problem](Glossary.md#term-single-source-shortest-paths-problem). Given Vertex $S$ in Graph $\mathbf{G}$, find a shortest path from $S$ to every other vertex in $\mathbf{G}$. We might want only the shortest path between two vertices, $S$ and $T$. However in the worst case, finding the shortest path from $S$ to $T$ requires us to find the shortest paths from $S$ to every other vertex as well. So there is no better algorithm (in the worst case) for finding the shortest path to a single vertex than to find shortest paths to all vertices. The algorithm described here will only compute the distance to every such vertex, rather than recording the actual path. Recording the path requires only simple modifications to the algorithm.
+We will now present an algorithm to solve the [single-source shortest paths problem](#term-single-source-shortest-paths-problem). Given Vertex $S$ in Graph $\mathbf{G}$, find a shortest path from $S$ to every other vertex in $\mathbf{G}$. We might want only the shortest path between two vertices, $S$ and $T$. However in the worst case, finding the shortest path from $S$ to $T$ requires us to find the shortest paths from $S$ to every other vertex as well. So there is no better algorithm (in the worst case) for finding the shortest path to a single vertex than to find shortest paths to all vertices. The algorithm described here will only compute the distance to every such vertex, rather than recording the actual path. Recording the path requires only simple modifications to the algorithm.
 
 Computer networks provide an application for the single-source shortest-paths problem. The goal is to find the cheapest way for one computer to broadcast a message to all other computers on the network. The network can be modeled by a graph with edge weights indicating time or cost to send a message to a neighboring computer.
 
@@ -5884,14 +5884,14 @@ Now you can practice using Dijkstra’s algorithm.
 <a id="id1"></a>
 ## 11.6.1. Minimal Cost Spanning Trees
 
-The [minimal-cost spanning tree](Glossary.md#term-minimal-cost-spanning-tree) (MCST) problem takes as input a connected, undirected graph $\mathbf{G}$, where each edge has a distance or weight measure attached. The MCST is the graph containing the vertices of $\mathbf{G}$ along with the subset of $\mathbf{G}$ ‘s edges that (1) has minimum total cost as measured by summing the values for all of the edges in the subset, and (2) keeps the vertices connected. Applications where a solution to this problem is useful include soldering the shortest set of wires needed to connect a set of terminals on a circuit board, and connecting a set of cities by telephone lines in such a way as to require the least amount of cable.
+The [minimal-cost spanning tree](#term-minimal-cost-spanning-tree) (MCST) problem takes as input a connected, undirected graph $\mathbf{G}$, where each edge has a distance or weight measure attached. The MCST is the graph containing the vertices of $\mathbf{G}$ along with the subset of $\mathbf{G}$ ‘s edges that (1) has minimum total cost as measured by summing the values for all of the edges in the subset, and (2) keeps the vertices connected. Applications where a solution to this problem is useful include soldering the shortest set of wires needed to connect a set of terminals on a circuit board, and connecting a set of cities by telephone lines in such a way as to require the least amount of cable.
 
 The MCST contains no cycles. If a proposed MCST did have a cycle, a cheaper MCST could be had by removing any one of the edges in the cycle. Thus, the MCST is a free tree with $|\mathbf{V}| - 1$ edges. The name “minimum-cost spanning tree” comes from the fact that the required set of edges forms a tree, it spans the vertices (i.e., it connects them together), and it has minimum cost. Figure [11.6.1](MCST.md#mcstdgm) shows the MCST for an example graph.
 
 <a id="prim-s-algorithm"></a>
 ### 11.6.1.1. Prim’s Algorithm
 
-The first of our two algorithms for finding MCSTs is commonly referred to as [Prim’s algorithm](Glossary.md#term-prim-s-algorithm). Prim’s algorithm is very simple. Start with any Vertex $N$ in the graph, setting the MCST to be $N$ initially. Pick the least-cost edge connected to $N$. This edge connects $N$ to another vertex; call this $M$. Add Vertex $M$ and Edge $(N, M)$ to the MCST. Next, pick the least-cost edge coming from either $N$ or $M$ to any other vertex in the graph. Add this edge and the new vertex it reaches to the MCST. This process continues, at each step expanding the MCST by selecting the least-cost edge from a vertex currently in the MCST to a vertex not currently in the MCST.
+The first of our two algorithms for finding MCSTs is commonly referred to as [Prim’s algorithm](#term-prim-s-algorithm). Prim’s algorithm is very simple. Start with any Vertex $N$ in the graph, setting the MCST to be $N$ initially. Pick the least-cost edge connected to $N$. This edge connects $N$ to another vertex; call this $M$. Add Vertex $M$ and Edge $(N, M)$ to the MCST. Next, pick the least-cost edge coming from either $N$ or $M$ to any other vertex in the graph. Add this edge and the new vertex it reaches to the MCST. This process continues, at each step expanding the MCST by selecting the least-cost edge from a vertex currently in the MCST to a vertex not currently in the MCST.
 
 Prim’s algorithm is quite similar to Dijkstra’s algorithm for finding the single-source shortest paths. The primary difference is that we are seeking not the next closest vertex to the start vertex, but rather the next closest vertex to any vertex currently in the MCST. Thus we replace the lines:
 
@@ -5940,7 +5940,7 @@ For each vertex $I$, when $I$ is processed by Prim’s algorithm, an edge going 
 <a id="prim-s-algorithm-alternative-implementation"></a>
 ### 11.6.1.2. Prim’s Algorithm Alternative Implementation
 
-Alternatively, we can implement Prim’s algorithm using a [priority queue](Glossary.md#term-priority-queue) to find the next closest vertex, as shown next. As with the priority queue version of Dijkstra’s algorithm, the [heap](Glossary.md#term-heap) stores `DijkElem` objects.
+Alternatively, we can implement Prim’s algorithm using a [priority queue](#term-priority-queue) to find the next closest vertex, as shown next. As with the priority queue version of Dijkstra’s algorithm, the [heap](#term-heap) stores `DijkElem` objects.
 
 ```java
 // Prims MCST algorithm: priority queue version
@@ -5992,7 +5992,7 @@ Because $\mathbf{T}$ is a tree, there exists some path in $\mathbf{T}$ connectin
 <a id="id1"></a>
 ## 11.7.1. Kruskal’s Algorithm
 
-Our next MCST algorithm is commonly referred to as [Kruskal’s algorithm](Glossary.md#term-kruskal-s-algorithm). Kruskal’s algorithm is also a simple, greedy algorithm. First partition the set of vertices into $|\mathbf{V}|$ [disjoint sets](UnionFind.md#unionfind), each consisting of one vertex. Then process the edges in order of weight. An edge is added to the MCST, and two disjoint sets combined, if the edge connects two vertices in different disjoint sets. This process is repeated until only one disjoint set remains.
+Our next MCST algorithm is commonly referred to as [Kruskal’s algorithm](#term-kruskal-s-algorithm). Kruskal’s algorithm is also a simple, greedy algorithm. First partition the set of vertices into $|\mathbf{V}|$ [disjoint sets](UnionFind.md#unionfind), each consisting of one vertex. Then process the edges in order of weight. An edge is added to the MCST, and two disjoint sets combined, if the edge connects two vertices in different disjoint sets. This process is repeated until only one disjoint set remains.
 
 The edges can be processed in order of weight by using a min-heap. This is generally faster than sorting the edges first, because in practice we need only visit a small fraction of the edges before completing the MCST. This is an example of finding only a [few smallest elements](Heapsort.md#heapsort) in a list.
 
@@ -6032,12 +6032,12 @@ Kruskal’s algorithm is dominated by the time required to process the edges. Th
 <a id="all-pairs-shortest-paths"></a>
 # 11.8. All-Pairs Shortest Paths
 
-We next consider the problem of finding the shortest distance between all pairs of vertices in the graph, called the [all-pairs shortest paths problem](Glossary.md#term-all-pairs-shortest-paths-problem). To be precise, for every $u, v \in \mathbf{V}$, calculate $d(u, v)$.
+We next consider the problem of finding the shortest distance between all pairs of vertices in the graph, called the [all-pairs shortest paths problem](#term-all-pairs-shortest-paths-problem). To be precise, for every $u, v \in \mathbf{V}$, calculate $d(u, v)$.
 
-One solution is to run [Dijkstra’s algorithm](Glossary.md#term-dijkstra-s-algorithm) for finding the [shortest path](Glossary.md#term-single-source-shortest-paths-problem) $|\mathbf{V}|$ times, each time computing the shortest path from a different start vertex. If $\mathbf{G}$ is sparse (that is, $|\mathbf{E}| = \Theta(|\mathbf{V}|)$) then this is a good solution, because the total cost will be $\Theta(|\mathbf{V}|^2 + |\mathbf{V}||\mathbf{E}| \log
+One solution is to run [Dijkstra’s algorithm](#term-dijkstra-s-algorithm) for finding the [shortest path](#term-single-source-shortest-paths-problem) $|\mathbf{V}|$ times, each time computing the shortest path from a different start vertex. If $\mathbf{G}$ is sparse (that is, $|\mathbf{E}| = \Theta(|\mathbf{V}|)$) then this is a good solution, because the total cost will be $\Theta(|\mathbf{V}|^2 + |\mathbf{V}||\mathbf{E}| \log
 |\mathbf{V}|) = \Theta(|\mathbf{V}|^2 \log |\mathbf{V}|)$ for the version of Dijkstra’s algorithm based on priority queues. For a dense graph, the priority queue version of Dijkstra’s algorithm yields a cost of $\Theta(|\mathbf{V}|^3 \log |\mathbf{V}|)$, but the version using `MinVertex` yields a cost of $\Theta(|\mathbf{V}|^3)$.
 
-Another solution that limits processing time to $\Theta(|\mathbf{V}|^3)$ regardless of the number of edges is known as Floyd’s algorithm. It is an example of dynamic programming. The chief problem with solving this problem is organizing the search process so that we do not repeatedly solve the same subproblems. We will do this organization through the use of the $k$-path. Define a [k-path](Glossary.md#term-k-path) from vertex $v$ to vertex $u$ to be any path whose intermediate vertices (aside from $v$ and $u$) all have indices less than $k$. A 0-path is defined to be a direct edge from $v$ to $u$. Figure [11.8.1](Floyd.md#floydexamp) illustrates the concept of $k$-paths.
+Another solution that limits processing time to $\Theta(|\mathbf{V}|^3)$ regardless of the number of edges is known as Floyd’s algorithm. It is an example of dynamic programming. The chief problem with solving this problem is organizing the search process so that we do not repeatedly solve the same subproblems. We will do this organization through the use of the $k$-path. Define a [k-path](#term-k-path) from vertex $v$ to vertex $u$ to be any path whose intermediate vertices (aside from $v$ and $u$) all have indices less than $k$. A 0-path is defined to be a direct edge from $v$ to $u$. Figure [11.8.1](Floyd.md#floydexamp) illustrates the concept of $k$-paths.
 
 ![An example of :math:`k`-paths in Floyd's algorithm](tddi16f25.img/Floyd.png)
 
@@ -6072,11 +6072,11 @@ Clearly this algorithm requires $\Theta(|\mathbf{V}|^3)$ running time, and it is
 <a id="chapter-introduction-sorting"></a>
 # 12.1. Chapter Introduction: Sorting
 
-We sort many things in our everyday lives: A handful of cards when playing Bridge; bills and other piles of paper; jars of spices; and so on. And we have many intuitive strategies that we can use to do the sorting, depending on how many objects we have to sort and how hard they are to move around. Sorting is also one of the most frequently performed computing tasks. We might sort the records in a database so that we can search the collection efficiently. We might sort customer records by zip code so that when we print an advertisement we can then mail them more cheaply. We might use sorting to help an algorithm to solve some other problem. For example, [Kruskal’s algorithm](Glossary.md#term-kruskal-s-algorithm) to find a [minimal-cost spanning tree](MCST.md#mcst) must sort the edges of a graph by their lengths before it can process them.
+We sort many things in our everyday lives: A handful of cards when playing Bridge; bills and other piles of paper; jars of spices; and so on. And we have many intuitive strategies that we can use to do the sorting, depending on how many objects we have to sort and how hard they are to move around. Sorting is also one of the most frequently performed computing tasks. We might sort the records in a database so that we can search the collection efficiently. We might sort customer records by zip code so that when we print an advertisement we can then mail them more cheaply. We might use sorting to help an algorithm to solve some other problem. For example, [Kruskal’s algorithm](#term-kruskal-s-algorithm) to find a [minimal-cost spanning tree](MCST.md#mcst) must sort the edges of a graph by their lengths before it can process them.
 
 Because sorting is so important, naturally it has been studied intensively and many algorithms have been devised. Some of these algorithms are straightforward adaptations of schemes we use in everyday life. For example, a natural way to sort your cards in a bridge hand is to go from left to right, and place each card in turn in its correct position relative to the other cards that you have already sorted. This is the idea behind [Insertion Sort](InsertionSort.md#insertionsort). Other sorting algorithms are totally alien to how humans do things, having been invented to sort thousands or even millions of records stored on the computer. For example, no normal person would use [Quicksort](Quicksort.md#quicksort) to order a pile of bills by date, even though Quicksort is the standard sorting algorithm of choice for most software libraries. After years of study, there are still unsolved problems related to sorting. New algorithms are still being developed and refined for special-purpose applications.
 
-Along with introducing this central problem in computer science, studying sorting algorithms helps us to understand issues in algorithm design and analysis. For example, the sorting algorithms in this chapter show multiple approaches to using [divide and conquer](Glossary.md#term-divide-and-conquer). In particular, there are multiple ways to do the dividing. [Mergesort](Mergesort.md#mergesort) divides a list in half. [Quicksort](Quicksort.md#quicksort) divides a list into big values and small values. [Radix Sort](RadixSort.md#radixsort) divides the problem by working on one digit of the key at a time. Sorting algorithms can also illustrate a wide variety of algorithm analysis techniques. Quicksort illustrates that it is possible for an algorithm to have an [average case](Glossary.md#term-average-case) whose growth rate is significantly smaller than its [worst case](Glossary.md#term-worst-case). It is possible to speed up one sorting algorithm (such as [Shellsort](Shellsort.md#shellsort) or Quicksort) by taking advantage of the [best case](Glossary.md#term-best-case) behavior of another algorithm (Insertion Sort). Special case behavior by some sorting algorithms makes them a good solution for special niche applications ([Heapsort](Heapsort.md#heapsort)). Sorting provides an example of an important technique for analyzing the lower bound for a problem. [External Sorting](Glossary.md#term-external-sort) refers to the process of sorting large files stored on disk.
+Along with introducing this central problem in computer science, studying sorting algorithms helps us to understand issues in algorithm design and analysis. For example, the sorting algorithms in this chapter show multiple approaches to using [divide and conquer](#term-divide-and-conquer). In particular, there are multiple ways to do the dividing. [Mergesort](Mergesort.md#mergesort) divides a list in half. [Quicksort](Quicksort.md#quicksort) divides a list into big values and small values. [Radix Sort](RadixSort.md#radixsort) divides the problem by working on one digit of the key at a time. Sorting algorithms can also illustrate a wide variety of algorithm analysis techniques. Quicksort illustrates that it is possible for an algorithm to have an [average case](#term-average-case) whose growth rate is significantly smaller than its [worst case](#term-worst-case). It is possible to speed up one sorting algorithm (such as [Shellsort](Shellsort.md#shellsort) or Quicksort) by taking advantage of the [best case](#term-best-case) behavior of another algorithm (Insertion Sort). Special case behavior by some sorting algorithms makes them a good solution for special niche applications ([Heapsort](Heapsort.md#heapsort)). Sorting provides an example of an important technique for analyzing the lower bound for a problem. [External Sorting](#term-external-sort) refers to the process of sorting large files stored on disk.
 
 This chapter covers several standard algorithms appropriate for sorting a collection of records that fit into the computer’s main memory. It begins with a discussion of three simple, but relatively slow, algorithms that require $\Theta(n^2)$ time in the average and worst cases to sort $n$ records. Several algorithms with considerably better performance are then presented, some with $\Theta(n \log n)$ worst-case running time. The final sorting method presented requires only $\Theta(n)$ worst-case time under special conditions (but it cannot run that fast in the general case). The chapter concludes with a proof that sorting in general requires $\Omega(n \log n)$ time in the worst case.
 
@@ -6087,11 +6087,11 @@ This chapter covers several standard algorithms appropriate for sorting a collec
 <a id="id1"></a>
 ## 12.2.1. Sorting Terminology and Notation
 
-Given a set of records $r_1$, $r_2$, …, $r_n$ with associated key values $k_1$, $k_2$, …, $k_n$, the [Sorting Problem](Glossary.md#term-sorting-problem) is to arrange the records into any order $s$ such that records $r_{s_1}$, $r_{s_2}$, …, $r_{s_n}$ have keys obeying the property $k_{s_1} \leq k_{s_2} \leq ... \leq k_{s_n}$. In other words, the sorting problem is to arrange a set of records so that the values of their key fields are in non-decreasing order.
+Given a set of records $r_1$, $r_2$, …, $r_n$ with associated key values $k_1$, $k_2$, …, $k_n$, the [Sorting Problem](#term-sorting-problem) is to arrange the records into any order $s$ such that records $r_{s_1}$, $r_{s_2}$, …, $r_{s_n}$ have keys obeying the property $k_{s_1} \leq k_{s_2} \leq ... \leq k_{s_n}$. In other words, the sorting problem is to arrange a set of records so that the values of their key fields are in non-decreasing order.
 
 As defined, the Sorting Problem allows input with two or more records that have the same key value. Certain applications require that input not contain duplicate key values. Typically, sorting algorithms can handle duplicate key values unless noted otherwise.
 
-When duplicate key values are allowed, there might be an implicit ordering to the duplicates, typically based on their order of occurrence within the input. It might be desirable to maintain this initial ordering among duplicates. A sorting algorithm is said to be [stable](Glossary.md#term-stable) if it does not change the relative ordering of records with identical key values. Many, but not all, of the sorting algorithms presented in this chapter are stable, or can be made stable with minor changes.
+When duplicate key values are allowed, there might be an implicit ordering to the duplicates, typically based on their order of occurrence within the input. It might be desirable to maintain this initial ordering among duplicates. A sorting algorithm is said to be [stable](#term-stable) if it does not change the relative ordering of records with identical key values. Many, but not all, of the sorting algorithms presented in this chapter are stable, or can be made stable with minor changes.
 
 When comparing two sorting algorithms, the simplest approach would be to program both and measure their running times. This is an example of [empirical comparison](SortingEmpirical.md#sortingempirical). However, doing fair empirical comparisons can be tricky because the running time for many sorting algorithms depends on specifics of the input values. The number of records, the size of the keys and the records, the allowable range of the key values, and the amount by which the input records are “out of order” can all greatly affect the relative running times for sorting algorithms.
 
@@ -6108,7 +6108,7 @@ Finally, some situations require that a sorting algorithm use as little memory a
 <a id="id1"></a>
 ## 12.3.1. Insertion Sort
 
-What would you do if you have a stack of phone bills from the past two years and you want to order by date? A fairly natural way to handle this is to look at the first two bills and put them in order. Then take the third bill and put it into the right position with respect to the first two, and so on. As you take each bill, you would add it to the sorted pile that you have already made. This simple approach is the inspiration for our first sorting algorithm, called [Insertion Sort](Glossary.md#term-insertion-sort).
+What would you do if you have a stack of phone bills from the past two years and you want to order by date? A fairly natural way to handle this is to look at the first two bills and put them in order. Then take the third bill and put it into the right position with respect to the first two, and so on. As you take each bill, you would add it to the sorted pile that you have already made. This simple approach is the inspiration for our first sorting algorithm, called [Insertion Sort](#term-insertion-sort).
 
 Insertion Sort iterates through a list of records. For each iteration, the current record is inserted in turn at the correct position within a sorted list composed of those records already processed. Here is an implementation. The input is an array named `A` that stores $n$ records.
 
@@ -6120,7 +6120,7 @@ static <T extends Comparable<T>> void inssort(T[] A) {
 }
 ```
 
-(Note that to make the explanation for these sorting algorithms as simple as possible, our visualizations will show the array as though it stored simple integers rather than more complex records. But you should realize that in practice, there is rarely any point to sorting an array of simple integers. Nearly always we want to sort more complex records that each have a [key](Glossary.md#term-key) value. In such cases we must [have a way](Comparison.md#comparison) to associate a key value with a record. The sorting algorithms will simply assume that the records are [comparable](Glossary.md#term-comparable).)
+(Note that to make the explanation for these sorting algorithms as simple as possible, our visualizations will show the array as though it stored simple integers rather than more complex records. But you should realize that in practice, there is rarely any point to sorting an array of simple integers. Nearly always we want to sort more complex records that each have a [key](#term-key) value. In such cases we must [have a way](Comparison.md#comparison) to associate a key value with a record. The sorting algorithms will simply assume that the records are [comparable](#term-comparable).)
 
 Here we see the first few iterations of Insertion Sort.
 
@@ -6144,7 +6144,7 @@ See [Computational Fairy Tales: Why Tailors Use Insertion Sort](http://computati
 <a id="id1"></a>
 ## 12.4.1. Bubble Sort
 
-Our next sorting algorithm is called [Bubble Sort](Glossary.md#term-bubble-sort). Bubble Sort is often taught to novice programmers in introductory computer science courses. This is unfortunate, because Bubble Sort has no redeeming features whatsoever. It is rather slow, even compared to the other $\Theta(n^2)$ sorts that are commonly known. It is not particularly intutitive – nobody is going to come naturally to Bubble Sort as a way to sort their Bridge hand or their pile of bills like they might with [Insertion Sort](InsertionSort.md#insertionsort) or [Selection Sort](SelectionSort.md#selectionsort). However, Bubble Sort can viewed as a close relative of Selection Sort.
+Our next sorting algorithm is called [Bubble Sort](#term-bubble-sort). Bubble Sort is often taught to novice programmers in introductory computer science courses. This is unfortunate, because Bubble Sort has no redeeming features whatsoever. It is rather slow, even compared to the other $\Theta(n^2)$ sorts that are commonly known. It is not particularly intutitive – nobody is going to come naturally to Bubble Sort as a way to sort their Bridge hand or their pile of bills like they might with [Insertion Sort](InsertionSort.md#insertionsort) or [Selection Sort](SelectionSort.md#selectionsort). However, Bubble Sort can viewed as a close relative of Selection Sort.
 
 Like Insertion Sort, Bubble Sort consists of a simple double `for` loop. The inner `for` loop moves through the record array from left to right, comparing adjacent keys. If a record’s key value is greater than the key of its right neighbor, then the two records are swapped. Once the record with the largest key value is encountered, this process will cause it to “bubble” up to the right of the array (which is where Bubble Sort gets its name). The second pass through the array repeats this process. However, because we know that the record with the largest value already reached the right of the array on the first pass, there is no need to compare the rightmost two records on the second pass. Likewise, each succeeding pass through the array compares adjacent records, looking at one less record toward the end than did the preceding pass. Here is an implementation.
 
@@ -6183,7 +6183,7 @@ Here are some review questions to check your understanding of Bubble Sort.
 <a id="id1"></a>
 ## 12.5.1. Selection Sort
 
-Consider again the problem of sorting a pile of phone bills for the past year. Another intuitive approach might be to look through the pile until you find the bill for January, and pull that out. Then look through the remaining pile until you find the bill for February, and add that behind January. Proceed through the ever-shrinking pile of bills to select the next one in order until you are done. This is the inspiration for our last $\Theta(n^2)$ sort, called [Selection Sort](Glossary.md#term-selection-sort). The $i$’th pass of Selection Sort “selects” the $i$’th smallest key in the array, placing that record at the start of the array. In other words, Selection Sort first finds the smallest key in an unsorted list, then the next smallest, and so on. Its unique feature is that there are few record swaps. To find the next-smallest key value requires searching through the entire unsorted portion of the array, but only one swap is required to put the record into place. Thus, the total number of swaps required will be $n-1$ (we get the last record in place “for free”).
+Consider again the problem of sorting a pile of phone bills for the past year. Another intuitive approach might be to look through the pile until you find the bill for January, and pull that out. Then look through the remaining pile until you find the bill for February, and add that behind January. Proceed through the ever-shrinking pile of bills to select the next one in order until you are done. This is the inspiration for our last $\Theta(n^2)$ sort, called [Selection Sort](#term-selection-sort). The $i$’th pass of Selection Sort “selects” the $i$’th smallest key in the array, placing that record at the start of the array. In other words, Selection Sort first finds the smallest key in an unsorted list, then the next smallest, and so on. Its unique feature is that there are few record swaps. To find the next-smallest key value requires searching through the entire unsorted portion of the array, but only one swap is required to put the record into place. Thus, the total number of swaps required will be $n-1$ (we get the last record in place “for free”).
 
 Here is an implementation for Selection Sort.
 
@@ -6232,18 +6232,18 @@ Here is a summary for the cost of Insertion Sort, Bubble Sort, and Selection Sor
 <a id="equation-exchangesort-0"></a>
 $$
 \begin{aligned}\begin{array}{rccc}
-&\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\cr 
-\textbf{Comparisons:}&&&\cr 
-\textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\cr 
-\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr 
-\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr \cr 
-\textbf{Swaps:}&&&\cr 
-\textrm{Best Case}&0&0&\Theta(n)\cr 
-\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr 
+&\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\cr
+\textbf{Comparisons:}&&&\cr
+\textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\cr
+\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr
+\textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\cr \cr
+\textbf{Swaps:}&&&\cr
+\textrm{Best Case}&0&0&\Theta(n)\cr
+\textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr
 \textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\cr \end{array}\end{aligned}
 $$
 
-The remaining sorting algorithms presented in this tutorial are significantly better than these three under typical conditions. But before continuing on, it is instructive to investigate what makes these three sorts so slow. The crucial bottleneck is that only *adjacent* records are compared. Thus, comparisons and moves (for Insertion and Bubble Sort) are by single steps. Swapping adjacent records is called an [exchange](Glossary.md#term-exchange). Thus, these sorts are sometimes referred to as an [exchange sort](Glossary.md#term-exchange-sort). The cost of any exchange sort can be at best the total number of steps that the records in the array must move to reach their “correct” location. Recall that this is at least the number of inversions for the record, where an inversion occurs when a record with key value greater than the current record’s key value appears before it.
+The remaining sorting algorithms presented in this tutorial are significantly better than these three under typical conditions. But before continuing on, it is instructive to investigate what makes these three sorts so slow. The crucial bottleneck is that only *adjacent* records are compared. Thus, comparisons and moves (for Insertion and Bubble Sort) are by single steps. Swapping adjacent records is called an [exchange](#term-exchange). Thus, these sorts are sometimes referred to as an [exchange sort](#term-exchange-sort). The cost of any exchange sort can be at best the total number of steps that the records in the array must move to reach their “correct” location. Recall that this is at least the number of inversions for the record, where an inversion occurs when a record with key value greater than the current record’s key value appears before it.
 
 <a id="analysis"></a>
 ## 12.6.2. Analysis
@@ -6283,19 +6283,19 @@ $$
 \begin{aligned}\begin{array}{l|rrrr}
 \hline
 \textbf{Sort} & \textbf{Java}& \textbf{Processing} & \textbf{JavaScript}&
-\textbf{Python}\cr 
+\textbf{Python}\cr
 \hline
-\textbf{Insertion Sort}&&&&\cr 
-\textrm{Standard}    &  60 &  26 & 118 & 11,220\cr 
-\textrm{Shifting}    &  41 &  18 &  77 &  5,100\cr 
+\textbf{Insertion Sort}&&&&\cr
+\textrm{Standard}    &  60 &  26 & 118 & 11,220\cr
+\textrm{Shifting}    &  41 &  18 &  77 &  5,100\cr
 \hline
-\textbf{Bubble Sort}&&&&\cr 
-\textrm{Standard}    & 202 & 149 & 303 & 12,700\cr 
-\textrm{Check Swaps} & 230 & 152 & 327 & 13,275\cr 
+\textbf{Bubble Sort}&&&&\cr
+\textrm{Standard}    & 202 & 149 & 303 & 12,700\cr
+\textrm{Check Swaps} & 230 & 152 & 327 & 13,275\cr
 \hline
-\textbf{Selection Sort}&&&&\cr 
-\textrm{Standard}    & 104 &  65 & 158 &  4,000\cr 
-\textrm{Check Swaps} & 104 &  65 & 155 &  4,050\cr 
+\textbf{Selection Sort}&&&&\cr
+\textrm{Standard}    & 104 &  65 & 158 &  4,000\cr
+\textrm{Check Swaps} & 104 &  65 & 155 &  4,050\cr
 \hline&&&&\end{array}\end{aligned}
 $$
 
@@ -6343,7 +6343,7 @@ Another important consideration is the type of data object being used. For Proce
 <a id="id2"></a>
 ## 12.8.1. Shellsort
 
-Shellsort was named for its inventor, D.L. Shell, who first published it in 1959. It is also sometimes called the [diminishing increment sort](Glossary.md#term-diminishing-increment-sort). When properly implemented, [Shellsort](Glossary.md#term-shellsort) will give substantially better performance than any of the $\theta(n^2)$ sorts like Insertion Sort or Selection Sort. But it is also a bit more complicated than those simple $\theta(n^2)$ sorts. Unlike Insertion Sort and Selection Sort, there is no real-life intuition to inspire Shellsort – nobody will use Shellsort to sort their Bridge hand or organize their bills. The key idea behind Shellsort is to exploit the best-case performance of Insertion Sort. Recall that when a list is sorted or nearly sorted, Insertion Sort runs in linear time. So Shellsort’s strategy is to quickly make the list “mostly sorted”, so that a final Insertion Sort can finish the job.
+Shellsort was named for its inventor, D.L. Shell, who first published it in 1959. It is also sometimes called the [diminishing increment sort](#term-diminishing-increment-sort). When properly implemented, [Shellsort](#term-shellsort) will give substantially better performance than any of the $\theta(n^2)$ sorts like Insertion Sort or Selection Sort. But it is also a bit more complicated than those simple $\theta(n^2)$ sorts. Unlike Insertion Sort and Selection Sort, there is no real-life intuition to inspire Shellsort – nobody will use Shellsort to sort their Bridge hand or organize their bills. The key idea behind Shellsort is to exploit the best-case performance of Insertion Sort. Recall that when a list is sorted or nearly sorted, Insertion Sort runs in linear time. So Shellsort’s strategy is to quickly make the list “mostly sorted”, so that a final Insertion Sort can finish the job.
 
 Shellsort does what most good sorts do: Break the input into pieces, sort the pieces, then recombine them. But Shellsort does this in an unusual way, breaking its input into “virtual” sublists that are often not contiguous. Each such sublist is sorted using an Insertion Sort. Another group of sublists is then chosen and sorted, and so on.
 
@@ -6388,7 +6388,7 @@ void shellsort(Comparable* A[], int n) {
 // Modified Insertion Sort for varying increments
 void inssort2(Comparable* A[], int start, int incr, int n) {
   for (int i = start+incr; i < n; i += incr)
-    for (int j = i; ((j >= incr) && (*A[j] < *A[j-incr])); j -= incr) 
+    for (int j = i; ((j >= incr) && (*A[j] < *A[j-incr])); j -= incr)
       swap(A, j, j-incr);
 }
 ```
@@ -6432,7 +6432,7 @@ If you want to know more about Shellsort, you can find a lot of details about it
 <a id="id1"></a>
 ## 12.9.1. Mergesort Concepts
 
-A natural approach to problem solving is divide and conquer. To use divide and conquer when sorting, we might consider breaking the list to be sorted into pieces, process the pieces, and then put them back together somehow. A simple way to do this would be to split the list in half, sort the halves, and then merge the sorted halves together. This is the idea behind [Mergesort](Glossary.md#term-mergesort).
+A natural approach to problem solving is divide and conquer. To use divide and conquer when sorting, we might consider breaking the list to be sorted into pieces, process the pieces, and then put them back together somehow. A simple way to do this would be to split the list in half, sort the halves, and then merge the sorted halves together. This is the idea behind [Mergesort](#term-mergesort).
 
 Mergesort is one of the simplest sorting algorithms conceptually, and has good performance both in the asymptotic sense and in empirical running time. Unfortunately, even though it is based on a simple concept, it is relatively difficult to implement in practice. Here is a pseudocode sketch of Mergesort:
 
@@ -6514,13 +6514,13 @@ void mergesort(Comparable* A[], Comparable* temp[], int left, int right) {
   for (int curr = left; curr <= right; curr++) {
     if (i1 == mid+1)   // Left sublist exhausted
       *A[curr] = *temp[i2++];
-    else if (i2 > right)   // Right sublist exhausted 
+    else if (i2 > right)   // Right sublist exhausted
       *A[curr] = *temp[i1++];
     else if (*temp[i1] <= *temp[i2])    // Get smaller value
-      *A[curr] = *temp[i1++]; 
+      *A[curr] = *temp[i1++];
     else
-      *A[curr] = *temp[i2++]; 
-  }   
+      *A[curr] = *temp[i2++];
+  }
 }
 ```
 
@@ -6557,11 +6557,11 @@ Here is a visualization for the optimized merge step.
 
 While Mergesort uses the most obvious form of divide and conquer (split the list in half then sort the halves), this is not the only way that we can break down the sorting problem. We saw that doing the merge step for Mergesort when using an array implementation is not so easy. So perhaps a different divide and conquer strategy might turn out to be more efficient?
 
-[Quicksort](Glossary.md#term-quicksort) is aptly named because, when properly implemented, it is the fastest known general-purpose in-memory sorting algorithm in the average case. It does not require the extra array needed by Mergesort, so it is space efficient as well. Quicksort is widely used, and is typically the algorithm implemented in a library sort routine such as the UNIX `qsort` function. Interestingly, Quicksort is hampered by exceedingly poor worst-case performance, thus making it inappropriate for certain applications.
+[Quicksort](#term-quicksort) is aptly named because, when properly implemented, it is the fastest known general-purpose in-memory sorting algorithm in the average case. It does not require the extra array needed by Mergesort, so it is space efficient as well. Quicksort is widely used, and is typically the algorithm implemented in a library sort routine such as the UNIX `qsort` function. Interestingly, Quicksort is hampered by exceedingly poor worst-case performance, thus making it inappropriate for certain applications.
 
 Before we get to Quicksort, consider for a moment the practicality of using a Binary Search Tree for sorting. You could insert all of the values to be sorted into the BST one by one, then traverse the completed tree using an inorder traversal. The output would form a sorted list. This approach has a number of drawbacks, including the extra space required by BST pointers and the amount of time required to insert nodes into the tree. However, this method introduces some interesting ideas. First, the root of the BST (i.e., the first node inserted) splits the list into two sublists: The left subtree contains those values in the list less than the root value while the right subtree contains those values in the list greater than or equal to the root value. Thus, the BST implicitly implements a “divide and conquer” approach to sorting the left and right subtrees. Quicksort implements this same concept in a much more efficient way.
 
-Quicksort first selects a value called the [pivot](Glossary.md#term-pivot). (This is conceptually like the root node’s value in the BST.) Assume that the input array contains $k$ records with key values less than the pivot. The records are then rearranged in such a way that the $k$ values less than the pivot are placed in the first, or leftmost, $k$ positions in the array, and the values greater than or equal to the pivot are placed in the last, or rightmost, $n-k$ positions. This is called a [partition](Glossary.md#term-partition) of the array. The values placed in a given partition need not (and typically will not) be sorted with respect to each other. All that is required is that all values end up in the correct partition. The pivot value itself is placed in position $k$. Quicksort then proceeds to sort the resulting subarrays now on either side of the pivot, one of size $k$ and the other of size $n-k-1$. How are these values sorted? Because Quicksort is such a good algorithm, using Quicksort on the subarrays would be appropriate.
+Quicksort first selects a value called the [pivot](#term-pivot). (This is conceptually like the root node’s value in the BST.) Assume that the input array contains $k$ records with key values less than the pivot. The records are then rearranged in such a way that the $k$ values less than the pivot are placed in the first, or leftmost, $k$ positions in the array, and the values greater than or equal to the pivot are placed in the last, or rightmost, $n-k$ positions. This is called a [partition](#term-partition) of the array. The values placed in a given partition need not (and typically will not) be sorted with respect to each other. All that is required is that all values end up in the correct partition. The pivot value itself is placed in position $k$. Quicksort then proceeds to sort the resulting subarrays now on either side of the pivot, one of size $k$ and the other of size $n-k-1$. How are these values sorted? Because Quicksort is such a good algorithm, using Quicksort on the subarrays would be appropriate.
 
 Unlike some of the sorts that we have seen earlier in this chapter, Quicksort might not seem very “natural” in that it is not an approach that a person is likely to use to sort real objects. But it should not be too surprising that a really efficient sort for huge numbers of abstract objects on a computer would be rather different from our experiences with sorting a relatively few physical objects.
 
@@ -6658,7 +6658,7 @@ Our discussion of Quicksort began by considering the practicality of using a BST
 
 A good sorting algorithm can be devised based on a tree structure more suited to the purpose. In particular, we would like the tree to be balanced, space efficient, and fast. The algorithm should take advantage of the fact that sorting is a special-purpose application in that all of the values to be stored are available at the start. This means that we do not necessarily need to insert one value at a time into the tree structure.
 
-[Heapsort](Glossary.md#term-heapsort) is based on the [heap](Heaps.md#heaps) data structure. Heapsort has all of the advantages just listed. The complete binary tree is balanced, its array representation is space efficient, and we can load all values into the tree at once, taking advantage of the efficient `buildheap` function. The asymptotic performance of Heapsort when all of the records have unique key values is $\Theta(n \log n)$ in the best, average, and worst cases. It is not as fast as Quicksort in the average case (by a constant factor), but Heapsort has special properties that will make it particularly useful for [external sorting](Glossary.md#term-external-sort) algorithms, used when sorting data sets too large to fit in main memory.
+[Heapsort](#term-heapsort) is based on the [heap](Heaps.md#heaps) data structure. Heapsort has all of the advantages just listed. The complete binary tree is balanced, its array representation is space efficient, and we can load all values into the tree at once, taking advantage of the efficient `buildheap` function. The asymptotic performance of Heapsort when all of the records have unique key values is $\Theta(n \log n)$ in the best, average, and worst cases. It is not as fast as Quicksort in the average case (by a constant factor), but Heapsort has special properties that will make it particularly useful for [external sorting](#term-external-sort) algorithms, used when sorting data sets too large to fit in main memory.
 
 A complete implementation is as follows.
 
@@ -6687,7 +6687,7 @@ Now test yourself to see how well you understand Heapsort. Can you reproduce its
 
 This visualization presents the running time analysis of Heap Sort
 
-While typically slower than Quicksort by a constant factor (because unloading the heap using `removemax` is somewhat slower than Quicksort’s series of partitions), Heapsort has one special advantage over the other sorts studied so far. Building the heap is relatively cheap, requiring $\Theta(n)$ time. Removing the maximum-valued record from the heap requires $\Theta(\log n)$ time. Thus, if we wish to find the $k$ records with the largest key values in an array, we can do so in time $\Theta(n + k \log n)$. If $k$ is small, this is a substantial improvement over the time required to find the $k$ largest-valued records using one of the other sorting methods described earlier (many of which would require sorting all of the array first). One situation where we are able to take advantage of this concept is in the implementation of [Kruskal’s algorithm](MCST.md#mcst) for [minimal-cost spanning trees](Glossary.md#term-minimal-cost-spanning-tree). That algorithm requires that edges be visited in ascending order (so, use a min-heap), but this process stops as soon as the MST is complete. Thus, only a relatively small fraction of the edges need be sorted.
+While typically slower than Quicksort by a constant factor (because unloading the heap using `removemax` is somewhat slower than Quicksort’s series of partitions), Heapsort has one special advantage over the other sorts studied so far. Building the heap is relatively cheap, requiring $\Theta(n)$ time. Removing the maximum-valued record from the heap requires $\Theta(\log n)$ time. Thus, if we wish to find the $k$ records with the largest key values in an array, we can do so in time $\Theta(n + k \log n)$. If $k$ is small, this is a substantial improvement over the time required to find the $k$ largest-valued records using one of the other sorting methods described earlier (many of which would require sorting all of the array first). One situation where we are able to take advantage of this concept is in the implementation of [Kruskal’s algorithm](MCST.md#mcst) for [minimal-cost spanning trees](#term-minimal-cost-spanning-tree). That algorithm requires that edges be visited in ascending order (so, use a min-heap), but this process stops as soon as the MST is complete. Thus, only a relatively small fraction of the edges need be sorted.
 
 
 <a id="index-0"></a>
@@ -6696,7 +6696,7 @@ While typically slower than Quicksort by a constant factor (because unloading th
 <a id="id2"></a>
 ## 12.13.1. Binsort
 
-Imagine that for the past year, as you paid your various bills, you then simply piled all the paperwork into a corner somewhere. Now the year has ended and you have decided that it is time to sort all of these papers by what the bill was for (phone, electricity, rent, etc.) and date. A pretty natural approach is to make some space on the floor and, as you go through the pile of papers, put the phone bills into one pile, the electric bills into another pile, and so on. Once this initial assignment of bills to piles is done (in one pass), you can then sort each pile by date relatively quickly, because each pile is fairly small. This is the basic idea behind a [Binsort](Glossary.md#term-binsort).
+Imagine that for the past year, as you paid your various bills, you then simply piled all the paperwork into a corner somewhere. Now the year has ended and you have decided that it is time to sort all of these papers by what the bill was for (phone, electricity, rent, etc.) and date. A pretty natural approach is to make some space on the floor and, as you go through the pile of papers, put the phone bills into one pile, the electric bills into another pile, and so on. Once this initial assignment of bills to piles is done (in one pass), you can then sort each pile by date relatively quickly, because each pile is fairly small. This is the basic idea behind a [Binsort](#term-binsort).
 
 Let’s start with an especially easy situation. Consider the following code fragment to sort a permutation of the numbers 0 through $n-1$.
 
@@ -6705,7 +6705,7 @@ Let’s start with an especially easy situation. Consider the following code fra
     B[A[i]] = A[i];
 ```
 
-Here the key value is used to determine the position for a record in the final sorted array. This is the most basic example of a [Binsort](Glossary.md#term-binsort), where key values are used to assign records to bins. This algorithm is extremely efficient, always taking $\Theta(n)$ time regardless of the initial ordering of the keys. This is far better than the performance of any sorting algorithm that we have seen so far. The problem is that this algorithm has limited use because it works only for a permutation of the numbers from 0 to $n-1$.
+Here the key value is used to determine the position for a record in the final sorted array. This is the most basic example of a [Binsort](#term-binsort), where key values are used to assign records to bins. This algorithm is extremely efficient, always taking $\Theta(n)$ time regardless of the initial ordering of the keys. This is far better than the performance of any sorting algorithm that we have seen so far. The problem is that this algorithm has limited use because it works only for a permutation of the numbers from 0 to $n-1$.
 
 We can extend this simple version of the Binsort algorithm to be more useful. Because Binsort must perform direct computation on the key value (as opposed to just asking which of two records comes first as our previous sorting algorithms did), we will assume that the records use an integer key type.
 
@@ -6731,7 +6731,7 @@ The total work required is simply that needed to place each record into the appr
 
 Does that cost analysis really make sense? Actually, that last statement is **wrong**, because it neglects a crucial observation. Taking all of the records out of the bins requires Binsort to look at every bin to see if it contains a record. Thus, the algorithm must process `MaxKeyValue` bins, regardless of how many of them actually hold records. If `MaxKeyValue` is small compared to $n$, then this is not a great expense. Suppose that `MaxKeyValue` $= n^2$. In this case, the total amount of work done will be $\Theta(n + n^2) = \Theta(n^2)$. This results in a poor sorting algorithm. And the algorithm becomes even worse as the disparity between $n$ and `MaxKeyValue` increases. In addition, a large key range requires an unacceptably large array `B`. Thus, even the extended Binsort is useful only for a limited key range.
 
-A further generalization to Binsort would yield a [bucket sort](Glossary.md#term-bucket-sort). Here, each bin (now called a bucket) is associated with not just one key, but rather a range of key values. A bucket sort assigns records to buckets and then relies on some other sorting technique to sort the records within each bucket. The hope is that the relatively inexpensive bucketing process will put only a small number of records into each bucket, and that a “cleanup sort” to each bucket will then be relatively cheap. This is similar in spirit to the Radix Sort, which extends the concept of the Binsort in a practical way.
+A further generalization to Binsort would yield a [bucket sort](#term-bucket-sort). Here, each bin (now called a bucket) is associated with not just one key, but rather a range of key values. A bucket sort assigns records to buckets and then relies on some other sorting technique to sort the records within each bucket. The hope is that the relatively inexpensive bucketing process will put only a small number of records into each bucket, and that a “cleanup sort” to each bucket will then be relatively cheap. This is similar in spirit to the Radix Sort, which extends the concept of the Binsort in a practical way.
 
 
 <a id="radix-sort"></a>
@@ -6742,7 +6742,7 @@ A further generalization to Binsort would yield a [bucket sort](Glossary.md#term
 
 The major problem with Binsort is that it does not work so well for a large key range. Fortunately, there is a way to keep the number of bins small and the related processing relatively cheap while still using the idea of binning records that have similar key values. Consider a sequence of records with keys in the range 0 to 99. If we have ten bins available, we can first assign records to bins by taking their key value modulo 10. Thus, every key will be assigned to the bin matching its rightmost decimal digit. We can then take these records from the bins **in order**, and reassign them to the bins on the basis of their leftmost (10’s place) digit. We will define values in the range 0 to 9 to have a leftmost digit of 0. In other words, assign the $i$’th record from array `A` to a bin using the formula `A[i]/10`. If we now gather the values from the bins **in order**, the result is a sorted list. We can see this process in the following visualization.
 
-In this example, we have $r=10$ bins and key values in the range 0 to $r^2-1$. The total computation is $\Theta(n)$, because we look at each record and each bin a constant number of times. This is a great improvement over the simple Binsort where the number of bins must be as large as the key range. Note that the example uses $r = 10$ so as to make the bin computations easy to visualize: Records were placed into bins based on the value of first the rightmost and then the leftmost decimal digits. Any number of bins would have worked if we interpret the key values in terms of the corresponding base. This is an example of a [Radix Sort](Glossary.md#term-radix-sort), so called because the bin computations are based on the [radix](Glossary.md#term-radix) or the [base](Glossary.md#term-base) of the key values. This sorting algorithm can be extended to any number of keys in any key range. We simply assign records to bins based on the keys’ digit values working from the rightmost digit to the leftmost. If there are $k$ digits, then this requires that we assign keys to bins $k$ times.
+In this example, we have $r=10$ bins and key values in the range 0 to $r^2-1$. The total computation is $\Theta(n)$, because we look at each record and each bin a constant number of times. This is a great improvement over the simple Binsort where the number of bins must be as large as the key range. Note that the example uses $r = 10$ so as to make the bin computations easy to visualize: Records were placed into bins based on the value of first the rightmost and then the leftmost decimal digits. Any number of bins would have worked if we interpret the key values in terms of the corresponding base. This is an example of a [Radix Sort](#term-radix-sort), so called because the bin computations are based on the [radix](#term-radix) or the [base](#term-base) of the key values. This sorting algorithm can be extended to any number of keys in any key range. We simply assign records to bins based on the keys’ digit values working from the rightmost digit to the leftmost. If there are $k$ digits, then this requires that we assign keys to bins $k$ times.
 
 Here is a practice exercise for placing keys into bins.
 
@@ -6756,18 +6756,18 @@ static void radixsort(int A[], int k, int r, int n) {
   int B[n];
   int count[r];
   int i, j, rtok;
-  
+
   for (i = 0, rtok = 1; i < k; i++, rtok *= r) {  // For k digits
     for (j = 0; j < r; j++) count[j] = 0;  // Initialize count
-    
+
     // Count the number of records for each bin on this pass
     for (j = 0; j < n; j++) count[(A[j]/rtok)%r]++;
-    
+
     // count[j] will be index in B for last slot of bin j.
     // First, reduce count[0] because indexing starts at 0, not 1
     count[0] = count[0] - 1;
     for (j = 1; j < r; j++) count[j] = count[j-1] + count[j];
-    
+
     // Put records into bins, working from bottom of bin
     // Since bins fill from bottom, j counts downwards
     for (j  = n-1; j >= 0; j--) {
@@ -6792,7 +6792,7 @@ Of course the key range could be much bigger $\log_r n$ bits is merely the best 
 
 Radix Sort’s running time can be much improved (by a constant factor) if we make base $r$ be as large as possible. This is simplest if we think about integer key values. Set $r = 2^i$ for some $i$. In other words, the value of $r$ is related to the number of bits of the key processed on each pass. Each time the number of bits is doubled, the number of passes is cut in half. When processing an integer key value, setting $r = 256$ allows the key to be processed one byte at a time. Processing a 32-bit integer key requires only four passes. It is not unreasonable on most computers to use $r = 2^{16} = 64\text{K}$, resulting in only two passes for a 32-bit key. Of course, this requires a `count` array of size 64K. Performance will be good only if the number of records is about 64K or greater. In other words, the number of records must be large compared to the key size for Radix Sort to be efficient. In many sorting applications, Radix Sort can be tuned in this way to give better performance.
 
-Radix Sort depends on the ability to make a fixed number of multiway choices based on a digit value, as well as random access to the bins. Thus, Radix Sort might be difficult to implement for certain key types. For example, if the keys are real numbers or arbitrary length strings, then some care will be necessary in implementation. In particular, Radix Sort will need to be careful about deciding when the “last digit” has been found to distinguish among real numbers, or the last character in variable length strings. Implementing the concept of Radix Sort with the [alphabet trie](Glossary.md#term-alphabet-trie) data structure is most appropriate for these situations.
+Radix Sort depends on the ability to make a fixed number of multiway choices based on a digit value, as well as random access to the bins. Thus, Radix Sort might be difficult to implement for certain key types. For example, if the keys are real numbers or arbitrary length strings, then some care will be necessary in implementation. In particular, Radix Sort will need to be careful about deciding when the “last digit” has been found to distinguish among real numbers, or the last character in variable length strings. Implementing the concept of Radix Sort with the [alphabet trie](#term-alphabet-trie) data structure is most appropriate for these situations.
 
 
 <a id="an-empirical-comparison-of-sorting-algorithms"></a>
@@ -6812,21 +6812,21 @@ $$
 \begin{aligned}\begin{array}{l|rrrrrrrr}
 \hline
 \textbf{Sort} & \textbf{10}& \textbf{100} & \textbf{1K}&
-\textbf{10K} & \textbf{100K}& \textbf{1M}& \textbf{Up} & \textbf{Down}\cr 
+\textbf{10K} & \textbf{100K}& \textbf{1M}& \textbf{Up} & \textbf{Down}\cr
 \hline
-\textrm{Insertion} & .00023 & .007 & 0.66 &  64.98 &  7381.0 &  674420 & 0.04 & 129.05\cr 
-\textrm{Bubble}    & .00035 & .020 & 2.25 & 277.94 & 27691.0 & 2820680 &  70.64 & 108.69\cr 
-\textrm{Selection} & .00039 & .012 & 0.69 &  72.47 &  7356.0 &  780000 &  69.76 &  69.58\cr 
-\textrm{Shell}     & .00034 & .008 & 0.14 &   1.99 &    30.2 &     554 &   0.44 &   0.79\cr 
-\textrm{Shell/O}   & .00034 & .008 & 0.12 &   1.91 &    29.0 &     530 &   0.36 &   0.64\cr 
-\textrm{Merge}     & .00050 & .010 & 0.12 &   1.61 &    19.3 &     219 &   0.83 &   0.79\cr 
-\textrm{Merge/O}   & .00024 & .007 & 0.10 &   1.31 &    17.2 &     197 &   0.47 &   0.66\cr 
-\textrm{Quick}     & .00048 & .008 & 0.11 &   1.37 &    15.7 &     162 &   0.37 &   0.40\cr 
-\textrm{Quick/O}   & .00031 & .006 & 0.09 &   1.14 &    13.6 &     143 &   0.32 &   0.36\cr 
-\textrm{Heap}      & .00050 & .011 & 0.16 &   2.08 &    26.7 &     391 &   1.57 &   1.56\cr 
-\textrm{Heap/O}    & .00033 & .007 & 0.11 &   1.61 &    20.8 &     334 &   1.01 &   1.04\cr 
-\textrm{Radix/4}   & .00838 & .081 & 0.79 &   7.99 &    79.9 &     808 &   7.97 &   7.97\cr 
-\textrm{Radix/8}   & .00799 & .044 & 0.40 &   3.99 &    40.0 &     404 &   4.00 &   3.99\cr 
+\textrm{Insertion} & .00023 & .007 & 0.66 &  64.98 &  7381.0 &  674420 & 0.04 & 129.05\cr
+\textrm{Bubble}    & .00035 & .020 & 2.25 & 277.94 & 27691.0 & 2820680 &  70.64 & 108.69\cr
+\textrm{Selection} & .00039 & .012 & 0.69 &  72.47 &  7356.0 &  780000 &  69.76 &  69.58\cr
+\textrm{Shell}     & .00034 & .008 & 0.14 &   1.99 &    30.2 &     554 &   0.44 &   0.79\cr
+\textrm{Shell/O}   & .00034 & .008 & 0.12 &   1.91 &    29.0 &     530 &   0.36 &   0.64\cr
+\textrm{Merge}     & .00050 & .010 & 0.12 &   1.61 &    19.3 &     219 &   0.83 &   0.79\cr
+\textrm{Merge/O}   & .00024 & .007 & 0.10 &   1.31 &    17.2 &     197 &   0.47 &   0.66\cr
+\textrm{Quick}     & .00048 & .008 & 0.11 &   1.37 &    15.7 &     162 &   0.37 &   0.40\cr
+\textrm{Quick/O}   & .00031 & .006 & 0.09 &   1.14 &    13.6 &     143 &   0.32 &   0.36\cr
+\textrm{Heap}      & .00050 & .011 & 0.16 &   2.08 &    26.7 &     391 &   1.57 &   1.56\cr
+\textrm{Heap/O}    & .00033 & .007 & 0.11 &   1.61 &    20.8 &     334 &   1.01 &   1.04\cr
+\textrm{Radix/4}   & .00838 & .081 & 0.79 &   7.99 &    79.9 &     808 &   7.97 &   7.97\cr
+\textrm{Radix/8}   & .00799 & .044 & 0.40 &   3.99 &    40.0 &     404 &   4.00 &   3.99\cr
 \hline&&&&&&&&\end{array}\end{aligned}
 $$
 
@@ -6857,7 +6857,7 @@ A simple estimate for a problem’s lower bound can be obtained by measuring the
 
 Computer scientists have spent much time devising efficient general-purpose sorting algorithms, but no one has ever found one that is faster than $O(n \log n)$ in the worst or average cases. Should we keep searching for a faster sorting algorithm? Or can we prove that there is no faster sorting algorithm by finding a tighter lower bound?
 
-This section presents one of the most important and most useful proofs in computer science: No sorting algorithm based on key comparisons can possibly be faster than $\Omega(n \log n)$ in the worst case. This proof is important for three reasons. First, knowing that widely used sorting algorithms are asymptotically optimal is reassuring. In particular, it means that you need not bang your head against the wall searching for an $O(n)$ sorting algorithm. (Or at least not one that is in any way based on key comparisons. But it is hard to imagine how to sort without any comparisons. Even Radix Sort is does comparisons, though in quite a different way.) Second, this proof is one of the few non-trivial lower-bounds proofs that we have for any problem; that is, this proof provides one of the relatively few instances where our lower bound is tighter than simply measuring the size of the input and output. As such, it provides a useful model for proving lower bounds on other problems. Finally, knowing a lower bound for sorting gives us a lower bound in turn for other problems whose solution could be made to work as the basis for a sorting algorithm. The process of deriving asymptotic bounds for one problem from the asymptotic bounds of another is called a [reduction](Glossary.md#term-reduction).
+This section presents one of the most important and most useful proofs in computer science: No sorting algorithm based on key comparisons can possibly be faster than $\Omega(n \log n)$ in the worst case. This proof is important for three reasons. First, knowing that widely used sorting algorithms are asymptotically optimal is reassuring. In particular, it means that you need not bang your head against the wall searching for an $O(n)$ sorting algorithm. (Or at least not one that is in any way based on key comparisons. But it is hard to imagine how to sort without any comparisons. Even Radix Sort is does comparisons, though in quite a different way.) Second, this proof is one of the few non-trivial lower-bounds proofs that we have for any problem; that is, this proof provides one of the relatively few instances where our lower bound is tighter than simply measuring the size of the input and output. As such, it provides a useful model for proving lower bounds on other problems. Finally, knowing a lower bound for sorting gives us a lower bound in turn for other problems whose solution could be made to work as the basis for a sorting algorithm. The process of deriving asymptotic bounds for one problem from the asymptotic bounds of another is called a [reduction](#term-reduction).
 
 Except for the Radix Sort and Binsort, all of the sorting algorithms we have studied make decisions based on the direct comparison of two key values. For example, Insertion Sort sequentially compares the value to be inserted into the sorted list until a comparison against the next value in the list fails. In contrast, Radix Sort has no direct comparison of key values. All decisions are based on the value of specific digits in the key value, so it is possible to take approaches to sorting that do not involve direct key comparisons. Of course, Radix Sort in the end does not provide a more efficient sorting algorithm than comparison-based sorting. Thus, empirical evidence suggests that comparison-based sorting is a good approach.
 
@@ -6865,7 +6865,7 @@ Except for the Radix Sort and Binsort, all of the sorting algorithms we have stu
 
 The proof that any comparison sort requires $\Omega(n \log n)$ comparisons in the worst case is structured as follows. First, comparison-based decisions can be modeled as the branches in a tree. This means that any sorting algorithm based on comparisons between records can be viewed as a binary tree whose nodes correspond to the comparisons, and whose branches correspond to the possible outcomes. Next, the minimum number of leaves in the resulting tree is shown to be the factorial of $n$. Finally, the minimum depth of a tree with $n!$ leaves is shown to be in $\Omega(n \log n)$.
 
-Before presenting the proof of an $\Omega(n \log n)$ lower bound for sorting, we first must define the concept of a [decision tree](Glossary.md#term-decision-tree). A decision tree is a binary tree that can model the processing for any algorithm that makes binary decisions. Each (binary) decision is represented by a branch in the tree. For the purpose of modeling sorting algorithms, we count all comparisons of key values as decisions. If two keys are compared and the first is less than the second, then this is modeled as a left branch in the decision tree. In the case where the first value is greater than the second, the algorithm takes the right branch.
+Before presenting the proof of an $\Omega(n \log n)$ lower bound for sorting, we first must define the concept of a [decision tree](#term-decision-tree). A decision tree is a binary tree that can model the processing for any algorithm that makes binary decisions. Each (binary) decision is represented by a branch in the tree. For the purpose of modeling sorting algorithms, we count all comparisons of key values as decisions. If two keys are compared and the first is less than the second, then this is modeled as a left branch in the decision tree. In the case where the first value is greater than the second, the algorithm takes the right branch.
 
 Here is a Visualization that illustrates decision trees and the sorting lower bound proof.
 
@@ -6900,11 +6900,11 @@ $$
 (k_1, I_1), (k_2, I_2), ..., (k_n, I_n)
 $$
 
-where $I_j$ is information associated with key $k_j$ from record $j$ for $1 \leq j \leq n$. Given a particular key value $K$, the [search problem](Glossary.md#term-search-problem) is to locate a record $(k_j, I_j)$ in **L** such that $k_j = K$ (if one exists). [Searching](Glossary.md#term-searching) is a systematic method for locating the record (or records) with key value $k_j = K$.
+where $I_j$ is information associated with key $k_j$ from record $j$ for $1 \leq j \leq n$. Given a particular key value $K$, the [search problem](#term-search-problem) is to locate a record $(k_j, I_j)$ in **L** such that $k_j = K$ (if one exists). [Searching](#term-searching) is a systematic method for locating the record (or records) with key value $k_j = K$.
 
-A [successful search](Glossary.md#term-successful-search) is one in which a record with key $k_j = K$ is found. An [unsuccessful search](Glossary.md#term-unsuccessful-search) is one in which no record with $k_j = K$ is found (and no such record exists).
+A [successful search](#term-successful-search) is one in which a record with key $k_j = K$ is found. An [unsuccessful search](#term-unsuccessful-search) is one in which no record with $k_j = K$ is found (and no such record exists).
 
-An [exact-match query](Glossary.md#term-exact-match-query) is a search for the record whose key value matches a specified key value. A [range query](Glossary.md#term-range-query) is a search for all records whose key value falls within a specified range of key values.
+An [exact-match query](#term-exact-match-query) is a search for the record whose key value matches a specified key value. A [range query](#term-range-query) is a search for all records whose key value falls within a specified range of key values.
 
 We can categorize search algorithms into three general approaches:
 
@@ -6914,7 +6914,7 @@ We can categorize search algorithms into three general approaches:
 
 Any of these approaches are potentially suitable for implementing the [Dictionary](Dictionary.md#dictionary) ADT. However, each has different performance characteristics that make it the method of choice in particular circumstances.
 
-The current chapter considers methods for searching data stored in lists. List in this context means any list implementation including a linked list or an array. Most of these methods are appropriate for sequences (i.e., duplicate key values are allowed), although there are special techniques applicable to [sets](Glossary.md#term-set). The techniques from the first three sections of this chapter are most appropriate for searching a collection of records stored in RAM. Chapter [Hashing](HashIntro.md) introduces hashing, a technique for organizing data in an array such that the location of each record within the array is a function of its key value. Hashing is appropriate when records are stored either in RAM or on disk.
+The current chapter considers methods for searching data stored in lists. List in this context means any list implementation including a linked list or an array. Most of these methods are appropriate for sequences (i.e., duplicate key values are allowed), although there are special techniques applicable to [sets](#term-set). The techniques from the first three sections of this chapter are most appropriate for searching a collection of records stored in RAM. Chapter [Hashing](HashIntro.md) introduces hashing, a technique for organizing data in an array such that the location of each record within the array is a function of its key value. Hashing is appropriate when records are stored either in RAM or on disk.
 
 Chapter [Indexing](IndexIntro.md) discusses tree-based methods for organizing information on disk, including a commonly used file structure called the B-tree. Nearly all programs that must organize large collections of records stored on disk use some variant of either hashing or the B-tree. Hashing is practical for only certain access applications (exact-match queries) and is generally appropriate only when duplicate key values are not allowed. B-trees are the method of choice for dynamic disk-based applications anytime hashing is not appropriate.
 
@@ -6928,7 +6928,7 @@ Chapter [Indexing](IndexIntro.md) discusses tree-based methods for organizing in
 <a id="sequential-search"></a>
 ### 13.2.1.1. Sequential Search
 
-If you want to find the position in an unsorted array of $n$ integers that stores a particular value, you cannot really do better than simply looking through the array from the beginning and move toward the end until you find what you are looking for. This algorithm is called [sequential search](Glossary.md#term-sequential-search). If you do find it, we call this a [successful search](Glossary.md#term-successful-search). If the value is not in the array, eventually you will reach the end. We will call this an [unsuccessful search](Glossary.md#term-unsuccessful-search). Here is a simple implementation for sequential search.
+If you want to find the position in an unsorted array of $n$ integers that stores a particular value, you cannot really do better than simply looking through the array from the beginning and move toward the end until you find what you are looking for. This algorithm is called [sequential search](#term-sequential-search). If you do find it, we call this a [successful search](#term-successful-search). If the value is not in the array, eventually you will reach the end. We will call this an [unsuccessful search](#term-unsuccessful-search). Here is a simple implementation for sequential search.
 
 ```java
 // Return the position of an element in array A with value K.
@@ -6941,18 +6941,18 @@ static int sequential(int[] A, int K) {
 }
 ```
 
-It is natural to ask how long a program or algorithm will take to run. But we do not really care exactly how long a particular program will run on a particular computer. We just want some sort of estimate that will let us compare one approach to solving a problem with another. This is the basic idea of [algorithm analysis](Glossary.md#term-algorithm-analysis). In the case of sequential search, it is easy to see that if the value is in position $i$ of the array, then sequential search will look at $i$ values to find it. If the value is not in the array at all, then we must look at $n$ values if the array holds $n$ values. This would be called the [worst case](Glossary.md#term-worst-case) for sequential search. Since the amount of work is proportional to $n$, we say that the worst case for sequential search has [linear cost](Glossary.md#term-linear-growth-rate). For this reason, the sequential search algorithm is sometimes called [linear search](Glossary.md#term-linear-search).
+It is natural to ask how long a program or algorithm will take to run. But we do not really care exactly how long a particular program will run on a particular computer. We just want some sort of estimate that will let us compare one approach to solving a problem with another. This is the basic idea of [algorithm analysis](#term-algorithm-analysis). In the case of sequential search, it is easy to see that if the value is in position $i$ of the array, then sequential search will look at $i$ values to find it. If the value is not in the array at all, then we must look at $n$ values if the array holds $n$ values. This would be called the [worst case](#term-worst-case) for sequential search. Since the amount of work is proportional to $n$, we say that the worst case for sequential search has [linear cost](#term-linear-growth-rate). For this reason, the sequential search algorithm is sometimes called [linear search](#term-linear-search).
 
 <a id="binary-search"></a>
 ### 13.2.1.2. Binary Search
 
-Sequential search is the best that we can do when trying to find a value in an unsorted array. [^1] But if the array is sorted in increasing order by value, then we can do much better. We use a process called [binary search](Glossary.md#term-binary-search).
+Sequential search is the best that we can do when trying to find a value in an unsorted array. [^1] But if the array is sorted in increasing order by value, then we can do much better. We use a process called [binary search](#term-binary-search).
 
 Binary search begins by examining the value in the middle position of the array; call this position $mid$ and the corresponding value $k_{mid}$. If $k_{mid} = K$, then processing can stop immediately. This is unlikely to be the case, however. Fortunately, knowing the middle value provides useful information that can help guide the search process. In particular, if $k_{mid} > K$, then you know that the value $K$ cannot appear in the array at any position greater than $mid$. Thus, you can eliminate future search in the upper half of the array. Conversely, if $k_{mid} < K$, then you know that you can ignore all positions in the array less than $mid$. Either way, half of the positions are eliminated from further consideration. Binary search next looks at the middle position in that part of the array where value $K$ may exist. The value at this position again allows us to eliminate half of the remaining positions from consideration. This process repeats until either the desired value is found, or there are no positions remaining in the array that might contain the value $K$. Here is an illustration of the binary search method.
 
 With the right math techniques, it is not too hard to show that the cost of binary search on an array of $n$ values is at most $\log n$. This is because we are repeatedly splitting the size of the subarray that we must look at in half. We stop (in the worst case) when we reach a subarray of size 1. And we can only cut the value of $n$ in half $\log n$ times before we reach 1. [^2]
 
-[^1]: It seems to be really “obvious” that sequential search is the best that you can do on an unsorted array. But writing a convincing proof that no algorithm could ever be discovered that is better is surprisingly difficult. This is an example of a [lower bounds proof](Glossary.md#term-lower-bounds-proof) to find the cost for the best possible [algorithm](Glossary.md#term-algorithm) to solve the [problem](Glossary.md#term-problem) of search in an unsorted array.
+[^1]: It seems to be really “obvious” that sequential search is the best that you can do on an unsorted array. But writing a convincing proof that no algorithm could ever be discovered that is better is surprisingly difficult. This is an example of a [lower bounds proof](#term-lower-bounds-proof) to find the cost for the best possible [algorithm](#term-algorithm) to solve the [problem](#term-problem) of search in an unsorted array.
 [^2]: It is possible to [prove](SortedSearch.md#sortedsearch) that binary search is the most efficient algorithm possible in the worst case when searching in a sorted array. This is even more difficult than proving that sequential search is the most efficient algorithm possible on an unsorted array.
 
 
@@ -6985,10 +6985,10 @@ What happens to the equation if we assume all the $p_i$ ‘s are equal (except $
 
 <a id="equation-unsortedsearch-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\cr 
-&=  p_n n + p\sum_{i=1}^n i\cr 
-&=  p_n n + p\frac{n(n+1)}{2}\cr 
-&=  p_n n + \frac{1 - p_n}{n}\frac{n(n+1)}{2}\cr 
+\begin{aligned}\mathbf{T}(n) &=  p_n n + \sum_{i=0}^{n-1} (i+1) p\cr
+&=  p_n n + p\sum_{i=1}^n i\cr
+&=  p_n n + p\frac{n(n+1)}{2}\cr
+&=  p_n n + \frac{1 - p_n}{n}\frac{n(n+1)}{2}\cr
 &=  \frac{n + 1 + p_n(n-1)}{2}\end{aligned}
 $$
 
@@ -7029,7 +7029,7 @@ On any given run of the algorithm, if $n-1$ elements are compared against $K$, t
 
 Unfortunately, there is another error that needs to be fixed. It is not true that all algorithms for solving the problem must work by comparing elements of **L** against $K$. An algorithm might make useful progress by comparing elements of **L** against each other. For example, if we compare two elements of **L**, then compare the greater against $K$ and find that this element is less than $K$, we know that the other element is also less than $K$. It seems intuitively obvious that such comparisons won’t actually lead to a faster algorithm, but how do we know for sure? We somehow need to generalize the proof to account for this approach.
 
-We will now present a useful abstraction for expressing the state of knowledge for the value relationships among a set of objects. A [total order](Glossary.md#term-total-order) defines relationships within a collection of objects such that for every pair of objects, one is greater than the other. A [partially ordered set](Glossary.md#term-partially-ordered-set) or [poset](Glossary.md#term-poset) is a set on which only a partial order is defined. That is, there can be pairs of elements for which we cannot decide which is “greater”. For our purpose here, the partial order is the state of our current knowledge about the objects, such that zero or more of the order relations between pairs of elements are known. We can represent this knowledge by drawing directed acyclic graphs (DAGs) showing the known relationships, as illustrated by the following slideshow.
+We will now present a useful abstraction for expressing the state of knowledge for the value relationships among a set of objects. A [total order](#term-total-order) defines relationships within a collection of objects such that for every pair of objects, one is greater than the other. A [partially ordered set](#term-partially-ordered-set) or [poset](#term-poset) is a set on which only a partial order is defined. That is, there can be pairs of elements for which we cannot decide which is “greater”. For our purpose here, the partial order is the state of our current knowledge about the objects, such that zero or more of the order relations between pairs of elements are known. We can represent this knowledge by drawing directed acyclic graphs (DAGs) showing the known relationships, as illustrated by the following slideshow.
 
 **Proof 4**
 
@@ -7051,7 +7051,7 @@ For large collections of records that are searched repeatedly, sequential search
 
 We can also observe that if we look first at position 1 in sorted array **L** and find that *K* is bigger, then we rule out position 0 as well as position 1. Because more is often better, what if we look at position 2 in **L** and find that $K$ is bigger yet? This rules out positions 0, 1, and 2 with one comparison. What if we carry this to the extreme and look first at the last position in **L** and find that $K$ is bigger? Then we know in one comparison that $K$ is not in **L**. This is useful to know, but what is wrong with the conclusion that we should always start by looking at the last position? The problem is that, while we learn a lot sometimes (in one comparison we might learn that $K$ is not in the list), usually we learn only a little bit (that the last element is not $K$).
 
-The question then becomes: What is the right amount to jump? This leads us to an algorithm known as [Jump Search](Glossary.md#term-jump-search). For some value $j$, we check every $j$ ‘th element in **L**, that is, we check elements $\mathbf{L}[j]$, $\mathbf{L}[2j]$, and so on. So long as $K$ is greater than the values we are checking, we continue on. But when we reach a value in **L** greater than $K$, we do a linear search on the piece of length $j-1$ that we know brackets $K$ if it is in the list.
+The question then becomes: What is the right amount to jump? This leads us to an algorithm known as [Jump Search](#term-jump-search). For some value $j$, we check every $j$ ‘th element in **L**, that is, we check elements $\mathbf{L}[j]$, $\mathbf{L}[2j]$, and so on. So long as $K$ is greater than the values we are checking, we continue on. But when we reach a value in **L** greater than $K$, we do a linear search on the piece of length $j-1$ that we know brackets $K$ if it is in the list.
 
 If we define $m$ such that $mj \leq n < (m+1)j$, then the total cost of this algorithm is at most $m + j - 1$ 3-way comparisons. (They are 3-way because at each comparison of $K$ with some $\mathbf{L}[i]$ we need to know if $K$ is less than, equal to, or greater than $\mathbf{L}[i]$.) Therefore, the cost to run the algorithm on $n$ items with a jump of size $j$ is
 
@@ -7066,12 +7066,12 @@ What is the best value that we can pick for $j$? We want to minimize the cost:
 <a id="equation-sortedsearch-1"></a>
 $$
 \min_{1 \leq j \leq n} \left\lbrace \left\lfloor\frac{n}{j}\right\rfloor +
-j - 1\right\rbrace 
+j - 1\right\rbrace
 $$
 
 Take the derivative and solve for $f'(j) = 0$ to find the minimum, which is $j = \sqrt{n}$. In this case, the worst case cost will be roughly $2\sqrt{n}$.
 
-This example invokes a basic principle of algorithm design. We want to balance the work done while selecting a sublist with the work done while searching a sublist. In general, it is a good strategy to make subproblems of equal effort. This is an example of a [divide and conquer](Glossary.md#term-divide-and-conquer) algorithm.
+This example invokes a basic principle of algorithm design. We want to balance the work done while selecting a sublist with the work done while searching a sublist. In general, it is a good strategy to make subproblems of equal effort. This is an example of a [divide and conquer](#term-divide-and-conquer) algorithm.
 
 What if we extend this idea to three levels? We would first make jumps of some size $j$ to find a sublist of size $j-1$ whose end values bracket value $K$. We would then work through this sublist by making jumps of some smaller size, say $j_1$. Finally, once we find a bracketed sublist of size $j_1 - 1$, we would do sequential search to complete the process.
 
@@ -7088,9 +7088,9 @@ If we are willing to be casual about our analysis, we can reason that we look at
 
 <a id="equation-sortedsearch-2"></a>
 $$
-\begin{aligned}f(n) = \left\lbrace 
+\begin{aligned}f(n) = \left\lbrace
 \begin{array}{ll}
-1 & n=1\cr 
+1 & n=1\cr
 f(\lfloor n/2 \rfloor) + 1 & n > 1\end{array}
 \right.\end{aligned}
 $$
@@ -7102,8 +7102,8 @@ This recurrence is fairly easy to solve via expansion:
 <a id="equation-sortedsearch-3"></a>
 $$
 \begin{aligned}
-f(n) &=  f(n/2) + 1\cr 
-&=  \lbrace f(n/4) + 1\rbrace  + 1\cr 
+f(n) &=  f(n/2) + 1\cr
+&=  \lbrace f(n/4) + 1\rbrace  + 1\cr
 &=  \lbrace \lbrace f(n/8) + 1\rbrace  + 1\rbrace  + 1
 \end{aligned}
 $$
@@ -7122,8 +7122,8 @@ By the IH, $f(n/2) = \log(n/2) + 1$.
 <a id="equation-sortedsearch-5"></a>
 $$
 \begin{aligned}
-f(n/2) + 1 &=  (\log(n/2) + 1) + 1\cr 
-&=  (\log n - 1 + 1) + 1\cr 
+f(n/2) + 1 &=  (\log(n/2) + 1) + 1\cr
+&=  (\log n - 1 + 1) + 1\cr
 &=  \log n + 1 = f(n).
 \end{aligned}
 $$
@@ -7157,8 +7157,8 @@ To solve the summation:
 $$
 \begin{aligned}
 \sum_{i=1}^k i2^{i-1} &=  \sum_{i=0}^{k-1}(i+1)2^i
-= \sum_{i=0}^{k-1} i 2^i + \sum_{i=0}^{k-1} 2^i\cr 
-&=  2 \sum_{i=0}^{k-1} i 2^{i-1} + 2^k - 1\cr 
+= \sum_{i=0}^{k-1} i 2^i + \sum_{i=0}^{k-1} 2^i\cr
+&=  2 \sum_{i=0}^{k-1} i 2^{i-1} + 2^k - 1\cr
 &=  2 \sum_{i=1}^{k} i 2^{i-1} - k 2^k + 2^k - 1
 \end{aligned}
 $$
@@ -7184,7 +7184,7 @@ So,
 <a id="equation-sortedsearch-10"></a>
 $$
 \begin{aligned}
-\sum_{i=1}^k i 2^{i-1} &=  k2^k - 2^k +1\cr 
+\sum_{i=1}^k i 2^{i-1} &=  k2^k - 2^k +1\cr
 &=  (k-1)2^k +1
 \end{aligned}
 $$
@@ -7194,9 +7194,9 @@ Now we come back to solving the original equation. Since we have a closed-form s
 <a id="equation-sortedsearch-11"></a>
 $$
 \begin{aligned}
-\frac{1}{n}\sum_{i=1}^{\log n}i 2^{i-1} &= 
-\frac{(\log n - 1)2^{\log n} + 1}{n}\cr 
-&=  \frac{n (\log n -1) + 1}{n}\cr 
+\frac{1}{n}\sum_{i=1}^{\log n}i 2^{i-1} &=
+\frac{(\log n - 1)2^{\log n} + 1}{n}\cr
+&=  \frac{n (\log n -1) + 1}{n}\cr
 &\approx  \log n - 1
 \end{aligned}
 $$
@@ -7207,13 +7207,13 @@ If we want to relax the assumption that $n = 2^k - 1$, we get this as the exact 
 
 <a id="equation-sortedsearch-12"></a>
 $$
-\begin{aligned}f(n) = \left\lbrace 
+\begin{aligned}f(n) = \left\lbrace
 \begin{array}{ll}
-0 & n=0\cr 
-1 & n=1\cr 
+0 & n=0\cr
+1 & n=1\cr
 \frac{\lceil \frac{n}{2} \rceil - 1}{n}f(\lceil \frac{n}{2}
 \rceil - 1) +
-\frac{1}{n} 0\ +&\cr 
+\frac{1}{n} 0\ +&\cr
 \frac{\lfloor \frac{n}{2} \rfloor}{n}f(\lfloor \frac{n}{2} \rfloor) + 1&
 n > 1\end{array}
 \right.\end{aligned}
@@ -7232,14 +7232,14 @@ So, $O(\log n)$ time for Binary Search seems pretty good. Can we do better than 
 
 We use the decision tree to model our algorithm. Unlike when searching an unsorted list, comparisons between elements of **L** tell us nothing new about their relative order (since **L** is already sorted), so we consider only comparisons between $K$ and an element in **L**. At the root of the decision tree, our knowledge rules out no positions in **L**, so all are potential candidates. As we take branches in the decision tree based on the result of comparing $K$ to an element in **L**, we gradually rule out potential candidates. Eventually we reach a leaf node in the tree representing the single position in **L** that can contain $K$. There must be at least $n+1$ nodes in the tree because we have $n+1$ distinct positions that $K$ can be in (any position in **L**, plus not in **L** at all). Some path in the tree must be at least $\log n$ levels deep, and the deepest node in the tree represents the worst case for that algorithm. Thus, any algorithm on a sorted array requires at least $\Omega(\log n)$ comparisons in the worst case.
 
-We can modify this proof to find the average cost lower bound. Again, we model algorithms using decision trees. Except now we are interested not in the depth of the deepest node (the worst case) and therefore the tree with the least-deepest node. Instead, we are interested in knowing what the minimum possible is for the “average depth” of the leaf nodes. Define the [total path length](Glossary.md#term-total-path-length) as the sum of the levels for each node. The cost of an outcome is the level of the corresponding node plus 1. The average cost of the algorithm is the average cost of the outcomes (total path length / $n$). What is the tree with the least average depth? This is equivalent to the tree that corresponds to binary search. Thus, binary search is optimal in the average case.
+We can modify this proof to find the average cost lower bound. Again, we model algorithms using decision trees. Except now we are interested not in the depth of the deepest node (the worst case) and therefore the tree with the least-deepest node. Instead, we are interested in knowing what the minimum possible is for the “average depth” of the leaf nodes. Define the [total path length](#term-total-path-length) as the sum of the levels for each node. The cost of an outcome is the level of the corresponding node plus 1. The average cost of the algorithm is the average cost of the outcomes (total path length / $n$). What is the tree with the least average depth? This is equivalent to the tree that corresponds to binary search. Thus, binary search is optimal in the average case.
 
 While binary search is indeed an optimal algorithm for a sorted list in the worst and average cases when searching a sorted array, there are a number of circumstances that might lead us to select another algorithm instead. One possibility is that we know something about the distribution of the data in the array. If each position in **L** is equally likely to hold $K$ (equivalently, the data are well distributed along the full key range), then an [interpolation search](#sortedsearch) is $\Theta(\log \log n)$ in the average case. If the data are not sorted, then using binary search requires us to pay the cost of sorting the list in advance, which is only worthwhile if many (at least $O(\log n)$ searches will be performed on the list. Binary search also requires that the list (even if sorted) be implemented using an array or some other structure that supports random access to all elements with equal cost. Finally, if we know all search requests in advance, we might prefer to sort the list by frequency and do linear search in extreme search distributions, or use a [self-organizing list](SelfOrg.md#selforg).
 
 <a id="interpolation-and-quadratic-binary-search"></a>
 ### 13.4.1.4. Interpolation and Quadratic Binary Search
 
-If we know nothing about the distribution of key values, then we have just proved that binary search is the best algorithm available for searching a sorted array. However, sometimes we do know something about the expected key distribution. Consider the typical behavior of a person looking up a word in a large dictionary. Most people certainly do not use sequential search! Typically, people use a modified form of binary search, at least until they get close to the word that they are looking for. The search generally does not start at the middle of the dictionary. People looking for a word starting with ‘S’ generally assume that entries beginning with ‘S’ start about three quarters  of the way through the dictionary. Thus, they will first open the dictionary about three quarters of the way through and then make a decision based on what is found as to where to look next. In other words, people typically use some knowledge about the expected distribution of key values to “compute” where to look next. This form of “computed” binary search is called a [dictionary search](Glossary.md#term-dictionary-search) or [interpolation search](Glossary.md#term-interpolation-search). In a dictionary search, we search **L** at a position $p$ that is appropriate to the value of $K$ as follows.
+If we know nothing about the distribution of key values, then we have just proved that binary search is the best algorithm available for searching a sorted array. However, sometimes we do know something about the expected key distribution. Consider the typical behavior of a person looking up a word in a large dictionary. Most people certainly do not use sequential search! Typically, people use a modified form of binary search, at least until they get close to the word that they are looking for. The search generally does not start at the middle of the dictionary. People looking for a word starting with ‘S’ generally assume that entries beginning with ‘S’ start about three quarters  of the way through the dictionary. Thus, they will first open the dictionary about three quarters of the way through and then make a decision based on what is found as to where to look next. In other words, people typically use some knowledge about the expected distribution of key values to “compute” where to look next. This form of “computed” binary search is called a [dictionary search](#term-dictionary-search) or [interpolation search](#term-interpolation-search). In a dictionary search, we search **L** at a position $p$ that is appropriate to the value of $K$ as follows.
 
 <a id="equation-sortedsearch-13"></a>
 $$
@@ -7263,7 +7263,7 @@ Say that the number of comparisons needed is $i$, in which case the cost is $i$ 
 
 <a id="equation-sortedsearch-15"></a>
 $$
-\begin{aligned}\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\cr 
+\begin{aligned}\sum_{i=1}^{\sqrt{n}} i \mathbf{P}(\text{need exactly $i$ probes})\cr
 = 1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
   \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
 $$
@@ -7278,10 +7278,10 @@ $$
 <a id="equation-sortedsearch-17"></a>
 $$
 \begin{aligned}&=  1 + (1-\mathbf{P}_1) + (1-\mathbf{P}_1-\mathbf{P}_2) +
-    \cdots + \mathbf{P}_{\sqrt{n}}\cr 
+    \cdots + \mathbf{P}_{\sqrt{n}}\cr
 &=  (\mathbf{P}_1 + ... + \mathbf{P}_{\sqrt{n}}) +
- (\mathbf{P}_2 + ... + \mathbf{P}_{\sqrt{n}}) +\cr 
-& \qquad    (\mathbf{P}_3 + ... + \mathbf{P}_{\sqrt{n}}) + \cdots\cr 
+ (\mathbf{P}_2 + ... + \mathbf{P}_{\sqrt{n}}) +\cr
+& \qquad    (\mathbf{P}_3 + ... + \mathbf{P}_{\sqrt{n}}) + \cdots\cr
 &=  1 \mathbf{P}_1 + 2 \mathbf{P}_2 + 3 \mathbf{P}_3 + \cdots +
     \sqrt{n} \mathbf{P}_{\sqrt{n}}\end{aligned}
 $$
@@ -7315,12 +7315,12 @@ Is QBS better than binary search? Theoretically yes, because $O(\log \log n)$ gr
 <a id="equation-sortedsearch-21"></a>
 $$
 \begin{aligned}\begin{array}{llll}
-&&&{\rm Factor}\cr 
-n  &\log n&\log \log n&{\rm Difference}\cr 
+&&&{\rm Factor}\cr
+n  &\log n&\log \log n&{\rm Difference}\cr
 \hline
-16 &4    &2        &2\cr 
-256&8    &3        &2.7\cr 
-2^{16}&16   &4        &4\cr 
+16 &4    &2        &2\cr
+256&8    &3        &2.7\cr
+2^{16}&16   &4        &4\cr
 2^{32}&32  &5      &6.4\cr \end{array}\end{aligned}
 $$
 
@@ -7331,12 +7331,12 @@ For our two algorithms, let us look further and check the actual number of compa
 <a id="equation-sortedsearch-22"></a>
 $$
 \begin{aligned}\begin{array}{llll}
-&&&{\rm Factor}\cr 
-n  &\log n -1&2.4 \log \log n&{\rm Difference}\cr 
+&&&{\rm Factor}\cr
+n  &\log n -1&2.4 \log \log n&{\rm Difference}\cr
 \hline
-16&3&4.8&{\rm worse}\cr 
-256&7&7.2&\approx {\rm same}\cr 
-64K&15&9.6&1.6\cr 
+16&3&4.8&{\rm worse}\cr
+256&7&7.2&\approx {\rm same}\cr
+64K&15&9.6&1.6\cr
 2^{32}&31&12&2.6\end{array}\end{aligned}
 $$
 
@@ -7353,7 +7353,7 @@ While it turns out that QBS is not a practical algorithm, this is not a typical 
 <a id="introduction"></a>
 ## 13.5.1. Introduction
 
-While ordering of lists is most commonly done by [key](Glossary.md#term-key) value, this is not the only viable option. Another approach to organizing lists to speed search is to order the records by expected frequency of access. While the benefits might not be as great as when sorted by key value, the cost to organize (at least approximately) by frequency of access can be much cheaper, and thus can speed up [sequential search](Glossary.md#term-sequential-search) in some situations.
+While ordering of lists is most commonly done by [key](#term-key) value, this is not the only viable option. Another approach to organizing lists to speed search is to order the records by expected frequency of access. While the benefits might not be as great as when sorted by key value, the cost to organize (at least approximately) by frequency of access can be much cheaper, and thus can speed up [sequential search](#term-sequential-search) in some situations.
 
 Assume that we know, for each key $k_i$, the probability $p_i$ that the record with key $k_i$ will be requested. Assume also that list $\mathbf{L}$ is ordered so that the most frequently requested record is first, then the next most frequently requested record, and so on. Search in the list will be done sequentially, beginning with the first position. Over the course of many searches, the expected number of comparisons required for one search is
 
@@ -7395,7 +7395,7 @@ Calculate the expected cost for searching a list ordered by frequency when the p
 <a id="equation-selforg-3"></a>
 $$
 \begin{aligned}p_i = \left\lbrace  \begin{array}{ll}
-  1/2^i & \text{if \(0 \leq i \leq n-2\)}\cr 
+  1/2^i & \text{if \(0 \leq i \leq n-2\)}\cr
   1/2^n & \text{if \(i = n-1\).}\end{array} \right.\end{aligned}
 $$
 
@@ -7409,11 +7409,11 @@ $$
 
 For this example, the expected number of accesses is a constant. This is because the probability for accessing the first record is high (one half), the second is much lower (one quarter) but still much higher than for the third record, and so on. This shows that for some probability distributions, ordering the list by frequency can yield an efficient search technique.
 
-In many search applications, real access patterns follow a rule of thumb called the [80/20 rule](Glossary.md#term-80-20-rule). The 80/20 rule says that 80% of the record accesses are to 20% of the records. The values of 80 and 20 are only estimates; every data access pattern has its own values. However, behavior of this nature occurs surprisingly often in practice (which explains the success of [caching](Glossary.md#term-caching) techniques widely used by web browsers for speeding access to web pages, and the use of a [buffer pool](Glossary.md#term-buffer-pool) to speed access to data stored in slower memory such as a [disk drive](Glossary.md#term-disk-drive)). When the 80/20 rule applies, we can expect considerable improvements to search performance from a list ordered by frequency of access over standard sequential search in an unordered list.
+In many search applications, real access patterns follow a rule of thumb called the [80/20 rule](#term-80-20-rule). The 80/20 rule says that 80% of the record accesses are to 20% of the records. The values of 80 and 20 are only estimates; every data access pattern has its own values. However, behavior of this nature occurs surprisingly often in practice (which explains the success of [caching](#term-caching) techniques widely used by web browsers for speeding access to web pages, and the use of a [buffer pool](#term-buffer-pool) to speed access to data stored in slower memory such as a [disk drive](#term-disk-drive)). When the 80/20 rule applies, we can expect considerable improvements to search performance from a list ordered by frequency of access over standard sequential search in an unordered list.
 
 **Example 13.5.3**
 
-The 80/20 rule is an example of a [Zipf distribution](Glossary.md#term-zipf-distribution). Naturally occurring distributions often follow a Zipf distribution. Examples include the observed frequency for the use of words in a natural language such as English, and the size of the population for cities (i.e., view the relative proportions for the populations as equivalent to the “frequency of use”). Zipf distributions are related to the [Harmonic Series](Summations.md#summations). Define the Zipf frequency for item $i$ in the distribution for $n$ records as $1/(i {\cal H}_n)$. The expected cost for the series whose members follow this Zipf distribution will be
+The 80/20 rule is an example of a [Zipf distribution](#term-zipf-distribution). Naturally occurring distributions often follow a Zipf distribution. Examples include the observed frequency for the use of words in a natural language such as English, and the size of the population for cities (i.e., view the relative proportions for the populations as equivalent to the “frequency of use”). Zipf distributions are related to the [Harmonic Series](Summations.md#summations). Define the Zipf frequency for item $i$ in the distribution for $n$ records as $1/(i {\cal H}_n)$. The expected cost for the series whose members follow this Zipf distribution will be
 
 <a id="equation-selforg-5"></a>
 $$
@@ -7425,26 +7425,26 @@ When a frequency distribution follows the 80/20 rule, the average search looks a
 
 This is potentially a useful observation that typical “real-life” distributions of record accesses, if the records were ordered by frequency, would require that we visit on average only 10-15% of the list when doing sequential search. This means that if we had an application that used sequential search, and we wanted to make it go a bit faster (by a constant amount), we could do so without a major rewrite to the system to implement something like a search tree. But that is only true if there is an easy way to (at least approximately) order the records by frequency.
 
-In most applications, we have no means of knowing in advance the frequencies of access for the data records. To complicate matters further, certain records might be accessed frequently for a brief period of time, and then rarely thereafter. Thus, the probability of access for records might change over time (in most database systems, this is to be expected). [Self-organizing lists](Glossary.md#term-self-organizing-list) seek to solve both of these problems.
+In most applications, we have no means of knowing in advance the frequencies of access for the data records. To complicate matters further, certain records might be accessed frequently for a brief period of time, and then rarely thereafter. Thus, the probability of access for records might change over time (in most database systems, this is to be expected). [Self-organizing lists](#term-self-organizing-list) seek to solve both of these problems.
 
-Self-organizing lists modify the order of records within the list based on the actual pattern of record access. Self-organizing lists use a heuristic for deciding how to reorder the list. These heuristics are similar to the rules for managing [buffer pools](Glossary.md#term-buffer-pool). In fact, a buffer pool is a form of self-organizing list. Ordering the buffer pool by expected frequency of access is a good strategy, because typically we must search the contents of the buffers to determine if the desired information is already in main memory. When ordered by frequency of access, the buffer at the end of the list will be the one most appropriate for reuse when a new page of information must be read.
+Self-organizing lists modify the order of records within the list based on the actual pattern of record access. Self-organizing lists use a heuristic for deciding how to reorder the list. These heuristics are similar to the rules for managing [buffer pools](#term-buffer-pool). In fact, a buffer pool is a form of self-organizing list. Ordering the buffer pool by expected frequency of access is a good strategy, because typically we must search the contents of the buffers to determine if the desired information is already in main memory. When ordered by frequency of access, the buffer at the end of the list will be the one most appropriate for reuse when a new page of information must be read.
 
 <a id="frequency-count"></a>
 ### 13.5.1.1. Frequency Count
 
 There are three traditional heuristics for managing self-organizing lists.
 
-The most obvious way to keep a list ordered by frequency would be to store a count of accesses to each record and always maintain records in this order. This method will be referred to as [frequency count](Glossary.md#term-frequency-count) or just “count”. Count is similar to the [least frequently used](Glossary.md#term-least-frequently-used) buffer replacement strategy. Whenever a record is accessed, it might move toward the front of the list if its number of accesses becomes greater than a record preceding it. Thus, count will store the records in the order of frequency that has actually occurred so far. Besides requiring space for the access counts, count does not react well to changing frequency of access over time. Once a record has been accessed a large number of times under the frequency count system, it will remain near the front of the list regardless of further access history.
+The most obvious way to keep a list ordered by frequency would be to store a count of accesses to each record and always maintain records in this order. This method will be referred to as [frequency count](#term-frequency-count) or just “count”. Count is similar to the [least frequently used](#term-least-frequently-used) buffer replacement strategy. Whenever a record is accessed, it might move toward the front of the list if its number of accesses becomes greater than a record preceding it. Thus, count will store the records in the order of frequency that has actually occurred so far. Besides requiring space for the access counts, count does not react well to changing frequency of access over time. Once a record has been accessed a large number of times under the frequency count system, it will remain near the front of the list regardless of further access history.
 
 <a id="move-to-front"></a>
 ## 13.5.2. Move to Front
 
-Bring a record to the front of the list when it is found, pushing all the other records back one position. This is analogous to the [least recently used](Glossary.md#term-least-recently-used) buffer replacement strategy and is called [move-to-front](Glossary.md#term-move-to-front). This heuristic is easy to implement if the records are stored using a linked list. When records are stored in an array, bringing a record forward from near the end of the array will result in a large number of records (slightly) changing position. Move-to-front’s cost is bounded in the sense that it requires at most twice the number of accesses required by the [optimal static ordering](Glossary.md#term-optimal-static-ordering) for $n$ records when at least $n$ searches are performed. In other words, if we had known the series of (at least $n$) searches in advance and had stored the records in order of frequency so as to minimize the total cost for these accesses, this cost would be at least half the cost required by the move-to-front heuristic. (This can be proved using [amortized analysis](AmortAnal.md#amortanal).) Finally, move-to-front responds well to local changes in frequency of access, in that if a record is frequently accessed for a brief period of time it will be near the front of the list during that period of access. Move-to-front does poorly when the records are processed in sequential order, especially if that sequential order is then repeated multiple times.
+Bring a record to the front of the list when it is found, pushing all the other records back one position. This is analogous to the [least recently used](#term-least-recently-used) buffer replacement strategy and is called [move-to-front](#term-move-to-front). This heuristic is easy to implement if the records are stored using a linked list. When records are stored in an array, bringing a record forward from near the end of the array will result in a large number of records (slightly) changing position. Move-to-front’s cost is bounded in the sense that it requires at most twice the number of accesses required by the [optimal static ordering](#term-optimal-static-ordering) for $n$ records when at least $n$ searches are performed. In other words, if we had known the series of (at least $n$) searches in advance and had stored the records in order of frequency so as to minimize the total cost for these accesses, this cost would be at least half the cost required by the move-to-front heuristic. (This can be proved using [amortized analysis](AmortAnal.md#amortanal).) Finally, move-to-front responds well to local changes in frequency of access, in that if a record is frequently accessed for a brief period of time it will be near the front of the list during that period of access. Move-to-front does poorly when the records are processed in sequential order, especially if that sequential order is then repeated multiple times.
 
 <a id="transpose"></a>
 ## 13.5.3. Transpose
 
-Swap any record found with the record immediately preceding it in the list. This heuristic is called [transpose](Glossary.md#term-transpose). Transpose is good for list implementations based on either linked lists or arrays. Frequently used records will, over time, move to the front of the list. Records that were once frequently accessed but are no longer used will slowly drift toward the back. Thus, it appears to have good properties with respect to changing frequency of access. Unfortunately, there are some pathological sequences of access that can make transpose perform poorly. Consider the case where the last record of the list (call it $X$) is accessed. This record is then swapped with the next-to-last record (call it $Y$), making $Y$ the last record. If $Y$ is now accessed, it swaps with $X$. A repeated series of accesses alternating between $X$ and $Y$ will continually search to the end of the list, because neither record will ever make progress toward the front. However, such pathological cases are unusual in practice. A variation on transpose would be to move the accessed record forward in the list by some fixed number of steps.
+Swap any record found with the record immediately preceding it in the list. This heuristic is called [transpose](#term-transpose). Transpose is good for list implementations based on either linked lists or arrays. Frequently used records will, over time, move to the front of the list. Records that were once frequently accessed but are no longer used will slowly drift toward the back. Thus, it appears to have good properties with respect to changing frequency of access. Unfortunately, there are some pathological sequences of access that can make transpose perform poorly. Consider the case where the last record of the list (call it $X$) is accessed. This record is then swapped with the next-to-last record (call it $Y$), making $Y$ the last record. If $Y$ is now accessed, it swaps with $X$. A repeated series of accesses alternating between $X$ and $Y$ will continually search to the end of the list, because neither record will ever make progress toward the front. However, such pathological cases are unusual in practice. A variation on transpose would be to move the accessed record forward in the list by some fixed number of steps.
 
 <a id="an-example"></a>
 ### 13.5.3.1. An Example
@@ -7553,12 +7553,12 @@ static long fibi(int n) {
 
 Recomputing of subproblems comes up in many algorithms. It is not so common that we can store only a few prior results as we did for `fibi`. Thus, there are many times where storing a complete table of subresults will be useful.
 
-The approach shown above to designing an algorithm that works by storing a table of results for subproblems is called [dynamic programming](Glossary.md#term-dynamic-programming) when it is applied to optimization algorithms. The name is somewhat arcane, because it doesn’t bear much obvious similarity to the process that is taking place when storing subproblems in a table. However, it comes originally from the field of dynamic control systems, which got its start before what we think of as computer programming. The act of storing precomputed values in a table for later reuse is referred to as “programming” in that field. Dynamic programming algorithms are usually implemented with the tabulation technique described above. Thus, `fibi` better represents the most common form of dynamic programming than does `fibrt`, even though it doesn’t use the complete table.
+The approach shown above to designing an algorithm that works by storing a table of results for subproblems is called [dynamic programming](#term-dynamic-programming) when it is applied to optimization algorithms. The name is somewhat arcane, because it doesn’t bear much obvious similarity to the process that is taking place when storing subproblems in a table. However, it comes originally from the field of dynamic control systems, which got its start before what we think of as computer programming. The act of storing precomputed values in a table for later reuse is referred to as “programming” in that field. Dynamic programming algorithms are usually implemented with the tabulation technique described above. Thus, `fibi` better represents the most common form of dynamic programming than does `fibrt`, even though it doesn’t use the complete table.
 
 <a id="the-knapsack-problem"></a>
 ### 14.1.1.2. The Knapsack Problem
 
-We will next consider a problem that appears with many variations in a variety of commercial settings. Many businesses need to package items with the greatest efficiency. One way to describe this basic idea is in terms of packing items into a knapsack, and so we will refer to this as the [Knapsack Problem](Glossary.md#term-knapsack-problem). We will first define a particular formulation of the knapsack problem, and then we will discuss an algorithm to solve it based on dynamic programming. There are many other versions for the problem
+We will next consider a problem that appears with many variations in a variety of commercial settings. Many businesses need to package items with the greatest efficiency. One way to describe this basic idea is in terms of packing items into a knapsack, and so we will refer to this as the [Knapsack Problem](#term-knapsack-problem). We will first define a particular formulation of the knapsack problem, and then we will discuss an algorithm to solve it based on dynamic programming. There are many other versions for the problem
 
 Assume that we have a knapsack with a certain amount of space that we will define using integer value $K$. We also have $n$ items each with a certain size such that that item $i$ has integer size $k_i$. The problem is to find a subset of the $n$ items whose sizes exactly sum to $K$, if one exists. For example, if our knapsack has capacity $K = 5$ and the two items are of size $k_1 = 2$ and $k_2 = 4$, then no such subset exists. But if we add a third item of size $k_3 = 1$, then we can fill the knapsack exactly with the second and third items. We can define the problem more formally as: Find $S \subset \lbrace 1, 2, ..., n\rbrace $ such that
 
@@ -7591,7 +7591,7 @@ But… we should quickly realize that there are only $n(K+1)$ subproblems to sol
 
 As mentioned above, there are two approaches to actually solving the problem. One is memoization, that is, to start with our problem of size $P(n, K)$ and make recursive calls to solve the subproblems, each time checking the array to see if a subproblem has been solved, and filling in the corresponding cell in the array whenever we get a new subproblem solution. The other is tabulation. Conceiveably we could adopt one of several computation orders, although the most “natural” is to start filling the array for row 1 (which indicates a successful solution only for a knapsack of size $k_1$). We then fill in the succeeding rows from $i=2$ to $n$, left to right, as follows.
 
-**if** $P(n-1, K)$ has a solution,  
+**if** $P(n-1, K)$ has a solution,
 **then** $P(n, K)$ has a solution **else if** $P(n-1, K-k_n)$ has a solution  **then** $P(n, K)$ has a solution **else** $P(n, K)$ has no solution.
 
 In other words, a new slot in the array gets its solution by looking at most at two slots in the preceding row. Since filling each slot in the array takes constant time, the total cost of the algorithm is $\Theta(nK)$.
@@ -7603,16 +7603,16 @@ Solve the Knapsack Problem for $K = 10$ and five items with sizes 9, 2, 7, 4, 1.
 <a id="equation-dynamicprogramming-1"></a>
 $$
 \begin{aligned}\begin{array}{l|ccccccccccc}
-&0&1&2&3&4&5&6&7&8&9&10\cr 
+&0&1&2&3&4&5&6&7&8&9&10\cr
 \hline
-k_1\negthinspace =\negthinspace 9&O&-&-&-&-&-&-&-&-&I&-\cr 
-k_2\negthinspace =\negthinspace 2&O&-&I&-&-&-&-&-&-&O&-\cr 
-k_3\negthinspace =\negthinspace 7&O&-&O&-&-&-&-&I&-&I/O&-\cr 
-k_4\negthinspace =\negthinspace 4&O&-&O&-&I&-&I&O&-&O&-\cr 
+k_1\negthinspace =\negthinspace 9&O&-&-&-&-&-&-&-&-&I&-\cr
+k_2\negthinspace =\negthinspace 2&O&-&I&-&-&-&-&-&-&O&-\cr
+k_3\negthinspace =\negthinspace 7&O&-&O&-&-&-&-&I&-&I/O&-\cr
+k_4\negthinspace =\negthinspace 4&O&-&O&-&I&-&I&O&-&O&-\cr
 k_5\negthinspace =\negthinspace 1&O&I&O&I&O&I&O&I/O&I&O&I\end{array}\end{aligned}
 $$
 
-Key:  
+Key:
 -:  No solution for $P(i, k)$. O: Solution(s) for $P(i, k)$ with $i$ omitted. I: Solution(s) for $P(i, k)$ with $i$ included. I/O: Solutions for $P(i, k)$ with $i$ included AND omitted.
 
 For example, $P(3, 9)$ stores value I/O. It contains O because $P(2, 9)$ has a solution. It contains I because $P(2,2) = P(2, 9-7)$ has a solution. Since $P(5, 10)$ is marked with an I, it has a solution. We can determine what that solution actually is by recognizing that it includes the 5th item (of size 1), which then leads us to look at the solution for $P(4, 9)$. This in turn has a solution that omits the 4th item, leading us to $P(3, 9)$. At this point, we can either use the third item or not. We can find a solution by taking one branch. We can find all solutions by following all branches when there is a choice.
@@ -7623,7 +7623,7 @@ Note that the table is first filled with the values of the different subproblems
 <a id="the-sparse-matrix"></a>
 # 14.2. The Sparse Matrix
 
-Sometimes we need to represent a large, two-dimensional matrix where many of the elements have a value of zero. A difficult situation arises when the vast majority of values stored in an $n \times m$ matrix are zero, but there is no restriction on which positions are zero and which are non-zero. This is known as a [sparse matrix](Glossary.md#term-sparse-matrix).
+Sometimes we need to represent a large, two-dimensional matrix where many of the elements have a value of zero. A difficult situation arises when the vast majority of values stored in an $n \times m$ matrix are zero, but there is no restriction on which positions are zero and which are non-zero. This is known as a [sparse matrix](#term-sparse-matrix).
 
 One approach to representing a sparse matrix is to concatenate (or otherwise combine) the row and column coordinates into a single value and use this as a key in a hash table. Thus, if we want to know the value of a particular position in the matrix, we search the hash table for the appropriate key. If a value for this position is not found, it is assumed to be zero. This is an ideal approach when all queries to the matrix are in terms of access by specified position. However, if we wish to find the first non-zero element in a given row, or the next non-zero element below the current one in a given column, or recover all of the non-zero values in a given column, then the hash table requires us to check sequentially through the entire table.
 
@@ -7632,13 +7632,13 @@ Another approach is to implement the matrix as an orthogonal list. Consider the 
 <a id="equation-sparse-0"></a>
 $$
 \begin{aligned}\begin{array}{rrrrrrr}
-10&23&0 &0 &0&0&19\cr 
-45&5 &0 &93&0&0&0\cr 
-0 &0 &0 &0 &0&0&0\cr 
-0 &0 &0 &0 &0&0&0\cr 
-40&0 &0 &0 &0&0&0\cr 
-0 &0 &0 &0 &0&0&0\cr 
-0 &0 &0 &0 &0&0&0\cr 
+10&23&0 &0 &0&0&19\cr
+45&5 &0 &93&0&0&0\cr
+0 &0 &0 &0 &0&0&0\cr
+0 &0 &0 &0 &0&0&0\cr
+40&0 &0 &0 &0&0&0\cr
+0 &0 &0 &0 &0&0&0\cr
+0 &0 &0 &0 &0&0&0\cr
 0 &32&0 &12&0&0&7\cr \end{array}\end{aligned}
 $$
 
@@ -7665,8 +7665,8 @@ Another representation for sparse matrices is sometimes called the Yale represen
 <a id="equation-sparse-1"></a>
 $$
 \begin{aligned}\begin{array}{ll}
-Values:& 10\ 45\ 40\ 23\ 5\ 32\ 93\ 12\ 19\ 7\cr 
-Column starts:& 0\ 3\ 5\ 5\ 7\ 7\ 7\ 7\cr 
+Values:& 10\ 45\ 40\ 23\ 5\ 32\ 93\ 12\ 19\ 7\cr
+Column starts:& 0\ 3\ 5\ 5\ 7\ 7\ 7\ 7\cr
 Row positions:& 0\ 1\ 4\ 0\ 1\ 7\ 1\ 7\ 0\ 7\cr \end{array}\end{aligned}
 $$
 
@@ -7706,7 +7706,7 @@ This proof is clearly wrong, because the winner does not need to explicitly comp
 
 Only the winner does not lose. There are $n-1$ losers. A single comparison generates (at most) one (new) loser. Therefore, there must be $n-1$ comparisons.
 
-This proof is sound. However, it will be useful later to abstract this by introducing the concept of [posets](Glossary.md#term-poset). We can view the maximum-finding problem as starting with a poset where there are no known relationships, so every member of the collection is in its own separate DAG of one element.
+This proof is sound. However, it will be useful later to abstract this by introducing the concept of [posets](#term-poset). We can view the maximum-finding problem as starting with a poset where there are no known relationships, so every member of the collection is in its own separate DAG of one element.
 
 **Proof 2a**
 
@@ -7755,7 +7755,7 @@ The lower bound for finding the second largest value is $2n-3$.
 
 Any element that loses to anything other than the maximum cannot be second. So, the only candidates for second place are those that lost to the maximum. Function `largest` might compare the maximum element  to $n-1$ others. Thus, we might need $n-2$ additional comparisons to find the second largest.
 
-This proof is wrong. It exhibits the [necessary fallacy](Glossary.md#term-necessary-fallacy): “Our algorithm does something, therefore all algorithms solving the problem must do the same.”
+This proof is wrong. It exhibits the [necessary fallacy](#term-necessary-fallacy): “Our algorithm does something, therefore all algorithms solving the problem must do the same.”
 
 This leaves us with our best lower bounds argument at the moment being that finding the second largest must cost at least as much as finding the largest, or $n-1$. Let us take another try at finding a better algorithm by adopting a strategy of divide and conquer. What if we break the list into halves, and run *largest* on each half? We can then compare the two winners (we have now used a total of $n-1$ comparisons), and remove the winner from its half. Another call to `largest` on the winner’s half yields its second best. A final comparison against the winner of the other half gives us the true second place winner. The total cost is $\lceil 3n/2\rceil - 2$. Is this optimal? What if we break the list into four pieces? The best would be $\lceil 5n/4\rceil$. What if we break the list into eight pieces? Then the cost would be about $\lceil 9n/8\rceil$. Notice that as we break the list into more parts, comparisons among the winners of the parts becomes a larger concern.
 
@@ -7767,7 +7767,7 @@ To join two trees, we simply compare the roots of the subtrees. If necessary, sw
 
 Because the binomial tree’s root has $\log n$ children, and building the tree requires $n-1$ comparisons, the number of comparisons required by this algorithm is $n + \lceil \log n \rceil - 2$. This is clearly better than our previous algorithm. Is it optimal?
 
-We now go back to trying to improve the lower bounds proof. To do this, we introduce the concept of an [adversary](Glossary.md#term-adversary). The adversary’s job is to make an algorithm’s cost as high as possible. Imagine that the adversary keeps a list of all possible inputs. We view the algorithm as asking the adversary for information about the algorithm’s input. The adversary may never lie, in that its answer must be consistent with the previous answers. But it is permitted to “rearrange” the input as it sees fit in order to drive the total cost for the algorithm as high as possible. In particular, when the algorithm asks a question, the adversary must answer in a way that is consistent with at least one remaining input. The adversary then crosses out all remaining inputs inconsistent with that answer. Keep in mind that there is not really an entity within the computer program that is the adversary, and we don’t actually modify the program. The adversary operates merely as an analysis device, to help us reason about the program.
+We now go back to trying to improve the lower bounds proof. To do this, we introduce the concept of an [adversary](#term-adversary). The adversary’s job is to make an algorithm’s cost as high as possible. Imagine that the adversary keeps a list of all possible inputs. We view the algorithm as asking the adversary for information about the algorithm’s input. The adversary may never lie, in that its answer must be consistent with the previous answers. But it is permitted to “rearrange” the input as it sees fit in order to drive the total cost for the algorithm as high as possible. In particular, when the algorithm asks a question, the adversary must answer in a way that is consistent with at least one remaining input. The adversary then crosses out all remaining inputs inconsistent with that answer. Keep in mind that there is not really an entity within the computer program that is the adversary, and we don’t actually modify the program. The adversary operates merely as an analysis device, to help us reason about the program.
 
 As an example of the adversary concept, consider the standard game of Hangman. Player A picks a word and tells player B how many letters the word has. Player B guesses various letters. If B guesses a letter in the word, then A will indicate which position(s) in the word have the letter. Player B is permitted to make only so many guesses of letters not in the word before losing.
 
@@ -7817,8 +7817,8 @@ The cost of this algorithm can be modeled by the following recurrence.
 <a id="equation-boundstate-0"></a>
 $$
 \begin{aligned}\mathbf{T}(n) = \left\lbrace \begin{array}{ll}
-             0       & n = 1\cr 
-             1       & n = 2\cr 
+             0       & n = 1\cr
+             1       & n = 2\cr
              {\bf T}(\lfloor n/2 \rfloor) + {\bf T}(\lceil n/2
              \rceil) + 2    & n > 2\end{array}
      \right.\end{aligned}
@@ -7832,10 +7832,10 @@ We can model all possible divide-and-conquer strategies for this problem with th
 
 <a id="equation-boundstate-1"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace 
+\begin{aligned}\mathbf{T}(n) = \left\lbrace
 \begin{array}{ll}
-0&n=1\cr 
-1&n=2\cr 
+0&n=1\cr
+1&n=2\cr
 \min_{1\leq k\leq n-1} \lbrace {\bf T}(k) + {\bf T}(n-k)\rbrace  + 2&n>2\end{array}\right.\end{aligned}
 $$
 
@@ -7843,16 +7843,16 @@ That is, we want to find a way to break up the list that will minimize the total
 
 <a id="equation-boundstate-2"></a>
 $$
-\begin{aligned}\mathbf{T}(n) = \left\lbrace 
+\begin{aligned}\mathbf{T}(n) = \left\lbrace
 \begin{array}{ll}
-0&n=1\cr 
-1&n=2\cr 
+0&n=1\cr
+1&n=2\cr
 {\bf T}(n-2) + 3&n>2\end{array}\right.\end{aligned}
 $$
 
 This recurrence (and the corresponding algorithm) yields $\mathbf{T}(n) = \lceil 3n/2 \rceil - 2$ comparisons. Is this optimal? We now introduce yet another tool to our collection of lower bounds proof techniques: The state space proof.
 
-We will model our algorithm by defining a [state](Glossary.md#term-state) that the algorithm must be in at any given instant. We can then define the start state, the end state, and the transitions between states that any algorithm can support. From this, we will reason about the minimum number of states that the algorithm must go through to get from the start to the end, to reach a state space lower bound.
+We will model our algorithm by defining a [state](#term-state) that the algorithm must be in at any given instant. We can then define the start state, the end state, and the transitions between states that any algorithm can support. From this, we will reason about the minimum number of states that the algorithm must go through to get from the start to the end, to reach a state space lower bound.
 
 At any given instant, we can track the following four categories of elements:
 
@@ -7868,14 +7868,14 @@ Given that there are four types of elements, there are 10 types of comparison. C
 <a id="equation-boundstate-3"></a>
 $$
 \begin{aligned}\begin{array}{lllll}
-U:U&(i-2,&j+1,&k+1,&l)\cr 
-W:W&(i,&j-1,&k,&l+1)\cr 
-L:L&(i,&j,&k-1,&l+1)\cr 
-L:U&(i-1,&j+1,&k,&l)\cr 
-\quad or&(i-1,&j,&k,&l+1)\cr 
-W:U&(i-1,&j,&k+1,&l)\cr 
-\quad or&(i-1,&j,&k,&l+1)\cr 
-W:L&(i,&j,&k,&l)\cr 
+U:U&(i-2,&j+1,&k+1,&l)\cr
+W:W&(i,&j-1,&k,&l+1)\cr
+L:L&(i,&j,&k-1,&l+1)\cr
+L:U&(i-1,&j+1,&k,&l)\cr
+\quad or&(i-1,&j,&k,&l+1)\cr
+W:U&(i-1,&j,&k+1,&l)\cr
+\quad or&(i-1,&j,&k,&l+1)\cr
+W:L&(i,&j,&k,&l)\cr
 \quad or&(i,&j-1,&k-1,&l+2)\end{array}\end{aligned}
 $$
 
@@ -7884,11 +7884,11 @@ Now, let us consider what an adversary will do for the various comparisons. The 
 <a id="equation-boundstate-4"></a>
 $$
 \begin{aligned}\begin{array}{lllll}
-U:U&(i-2,&j+1,&k+1,&l)\cr 
-L:U&(i-1,&j+1,&k,&l)\cr 
-W:U&(i-1,&j,&k+1,&l)\cr 
+U:U&(i-2,&j+1,&k+1,&l)\cr
+L:U&(i-1,&j+1,&k,&l)\cr
+W:U&(i-1,&j,&k+1,&l)\cr
 \hline
-W:W&(i,&j-1,&k,&l+1)\cr 
+W:W&(i,&j-1,&k,&l+1)\cr
 L:L&(i,&j,&k-1,&l+1)\end{array}\end{aligned}
 $$
 
@@ -7934,16 +7934,16 @@ $$
 
 The $\mathbf{T}(\lceil n/5 \rceil)$ term comes from computing the median of the medians-of-fives, the $6\lceil n/5 \rceil$ term comes from the cost to calculate the median-of-fives (exactly six comparisons for each group of five element), and the $\mathbf{T}(\lceil (7n - 5)/10\rceil)$ term comes from the recursive call of the remaining (up to) 70% of the elements that might be left.
 
-We will prove that this recurrence is linear using the process of [constructive induction](Glossary.md#term-constructive-induction). We assume that it is linear for some constant $r$, and then show that $\textbf{T}(n) \leq rn$ for all $n$ greater than some bound.
+We will prove that this recurrence is linear using the process of [constructive induction](#term-constructive-induction). We assume that it is linear for some constant $r$, and then show that $\textbf{T}(n) \leq rn$ for all $n$ greater than some bound.
 
 <a id="equation-boundibest-1"></a>
 $$
 \begin{aligned}
 \mathbf{T}(n) &\leq  {\bf T}(\lceil \frac{n}{5} \rceil) +
         \mathbf{T}(\lceil \frac{7n - 5}{10}\rceil) +
-        6\lceil \frac{n}{5} \rceil + n - 1\cr 
-&\leq r(\frac{n}{5} + 1) + r(\frac{7n-5}{10} + 1) + 6(\frac{n}{5} + 1) + n - 1\cr 
-&\leq (\frac{r}{5} + \frac{7r}{10} + \frac{11}{5})n + \frac{3r}{2} + 5\cr 
+        6\lceil \frac{n}{5} \rceil + n - 1\cr
+&\leq r(\frac{n}{5} + 1) + r(\frac{7n-5}{10} + 1) + 6(\frac{n}{5} + 1) + n - 1\cr
+&\leq (\frac{r}{5} + \frac{7r}{10} + \frac{11}{5})n + \frac{3r}{2} + 5\cr
 &\leq \frac{9r + 22}{10}n + \frac{3r + 10}{2}.
 \end{aligned}
 $$
@@ -7958,7 +7958,7 @@ In reality, this algorithm is not practical because its constant factor costs ar
 
 What if we would like to find the sorting algorithm with the absolute fewest possible comparisons? It might well be that the result will not be practical for a general-purpose use. But consider this analogy to sports tournaments. In sports, a “comparison” between two teams or individuals means doing a competition between the two. This is fairly expensive (at least compared to some minor book keeping in a computer), and it might be worth trading a fair amount of book keeping to cut down on the number of games that need to be played. What if we want to figure out how to hold a tournament that will give us the exact ordering for all teams in the fewest number of total games? Of course, we are assuming that the results of each game will be “accurate” in that we assume not only that the outcome of A playing B would always be the same (at least over the time period of the tournament), but that transitivity in the results also holds. In practice these are unrealistic assumptions, but such assumptions are implicitly part of many tournament organizations. Like most tournament organizers, we can simply accept these assumptions and come up with an algorithm for playing the games that gives us some rank ordering based on the results we obtain.
 
-Recall Insertion Sort, where we put element $i$ into a sorted sublist of the first $i-1$ elements. What if we modify the standard Insertion Sort algorithm to use binary search to locate where the $i$ th element goes in the sorted sublist? This algorithm is called [binary insert sort](Glossary.md#term-binary-insert-sort). As a general-purpose sorting algorithm, this is not practical because we then have to (on average) move about $i/2$ elements to make room for the newly inserted element in the sorted sublist. But if we count *only* comparisons, binary insert sort is pretty good. And we can use some ideas from binary insert sort to get closer to an algorithm that uses the absolute minimum number of comparisons needed to sort.
+Recall Insertion Sort, where we put element $i$ into a sorted sublist of the first $i-1$ elements. What if we modify the standard Insertion Sort algorithm to use binary search to locate where the $i$ th element goes in the sorted sublist? This algorithm is called [binary insert sort](#term-binary-insert-sort). As a general-purpose sorting algorithm, this is not practical because we then have to (on average) move about $i/2$ elements to make room for the newly inserted element in the sorted sublist. But if we count *only* comparisons, binary insert sort is pretty good. And we can use some ideas from binary insert sort to get closer to an algorithm that uses the absolute minimum number of comparisons needed to sort.
 
 Consider what happens when we run binary insert sort on five elements. How many comparisons do we need to do? We can insert the second element with one comparison, the third with two comparisons, and the fourth with 2 comparisons. When we insert the fifth element into the sorted list of four elements, we need to do three comparisons in the worst case. Notice exactly what happens when we attempt to do this insertion. We compare the fifth element against the second. If the fifth is bigger, we have to compare it against the third, and if it is bigger we have to compare it against the fourth. In general, when is binary search most efficient? When we have $2^i - 1$ elements in the list. It is least efficient when we have $2^i$ elements in the list. So, we can do a bit better if we arrange our insertions to avoid inserting an element into a list of size $2^i$ if possible.
 
@@ -7974,7 +7974,7 @@ If we have ten elements to sort, we can first make five pairs of elements (using
 - Recursively sort the winners.
 - Fold in the losers.
 
-We use binary insert to place the losers. However, we are free to choose the best ordering for inserting, keeping in mind the fact that binary search has the same cost for $2^i$ through $2^{i+1} -1$ items. For example, binary search requires three comparisons in the worst case for lists of size 4, 5, 6, or 7. So we pick the order of inserts to optimize the binary searches, which means picking an order that avoids growing a sublist size such that it crosses the boundary on list size to require an additional comparison. This sort is called [merge insert sort](Glossary.md#term-merge-insert-sort), and also known as the [Ford and Johnson sort](Glossary.md#term-ford-and-johnson-sort).
+We use binary insert to place the losers. However, we are free to choose the best ordering for inserting, keeping in mind the fact that binary search has the same cost for $2^i$ through $2^{i+1} -1$ items. For example, binary search requires three comparisons in the worst case for lists of size 4, 5, 6, or 7. So we pick the order of inserts to optimize the binary searches, which means picking an order that avoids growing a sublist size such that it crosses the boundary on list size to require an additional comparison. This sort is called [merge insert sort](#term-merge-insert-sort), and also known as the [Ford and Johnson sort](#term-ford-and-johnson-sort).
 
 For ten elements, given the poset shown in Figure [14.7.2](SortingOptimal.md#binmerge10) we fold in the last four elements (labeled 1 to 4) in the order Element 3, Element 4, Element 1, and finally Element 2. Element 3 will be inserted into a list of size three, costing two comparisons. Depending on where Element 3 then ends up in the list, Element 4 will now be inserted into a list of size 2 or 3, costing two comparisons in either case. Depending on where Elements 3 and 4 are in the list, Element 1 will now be inserted into a list of size 5, 6, or 7, all of which requires three comparisons to place in sort order. Finally, Element 2 will be inserted into a list of size 5, 6, or 7.
 
@@ -7982,7 +7982,7 @@ For ten elements, given the poset shown in Figure [14.7.2](SortingOptimal.md#bin
 
 *Figure 14.7.2: Merge insert sort for ten elements. First five pairs of elements are compared. The five winners are then sorted. This leaves the elements labeled 1-4 to be sorted into the chain made by the remaining six elements.*
 
-Merge insert sort is pretty good, but is it optimal? We know from the [sorting lower bound proof](SortingLowerBound.md#sortinglowerbound) that no sorting algorithm can be faster than $\Omega(n \log n)$. To be precise, the [information theoretic lower bound](Glossary.md#term-information-theoretic-lower-bound) for sorting can be proved to be $\lceil \log n!\rceil$. That is, we can prove a lower bound of exactly $\lceil \log n!\rceil$ comparisons. Merge insert sort gives us a number of comparisons equal to this information theoretic lower bound for all values up to $n = 12$. At $n = 12$, merge insert sort requires 30 comparisons while the information theoretic lower bound is only 29 comparisons. However, for such a small number of elements, it is possible to do an exhaustive study of every possible arrangement of comparisons. It turns out that there is in fact no possible arrangement of comparisons that makes the lower bound less than 30 comparisons when $n=12$. Thus, the information theoretic lower bound is an underestimate in this case, because 30 really is the best that can be done.
+Merge insert sort is pretty good, but is it optimal? We know from the [sorting lower bound proof](SortingLowerBound.md#sortinglowerbound) that no sorting algorithm can be faster than $\Omega(n \log n)$. To be precise, the [information theoretic lower bound](#term-information-theoretic-lower-bound) for sorting can be proved to be $\lceil \log n!\rceil$. That is, we can prove a lower bound of exactly $\lceil \log n!\rceil$ comparisons. Merge insert sort gives us a number of comparisons equal to this information theoretic lower bound for all values up to $n = 12$. At $n = 12$, merge insert sort requires 30 comparisons while the information theoretic lower bound is only 29 comparisons. However, for such a small number of elements, it is possible to do an exhaustive study of every possible arrangement of comparisons. It turns out that there is in fact no possible arrangement of comparisons that makes the lower bound less than 30 comparisons when $n=12$. Thus, the information theoretic lower bound is an underestimate in this case, because 30 really is the best that can be done.
 
 Call the optimal worst cost for $n$ elements $S(n)$. We know that $S(n+1) \leq S(n) + \lceil \log (n+1)\rceil$ because we could sort $n$ elements and use binary insert for the last one. For all $n$ and $m$, $S(n+m) \leq S(n) + S(m) + M(m, n)$ where $M(m, n)$ is the best time to merge two sorted lists. For $n = 47$, it turns out that we can do better by splitting the list into pieces of size 5 and 42, and then merging. Thus, merge sort is not quite optimal. But it is extremely good, and nearly optimal for smallish numbers of elements.
 
@@ -10285,6 +10285,6 @@ Toggle view (Chapter/Assignment)
 
 ---
 
- Click on the links below to view more specific information.  
- Expand All / Collapse All Show 0-point exercises 
+ Click on the links below to view more specific information.
+ Expand All / Collapse All Show 0-point exercises
 
