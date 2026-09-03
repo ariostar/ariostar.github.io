@@ -6,7 +6,9 @@ hexo.extend.tag.register('poem', function(args, content) {
     <div class="poem-box">
         <div class="poem-content">
             ${content.split('\n').map(line =>
-                line.trim() ? `<div class="poem-line">${line}</div>` : ''
+                line.trim()
+                    ? `<div class="poem-line">${line}</div>`
+                    : `<div class="poem-empty-line">&nbsp;</div>`
             ).join('')}
         </div>
         <div class="poem-author">—— ${author}</div>

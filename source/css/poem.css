@@ -1,43 +1,47 @@
 .poem-box {
-    margin: 1.2em auto;
-    font-size: 1.4em;
-    /* font-family: "方正公文仿宋","仿宋","KaiTi", "STKaiti", "Kaiti SC", "楷体", serif; */
-    font-family: "STFangsong", "FangSong", "FangSong SC", "仿宋", serif;
+  margin: 1.2em auto;
+  font-size: 1.5em;
+  /* font-family: "方正公文仿宋","仿宋","KaiTi", "STKaiti", "Kaiti SC", "楷体", serif; */
+  font-family: "STFangsong", "FangSong", "FangSong SC", "仿宋", serif;
 }
 
 @media screen and (min-width: 960px){
-    .poem-box {
-        padding: 1.2em 2em;
-        max-width: 90%;
-        /* background: #faf7f2; */
-        /* border: 1px solid #e5dccb; */
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
+  .poem-box {
+    padding: 1.2em 2em;
+    max-width: 90%;
+    /* background: #faf7f2; */
+    /* border: 1px solid #e5dccb; */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
 }
 
 .poem-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    color: #3a3a3a;
-    margin-bottom: 0.1em;
-    font-family: "华文中宋","思源宋体", "宋体", serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: #3a3a3a;
+  margin-bottom: 0.1em;
+  font-family: "华文中宋","思源宋体", "宋体", serif;
 }
 
 .poem-content {
-    text-align: center;
-    color: #555;
+  text-align: center;
+  color: #555;
 }
 
 .poem-line {
-    line-height: 1.5;
-    font-size: 1.05em;
+  line-height: 1.5;
+  font-size: 1.05em;
+}
+
+.poem-empty-line {
+  line-height: 0.9;
 }
 
 .poem-author {
-    text-align: right;
-    margin-top: 1em;
-    color: #888;
-    font-size: 0.8em;
+  text-align: right;
+  margin-top: 1em;
+  color: #888;
+  font-size: 0.8em;
 }
