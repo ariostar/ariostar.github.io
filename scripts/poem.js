@@ -12,6 +12,7 @@ hexo.extend.tag.register('poem', function(args, content) {
             ).join('')}
         </div>
         <div class="poem-author">—— ${author}</div>
+        <div class="poem-copyright">© ${hexo.config.author} 版权所有，未经许可请勿转载</div>
     </div>
     `;
 }, {ends: true});

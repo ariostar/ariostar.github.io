@@ -45,3 +45,27 @@
   color: #888;
   font-size: 0.8em;
 }
+
+.poem-copyright {
+  text-align: center;
+  margin-top: 1.2em;
+  padding-top: 0.8em;
+  border-top: 1px dashed #e5dccb;
+  color: #aaa;
+  font-size: 0.6em;
+}
+
+.post-cc {
+  margin-top: 2em;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  color: #888;
+  background: #faf7f2;
+  border-left: 3px solid #e5dccb;
+  border-radius: 4px;
+}
+
+.post-cc a {
+  color: #666;
+  text-decoration: underline;
+}

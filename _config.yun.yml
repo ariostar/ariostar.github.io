@@ -31,7 +31,7 @@ codeblock:
     dark: tomorrow-night-blue #tomorrow-night-blue atom-one-dark
 creative_commons:
   license: by
-  post: true
+  post: false # 诗词保留个人版权；技术文章用 {% cc %} 标签单独声明 CC BY 4.0
   language: deed.zh
 # 点击页面的烟花效果
 fireworks:
