@@ -1,6 +1,9 @@
 hexo.extend.tag.register('poem', function(args, content) {
     // const title = args[0] || '无题';
-    const author = args[0] || '佚名';
+    var author = (args[0] || '佚名').trim();
+    if (author === 'me') {
+        author = hexo.config.author;
+    }
     // <div class="poem-title">${title}</div>
     return `
     <div class="poem-box">
